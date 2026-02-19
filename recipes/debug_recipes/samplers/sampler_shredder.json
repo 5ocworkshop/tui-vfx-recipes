@@ -1,0 +1,77 @@
+{
+  "schema_version": 1,
+  "id": "debug.sampler.shredder",
+  "title": "Debug: Sampler - Shredder",
+  "description": "Tests Shredder sampler with stripe_width, odd_speed, and even_speed parameters",
+  "version": "1.0.0",
+  "last_updated": "2025-12-30",
+  "config": {
+    "message": "SAMPLER TEST: Shredder Effect",
+    "layout": {
+      "width": 40,
+      "height": 5,
+      "anchor": "center"
+    },
+    "lifecycle": {
+      "auto_dismiss_ms": 6000
+    },
+    "border": {
+      "type": "rounded",
+      "trim": "none"
+    },
+    "pipeline": {
+      "enter": {
+        "duration_ms": 2000,
+        "easing": "linear"
+      },
+      "exit": {
+        "duration_ms": 1500,
+        "easing": "linear"
+      },
+      "mask": {
+        "enter": {
+          "type": "none"
+        },
+        "exit": {
+          "type": "none"
+        }
+      },
+      "sampler": {
+        "enter": {
+          "type": "shredder",
+          "stripe_width": 4,
+          "odd_speed": 3.0,
+          "even_speed": -2.0
+        },
+        "exit": {
+          "type": "shredder",
+          "stripe_width": 3,
+          "odd_speed": 5.0,
+          "even_speed": -4.0
+        }
+      },
+      "filter": {
+        "enter": {
+          "type": "none"
+        },
+        "exit": {
+          "type": "none"
+        }
+      },
+      "style": {
+        "region": "All",
+        "base_style": {
+          "foreground": {
+            "type": "light_red"
+          },
+          "background": {
+            "type": "rgb",
+            "r": 50,
+            "g": 15,
+            "b": 15
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "schema_version": 1,
+  "id": "wargames.norad.02_tactical_status",
+  "title": "NORAD 02 - Tactical Status Display",
+  "description": "NORAD tactical data readout - system status and threat assessment",
+  "version": "1.0.0",
+  "last_updated": "2025-12-25",
+  "extends": "themes/new_wopr_fullscreen_cyan.json",
+  "config": {
+    "message": "STRATEGIC AIR COMMAND CONTROL SYSTEM\nCOMMAND CENTER ACTIVE\nSTATUS: CONDITION GREEN\n\nSATELLITE TRACKING: 847 OBJECTS\nEARLY WARNING SYSTEMS: OPERATIONAL\nDEFCON STATUS: 5\nTHREAT LEVEL: MINIMAL\n\nICBM SILO STATUS:\nMALMSTROM AFB: 150 READY\nWARREN AFB: 150 READY\nMINOT AFB: 150 READY\nGRAND FORKS AFB: 150 READY\n\nBOMBER FLEET STATUS:\nB-52 STRATOFORTRESS: 744 AIRCRAFT READY\nFB-111 AARDVARK: 76 AIRCRAFT READY\n\nSUBMARINE FLEET STATUS:\nOHIO CLASS SSBN: 18 BOATS ON PATROL\nLAFAYETTE CLASS SSBN: 31 BOATS OPERATIONAL\n\nALL SYSTEMS NOMINAL",
+    "lifecycle": {
+      "auto_dismiss_ms": 0
+    }
+  }
+}

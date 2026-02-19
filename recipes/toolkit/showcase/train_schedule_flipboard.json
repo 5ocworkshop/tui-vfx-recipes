@@ -1,0 +1,121 @@
+{
+  "schema_version": 1,
+  "id": "toolkit.showcase.train_schedule_flipboard",
+  "title": "Train Schedule Flipboard",
+  "description": "Mechanical signage: lots of flip slats, slight mechanical misalignment, warm lamp pulse, then a sputtering fade-out.",
+  "version": "0.1.0",
+  "last_updated": "2025-12-23",
+  "config": {
+    "message": "SCHEDULE UPDATE\n17:42 → DELAYED",
+    "layout": {
+      "width": 42,
+      "height": 5,
+      "anchor": "top_center"
+    },
+    "lifecycle": {
+      "auto_dismiss_ms": 15000
+    },
+    "border": {
+      "type": "plain",
+      "trim": "none"
+    },
+    "content": {
+      "mode": "enter_only",
+      "effect": {
+        "type": "scramble",
+        "resolve_pace": 0.6,
+        "charset": "alphanumeric",
+        "seed": 1742
+      }
+    },
+    "pipeline": {
+      "enter": {
+        "duration_ms": 2000,
+        "easing": "linear",
+        "snapping": {
+          "type": "round"
+        }
+      },
+      "exit": {
+        "duration_ms": 950,
+        "easing": "cubic_in",
+        "snapping": {
+          "type": "round"
+        }
+      },
+      "mask": {
+        "enter": {
+          "type": "blinds",
+          "orientation": "horizontal",
+          "count": 14
+        },
+        "exit": {
+          "type": "wipe",
+          "direction": "top_to_bottom",
+          "soft_edge": false
+        }
+      },
+      "sampler": {
+        "enter": {
+          "type": "fault_line",
+          "seed": 1742,
+          "intensity": 1.0,
+          "split_bias": 0.15
+        },
+        "exit": {
+          "type": "crt_jitter",
+          "intensity": 1.8,
+          "speed_hz": 22.0,
+          "decay_ms": 700
+        }
+      },
+      "filter": {
+        "enter": {
+          "type": "crt",
+          "scanline_strength": 0.2,
+          "glow": 0.1
+        },
+        "exit": {
+          "type": "tint",
+          "color": {
+            "type": "black"
+          },
+          "strength": 0.7,
+          "apply_to": "both"
+        }
+      },
+      "style": {
+        "region": "All",
+        "base_style": {
+          "foreground": {
+            "type": "rgb",
+            "r": 255,
+            "g": 245,
+            "b": 200
+          },
+          "background": {
+            "type": "rgb",
+            "r": 18,
+            "g": 18,
+            "b": 18
+          },
+          "added_modifiers": [
+            "bold"
+          ],
+          "removed_modifiers": []
+        },
+        "enter_effect": {
+          "type": "pulse",
+          "frequency": 1.8,
+          "color": {
+            "type": "white"
+          }
+        },
+        "exit_effect": {
+          "type": "neon_flicker",
+          "stability": 0.5
+        }
+      }
+    }
+  }
+}

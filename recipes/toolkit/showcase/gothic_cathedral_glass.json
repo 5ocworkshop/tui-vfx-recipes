@@ -1,0 +1,112 @@
+{
+  "schema_version": 1,
+  "id": "toolkit.showcase.gothic_cathedral_glass",
+  "title": "Gothic Cathedral Glass",
+  "description": "Stained-glass mood: vertical slats open like window ribs, subtle chroma drifts, and the scene fades into chapel-dark.",
+  "version": "0.1.0",
+  "last_updated": "2025-12-23",
+  "config": {
+    "message": "CATHEDRAL\nlight through glass",
+    "layout": {
+      "width": 40,
+      "height": 6,
+      "anchor": "center"
+    },
+    "lifecycle": {
+      "auto_dismiss_ms": 16000
+    },
+    "border": {
+      "type": "double",
+      "trim": "none"
+    },
+    "content": {
+      "mode": "enter_only"
+    },
+    "pipeline": {
+      "enter": {
+        "duration_ms": 3100,
+        "easing": "quad_in_out",
+        "snapping": {
+          "type": "round"
+        }
+      },
+      "exit": {
+        "duration_ms": 1200,
+        "easing": "cubic_in",
+        "snapping": {
+          "type": "round"
+        }
+      },
+      "mask": {
+        "enter": {
+          "type": "blinds",
+          "orientation": "vertical",
+          "count": 11
+        },
+        "exit": {
+          "type": "blinds",
+          "orientation": "horizontal",
+          "count": 7
+        }
+      },
+      "sampler": {
+        "enter": {
+          "type": "sine_wave",
+          "axis": "y",
+          "amplitude": 0.8,
+          "frequency": 0.22,
+          "speed": 0.4,
+          "phase": 0.0
+        },
+        "exit": {
+          "type": "none"
+        }
+      },
+      "filter": {
+        "enter": {
+          "type": "vignette",
+          "strength": 0.35,
+          "radius": 0.8
+        },
+        "exit": {
+          "type": "tint",
+          "color": {
+            "type": "black"
+          },
+          "strength": 0.75,
+          "apply_to": "both"
+        }
+      },
+      "style": {
+        "region": "All",
+        "base_style": {
+          "foreground": {
+            "type": "rgb",
+            "r": 245,
+            "g": 245,
+            "b": 245
+          },
+          "background": {
+            "type": "rgb",
+            "r": 15,
+            "g": 5,
+            "b": 20
+          },
+          "added_modifiers": [
+            "bold"
+          ],
+          "removed_modifiers": []
+        },
+        "enter_effect": {
+          "type": "rainbow",
+          "speed": 1.4
+        },
+        "exit_effect": {
+          "type": "fade_out",
+          "apply_to": "foreground",
+          "ease": "CubicIn"
+        }
+      }
+    }
+  }
+}

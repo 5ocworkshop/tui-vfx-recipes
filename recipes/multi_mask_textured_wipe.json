@@ -1,0 +1,82 @@
+{
+  "schema_version": 1,
+  "id": "showcase.multi_mask_textured_wipe",
+  "title": "Multi-Mask: Textured Wipe (AND)",
+  "description": "Demonstrates multiple masks with AND mode: Wipe + Dissolve creates textured reveal edge",
+  "version": "1.0.0",
+  "last_updated": "2025-12-26",
+  "config": {
+    "message": "Textured reveal effect",
+    "layout": {
+      "anchor": "top_center",
+      "width": 35,
+      "height": 5
+    },
+    "lifecycle": {
+      "auto_dismiss_ms": 4500
+    },
+    "border": {
+      "type": "rounded"
+    },
+    "pipeline": {
+      "enter": {
+        "duration_ms": 1200,
+        "easing": "linear"
+      },
+      "exit": {
+        "duration_ms": 800,
+        "easing": "linear"
+      },
+      "style": {
+        "base_style": {
+          "foreground": {
+            "type": "rgb",
+            "r": 255,
+            "g": 220,
+            "b": 100
+          },
+          "background": {
+            "type": "rgb",
+            "r": 40,
+            "g": 30,
+            "b": 20
+          }
+        }
+      },
+      "mask": {
+        "enter": [
+          {
+            "type": "wipe",
+            "direction": "left_to_right",
+            "soft_edge": true
+          },
+          {
+            "type": "dissolve",
+            "seed": 42,
+            "chunk_size": 2
+          }
+        ],
+        "exit": [
+          {
+            "type": "wipe",
+            "direction": "right_to_left",
+            "soft_edge": true
+          },
+          {
+            "type": "dissolve",
+            "seed": 123,
+            "chunk_size": 3
+          }
+        ],
+        "combine_mode": "all"
+      },
+      "filter": {
+        "dwell": {
+          "type": "vignette",
+          "strength": 0.4,
+          "radius": 0.6
+        }
+      }
+    }
+  }
+}

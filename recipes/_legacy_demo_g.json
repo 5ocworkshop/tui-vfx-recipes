@@ -1,0 +1,106 @@
+{
+  "schema_version": 1,
+  "id": "notifications.legacy_demo_g",
+  "title": "_Legacy Demo G",
+  "description": "Custom path with fade (JSON port)",
+  "version": "2.0.0",
+  "last_updated": "2025-12-18",
+  "config": {
+    "message": "Custom path + fade",
+    "layout": {
+      "anchor": "center"
+    },
+    "lifecycle": {
+      "auto_dismiss_ms": 3000
+    },
+    "border": {
+      "type": "rounded",
+      "trim": "none"
+    },
+    "pipeline": {
+      "enter": {
+        "duration_ms": 800,
+        "easing": "linear",
+        "motion_path": {
+          "type": "linear"
+        },
+        "snapping": {
+          "type": "round"
+        },
+        "from": {
+          "type": "frame_permille",
+          "x_permille": 150,
+          "y_permille": 500
+        }
+      },
+      "exit": {
+        "duration_ms": 800,
+        "easing": "linear",
+        "motion_path": {
+          "type": "linear"
+        },
+        "snapping": {
+          "type": "round"
+        },
+        "to": {
+          "type": "frame_permille",
+          "x_permille": 600,
+          "y_permille": 500
+        }
+      },
+      "mask": {
+        "enter": {
+          "type": "none"
+        },
+        "exit": {
+          "type": "none"
+        }
+      },
+      "sampler": {
+        "enter": {
+          "type": "none"
+        },
+        "exit": {
+          "type": "none"
+        }
+      },
+      "filter": {
+        "enter": {
+          "type": "none"
+        },
+        "exit": {
+          "type": "none"
+        }
+      },
+      "style": {
+        "region": "All",
+        "base_style": {
+          "foreground": {
+            "type": "white"
+          },
+          "background": {
+            "type": "rgb",
+            "r": 12,
+            "g": 14,
+            "b": 20
+          },
+          "added_modifiers": [],
+          "removed_modifiers": []
+        },
+        "enter_effect": {
+          "type": "fade_in",
+          "apply_to": "both",
+          "ease": "Linear"
+        },
+        "exit_effect": {
+          "type": "fade_out",
+          "apply_to": "both",
+          "ease": "Linear"
+        }
+      }
+    },
+    "requires_primitives": [
+      "placement.frame_permille"
+    ]
+  }
+}

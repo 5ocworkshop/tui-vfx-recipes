@@ -1,0 +1,110 @@
+{
+  "schema_version": 1,
+  "id": "notifications.liquid_slide",
+  "title": "Liquid Slide",
+  "description": "Ripple distortion with slide geometry",
+  "version": "2.0.0",
+  "last_updated": "2025-12-18",
+  "config": {
+    "message": "Liquid motion active: Rippling through the UI layers.",
+    "layout": {
+      "width": 36,
+      "height": 4,
+      "anchor": "bottom_right"
+    },
+    "lifecycle": {
+      "auto_dismiss_ms": 6000
+    },
+    "border": {
+      "type": "rounded",
+      "trim": "none"
+    },
+    "pipeline": {
+      "enter": {
+        "duration_ms": 2000,
+        "easing": "quad_out",
+        "motion_path": {
+          "type": "linear"
+        },
+        "snapping": {
+          "type": "round"
+        },
+        "from": {
+          "type": "offscreen",
+          "direction": "from_right",
+          "margin_cells": 1
+        }
+      },
+      "exit": {
+        "duration_ms": 800,
+        "easing": "quad_in",
+        "motion_path": {
+          "type": "linear"
+        },
+        "snapping": {
+          "type": "round"
+        },
+        "to": {
+          "type": "offscreen",
+          "direction": "from_right",
+          "margin_cells": 1
+        }
+      },
+      "mask": {
+        "enter": {
+          "type": "none"
+        },
+        "exit": {
+          "type": "none"
+        }
+      },
+      "sampler": {
+        "enter": {
+          "type": "ripple",
+          "amplitude": 1.1,
+          "wavelength": 8.0,
+          "speed": 1.2,
+          "center": "center"
+        },
+        "exit": {
+          "type": "none"
+        }
+      },
+      "filter": {
+        "enter": {
+          "type": "none"
+        },
+        "exit": {
+          "type": "none"
+        }
+      },
+      "style": {
+        "region": "All",
+        "base_style": {
+          "foreground": {
+            "type": "white"
+          },
+          "background": {
+            "type": "black"
+          },
+          "added_modifiers": [
+            "bold"
+          ],
+          "removed_modifiers": []
+        },
+        "enter_effect": {
+          "type": "rainbow",
+          "speed": 1.0
+        },
+        "exit_effect": {
+          "type": "fade_out",
+          "apply_to": "foreground",
+          "ease": "QuadIn"
+        }
+      }
+    },
+    "requires_primitives": [
+      "sampler.ripple"
+    ]
+  }
+}

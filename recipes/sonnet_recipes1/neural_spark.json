@@ -1,0 +1,111 @@
+{
+  "schema_version": 1,
+  "id": "notifications.neural_spark",
+  "title": "Neural Spark",
+  "description": "Synaptic firing pattern with glitch effect, scrambled text, and rapid pulse. Text fires and misfires like neurons making connections, eventually settling into coherent thought. Biological computing.",
+  "version": "1.0.0",
+  "last_updated": "2025-12-22",
+  "config": {
+    "message": "NEURAL PATHWAY ACTIVATED",
+    "layout": {
+      "width": 36,
+      "height": 4,
+      "anchor": "top_left"
+    },
+    "lifecycle": {
+      "auto_dismiss_ms": 6000
+    },
+    "border": {
+      "type": "plain",
+      "trim": "none"
+    },
+    "content": {
+      "mode": "enter_only",
+      "effect": {
+        "type": "scramble",
+        "resolve_pace": 0.5,
+        "charset": "alphanumeric",
+        "seed": 3333
+      }
+    },
+    "pipeline": {
+      "enter": {
+        "duration_ms": 2000,
+        "easing": "linear",
+        "motion_path": {
+          "type": "linear"
+        },
+        "snapping": {
+          "type": "stochastic",
+          "seed": 9999
+        }
+      },
+      "exit": {
+        "duration_ms": 500,
+        "easing": "linear",
+        "snapping": {
+          "type": "round"
+        }
+      },
+      "mask": {
+        "enter": {
+          "type": "dissolve",
+          "seed": 2222,
+          "chunk_size": 1
+        },
+        "exit": {
+          "type": "none"
+        }
+      },
+      "sampler": {
+        "enter": {
+          "type": "none"
+        },
+        "exit": {
+          "type": "none"
+        }
+      },
+      "filter": {
+        "enter": {
+          "type": "none"
+        },
+        "exit": {
+          "type": "none"
+        }
+      },
+      "style": {
+        "region": "All",
+        "base_style": {
+          "foreground": {
+            "type": "rgb",
+            "r": 100,
+            "g": 200,
+            "b": 255
+          },
+          "background": {
+            "type": "black"
+          },
+          "added_modifiers": [
+            "bold"
+          ],
+          "removed_modifiers": []
+        },
+        "enter_effect": {
+          "type": "glitch",
+          "seed": 5555,
+          "intensity": 0.6
+        },
+        "exit_effect": {
+          "type": "fade_out",
+          "apply_to": "both",
+          "ease": "Linear"
+        }
+      }
+    },
+    "requires_primitives": [
+      "content.scramble",
+      "mask.dissolve_params",
+      "style.effect.glitch"
+    ]
+  }
+}

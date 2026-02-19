@@ -1,0 +1,138 @@
+{
+  "schema_version": 1,
+  "id": "debug.complex.diamond_highlight",
+  "title": "Debug: Diamond + Checkers + Blinds + Highlighter + FocusedRowGradient + BackgroundOnly",
+  "description": "Tests Diamond/Checkers/Blinds masks, Highlighter/FocusedRowGradient shaders, Mirror/Dissolve content effects, and BackgroundOnly targeting",
+  "version": "1.0.0",
+  "last_updated": "2025-12-30",
+  "config": {
+    "message": "DIAMOND HIGHLIGHT TEST MESSAGE",
+    "layout": {
+      "width": 50,
+      "height": 9,
+      "anchor": "center"
+    },
+    "lifecycle": {
+      "auto_dismiss_ms": 12000
+    },
+    "border": {
+      "type": "thick",
+      "trim": "none"
+    },
+    "content": {
+      "mode": "enter_only",
+      "effect": {
+        "type": "mirror",
+        "axis": "horizontal"
+      }
+    },
+    "pipeline": {
+      "enter": {
+        "duration_ms": 2500,
+        "easing": "quad_out"
+      },
+      "exit": {
+        "duration_ms": 2000,
+        "easing": "quad_in"
+      },
+      "mask": {
+        "enter": {
+          "type": "diamond",
+          "soft_edge": true
+        },
+        "dwell": {
+          "type": "checkers",
+          "cell_size": 3
+        },
+        "exit": {
+          "type": "blinds",
+          "orientation": "vertical",
+          "count": 10
+        }
+      },
+      "sampler": {
+        "enter": {
+          "type": "none"
+        },
+        "exit": {
+          "type": "none"
+        }
+      },
+      "filter": {
+        "enter": {
+          "type": "none"
+        },
+        "exit": {
+          "type": "dim",
+          "factor": 0.3,
+          "apply_to": "both"
+        }
+      },
+      "styles": [
+        {
+          "region": "BackgroundOnly",
+          "base_style": {
+            "foreground": {
+              "type": "white"
+            },
+            "background": {
+              "type": "rgb",
+              "r": 40,
+              "g": 60,
+              "b": 80
+            }
+          },
+          "spatial_shader": {
+            "type": "focused_row_gradient",
+            "selected_row_ratio": 0.5,
+            "falloff_distance": 3,
+            "bright_color": {
+              "r": 100,
+              "g": 150,
+              "b": 200
+            }
+          }
+        },
+        {
+          "region": "TextOnly",
+          "base_style": {
+            "foreground": {
+              "type": "rgb",
+              "r": 255,
+              "g": 255,
+              "b": 200
+            },
+            "background": {
+              "type": "reset"
+            }
+          },
+          "spatial_shader": {
+            "type": "highlighter",
+            "color": {
+              "r": 255,
+              "g": 255,
+              "b": 100
+            }
+          }
+        },
+        {
+          "region": "BorderOnly",
+          "base_style": {
+            "foreground": {
+              "type": "rgb",
+              "r": 200,
+              "g": 220,
+              "b": 255
+            },
+            "background": {
+              "type": "rgb",
+              "r": 30,
+              "g": 50,
+              "b": 70
+            }
+          }
+        }
+      ]
+    }
+  }
+}

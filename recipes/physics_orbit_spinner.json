@@ -1,0 +1,113 @@
+{
+  "schema_version": 1,
+  "id": "physics.orbit_spinner",
+  "title": "Orbit Spinner",
+  "description": "Notification orbits into position like a satellite finding its trajectory",
+  "version": "1.0.0",
+  "last_updated": "2025-12-31",
+  "config": {
+    "message": "Synchronizing...",
+    "layout": {
+      "width": 26,
+      "height": 3,
+      "anchor": "center"
+    },
+    "lifecycle": {
+      "auto_dismiss_ms": 5000
+    },
+    "border": {
+      "type": "double",
+      "trim": "none"
+    },
+    "pipeline": {
+      "enter": {
+        "duration_ms": 1200,
+        "easing": "quad_out",
+        "motion_path": {
+          "type": "orbit",
+          "revolutions": 1.5,
+          "direction": 1.0
+        },
+        "snapping": {
+          "type": "round"
+        },
+        "from": {
+          "type": "offscreen",
+          "direction": "from_top",
+          "margin_cells": 6
+        }
+      },
+      "exit": {
+        "duration_ms": 800,
+        "easing": "quad_in",
+        "motion_path": {
+          "type": "orbit",
+          "revolutions": 0.75,
+          "direction": -1.0
+        },
+        "snapping": {
+          "type": "round"
+        },
+        "to": {
+          "type": "offscreen",
+          "direction": "from_bottom",
+          "margin_cells": 6
+        }
+      },
+      "mask": {
+        "enter": {
+          "type": "none"
+        },
+        "exit": {
+          "type": "none"
+        }
+      },
+      "sampler": {
+        "enter": {
+          "type": "none"
+        },
+        "exit": {
+          "type": "none"
+        }
+      },
+      "filter": {
+        "enter": {
+          "type": "none"
+        },
+        "exit": {
+          "type": "none"
+        }
+      },
+      "style": {
+        "region": "All",
+        "base_style": {
+          "foreground": {
+            "type": "rgb",
+            "r": 0,
+            "g": 255,
+            "b": 200
+          },
+          "background": {
+            "type": "rgb",
+            "r": 20,
+            "g": 20,
+            "b": 35
+          },
+          "added_modifiers": [],
+          "removed_modifiers": []
+        },
+        "enter_effect": {
+          "type": "fade_in",
+          "apply_to": "both",
+          "ease": "QuadOut"
+        },
+        "exit_effect": {
+          "type": "fade_out",
+          "apply_to": "both",
+          "ease": "QuadIn"
+        }
+      }
+    },
+    "requires_primitives": []
+  }
+}

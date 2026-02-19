@@ -1,0 +1,112 @@
+{
+  "schema_version": 1,
+  "id": "notifications.signal_seismic_alert",
+  "title": "Seismic Alert",
+  "description": "Earthquake warning with violent shaking that rapidly decays",
+  "version": "1.0.0",
+  "last_updated": "2025-12-24",
+  "config": {
+    "message": "SEISMIC ACTIVITY DETECTED",
+    "layout": {
+      "mode": "fixed",
+      "width": 45,
+      "height": 7,
+      "anchor": "center"
+    },
+    "lifecycle": {
+      "auto_dismiss_ms": 5000
+    },
+    "border": {
+      "type": "double",
+      "padding": {
+        "top": 1,
+        "right": 2,
+        "bottom": 1,
+        "left": 2
+      }
+    },
+    "pipeline": {
+      "enter": {
+        "duration_ms": 200,
+        "easing": "linear",
+        "motion_path": {
+          "type": "linear"
+        }
+      },
+      "exit": {
+        "duration_ms": 300,
+        "easing": "quad_in",
+        "motion_path": {
+          "type": "linear"
+        }
+      },
+      "mask": {
+        "enter": {
+          "type": "none"
+        },
+        "dwell": {
+          "type": "none"
+        },
+        "exit": {
+          "type": "none"
+        }
+      },
+      "sampler": {
+        "enter": {
+          "type": "none"
+        },
+        "dwell": {
+          "type": "sine_wave",
+          "axis": "x",
+          "amplitude": {
+            "type": "multiply",
+            "a": {
+              "type": "white_noise",
+              "amplitude": 1.0,
+              "sample_rate": 60.0,
+              "seed": 12345
+            },
+            "b": {
+              "type": "impact",
+              "intensity": 8.0,
+              "decay": 6.0
+            }
+          },
+          "frequency": 2.0,
+          "speed": 3.0,
+          "phase": 0.0
+        },
+        "exit": {
+          "type": "none"
+        }
+      },
+      "filter": {
+        "enter": {
+          "type": "none"
+        },
+        "dwell": {
+          "type": "none"
+        },
+        "exit": {
+          "type": "none"
+        }
+      },
+      "style": {
+        "region": "All",
+        "base_style": {
+          "foreground": {
+            "type": "yellow"
+          },
+          "background": {
+            "type": "rgb",
+            "r": 100,
+            "g": 50,
+            "b": 0
+          },
+          "added_modifiers": [],
+          "removed_modifiers": []
+        }
+      }
+    }
+  }
+}

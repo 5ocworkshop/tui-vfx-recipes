@@ -1,0 +1,117 @@
+{
+  "schema_version": 1,
+  "id": "midcentury.git_pull",
+  "title": "Git Pull",
+  "description": "Inward reception. Dusty rose with arrow title, gentle settling motion receives updates.",
+  "version": "1.0.0",
+  "last_updated": "2025-12-31",
+  "config": {
+    "message": "Pulled 3 commits",
+    "layout": {
+      "width": 36,
+      "height": 3,
+      "anchor": "top_right"
+    },
+    "lifecycle": {
+      "auto_dismiss_ms": 3500
+    },
+    "border": {
+      "type": "rounded",
+      "trim": "none",
+      "title": "← PULL",
+      "title_position": "top",
+      "title_alignment": "left"
+    },
+    "pipeline": {
+      "enter": {
+        "duration_ms": 460,
+        "easing": "sine_out",
+        "motion_path": {
+          "type": "arc",
+          "bulge": 0.1
+        },
+        "snapping": {
+          "type": "round"
+        }
+      },
+      "exit": {
+        "duration_ms": 320,
+        "easing": "sine_in",
+        "snapping": {
+          "type": "round"
+        }
+      },
+      "mask": {
+        "enter": {
+          "type": "wipe",
+          "direction": "left_to_right",
+          "soft_edge": true
+        },
+        "exit": {
+          "type": "none"
+        }
+      },
+      "sampler": {
+        "enter": {
+          "type": "none"
+        },
+        "exit": {
+          "type": "none"
+        }
+      },
+      "filter": {
+        "enter": {
+          "type": "none"
+        },
+        "exit": {
+          "type": "none"
+        }
+      },
+      "style": {
+        "region": "All",
+        "base_style": {
+          "foreground": {
+            "type": "rgb",
+            "r": 55,
+            "g": 40,
+            "b": 45
+          },
+          "background": {
+            "type": "rgb",
+            "r": 188,
+            "g": 143,
+            "b": 143
+          },
+          "added_modifiers": [],
+          "removed_modifiers": []
+        },
+        "enter_effect": {
+          "type": "spatial",
+          "shader": {
+            "type": "glisten_band",
+            "band_width": 5,
+            "speed": 0.5,
+            "angle_deg": 35.0,
+            "head": {
+              "type": "rgb",
+              "r": 225,
+              "g": 190,
+              "b": 190
+            },
+            "tail": {
+              "type": "rgb",
+              "r": 200,
+              "g": 160,
+              "b": 160
+            }
+          }
+        },
+        "exit_effect": {
+          "type": "fade_out",
+          "apply_to": "both",
+          "ease": "SineOut"
+        }
+      }
+    }
+  }
+}

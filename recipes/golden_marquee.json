@@ -1,0 +1,127 @@
+{
+  "schema_version": 1,
+  "id": "notifications.golden_marquee",
+  "title": "Golden Shimmer",
+  "description": "Marquee content with gold gradient",
+  "version": "2.0.0",
+  "last_updated": "2025-12-18",
+  "config": {
+    "message": "PREMIUM FEATURE UNLOCKED - THANK YOU FOR YOUR SUPPORT",
+    "layout": {
+      "width": 45,
+      "height": 5,
+      "anchor": "bottom_right"
+    },
+    "lifecycle": {
+      "auto_dismiss_ms": 15000
+    },
+    "time": {
+      "loop": true,
+      "loop_period_ms": 2200
+    },
+    "border": {
+      "type": "rounded",
+      "trim": "none"
+    },
+    "content": {
+      "mode": "loop",
+      "effect": {
+        "type": "marquee",
+        "speed": 1.0,
+        "width": 36
+      }
+    },
+    "pipeline": {
+      "enter": {
+        "duration_ms": 900,
+        "easing": "quad_out",
+        "snapping": {
+          "type": "round"
+        }
+      },
+      "exit": {
+        "duration_ms": 900,
+        "easing": "quad_in",
+        "snapping": {
+          "type": "round"
+        }
+      },
+      "mask": {
+        "enter": {
+          "type": "dissolve",
+          "seed": 2025,
+          "chunk_size": 2
+        },
+        "exit": {
+          "type": "none"
+        }
+      },
+      "sampler": {
+        "enter": {
+          "type": "none"
+        },
+        "exit": {
+          "type": "none"
+        }
+      },
+      "filter": {
+        "enter": {
+          "type": "none"
+        },
+        "exit": {
+          "type": "none"
+        }
+      },
+      "style": {
+        "region": "TextOnly",
+        "base_style": {
+          "foreground": {
+            "type": "rgb",
+            "r": 200,
+            "g": 160,
+            "b": 0
+          },
+          "background": {
+            "type": "black"
+          },
+          "added_modifiers": [
+            "bold"
+          ],
+          "removed_modifiers": []
+        },
+        "enter_effect": {
+          "type": "fade_in",
+          "apply_to": "foreground",
+          "ease": "QuadOut"
+        },
+        "exit_effect": {
+          "type": "fade_out",
+          "apply_to": "foreground",
+          "ease": "QuadIn"
+        },
+        "spatial_shader": {
+          "type": "glisten_band",
+          "speed": 0.9,
+          "band_width": 6,
+          "angle_deg": 25.0,
+          "head": {
+            "type": "light_yellow"
+          },
+          "tail": {
+            "type": "rgb",
+            "r": 200,
+            "g": 160,
+            "b": 0
+          }
+        }
+      }
+    },
+    "requires_primitives": [
+      "mask.dissolve_params",
+      "style.shader.glisten_band",
+      "style.spatial_per_cell",
+      "content.marquee_params",
+      "time.looping"
+    ]
+  }
+}

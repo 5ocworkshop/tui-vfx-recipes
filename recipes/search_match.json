@@ -1,0 +1,105 @@
+{
+  "schema_version": 1,
+  "id": "notifications.search_match",
+  "title": "Search Match",
+  "description": "Text highlighted by a marker pen swipe",
+  "version": "2.0.0",
+  "last_updated": "2025-12-18",
+  "config": {
+    "message": "Found 1 match: 'Error'",
+    "layout": {
+      "width": 30,
+      "height": 3,
+      "anchor": "top_center"
+    },
+    "lifecycle": {
+      "auto_dismiss_ms": 4500
+    },
+    "time": {
+      "loop": true,
+      "loop_period_ms": 1400
+    },
+    "border": {
+      "type": "rounded",
+      "trim": "none"
+    },
+    "pipeline": {
+      "enter": {
+        "duration_ms": 600,
+        "easing": "quad_out",
+        "snapping": {
+          "type": "round"
+        }
+      },
+      "exit": {
+        "duration_ms": 600,
+        "easing": "quad_in",
+        "snapping": {
+          "type": "round"
+        }
+      },
+      "mask": {
+        "enter": {
+          "type": "none"
+        },
+        "exit": {
+          "type": "none"
+        }
+      },
+      "sampler": {
+        "enter": {
+          "type": "none"
+        },
+        "exit": {
+          "type": "none"
+        }
+      },
+      "filter": {
+        "enter": {
+          "type": "none"
+        },
+        "exit": {
+          "type": "none"
+        }
+      },
+      "style": {
+        "region": "TextOnly",
+        "base_style": {
+          "foreground": {
+            "type": "white"
+          },
+          "background": {
+            "type": "rgb",
+            "r": 12,
+            "g": 14,
+            "b": 20
+          },
+          "added_modifiers": [],
+          "removed_modifiers": []
+        },
+        "enter_effect": {
+          "type": "fade_in",
+          "apply_to": "both",
+          "ease": "QuadOut"
+        },
+        "exit_effect": {
+          "type": "fade_out",
+          "apply_to": "both",
+          "ease": "QuadIn"
+        },
+        "spatial_shader": {
+          "type": "highlighter",
+          "color": {
+            "type": "yellow"
+          }
+        }
+      }
+    },
+    "requires_primitives": [
+      "style.shader.highlighter",
+      "style.region_targeting",
+      "style.spatial_per_cell",
+      "time.looping"
+    ]
+  }
+}

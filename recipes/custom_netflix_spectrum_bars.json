@@ -1,0 +1,196 @@
+{
+  "schema_version": 1,
+  "id": "custom.netflix_spectrum_bars",
+  "title": "Netflix Spectrum Bars (Custom)",
+  "description": "Fullscreen vertical spectrum bars built from 1/8 blocks.",
+  "version": "1.0.0",
+  "last_updated": "2026-02-01",
+  "config": {
+    "message": "PLACEHOLDER",
+    "layout": {
+      "mode": "fullscreen",
+      "width": 80,
+      "height": 24,
+      "anchor": "center",
+      "wrap": false
+    },
+    "lifecycle": {
+      "auto_dismiss_ms": 12000
+    },
+    "border": {
+      "type": "none",
+      "trim": "none",
+      "center_content": false
+    },
+    "pipeline": {
+      "animation_type": "fade",
+      "enter": {
+        "duration_ms": 420,
+        "easing": "quad_out"
+      },
+      "exit": {
+        "duration_ms": 900,
+        "easing": "quad_in"
+      },
+      "mask": {
+        "enter": [
+          {
+            "type": "blinds",
+            "orientation": "vertical",
+            "count": 28
+          }
+        ]
+      },
+      "sampler": {
+        "enter": {
+          "type": "shredder",
+          "stripe_width": 1,
+          "odd_speed": 1.2,
+          "even_speed": -0.9
+        },
+        "dwell": {
+          "type": "shredder",
+          "stripe_width": 1,
+          "odd_speed": 2.1,
+          "even_speed": -1.8
+        },
+        "exit": {
+          "type": "shredder",
+          "stripe_width": 1,
+          "odd_speed": 4.0,
+          "even_speed": -3.0
+        }
+      },
+      "filter": {
+        "enter": [
+          {
+            "type": "crt",
+            "scanline_strength": 0.0,
+            "glow": 0.18
+          }
+        ],
+        "dwell": [
+          {
+            "type": "crt",
+            "scanline_strength": 0.0,
+            "glow": 0.25
+          }
+        ],
+        "exit": [
+          {
+            "type": "crt",
+            "scanline_strength": 0.0,
+            "glow": 0.3
+          }
+        ]
+      },
+      "styles": [
+        {
+          "region": "All",
+          "base_style": {
+            "foreground": {
+              "type": "white"
+            },
+            "background": {
+              "type": "black"
+            }
+          },
+          "enter_effect": {
+            "type": "fade_in",
+            "apply_to": "foreground",
+            "ease": "QuadOut"
+          },
+          "dwell_effect": {
+            "type": "spatial",
+            "shader": {
+              "type": "linear_gradient",
+              "gradient": {
+                "stops": [
+                  [
+                    0.0,
+                    {
+                      "type": "rgb",
+                      "r": 225,
+                      "g": 6,
+                      "b": 22
+                    }
+                  ],
+                  [
+                    0.15,
+                    {
+                      "type": "rgb",
+                      "r": 255,
+                      "g": 90,
+                      "b": 25
+                    }
+                  ],
+                  [
+                    0.3,
+                    {
+                      "type": "rgb",
+                      "r": 255,
+                      "g": 190,
+                      "b": 40
+                    }
+                  ],
+                  [
+                    0.45,
+                    {
+                      "type": "rgb",
+                      "r": 255,
+                      "g": 60,
+                      "b": 120
+                    }
+                  ],
+                  [
+                    0.6,
+                    {
+                      "type": "rgb",
+                      "r": 170,
+                      "g": 50,
+                      "b": 220
+                    }
+                  ],
+                  [
+                    0.75,
+                    {
+                      "type": "rgb",
+                      "r": 60,
+                      "g": 120,
+                      "b": 255
+                    }
+                  ],
+                  [
+                    0.9,
+                    {
+                      "type": "rgb",
+                      "r": 10,
+                      "g": 190,
+                      "b": 255
+                    }
+                  ],
+                  [
+                    1.0,
+                    {
+                      "type": "rgb",
+                      "r": 30,
+                      "g": 80,
+                      "b": 220
+                    }
+                  ]
+                ],
+                "space": "rgb"
+              },
+              "angle_deg": 90.0
+            }
+          },
+          "exit_effect": {
+            "type": "fade_out",
+            "apply_to": "foreground",
+            "ease": "QuadIn"
+          }
+        }
+      ]
+    }
+  }
+}

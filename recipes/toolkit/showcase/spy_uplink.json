@@ -1,0 +1,131 @@
+{
+  "schema_version": 1,
+  "id": "toolkit.showcase.spy_uplink",
+  "title": "Spy Uplink",
+  "description": "A spy-thriller uplink: the panel hovers in, a radar iris opens, ripple bursts, and the signal drops out via neon instability.",
+  "version": "0.1.0",
+  "last_updated": "2025-12-23",
+  "config": {
+    "message": "SECURE UPLINK\nEncrypting burst transmission…",
+    "layout": {
+      "width": 52,
+      "height": 6,
+      "anchor": "bottom_right"
+    },
+    "lifecycle": {
+      "auto_dismiss_ms": 11000
+    },
+    "border": {
+      "type": "thick",
+      "trim": "none"
+    },
+    "content": {
+      "mode": "enter_only",
+      "effect": {
+        "type": "typewriter",
+        "speed_variance": 0.2
+      }
+    },
+    "pipeline": {
+      "enter": {
+        "duration_ms": 2400,
+        "easing": "quad_in_out",
+        "motion_path": {
+          "type": "hover",
+          "amplitude": 0.4,
+          "frequency": 37.699112
+        },
+        "snapping": {
+          "type": "round"
+        }
+      },
+      "exit": {
+        "duration_ms": 1200,
+        "easing": "quad_in",
+        "snapping": {
+          "type": "round"
+        }
+      },
+      "mask": {
+        "enter": {
+          "type": "iris",
+          "shape": "circle",
+          "soft_edge": true
+        },
+        "exit": {
+          "type": "dissolve",
+          "seed": 707,
+          "chunk_size": 1
+        }
+      },
+      "sampler": {
+        "enter": {
+          "type": "ripple",
+          "amplitude": 1.5,
+          "wavelength": 6.0,
+          "speed": 1.4,
+          "center": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        "exit": {
+          "type": "crt_jitter",
+          "intensity": 4.0,
+          "speed_hz": 50.0,
+          "decay_ms": 900
+        }
+      },
+      "filter": {
+        "enter": {
+          "type": "vignette",
+          "strength": 0.55,
+          "radius": 0.7
+        },
+        "exit": {
+          "type": "crt",
+          "scanline_strength": 0.5,
+          "glow": 0.2
+        }
+      },
+      "style": {
+        "region": "All",
+        "base_style": {
+          "foreground": {
+            "type": "rgb",
+            "r": 245,
+            "g": 245,
+            "b": 255
+          },
+          "background": {
+            "type": "rgb",
+            "r": 5,
+            "g": 20,
+            "b": 30
+          },
+          "added_modifiers": [
+            "bold"
+          ],
+          "removed_modifiers": []
+        },
+        "enter_effect": {
+          "type": "spatial",
+          "shader": {
+            "type": "pulse_wave",
+            "frequency": 2.8,
+            "speed": 2.2,
+            "color": {
+              "type": "light_cyan"
+            },
+            "direction": "radial",
+            "wavelength": 4.8
+          }
+        },
+        "exit_effect": {
+          "type": "neon_flicker",
+          "stability": 0.4
+        }
+      }
+    }
+  }
+}

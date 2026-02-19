@@ -1,0 +1,15 @@
+{
+  "schema_version": 1,
+  "id": "wargames.norad.05_defcon_status",
+  "title": "NORAD 05 - DEFCON Status Board",
+  "description": "NORAD defense condition status display - escalation monitor",
+  "version": "1.0.0",
+  "last_updated": "2025-12-25",
+  "extends": "themes/new_wopr_fullscreen_cyan.json",
+  "config": {
+    "message": "DEFENSE READINESS CONDITION STATUS\n\n\nDEFCON 5: LOWEST STATE OF READINESS\nDEFCON 4: INCREASED INTELLIGENCE WATCH\nDEFCON 3: INCREASE IN FORCE READINESS\nDEFCON 2: FURTHER INCREASE IN FORCE READINESS\nDEFCON 1: MAXIMUM FORCE READINESS\n\n\nCURRENT STATUS: DEFCON 3\n\n\nALERT STATUS:\n- STRATEGIC AIR COMMAND: ALERT\n- TACTICAL AIR COMMAND: ALERT\n- SUBMARINE FORCE: ALERT\n- ICBM FORCES: ALERT\n\nAUTHORIZATION LEVEL: PRESIDENTIAL\n\nTIME IN CURRENT STATUS: 00:14:23",
+    "lifecycle": {
+      "auto_dismiss_ms": 0
+    }
+  }
+}

@@ -1,0 +1,226 @@
+{
+  "schema_version": 1,
+  "id": "debug.complex.cellular_faultline",
+  "title": "Debug: Cellular Mask + FaultLine + RowRange Targeting",
+  "description": "Tests Cellular mask (Voronoi), FaultLine sampler, Invert filter, LinearGradient shader, Scramble content, and RowRange style targeting. Faultline intensity tuned for 50-width layout to ensure visible displacement.",
+  "version": "1.1.0",
+  "last_updated": "2026-01-16",
+  "config": {
+    "message": "CELLULAR FAULTLINE TEST",
+    "layout": {
+      "width": 50,
+      "height": 7,
+      "anchor": "center"
+    },
+    "lifecycle": {
+      "auto_dismiss_ms": 10000
+    },
+    "border": {
+      "type": "double",
+      "trim": "none"
+    },
+    "content": {
+      "mode": "enter_only",
+      "effect": {
+        "type": "scramble",
+        "resolve_pace": 1.5,
+        "charset": "matrix",
+        "seed": 42
+      }
+    },
+    "pipeline": {
+      "enter": {
+        "duration_ms": 2500,
+        "easing": "cubic_out"
+      },
+      "exit": {
+        "duration_ms": 2000,
+        "easing": "cubic_in"
+      },
+      "mask": {
+        "enter": {
+          "type": "cellular",
+          "pattern": "voronoi",
+          "seed": 12345,
+          "cell_count": 24
+        },
+        "exit": {
+          "type": "cellular",
+          "pattern": "organic",
+          "seed": 67890,
+          "cell_count": 16
+        }
+      },
+      "sampler": {
+        "enter": {
+          "type": "fault_line",
+          "seed": 111,
+          "intensity": 0.8,
+          "split_bias": 0.4
+        },
+        "dwell": {
+          "type": "fault_line",
+          "seed": 333,
+          "intensity": 0.3,
+          "split_bias": 0.5
+        },
+        "exit": {
+          "type": "fault_line",
+          "seed": 222,
+          "intensity": 1.0,
+          "split_bias": 0.6
+        }
+      },
+      "filter": {
+        "enter": {
+          "type": "invert",
+          "apply_to": "foreground"
+        },
+        "exit": {
+          "type": "invert",
+          "apply_to": "background"
+        }
+      },
+      "styles": [
+        {
+          "region": {
+            "RowRange": {
+              "start": 0,
+              "end": 2
+            }
+          },
+          "base_style": {
+            "foreground": {
+              "type": "red"
+            },
+            "background": {
+              "type": "rgb",
+              "r": 40,
+              "g": 0,
+              "b": 0
+            }
+          },
+          "spatial_shader": {
+            "type": "linear_gradient",
+            "gradient": {
+              "stops": [
+                [
+                  0.0,
+                  {
+                    "type": "rgb",
+                    "r": 255,
+                    "g": 100,
+                    "b": 100
+                  }
+                ],
+                [
+                  1.0,
+                  {
+                    "type": "rgb",
+                    "r": 100,
+                    "g": 0,
+                    "b": 0
+                  }
+                ]
+              ],
+              "space": "rgb"
+            },
+            "angle_deg": 90.0
+          }
+        },
+        {
+          "region": {
+            "RowRange": {
+              "start": 2,
+              "end": 5
+            }
+          },
+          "base_style": {
+            "foreground": {
+              "type": "white"
+            },
+            "background": {
+              "type": "rgb",
+              "r": 20,
+              "g": 20,
+              "b": 40
+            }
+          },
+          "spatial_shader": {
+            "type": "linear_gradient",
+            "gradient": {
+              "stops": [
+                [
+                  0.0,
+                  {
+                    "type": "rgb",
+                    "r": 100,
+                    "g": 150,
+                    "b": 255
+                  }
+                ],
+                [
+                  1.0,
+                  {
+                    "type": "rgb",
+                    "r": 50,
+                    "g": 50,
+                    "b": 150
+                  }
+                ]
+              ],
+              "space": "rgb"
+            },
+            "angle_deg": 0.0
+          }
+        },
+        {
+          "region": {
+            "RowRange": {
+              "start": 5,
+              "end": 7
+            }
+          },
+          "base_style": {
+            "foreground": {
+              "type": "green"
+            },
+            "background": {
+              "type": "rgb",
+              "r": 0,
+              "g": 30,
+              "b": 0
+            }
+          },
+          "spatial_shader": {
+            "type": "linear_gradient",
+            "gradient": {
+              "stops": [
+                [
+                  0.0,
+                  {
+                    "type": "rgb",
+                    "r": 100,
+                    "g": 255,
+                    "b": 100
+                  }
+                ],
+                [
+                  1.0,
+                  {
+                    "type": "rgb",
+                    "r": 0,
+                    "g": 100,
+                    "b": 0
+                  }
+                ]
+              ],
+              "space": "rgb"
+            },
+            "angle_deg": 45.0
+          }
+        }
+      ]
+    }
+  }
+}

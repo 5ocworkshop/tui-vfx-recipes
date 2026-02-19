@@ -1,0 +1,70 @@
+{
+  "schema_version": 1,
+  "extends": "themes/wopr_green.json",
+  "id": "wargames.defcon",
+  "title": "WarGames - DEFCON",
+  "description": "WOPR DEFCON 1 alert - Red emergency coloring with CRT jitter and pulse wave effects",
+  "version": "2.0.0",
+  "last_updated": "2025-12-24",
+  "config": {
+    "message": "*** DEFCON 1 ***\n\nGLOBAL THERMONUCLEAR WAR",
+    "layout": {
+      "height": 5
+    },
+    "lifecycle": {
+      "auto_dismiss_ms": 8000
+    },
+    "border": {
+      "type": "double"
+    },
+    "content": {
+      "effect": null
+    },
+    "pipeline": {
+      "enter": {
+        "duration_ms": 100
+      },
+      "sampler": {
+        "enter": {
+          "type": "crt_jitter",
+          "intensity": 0.15,
+          "speed_hz": 12.0,
+          "decay_ms": 400
+        }
+      },
+      "style": {
+        "base_style": {
+          "foreground": {
+            "type": "rgb",
+            "r": 255,
+            "g": 0,
+            "b": 0
+          },
+          "added_modifiers": [
+            "bold"
+          ]
+        },
+        "enter_effect": null,
+        "dwell_effect": {
+          "type": "spatial",
+          "shader": {
+            "type": "pulse_wave",
+            "frequency": 2.0,
+            "speed": 1.0,
+            "color": {
+              "type": "rgb",
+              "r": 255,
+              "g": 100,
+              "b": 100
+            },
+            "direction": "horizontal",
+            "wavelength": 8.0
+          }
+        }
+      }
+    },
+    "requires_primitives": [
+      "sampler.crt_jitter"
+    ]
+  }
+}

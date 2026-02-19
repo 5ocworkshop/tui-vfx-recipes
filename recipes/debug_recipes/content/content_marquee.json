@@ -1,0 +1,83 @@
+{
+  "schema_version": 1,
+  "id": "debug.content.marquee",
+  "title": "Debug: Content - Marquee",
+  "description": "Tests Marquee content effect with speed and width parameters",
+  "version": "1.0.0",
+  "last_updated": "2025-12-30",
+  "config": {
+    "message": "CONTENT TEST: This is a long scrolling marquee text that goes across the screen continuously...",
+    "layout": {
+      "width": 40,
+      "height": 3,
+      "anchor": "center"
+    },
+    "lifecycle": {
+      "auto_dismiss_ms": 8000
+    },
+    "border": {
+      "type": "rounded",
+      "trim": "none"
+    },
+    "time": {
+      "loop": true,
+      "loop_period_ms": 8000
+    },
+    "content": {
+      "mode": "loop",
+      "effect": {
+        "type": "marquee",
+        "speed": 2.0,
+        "width": 30
+      }
+    },
+    "pipeline": {
+      "enter": {
+        "duration_ms": 1000,
+        "easing": "quad_out"
+      },
+      "exit": {
+        "duration_ms": 1000,
+        "easing": "quad_in"
+      },
+      "mask": {
+        "enter": {
+          "type": "none"
+        },
+        "exit": {
+          "type": "none"
+        }
+      },
+      "sampler": {
+        "enter": {
+          "type": "none"
+        },
+        "exit": {
+          "type": "none"
+        }
+      },
+      "filter": {
+        "enter": {
+          "type": "none"
+        },
+        "exit": {
+          "type": "none"
+        }
+      },
+      "style": {
+        "region": "All",
+        "base_style": {
+          "foreground": {
+            "type": "light_red"
+          },
+          "background": {
+            "type": "rgb",
+            "r": 50,
+            "g": 20,
+            "b": 20
+          }
+        }
+      }
+    }
+  }
+}

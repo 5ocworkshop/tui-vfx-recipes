@@ -1,0 +1,100 @@
+{
+  "schema_version": 1,
+  "id": "showcase.multi_mask_dual_reveal",
+  "title": "Multi-Mask: Dual Reveal (OR)",
+  "description": "Demonstrates multiple masks with OR mode: Iris from center + Wipe from corner reveal simultaneously",
+  "version": "1.0.0",
+  "last_updated": "2025-12-26",
+  "config": {
+    "message": "Dual origin reveal!",
+    "layout": {
+      "anchor": "center",
+      "width": 32,
+      "height": 7
+    },
+    "lifecycle": {
+      "auto_dismiss_ms": 4500
+    },
+    "border": {
+      "type": "thick"
+    },
+    "pipeline": {
+      "enter": {
+        "duration_ms": 1500,
+        "easing": "quad_out"
+      },
+      "exit": {
+        "duration_ms": 1000,
+        "easing": "quad_in"
+      },
+      "style": {
+        "base_style": {
+          "foreground": {
+            "type": "rgb",
+            "r": 255,
+            "g": 255,
+            "b": 255
+          },
+          "background": {
+            "type": "rgb",
+            "r": 80,
+            "g": 40,
+            "b": 120
+          }
+        }
+      },
+      "mask": {
+        "enter": [
+          {
+            "type": "iris",
+            "shape": "circle",
+            "soft_edge": true
+          },
+          {
+            "type": "wipe",
+            "direction": "top_left_to_bottom_right",
+            "soft_edge": true
+          }
+        ],
+        "exit": [
+          {
+            "type": "iris",
+            "shape": "circle",
+            "soft_edge": true
+          },
+          {
+            "type": "wipe",
+            "direction": "bottom_right_to_top_left",
+            "soft_edge": true
+          }
+        ],
+        "combine_mode": "any"
+      },
+      "filter": {
+        "enter": {
+          "type": "dim",
+          "factor": 0.7,
+          "apply_to": "both"
+        },
+        "dwell": [
+          {
+            "type": "vignette",
+            "strength": 0.5,
+            "radius": 0.5
+          },
+          {
+            "type": "tint",
+            "color": {
+              "type": "rgb",
+              "r": 200,
+              "g": 150,
+              "b": 255
+            },
+            "strength": 0.15,
+            "apply_to": "both"
+          }
+        ]
+      }
+    }
+  }
+}

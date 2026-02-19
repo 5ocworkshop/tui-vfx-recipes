@@ -1,0 +1,124 @@
+{
+  "schema_version": 1,
+  "id": "notifications.signal_glitch_storm",
+  "title": "Glitch Storm",
+  "description": "Digital corruption alert with glitch intensity stepping up in discrete levels",
+  "version": "1.0.0",
+  "last_updated": "2025-12-24",
+  "config": {
+    "message": "CRITICAL SYSTEM ERROR",
+    "layout": {
+      "mode": "fixed",
+      "width": 44,
+      "height": 6,
+      "anchor": "center"
+    },
+    "lifecycle": {
+      "auto_dismiss_ms": 6000
+    },
+    "border": {
+      "type": "plain",
+      "padding": {
+        "top": 1,
+        "right": 2,
+        "bottom": 1,
+        "left": 2
+      }
+    },
+    "pipeline": {
+      "enter": {
+        "duration_ms": 100,
+        "easing": "linear",
+        "motion_path": {
+          "type": "linear"
+        }
+      },
+      "exit": {
+        "duration_ms": 300,
+        "easing": "quad_in",
+        "motion_path": {
+          "type": "linear"
+        }
+      },
+      "mask": {
+        "enter": {
+          "type": "none"
+        },
+        "dwell": {
+          "type": "none"
+        },
+        "exit": {
+          "type": "none"
+        }
+      },
+      "sampler": {
+        "enter": {
+          "type": "none"
+        },
+        "dwell": {
+          "type": "fault_line",
+          "seed": 7777,
+          "intensity": {
+            "type": "quantize",
+            "signal": {
+              "type": "triangle",
+              "frequency": 0.4,
+              "amplitude": 1.0,
+              "offset": 0.0,
+              "phase": 0.0
+            },
+            "levels": 8
+          },
+          "split_bias": 0.5
+        },
+        "exit": {
+          "type": "none"
+        }
+      },
+      "filter": {
+        "enter": {
+          "type": "none"
+        },
+        "dwell": {
+          "type": "none"
+        },
+        "exit": {
+          "type": "none"
+        }
+      },
+      "style": {
+        "region": "All",
+        "base_style": {
+          "foreground": {
+            "type": "rgb",
+            "r": 200,
+            "g": 0,
+            "b": 0
+          },
+          "background": {
+            "type": "black"
+          },
+          "added_modifiers": [
+            "bold"
+          ],
+          "removed_modifiers": []
+        },
+        "spatial_shader": {
+          "type": "glitch_lines",
+          "seed": 5555,
+          "intensity": 0.6,
+          "max_lines": 5,
+          "speed": 2.5,
+          "flash_chance": 0.08,
+          "pulse_color": {
+            "type": "rgb",
+            "r": 255,
+            "g": 100,
+            "b": 0
+          },
+          "pulse_speed": 0.3
+        }
+      }
+    }
+  }
+}

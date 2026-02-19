@@ -1,0 +1,139 @@
+{
+  "schema_version": 1,
+  "id": "progress.braille_vertical",
+  "title": "Braille Progress (Vertical)",
+  "description": "Dense vertical progress bar using braille dot matrix. Purple-magenta gradient sweep.",
+  "version": "1.0.0",
+  "last_updated": "2025-12-29",
+  "config": {
+    "message": "⣿⣿⣿⣿⣿⣿\n⣿⣿⣿⣿⣿⣿\n⣿⣿⣿⣿⣿⣿\n⣿⣿⣿⣿⣿⣿\n⣿⣿⣿⣿⣿⣿\n⣿⣿⣿⣿⣿⣿\n⣿⣿⣿⣿⣿⣿\n⣿⣿⣿⣿⣿⣿\n⣿⣿⣿⣿⣿⣿\n⣿⣿⣿⣿⣿⣿",
+    "layout": {
+      "width": 6,
+      "height": 10,
+      "anchor": "middle_left"
+    },
+    "lifecycle": {
+      "auto_dismiss_ms": 0
+    },
+    "time": {
+      "loop": true,
+      "loop_period_ms": 2000
+    },
+    "border": {
+      "type": "none",
+      "trim": "none"
+    },
+    "pipeline": {
+      "enter": {
+        "duration_ms": 300,
+        "easing": "quad_out",
+        "snapping": {
+          "type": "round"
+        }
+      },
+      "exit": {
+        "duration_ms": 250,
+        "easing": "quad_in",
+        "snapping": {
+          "type": "round"
+        }
+      },
+      "mask": {
+        "enter": {
+          "type": "none"
+        },
+        "exit": {
+          "type": "none"
+        }
+      },
+      "sampler": {
+        "enter": {
+          "type": "none"
+        },
+        "exit": {
+          "type": "none"
+        }
+      },
+      "filter": {
+        "enter": {
+          "type": "none"
+        },
+        "exit": {
+          "type": "none"
+        }
+      },
+      "style": {
+        "region": "All",
+        "base_style": {
+          "foreground": {
+            "type": "rgb",
+            "r": 60,
+            "g": 30,
+            "b": 80
+          },
+          "background": {
+            "type": "reset"
+          },
+          "added_modifiers": [],
+          "removed_modifiers": []
+        },
+        "enter_effect": {
+          "type": "spatial",
+          "shader": {
+            "type": "glisten_band",
+            "speed": 0.5,
+            "band_width": 4,
+            "angle_deg": 90.0,
+            "head": {
+              "type": "rgb",
+              "r": 255,
+              "g": 180,
+              "b": 255
+            },
+            "tail": {
+              "type": "rgb",
+              "r": 180,
+              "g": 80,
+              "b": 200
+            },
+            "direction": "forward",
+            "apply_to": "foreground",
+            "blend_strength": 1.0
+          }
+        },
+        "dwell_effect": {
+          "type": "spatial",
+          "shader": {
+            "type": "glisten_band",
+            "speed": 0.5,
+            "band_width": 4,
+            "angle_deg": 90.0,
+            "head": {
+              "type": "rgb",
+              "r": 255,
+              "g": 180,
+              "b": 255
+            },
+            "tail": {
+              "type": "rgb",
+              "r": 180,
+              "g": 80,
+              "b": 200
+            },
+            "direction": "forward",
+            "apply_to": "foreground",
+            "blend_strength": 1.0
+          }
+        },
+        "exit_effect": {
+          "type": "fade_out",
+          "apply_to": "foreground",
+          "ease": "QuadIn"
+        }
+      }
+    },
+    "requires_primitives": [
+      "shader.glisten_band"
+    ]
+  }
+}

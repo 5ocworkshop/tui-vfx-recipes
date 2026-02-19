@@ -1,0 +1,96 @@
+{
+  "schema_version": 1,
+  "id": "notifications.context_bloom",
+  "title": "Context Bloom",
+  "description": "Gentle diamond-shaped expansion for contextual help and tooltips. Blooms outward from center with soft iris mask, like a flower opening. Welcoming and instructive, never demanding.",
+  "version": "1.0.0",
+  "last_updated": "2025-12-22",
+  "config": {
+    "message": "Tip: Hold Shift to select multiple",
+    "layout": {
+      "width": 36,
+      "height": 3,
+      "anchor": "bottom_center"
+    },
+    "lifecycle": {
+      "auto_dismiss_ms": 5000
+    },
+    "border": {
+      "type": "rounded",
+      "trim": "none"
+    },
+    "pipeline": {
+      "enter": {
+        "duration_ms": 600,
+        "easing": "quad_out",
+        "motion_path": {
+          "type": "linear"
+        },
+        "snapping": {
+          "type": "round"
+        }
+      },
+      "exit": {
+        "duration_ms": 400,
+        "easing": "quad_in",
+        "snapping": {
+          "type": "round"
+        }
+      },
+      "mask": {
+        "enter": {
+          "type": "diamond",
+          "soft_edge": true
+        },
+        "exit": {
+          "type": "none"
+        }
+      },
+      "sampler": {
+        "enter": {
+          "type": "none"
+        },
+        "exit": {
+          "type": "none"
+        }
+      },
+      "filter": {
+        "enter": {
+          "type": "none"
+        },
+        "exit": {
+          "type": "none"
+        }
+      },
+      "style": {
+        "region": "All",
+        "base_style": {
+          "foreground": {
+            "type": "light_yellow"
+          },
+          "background": {
+            "type": "rgb",
+            "r": 25,
+            "g": 20,
+            "b": 0
+          },
+          "added_modifiers": [],
+          "removed_modifiers": []
+        },
+        "enter_effect": {
+          "type": "fade_in",
+          "apply_to": "both",
+          "ease": "Linear"
+        },
+        "exit_effect": {
+          "type": "fade_out",
+          "apply_to": "both",
+          "ease": "Linear"
+        }
+      }
+    },
+    "requires_primitives": [
+      "mask.diamond"
+    ]
+  }
+}

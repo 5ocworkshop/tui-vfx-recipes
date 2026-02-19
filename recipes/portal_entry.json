@@ -1,0 +1,105 @@
+{
+  "schema_version": 1,
+  "id": "notifications.portal_entry",
+  "title": "Portal Entry",
+  "description": "Spiraling entry with spotlight iris reveal",
+  "version": "2.0.0",
+  "last_updated": "2025-12-18",
+  "config": {
+    "message": "WARP DRIVE ENGAGED",
+    "layout": {
+      "width": 30,
+      "height": 5,
+      "anchor": "center"
+    },
+    "lifecycle": {
+      "auto_dismiss_ms": 5000
+    },
+    "border": {
+      "type": "rounded",
+      "trim": "none"
+    },
+    "pipeline": {
+      "enter": {
+        "duration_ms": 2000,
+        "easing": "quad_out",
+        "motion_path": {
+          "type": "spiral",
+          "rotations": 2.5
+        },
+        "snapping": {
+          "type": "round"
+        },
+        "from": {
+          "type": "offscreen",
+          "direction": "from_top",
+          "margin_cells": 1
+        }
+      },
+      "exit": {
+        "duration_ms": 800,
+        "easing": "quad_in",
+        "motion_path": {
+          "type": "linear"
+        },
+        "snapping": {
+          "type": "round"
+        }
+      },
+      "mask": {
+        "enter": {
+          "type": "iris",
+          "shape": "circle",
+          "soft_edge": true
+        },
+        "exit": {
+          "type": "none"
+        }
+      },
+      "sampler": {
+        "enter": {
+          "type": "none"
+        },
+        "exit": {
+          "type": "none"
+        }
+      },
+      "filter": {
+        "enter": {
+          "type": "none"
+        },
+        "exit": {
+          "type": "none"
+        }
+      },
+      "style": {
+        "region": "All",
+        "base_style": {
+          "foreground": {
+            "type": "white"
+          },
+          "background": {
+            "type": "black"
+          },
+          "added_modifiers": [
+            "bold"
+          ],
+          "removed_modifiers": []
+        },
+        "enter_effect": {
+          "type": "rainbow",
+          "speed": 2.2
+        },
+        "exit_effect": {
+          "type": "fade_out",
+          "apply_to": "foreground",
+          "ease": "QuadIn"
+        }
+      }
+    },
+    "requires_primitives": [
+      "geometry.path.spiral",
+      "mask.iris"
+    ]
+  }
+}

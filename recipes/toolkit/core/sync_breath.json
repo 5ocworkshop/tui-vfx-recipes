@@ -1,0 +1,111 @@
+{
+  "schema_version": 1,
+  "id": "toolkit.core.sync_breath",
+  "title": "Sync Breath",
+  "description": "A soothing ‘in progress’ nudge: diamond reveal, soft wave motion, and slow breathing brightness to imply activity without stress.",
+  "version": "0.1.0",
+  "last_updated": "2025-12-23",
+  "config": {
+    "message": "Syncing securely…\nThis may take a moment",
+    "layout": {
+      "width": 38,
+      "height": 4,
+      "anchor": "bottom_right"
+    },
+    "lifecycle": {
+      "auto_dismiss_ms": 7000
+    },
+    "border": {
+      "type": "rounded",
+      "trim": "none"
+    },
+    "content": {
+      "mode": "enter_only",
+      "effect": {
+        "type": "typewriter",
+        "speed_variance": 0.2
+      }
+    },
+    "pipeline": {
+      "enter": {
+        "duration_ms": 1400,
+        "easing": "cubic_out",
+        "snapping": {
+          "type": "round"
+        }
+      },
+      "exit": {
+        "duration_ms": 720,
+        "easing": "quad_in",
+        "snapping": {
+          "type": "round"
+        }
+      },
+      "mask": {
+        "enter": {
+          "type": "iris",
+          "shape": "diamond",
+          "soft_edge": true
+        },
+        "exit": {
+          "type": "dissolve",
+          "seed": 123,
+          "chunk_size": 2
+        }
+      },
+      "sampler": {
+        "enter": {
+          "type": "sine_wave",
+          "axis": "x",
+          "amplitude": 0.6,
+          "frequency": 0.25,
+          "speed": 0.9,
+          "phase": 1.2
+        },
+        "exit": {
+          "type": "none"
+        }
+      },
+      "filter": {
+        "enter": {
+          "type": "none"
+        },
+        "exit": {
+          "type": "vignette",
+          "strength": 0.6,
+          "radius": 0.55
+        }
+      },
+      "style": {
+        "region": "All",
+        "base_style": {
+          "foreground": {
+            "type": "light_cyan"
+          },
+          "background": {
+            "type": "rgb",
+            "r": 10,
+            "g": 18,
+            "b": 28
+          },
+          "added_modifiers": [
+            "bold"
+          ],
+          "removed_modifiers": []
+        },
+        "enter_effect": {
+          "type": "pulse",
+          "frequency": 1.1,
+          "color": {
+            "type": "white"
+          }
+        },
+        "exit_effect": {
+          "type": "fade_out",
+          "apply_to": "both",
+          "ease": "Linear"
+        }
+      }
+    }
+  }
+}

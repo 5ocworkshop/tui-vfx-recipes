@@ -1,0 +1,92 @@
+{
+  "schema_version": 1,
+  "id": "notifications.success_pop",
+  "title": "Success Pop",
+  "description": "Quick, satisfying notification for successful operations. Brief pop-in with green confirmation, immediately dismisses. Celebrates small wins without lingering.",
+  "version": "1.0.0",
+  "last_updated": "2025-12-22",
+  "config": {
+    "message": "✓ Saved successfully",
+    "layout": {
+      "width": 22,
+      "height": 2,
+      "anchor": "top_center"
+    },
+    "lifecycle": {
+      "auto_dismiss_ms": 2000
+    },
+    "border": {
+      "type": "rounded",
+      "trim": "none"
+    },
+    "pipeline": {
+      "enter": {
+        "duration_ms": 300,
+        "easing": "back_out",
+        "motion_path": {
+          "type": "linear"
+        },
+        "snapping": {
+          "type": "round"
+        }
+      },
+      "exit": {
+        "duration_ms": 200,
+        "easing": "back_in",
+        "snapping": {
+          "type": "round"
+        }
+      },
+      "mask": {
+        "enter": {
+          "type": "none"
+        },
+        "exit": {
+          "type": "none"
+        }
+      },
+      "sampler": {
+        "enter": {
+          "type": "none"
+        },
+        "exit": {
+          "type": "none"
+        }
+      },
+      "filter": {
+        "enter": {
+          "type": "none"
+        },
+        "exit": {
+          "type": "none"
+        }
+      },
+      "style": {
+        "region": "All",
+        "base_style": {
+          "foreground": {
+            "type": "green"
+          },
+          "background": {
+            "type": "black"
+          },
+          "added_modifiers": [
+            "bold"
+          ],
+          "removed_modifiers": []
+        },
+        "enter_effect": {
+          "type": "fade_in",
+          "apply_to": "foreground",
+          "ease": "Linear"
+        },
+        "exit_effect": {
+          "type": "fade_out",
+          "apply_to": "foreground",
+          "ease": "Linear"
+        }
+      }
+    },
+    "requires_primitives": []
+  }
+}

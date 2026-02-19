@@ -1,0 +1,15 @@
+{
+  "schema_version": 1,
+  "id": "wargames.norad.07_impact_countdown",
+  "title": "NORAD 07 - Impact Countdown",
+  "description": "NORAD impact countdown timer - critical seconds remaining",
+  "version": "1.0.0",
+  "last_updated": "2025-12-25",
+  "extends": "themes/new_wopr_fullscreen_cyan.json",
+  "config": {
+    "message": "INCOMING BALLISTIC MISSILE THREAT\n\n\nMISSILE TRAJECTORY CONFIRMED\nIMPACT ZONES CALCULATED\n\n\nTIME TO FIRST IMPACT:\n\n        ██████╗ ██╗   ██╗███████╗\n        ██╔══██╗██║   ██║██╔════╝\n        ██████╔╝██║   ██║███████╗\n        ██╔══██╗██║   ██║╚════██║\n        ██████╔╝╚██████╔╝███████║\n        ╚═════╝  ╚═════╝ ╚══════╝\n\n         24 MIN 17 SEC\n\n\nEVACUATION: NOT POSSIBLE\nINTERCEPTION: IN PROGRESS\nRETALIATION: AUTHORIZED",
+    "lifecycle": {
+      "auto_dismiss_ms": 0
+    }
+  }
+}

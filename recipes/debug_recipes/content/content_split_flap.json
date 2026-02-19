@@ -1,0 +1,79 @@
+{
+  "schema_version": 1,
+  "id": "debug.content.split_flap",
+  "title": "Debug: Content - SplitFlap",
+  "description": "Tests SplitFlap content effect with speed and cascade parameters",
+  "version": "1.0.0",
+  "last_updated": "2025-12-30",
+  "config": {
+    "message": "CONTENT TEST: SPLIT FLAP DISPLAY",
+    "layout": {
+      "width": 40,
+      "height": 3,
+      "anchor": "center"
+    },
+    "lifecycle": {
+      "auto_dismiss_ms": 6000
+    },
+    "border": {
+      "type": "double",
+      "trim": "none"
+    },
+    "content": {
+      "mode": "enter_only",
+      "effect": {
+        "type": "split_flap",
+        "speed": 1.5,
+        "cascade": 0.1
+      }
+    },
+    "pipeline": {
+      "enter": {
+        "duration_ms": 3000,
+        "easing": "linear"
+      },
+      "exit": {
+        "duration_ms": 1000,
+        "easing": "quad_in"
+      },
+      "mask": {
+        "enter": {
+          "type": "none"
+        },
+        "exit": {
+          "type": "none"
+        }
+      },
+      "sampler": {
+        "enter": {
+          "type": "none"
+        },
+        "exit": {
+          "type": "none"
+        }
+      },
+      "filter": {
+        "enter": {
+          "type": "none"
+        },
+        "exit": {
+          "type": "none"
+        }
+      },
+      "style": {
+        "region": "All",
+        "base_style": {
+          "foreground": {
+            "type": "yellow"
+          },
+          "background": {
+            "type": "rgb",
+            "r": 30,
+            "g": 30,
+            "b": 10
+          }
+        }
+      }
+    }
+  }
+}

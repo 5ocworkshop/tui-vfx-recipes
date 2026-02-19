@@ -1,0 +1,81 @@
+{
+  "schema_version": 1,
+  "id": "debug.style.pulse",
+  "title": "Debug: Style - Pulse",
+  "description": "Tests Pulse style effect with frequency and color parameters",
+  "version": "1.0.0",
+  "last_updated": "2025-12-30",
+  "config": {
+    "message": "STYLE TEST: Pulse Effect",
+    "layout": {
+      "width": 35,
+      "height": 3,
+      "anchor": "center"
+    },
+    "lifecycle": {
+      "auto_dismiss_ms": 6000
+    },
+    "border": {
+      "type": "rounded",
+      "trim": "none"
+    },
+    "pipeline": {
+      "enter": {
+        "duration_ms": 1000,
+        "easing": "quad_out"
+      },
+      "exit": {
+        "duration_ms": 1000,
+        "easing": "quad_in"
+      },
+      "mask": {
+        "enter": {
+          "type": "none"
+        },
+        "exit": {
+          "type": "none"
+        }
+      },
+      "sampler": {
+        "enter": {
+          "type": "none"
+        },
+        "exit": {
+          "type": "none"
+        }
+      },
+      "filter": {
+        "enter": {
+          "type": "none"
+        },
+        "exit": {
+          "type": "none"
+        }
+      },
+      "style": {
+        "region": "All",
+        "base_style": {
+          "foreground": {
+            "type": "red"
+          },
+          "background": {
+            "type": "rgb",
+            "r": 50,
+            "g": 10,
+            "b": 10
+          }
+        },
+        "dwell_effect": {
+          "type": "pulse",
+          "frequency": 2.0,
+          "color": {
+            "type": "rgb",
+            "r": 255,
+            "g": 100,
+            "b": 100
+          }
+        }
+      }
+    }
+  }
+}

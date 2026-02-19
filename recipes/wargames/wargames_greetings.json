@@ -1,0 +1,23 @@
+{
+  "schema_version": 1,
+  "extends": "themes/wopr_green.json",
+  "id": "wargames.greetings",
+  "title": "WarGames - Greetings",
+  "description": "WOPR greeting - GREETINGS PROFESSOR FALKEN - Steady computer output",
+  "version": "2.0.0",
+  "last_updated": "2025-12-24",
+  "config": {
+    "message": "GREETINGS PROFESSOR FALKEN.\n\nHOW ARE YOU FEELING TODAY?",
+    "layout": {
+      "height": 5
+    },
+    "lifecycle": {
+      "auto_dismiss_ms": 10000
+    },
+    "pipeline": {
+      "enter": {
+        "duration_ms": 2400
+      }
+    }
+  }
+}

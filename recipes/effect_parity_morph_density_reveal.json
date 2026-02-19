@@ -1,0 +1,90 @@
+{
+  "schema_version": 1,
+  "id": "showcase.effect_parity_morph_density_reveal",
+  "title": "Morph Density Reveal",
+  "description": "All cells cycle through density blocks (█▓▒░) simultaneously to reveal text with fade-in",
+  "version": "2.2.0",
+  "last_updated": "2025-12-26",
+  "config": {
+    "message": "REVEALED!",
+    "layout": {
+      "anchor": "bottom_right",
+      "width": 20,
+      "height": 4
+    },
+    "lifecycle": {
+      "auto_dismiss_ms": 5000
+    },
+    "border": {
+      "type": "rounded"
+    },
+    "content": {
+      "mode": "enter_only",
+      "effect": {
+        "type": "morph",
+        "source": "",
+        "progression": "density_conceal",
+        "direction": "simultaneous",
+        "seed": 42
+      }
+    },
+    "pipeline": {
+      "enter": {
+        "duration_ms": 2000,
+        "easing": "linear"
+      },
+      "exit": {
+        "duration_ms": 400,
+        "easing": "cubic_in"
+      },
+      "styles": [
+        {
+          "region": "All",
+          "base_style": {
+            "foreground": {
+              "type": "light_yellow"
+            },
+            "background": {
+              "type": "rgb",
+              "r": 30,
+              "g": 25,
+              "b": 15
+            }
+          }
+        },
+        {
+          "region": "TextOnly",
+          "base_style": {
+            "foreground": {
+              "type": "light_yellow"
+            }
+          },
+          "enter_effect": {
+            "type": "fade_in",
+            "apply_to": "foreground",
+            "ease": "SineInOut"
+          },
+          "dwell_effect": {
+            "type": "spatial",
+            "shader": {
+              "type": "glisten_band",
+              "speed": 0.3,
+              "band_width": 8,
+              "angle_deg": 45.0,
+              "head": {
+                "r": 255,
+                "g": 240,
+                "b": 180
+              },
+              "tail": {
+                "r": 227,
+                "g": 207,
+                "b": 87
+              }
+            }
+          }
+        }
+      ]
+    }
+  }
+}

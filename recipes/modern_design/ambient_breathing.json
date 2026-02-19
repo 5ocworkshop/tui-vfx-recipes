@@ -1,0 +1,122 @@
+{
+  "schema_version": 1,
+  "id": "modern.ambient_breathing",
+  "title": "Ambient Breathing",
+  "description": "Subtle breathing effect that makes UI feel 'alive' without being distracting. Uses slow pulse + gentle glisten for calm, organic presence.",
+  "version": "1.0.0",
+  "last_updated": "2026-01-20",
+  "config": {
+    "message": "╭──────────────────────────────╮\n│                              │\n│      System Online           │\n│                              │\n│      All services healthy    │\n│                              │\n╰──────────────────────────────╯",
+    "layout": {
+      "width": 34,
+      "height": 9,
+      "anchor": "bottom_right"
+    },
+    "lifecycle": {
+      "auto_dismiss_ms": 0
+    },
+    "border": {
+      "type": "none"
+    },
+    "time": {
+      "loop": true,
+      "loop_period_ms": 4000
+    },
+    "pipeline": {
+      "enter": {
+        "duration_ms": 800,
+        "easing": "quad_out"
+      },
+      "exit": {
+        "duration_ms": 600,
+        "easing": "quad_in"
+      },
+      "mask": {
+        "enter": {
+          "type": "radial",
+          "origin": {
+            "type": "center"
+          },
+          "soft_edge": true
+        },
+        "exit": {
+          "type": "dissolve",
+          "seed": 777,
+          "chunk_size": 1
+        }
+      },
+      "sampler": {
+        "enter": {
+          "type": "none"
+        },
+        "exit": {
+          "type": "none"
+        }
+      },
+      "filter": {
+        "enter": {
+          "type": "none"
+        },
+        "dwell": {
+          "type": "vignette",
+          "strength": 0.08,
+          "radius": 0.92
+        },
+        "exit": {
+          "type": "none"
+        }
+      },
+      "style": {
+        "region": "All",
+        "base_style": {
+          "foreground": {
+            "type": "rgb",
+            "r": 80,
+            "g": 180,
+            "b": 130
+          },
+          "background": {
+            "type": "rgb",
+            "r": 15,
+            "g": 30,
+            "b": 25
+          }
+        },
+        "enter_effect": {
+          "type": "fade_in",
+          "apply_to": "both",
+          "ease": "QuadOut"
+        },
+        "dwell_effect": {
+          "type": "spatial",
+          "shader": {
+            "type": "glisten_band",
+            "speed": 0.15,
+            "band_width": 20,
+            "angle_deg": 45.0,
+            "head": {
+              "type": "rgb",
+              "r": 100,
+              "g": 210,
+              "b": 150
+            },
+            "tail": {
+              "type": "rgb",
+              "r": 70,
+              "g": 160,
+              "b": 115
+            },
+            "direction": "ping_pong",
+            "apply_to": "foreground",
+            "blend_strength": 0.3
+          }
+        },
+        "exit_effect": {
+          "type": "fade_out",
+          "apply_to": "both",
+          "ease": "QuadIn"
+        }
+      }
+    }
+  }
+}

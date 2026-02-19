@@ -1,0 +1,15 @@
+{
+  "schema_version": 1,
+  "id": "wargames.sequence.05_system_status",
+  "title": "Sequence 05 - System Status",
+  "description": "Fifth screen - FORASAT system ready, SYSCOMP all ports active",
+  "version": "1.0.0",
+  "last_updated": "2025-12-25",
+  "extends": "themes/enhanced_crt_computer.json",
+  "config": {
+    "message": "(311) 70-429\n(311) 94-932\n        CAT. SYN.                      CAT. REF.\n████████════════════════════════       CRT S3F3J, SURF.3J;\nFORASAT SRF.3J; SR.3J;                 RT.S3J SR.F3J; SURF.3J;\nS3SUAP CORNET 1200 V.                  RT.S3J\nCORNET READY                           SYSCOMP STATUS: ALL PORTS ACTIVE\nRT.6 DATE                              S7(CP-SM49-98909\n(311) 936-2364",
+    "lifecycle": {
+      "auto_dismiss_ms": 600
+    }
+  }
+}

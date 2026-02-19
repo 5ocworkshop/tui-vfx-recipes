@@ -1,0 +1,75 @@
+{
+  "schema_version": 1,
+  "id": "debug.filter.dim",
+  "title": "Debug: Filter - Dim",
+  "description": "Tests Dim filter with factor and apply_to parameters",
+  "version": "1.0.0",
+  "last_updated": "2025-12-30",
+  "config": {
+    "message": "FILTER TEST: Dim Effect",
+    "layout": {
+      "width": 35,
+      "height": 3,
+      "anchor": "center"
+    },
+    "lifecycle": {
+      "auto_dismiss_ms": 5000
+    },
+    "border": {
+      "type": "rounded",
+      "trim": "none"
+    },
+    "pipeline": {
+      "enter": {
+        "duration_ms": 2000,
+        "easing": "linear"
+      },
+      "exit": {
+        "duration_ms": 1000,
+        "easing": "linear"
+      },
+      "mask": {
+        "enter": {
+          "type": "none"
+        },
+        "exit": {
+          "type": "none"
+        }
+      },
+      "sampler": {
+        "enter": {
+          "type": "none"
+        },
+        "exit": {
+          "type": "none"
+        }
+      },
+      "filter": {
+        "enter": {
+          "type": "dim",
+          "factor": 0.3,
+          "apply_to": "both"
+        },
+        "exit": {
+          "type": "dim",
+          "factor": 0.5,
+          "apply_to": "foreground"
+        }
+      },
+      "style": {
+        "region": "All",
+        "base_style": {
+          "foreground": {
+            "type": "white"
+          },
+          "background": {
+            "type": "rgb",
+            "r": 60,
+            "g": 60,
+            "b": 80
+          }
+        }
+      }
+    }
+  }
+}

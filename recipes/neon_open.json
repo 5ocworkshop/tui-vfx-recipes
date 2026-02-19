@@ -1,0 +1,105 @@
+{
+  "schema_version": 1,
+  "id": "notifications.neon_open",
+  "title": "Neon Open",
+  "description": "Flickering tube light with subtle vibration",
+  "version": "2.0.0",
+  "last_updated": "2025-12-18",
+  "config": {
+    "message": "OPEN LATE",
+    "layout": {
+      "width": 20,
+      "height": 5,
+      "anchor": "top_right"
+    },
+    "lifecycle": {
+      "auto_dismiss_ms": 6000
+    },
+    "border": {
+      "type": "rounded",
+      "trim": "none"
+    },
+    "pipeline": {
+      "enter": {
+        "duration_ms": 4000,
+        "easing": "linear",
+        "motion_path": {
+          "type": "hover",
+          "amplitude": 0.25,
+          "frequency": 50.265482
+        },
+        "snapping": {
+          "type": "stochastic",
+          "seed": 424242
+        }
+      },
+      "exit": {
+        "duration_ms": 700,
+        "easing": "linear",
+        "snapping": {
+          "type": "round"
+        }
+      },
+      "mask": {
+        "enter": {
+          "type": "none"
+        },
+        "exit": {
+          "type": "none"
+        }
+      },
+      "sampler": {
+        "enter": {
+          "type": "sine_wave",
+          "axis": "x",
+          "amplitude": 0.6,
+          "frequency": 0.9,
+          "speed": 1.2,
+          "phase": 0.0
+        },
+        "exit": {
+          "type": "none"
+        }
+      },
+      "filter": {
+        "enter": {
+          "type": "none"
+        },
+        "exit": {
+          "type": "none"
+        }
+      },
+      "style": {
+        "region": "All",
+        "base_style": {
+          "foreground": {
+            "type": "rgb",
+            "r": 80,
+            "g": 255,
+            "b": 240
+          },
+          "background": {
+            "type": "black"
+          },
+          "added_modifiers": [
+            "bold"
+          ],
+          "removed_modifiers": []
+        },
+        "enter_effect": {
+          "type": "neon_flicker",
+          "stability": 0.6
+        },
+        "exit_effect": {
+          "type": "fade_out",
+          "apply_to": "both",
+          "ease": "Linear"
+        }
+      }
+    },
+    "requires_primitives": [
+      "style.effect.neon_flicker",
+      "sampler.sinewave_params"
+    ]
+  }
+}

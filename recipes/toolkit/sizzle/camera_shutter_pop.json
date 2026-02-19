@@ -1,0 +1,116 @@
+{
+  "schema_version": 1,
+  "id": "toolkit.sizzle.camera_shutter_pop",
+  "title": "Camera Shutter Pop",
+  "description": "A camera moment: shutter iris opens, a quick flash invert hits, and a lens-ring pulse travels outward.",
+  "version": "0.1.0",
+  "last_updated": "2025-12-23",
+  "config": {
+    "message": "Screenshot captured\nSaved to ~/Pictures",
+    "layout": {
+      "width": 44,
+      "height": 5,
+      "anchor": "center"
+    },
+    "lifecycle": {
+      "auto_dismiss_ms": 5500
+    },
+    "border": {
+      "type": "double",
+      "trim": "none"
+    },
+    "content": {
+      "mode": "enter_only"
+    },
+    "pipeline": {
+      "enter": {
+        "duration_ms": 220,
+        "easing": "linear",
+        "snapping": {
+          "type": "round"
+        }
+      },
+      "exit": {
+        "duration_ms": 600,
+        "easing": "cubic_in",
+        "snapping": {
+          "type": "round"
+        }
+      },
+      "mask": {
+        "enter": {
+          "type": "iris",
+          "shape": "circle",
+          "soft_edge": false
+        },
+        "exit": {
+          "type": "iris",
+          "shape": "circle",
+          "soft_edge": true
+        }
+      },
+      "sampler": {
+        "enter": {
+          "type": "none"
+        },
+        "exit": {
+          "type": "ripple",
+          "amplitude": 1.2,
+          "wavelength": 6.0,
+          "speed": -2.2,
+          "center": "center"
+        }
+      },
+      "filter": {
+        "enter": {
+          "type": "invert",
+          "apply_to": "both"
+        },
+        "exit": {
+          "type": "tint",
+          "color": {
+            "type": "black"
+          },
+          "strength": 0.8,
+          "apply_to": "both"
+        }
+      },
+      "style": {
+        "region": "All",
+        "base_style": {
+          "foreground": {
+            "type": "white"
+          },
+          "background": {
+            "type": "rgb",
+            "r": 18,
+            "g": 18,
+            "b": 24
+          },
+          "added_modifiers": [
+            "bold"
+          ],
+          "removed_modifiers": []
+        },
+        "enter_effect": {
+          "type": "spatial",
+          "shader": {
+            "type": "pulse_wave",
+            "frequency": 2.2,
+            "speed": 2.8,
+            "color": {
+              "type": "light_cyan"
+            },
+            "direction": "radial",
+            "wavelength": 4.0
+          }
+        },
+        "exit_effect": {
+          "type": "fade_out",
+          "apply_to": "both",
+          "ease": "CubicIn"
+        }
+      }
+    }
+  }
+}

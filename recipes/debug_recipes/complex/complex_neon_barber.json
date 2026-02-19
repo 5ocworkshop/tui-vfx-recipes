@@ -1,0 +1,195 @@
+{
+  "schema_version": 1,
+  "id": "debug.complex.neon_barber",
+  "title": "Debug: NoiseDither + CrtJitter + BarberPole/NeonFlicker + Column Targeting",
+  "description": "Tests NoiseDither mask, CrtJitter sampler, Vignette filter, BarberPole/NeonFlicker/Reflect shaders, SplitFlap content, and Column/ColumnRange targeting",
+  "version": "1.0.0",
+  "last_updated": "2025-12-30",
+  "config": {
+    "message": "NEON BARBER SHOP",
+    "layout": {
+      "width": 55,
+      "height": 7,
+      "anchor": "center"
+    },
+    "lifecycle": {
+      "auto_dismiss_ms": 12000
+    },
+    "border": {
+      "type": "double",
+      "trim": "none"
+    },
+    "content": {
+      "mode": "enter_only",
+      "effect": {
+        "type": "split_flap",
+        "speed": 2.0,
+        "cascade": 0.3
+      }
+    },
+    "pipeline": {
+      "enter": {
+        "duration_ms": 2500,
+        "easing": "cubic_out"
+      },
+      "exit": {
+        "duration_ms": 2000,
+        "easing": "cubic_in"
+      },
+      "mask": {
+        "enter": {
+          "type": "noise_dither",
+          "seed": 555,
+          "matrix": "bayer8"
+        },
+        "exit": {
+          "type": "noise_dither",
+          "seed": 777,
+          "matrix": "bayer4"
+        }
+      },
+      "sampler": {
+        "enter": {
+          "type": "crt_jitter",
+          "intensity": 0.6,
+          "speed_hz": 2.0,
+          "decay_ms": 500
+        },
+        "exit": {
+          "type": "crt_jitter",
+          "intensity": 0.8,
+          "speed_hz": 3.0,
+          "decay_ms": 300
+        }
+      },
+      "filter": {
+        "enter": {
+          "type": "vignette",
+          "strength": 0.4,
+          "radius": 0.6
+        },
+        "exit": {
+          "type": "vignette",
+          "strength": 0.8,
+          "radius": 0.3
+        }
+      },
+      "styles": [
+        {
+          "region": {
+            "ColumnRange": {
+              "start": 0,
+              "end": 18
+            }
+          },
+          "base_style": {
+            "foreground": {
+              "type": "rgb",
+              "r": 255,
+              "g": 50,
+              "b": 50
+            },
+            "background": {
+              "type": "rgb",
+              "r": 40,
+              "g": 10,
+              "b": 10
+            }
+          },
+          "spatial_shader": {
+            "type": "barber_pole",
+            "color": {
+              "r": 255,
+              "g": 255,
+              "b": 255
+            },
+            "stripe_width": 2,
+            "gap_width": 2,
+            "speed": 1.5
+          }
+        },
+        {
+          "region": {
+            "ColumnRange": {
+              "start": 18,
+              "end": 37
+            }
+          },
+          "base_style": {
+            "foreground": {
+              "type": "rgb",
+              "r": 255,
+              "g": 100,
+              "b": 255
+            },
+            "background": {
+              "type": "rgb",
+              "r": 30,
+              "g": 10,
+              "b": 30
+            }
+          },
+          "spatial_shader": {
+            "type": "neon_flicker",
+            "stability": 0.6,
+            "segment": "column",
+            "dim_amount": 0.5,
+            "seed": 42,
+            "speed": 1.2
+          }
+        },
+        {
+          "region": {
+            "ColumnRange": {
+              "start": 37,
+              "end": 55
+            }
+          },
+          "base_style": {
+            "foreground": {
+              "type": "rgb",
+              "r": 100,
+              "g": 200,
+              "b": 255
+            },
+            "background": {
+              "type": "rgb",
+              "r": 10,
+              "g": 30,
+              "b": 50
+            }
+          },
+          "spatial_shader": {
+            "type": "reflect",
+            "color": {
+              "r": 255,
+              "g": 255,
+              "b": 255
+            },
+            "speed": 1.0
+          }
+        },
+        {
+          "region": {
+            "Columns": [
+              10,
+              27,
+              45
+            ]
+          },
+          "base_style": {
+            "foreground": {
+              "type": "yellow"
+            },
+            "background": {
+              "type": "rgb",
+              "r": 50,
+              "g": 50,
+              "b": 0
+            }
+          }
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,114 @@
+{
+  "schema_version": 1,
+  "id": "scandi.success",
+  "title": "Success",
+  "description": "Triumphant yet restrained. Forest sage with upward lift and celebratory glisten sweep.",
+  "version": "2.0.0",
+  "last_updated": "2025-12-30",
+  "config": {
+    "message": "Build completed successfully",
+    "layout": {
+      "width": 38,
+      "height": 3,
+      "anchor": "top_right"
+    },
+    "lifecycle": {
+      "auto_dismiss_ms": 4000
+    },
+    "border": {
+      "type": "rounded",
+      "trim": "none"
+    },
+    "pipeline": {
+      "enter": {
+        "duration_ms": 480,
+        "easing": "cubic_out",
+        "motion_path": {
+          "type": "arc",
+          "bulge": -0.15
+        },
+        "snapping": {
+          "type": "round"
+        }
+      },
+      "exit": {
+        "duration_ms": 350,
+        "easing": "sine_in",
+        "snapping": {
+          "type": "round"
+        }
+      },
+      "mask": {
+        "enter": {
+          "type": "wipe",
+          "direction": "left_to_right",
+          "soft_edge": true
+        },
+        "exit": {
+          "type": "none"
+        }
+      },
+      "sampler": {
+        "enter": {
+          "type": "none"
+        },
+        "exit": {
+          "type": "none"
+        }
+      },
+      "filter": {
+        "enter": {
+          "type": "none"
+        },
+        "exit": {
+          "type": "none"
+        }
+      },
+      "style": {
+        "region": "All",
+        "base_style": {
+          "foreground": {
+            "type": "rgb",
+            "r": 250,
+            "g": 252,
+            "b": 248
+          },
+          "background": {
+            "type": "rgb",
+            "r": 78,
+            "g": 107,
+            "b": 74
+          },
+          "added_modifiers": [],
+          "removed_modifiers": []
+        },
+        "enter_effect": {
+          "type": "spatial",
+          "shader": {
+            "type": "glisten_band",
+            "band_width": 5,
+            "speed": 0.6,
+            "angle_deg": 12.0,
+            "head": {
+              "type": "rgb",
+              "r": 165,
+              "g": 195,
+              "b": 160
+            },
+            "tail": {
+              "type": "rgb",
+              "r": 110,
+              "g": 140,
+              "b": 105
+            }
+          }
+        },
+        "exit_effect": {
+          "type": "fade_out",
+          "apply_to": "both",
+          "ease": "SineOut"
+        }
+      }
+    }
+  }
+}

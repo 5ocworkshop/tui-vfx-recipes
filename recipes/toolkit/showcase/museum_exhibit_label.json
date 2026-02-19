@@ -1,0 +1,123 @@
+{
+  "schema_version": 1,
+  "id": "toolkit.showcase.museum_exhibit_label",
+  "title": "Museum Exhibit Label",
+  "description": "Nordic museum calm with polish: slow reveal through soft box iris, a glass-like sheen pass, and a dignified blackout.",
+  "version": "0.1.0",
+  "last_updated": "2025-12-23",
+  "config": {
+    "message": "EXHIBIT 14\nNordic Minimalism\n— 1968 —",
+    "layout": {
+      "width": 34,
+      "height": 7,
+      "anchor": "center"
+    },
+    "lifecycle": {
+      "auto_dismiss_ms": 18000
+    },
+    "border": {
+      "type": "rounded",
+      "trim": "none"
+    },
+    "content": {
+      "mode": "enter_only",
+      "effect": {
+        "type": "typewriter",
+        "speed_variance": 0.2
+      }
+    },
+    "pipeline": {
+      "enter": {
+        "duration_ms": 3600,
+        "easing": "cubic_out",
+        "snapping": {
+          "type": "round"
+        }
+      },
+      "exit": {
+        "duration_ms": 1400,
+        "easing": "cubic_in",
+        "snapping": {
+          "type": "round"
+        }
+      },
+      "mask": {
+        "enter": {
+          "type": "iris",
+          "shape": "box",
+          "soft_edge": true
+        },
+        "exit": {
+          "type": "wipe",
+          "direction": "bottom_to_top",
+          "soft_edge": true
+        }
+      },
+      "sampler": {
+        "enter": {
+          "type": "none"
+        },
+        "exit": {
+          "type": "none"
+        }
+      },
+      "filter": {
+        "enter": {
+          "type": "vignette",
+          "strength": 0.12,
+          "radius": 0.95
+        },
+        "exit": {
+          "type": "tint",
+          "color": {
+            "type": "black"
+          },
+          "strength": 0.85,
+          "apply_to": "both"
+        }
+      },
+      "style": {
+        "region": "All",
+        "base_style": {
+          "foreground": {
+            "type": "rgb",
+            "r": 30,
+            "g": 30,
+            "b": 35
+          },
+          "background": {
+            "type": "rgb",
+            "r": 245,
+            "g": 245,
+            "b": 245
+          },
+          "added_modifiers": [],
+          "removed_modifiers": []
+        },
+        "enter_effect": {
+          "type": "spatial",
+          "shader": {
+            "type": "glisten_band",
+            "speed": 0.3,
+            "band_width": 3,
+            "angle_deg": 90,
+            "head": {
+              "type": "white"
+            },
+            "tail": {
+              "type": "rgb",
+              "r": 200,
+              "g": 200,
+              "b": 210
+            }
+          }
+        },
+        "exit_effect": {
+          "type": "fade_out",
+          "apply_to": "both",
+          "ease": "CubicIn"
+        }
+      }
+    }
+  }
+}

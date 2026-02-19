@@ -1,0 +1,139 @@
+{
+  "schema_version": 1,
+  "id": "progress.executive_silver",
+  "title": "Executive Silver",
+  "description": "Understated silver/gray pulsing indicator. Refined metallic sheen for premium interfaces.",
+  "version": "1.0.0",
+  "last_updated": "2025-12-29",
+  "config": {
+    "message": "▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪",
+    "layout": {
+      "width": 24,
+      "height": 1,
+      "anchor": "bottom_center"
+    },
+    "lifecycle": {
+      "auto_dismiss_ms": 0
+    },
+    "time": {
+      "loop": true,
+      "loop_period_ms": 2500
+    },
+    "border": {
+      "type": "none",
+      "trim": "none"
+    },
+    "pipeline": {
+      "enter": {
+        "duration_ms": 300,
+        "easing": "sine_out",
+        "snapping": {
+          "type": "round"
+        }
+      },
+      "exit": {
+        "duration_ms": 250,
+        "easing": "sine_in",
+        "snapping": {
+          "type": "round"
+        }
+      },
+      "mask": {
+        "enter": {
+          "type": "none"
+        },
+        "exit": {
+          "type": "none"
+        }
+      },
+      "sampler": {
+        "enter": {
+          "type": "none"
+        },
+        "exit": {
+          "type": "none"
+        }
+      },
+      "filter": {
+        "enter": {
+          "type": "none"
+        },
+        "exit": {
+          "type": "none"
+        }
+      },
+      "style": {
+        "region": "All",
+        "base_style": {
+          "foreground": {
+            "type": "rgb",
+            "r": 120,
+            "g": 120,
+            "b": 130
+          },
+          "background": {
+            "type": "reset"
+          },
+          "added_modifiers": [],
+          "removed_modifiers": []
+        },
+        "enter_effect": {
+          "type": "spatial",
+          "shader": {
+            "type": "glisten_band",
+            "speed": 0.4,
+            "band_width": 6,
+            "angle_deg": 0.0,
+            "head": {
+              "type": "rgb",
+              "r": 220,
+              "g": 220,
+              "b": 235
+            },
+            "tail": {
+              "type": "rgb",
+              "r": 160,
+              "g": 160,
+              "b": 175
+            },
+            "direction": "ping_pong",
+            "apply_to": "foreground",
+            "blend_strength": 0.7
+          }
+        },
+        "dwell_effect": {
+          "type": "spatial",
+          "shader": {
+            "type": "glisten_band",
+            "speed": 0.4,
+            "band_width": 6,
+            "angle_deg": 0.0,
+            "head": {
+              "type": "rgb",
+              "r": 220,
+              "g": 220,
+              "b": 235
+            },
+            "tail": {
+              "type": "rgb",
+              "r": 160,
+              "g": 160,
+              "b": 175
+            },
+            "direction": "ping_pong",
+            "apply_to": "foreground",
+            "blend_strength": 0.7
+          }
+        },
+        "exit_effect": {
+          "type": "fade_out",
+          "apply_to": "foreground",
+          "ease": "SineIn"
+        }
+      }
+    },
+    "requires_primitives": [
+      "shader.glisten_band"
+    ]
+  }
+}

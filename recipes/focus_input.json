@@ -1,0 +1,106 @@
+{
+  "schema_version": 1,
+  "id": "notifications.focus_input",
+  "title": "Focus Input",
+  "description": "Border sweep indicating active input state",
+  "version": "2.0.0",
+  "last_updated": "2025-12-18",
+  "config": {
+    "message": "ENTER PASSWORD:",
+    "layout": {
+      "width": 25,
+      "height": 3,
+      "anchor": "center"
+    },
+    "lifecycle": {
+      "auto_dismiss_ms": 10000
+    },
+    "time": {
+      "loop": true,
+      "loop_period_ms": 1200
+    },
+    "border": {
+      "type": "rounded",
+      "trim": "none"
+    },
+    "pipeline": {
+      "enter": {
+        "duration_ms": 120,
+        "easing": "linear",
+        "snapping": {
+          "type": "round"
+        }
+      },
+      "exit": {
+        "duration_ms": 250,
+        "easing": "linear",
+        "snapping": {
+          "type": "round"
+        }
+      },
+      "mask": {
+        "enter": {
+          "type": "none"
+        },
+        "exit": {
+          "type": "none"
+        }
+      },
+      "sampler": {
+        "enter": {
+          "type": "none"
+        },
+        "exit": {
+          "type": "none"
+        }
+      },
+      "filter": {
+        "enter": {
+          "type": "none"
+        },
+        "exit": {
+          "type": "none"
+        }
+      },
+      "style": {
+        "region": "BorderOnly",
+        "base_style": {
+          "foreground": {
+            "type": "white"
+          },
+          "background": {
+            "type": "rgb",
+            "r": 12,
+            "g": 14,
+            "b": 20
+          },
+          "added_modifiers": [],
+          "removed_modifiers": []
+        },
+        "enter_effect": {
+          "type": "fade_in",
+          "apply_to": "foreground",
+          "ease": "Linear"
+        },
+        "exit_effect": {
+          "type": "fade_out",
+          "apply_to": "foreground",
+          "ease": "Linear"
+        },
+        "spatial_shader": {
+          "type": "border_sweep",
+          "speed": 1.5,
+          "length": 8,
+          "color": {
+            "type": "cyan"
+          }
+        }
+      }
+    },
+    "requires_primitives": [
+      "style.shader.border_sweep",
+      "style.region_targeting",
+      "time.looping"
+    ]
+  }
+}

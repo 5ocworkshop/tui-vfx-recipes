@@ -1,0 +1,109 @@
+{
+  "schema_version": 1,
+  "id": "notifications.cyber_transmission_typewriter",
+  "title": "Cyber-Transmission (Typewriter)",
+  "description": "Typewriter text reveal with cyan-to-white color pulse on text only",
+  "version": "1.0.0",
+  "last_updated": "2025-12-20",
+  "config": {
+    "message": "INCOMING MESSAGE DATA: 0xDEADBEEF 0xCAFEBABE",
+    "layout": {
+      "width": 46,
+      "height": 4,
+      "anchor": "bottom_right"
+    },
+    "lifecycle": {
+      "auto_dismiss_ms": 10000
+    },
+    "border": {
+      "type": "rounded",
+      "trim": "none"
+    },
+    "content": {
+      "mode": "enter_only",
+      "effect": {
+        "type": "typewriter",
+        "speed_variance": 0.3
+      }
+    },
+    "pipeline": {
+      "enter": {
+        "duration_ms": 3000,
+        "easing": "linear",
+        "snapping": {
+          "type": "round"
+        }
+      },
+      "exit": {
+        "duration_ms": 700,
+        "easing": "linear",
+        "snapping": {
+          "type": "round"
+        }
+      },
+      "mask": {
+        "enter": {
+          "type": "none"
+        },
+        "exit": {
+          "type": "none"
+        }
+      },
+      "sampler": {
+        "enter": {
+          "type": "none"
+        },
+        "exit": {
+          "type": "none"
+        }
+      },
+      "filter": {
+        "enter": {
+          "type": "none"
+        },
+        "exit": {
+          "type": "none"
+        }
+      },
+      "style": {
+        "region": "TextOnly",
+        "base_style": {
+          "foreground": {
+            "type": "light_cyan"
+          },
+          "background": {
+            "type": "black"
+          },
+          "added_modifiers": [
+            "bold"
+          ],
+          "removed_modifiers": []
+        },
+        "enter_effect": {
+          "type": "spatial",
+          "shader": {
+            "type": "glitch_lines",
+            "seed": 1337,
+            "intensity": 0.4,
+            "max_lines": 3,
+            "speed": 2.0,
+            "flash_chance": 0.05,
+            "pulse_color": {
+              "type": "white"
+            },
+            "pulse_speed": 0.25
+          }
+        },
+        "exit_effect": {
+          "type": "fade_out",
+          "apply_to": "foreground",
+          "ease": "Linear"
+        }
+      }
+    },
+    "requires_primitives": [
+      "content.typewriter",
+      "shader.glitch_lines"
+    ]
+  }
+}

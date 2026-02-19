@@ -1,0 +1,15 @@
+{
+  "schema_version": 1,
+  "id": "wargames.sequence.11_syscomp_all_ports",
+  "title": "Sequence 11 - SYSCOMP All Ports",
+  "description": "Eleventh screen - final system confirmation, all ports active",
+  "version": "1.0.0",
+  "last_updated": "2025-12-25",
+  "extends": "themes/enhanced_crt_computer.json",
+  "config": {
+    "message": "FLNP    TA1    BN83    RG01    PZ38    GJ82    FP83    ZM88    JM89\nCP CHECKSUM: 43.354E2.943\nSISPAK FUNCT READY\n                                      ALT NET READY\n\nCP4 AUTH #V-345-203            SYSCOMP STATUS: ALL PORTS ..",
+    "lifecycle": {
+      "auto_dismiss_ms": 600
+    }
+  }
+}

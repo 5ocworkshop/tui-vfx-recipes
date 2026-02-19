@@ -1,0 +1,71 @@
+{
+  "schema_version": 1,
+  "id": "debug.baseline",
+  "title": "Debug: Baseline (No Effects)",
+  "description": "Baseline recipe with no effects - validates basic pipeline processing",
+  "version": "1.0.0",
+  "last_updated": "2025-12-30",
+  "config": {
+    "message": "BASELINE TEST - No Effects",
+    "layout": {
+      "width": 35,
+      "height": 3,
+      "anchor": "center"
+    },
+    "lifecycle": {
+      "auto_dismiss_ms": 5000
+    },
+    "border": {
+      "type": "rounded",
+      "trim": "none"
+    },
+    "pipeline": {
+      "enter": {
+        "duration_ms": 1000,
+        "easing": "linear"
+      },
+      "exit": {
+        "duration_ms": 1000,
+        "easing": "linear"
+      },
+      "mask": {
+        "enter": {
+          "type": "none"
+        },
+        "exit": {
+          "type": "none"
+        }
+      },
+      "sampler": {
+        "enter": {
+          "type": "none"
+        },
+        "exit": {
+          "type": "none"
+        }
+      },
+      "filter": {
+        "enter": {
+          "type": "none"
+        },
+        "exit": {
+          "type": "none"
+        }
+      },
+      "style": {
+        "region": "All",
+        "base_style": {
+          "foreground": {
+            "type": "white"
+          },
+          "background": {
+            "type": "rgb",
+            "r": 40,
+            "g": 40,
+            "b": 40
+          }
+        }
+      }
+    }
+  }
+}

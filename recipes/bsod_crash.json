@@ -1,0 +1,100 @@
+{
+  "schema_version": 1,
+  "id": "notifications.bsod_crash",
+  "title": "Blue Screen",
+  "description": "Simulated fatal system error with CRT effect - fills entire terminal",
+  "version": "2.1.0",
+  "last_updated": "2025-12-24",
+  "config": {
+    "message": "A problem has been detected and Windows has been shut down to prevent\ndamage to your computer.\n\nIf this is the first time you've seen this Stop error screen,\nrestart your computer. If this screen appears again, follow\nthese steps:\n\nCheck to be sure you have adequate disk space. If a driver is\nidentified in the Stop message, disable the driver or check\nwith the manufacturer for driver updates. Try changing video\nadapters.\n\nCheck with your hardware vendor for any BIOS updates. Disable\nBIOS memory options such as caching or shadowing. If you need\nto use Safe Mode to remove or disable components, restart your\ncomputer, press F8 to select Advanced Startup options, and then\nselect Safe Mode.\n\nTechnical information:\n\n*** STOP: 0x0000008E (0x80000003, 0x8A180374)",
+    "layout": {
+      "mode": "fullscreen",
+      "width": 80,
+      "height": 24,
+      "anchor": "center"
+    },
+    "lifecycle": {
+      "auto_dismiss_ms": 10000
+    },
+    "border": {
+      "type": "none",
+      "trim": "none",
+      "center_content": true
+    },
+    "pipeline": {
+      "animation_type": "fade",
+      "enter": {
+        "duration_ms": 120,
+        "easing": "linear",
+        "snapping": {
+          "type": "round"
+        }
+      },
+      "exit": {
+        "duration_ms": 200,
+        "easing": "linear",
+        "snapping": {
+          "type": "round"
+        }
+      },
+      "mask": {
+        "enter": {
+          "type": "none"
+        },
+        "exit": {
+          "type": "none"
+        }
+      },
+      "sampler": {
+        "enter": {
+          "type": "crt_jitter",
+          "intensity": 0.25,
+          "speed_hz": 18.0,
+          "decay_ms": 250
+        },
+        "exit": {
+          "type": "none"
+        }
+      },
+      "filter": {
+        "enter": {
+          "type": "none"
+        },
+        "exit": {
+          "type": "none"
+        }
+      },
+      "style": {
+        "region": "All",
+        "base_style": {
+          "foreground": {
+            "type": "white"
+          },
+          "background": {
+            "type": "rgb",
+            "r": 0,
+            "g": 0,
+            "b": 170
+          },
+          "added_modifiers": [
+            "bold"
+          ],
+          "removed_modifiers": []
+        },
+        "enter_effect": {
+          "type": "fade_in",
+          "apply_to": "both",
+          "ease": "Linear"
+        },
+        "exit_effect": {
+          "type": "fade_out",
+          "apply_to": "both",
+          "ease": "Linear"
+        }
+      }
+    },
+    "requires_primitives": [
+      "sampler.crt_jitter"
+    ]
+  }
+}

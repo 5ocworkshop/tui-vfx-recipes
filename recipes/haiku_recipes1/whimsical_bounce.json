@@ -1,0 +1,100 @@
+{
+  "schema_version": 1,
+  "id": "notifications.whimsical_bounce",
+  "title": "Whimsical Bounce",
+  "description": "Playful notification with bouncy cubic easing and stochastic pixelation. Uses cyan-green gradient with ripple effect for a fun, lighthearted tone. Great for achievements and celebratory moments.",
+  "version": "1.0.0",
+  "last_updated": "2025-12-22",
+  "config": {
+    "message": "🎉 Congratulations! 🎉",
+    "layout": {
+      "width": 28,
+      "height": 3,
+      "anchor": "center"
+    },
+    "lifecycle": {
+      "auto_dismiss_ms": 4000
+    },
+    "border": {
+      "type": "rounded",
+      "trim": "none"
+    },
+    "pipeline": {
+      "enter": {
+        "duration_ms": 800,
+        "easing": "back_out",
+        "motion_path": {
+          "type": "linear"
+        },
+        "snapping": {
+          "type": "stochastic",
+          "seed": 2025
+        }
+      },
+      "exit": {
+        "duration_ms": 500,
+        "easing": "back_in",
+        "snapping": {
+          "type": "stochastic",
+          "seed": 2025
+        }
+      },
+      "mask": {
+        "enter": {
+          "type": "none"
+        },
+        "exit": {
+          "type": "none"
+        }
+      },
+      "sampler": {
+        "enter": {
+          "type": "ripple",
+          "amplitude": 0.9,
+          "wavelength": 10.0,
+          "speed": 1.1,
+          "center": "center"
+        },
+        "exit": {
+          "type": "none"
+        }
+      },
+      "filter": {
+        "enter": {
+          "type": "none"
+        },
+        "exit": {
+          "type": "none"
+        }
+      },
+      "style": {
+        "region": "All",
+        "base_style": {
+          "foreground": {
+            "type": "green"
+          },
+          "background": {
+            "type": "black"
+          },
+          "added_modifiers": [
+            "bold"
+          ],
+          "removed_modifiers": []
+        },
+        "enter_effect": {
+          "type": "rainbow",
+          "speed": 2.0
+        },
+        "exit_effect": {
+          "type": "fade_out",
+          "apply_to": "both",
+          "ease": "Linear"
+        }
+      }
+    },
+    "requires_primitives": [
+      "sampler.ripple",
+      "style.effect.rainbow"
+    ]
+  }
+}

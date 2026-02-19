@@ -1,0 +1,59 @@
+{
+  "schema_version": 1,
+  "id": "showcase.effect_parity_cellular_mask",
+  "title": "Cellular Mask Effect",
+  "description": "Demonstrates the new Cellular mask with organic Voronoi pattern",
+  "version": "1.0.0",
+  "last_updated": "2025-12-26",
+  "config": {
+    "message": "ORGANIC CELLULAR REVEAL",
+    "layout": {
+      "anchor": "bottom_right",
+      "width": 30,
+      "height": 5
+    },
+    "lifecycle": {
+      "auto_dismiss_ms": 5000
+    },
+    "border": {
+      "type": "rounded"
+    },
+    "pipeline": {
+      "enter": {
+        "duration_ms": 1200,
+        "easing": "cubic_out"
+      },
+      "exit": {
+        "duration_ms": 800,
+        "easing": "cubic_in"
+      },
+      "mask": {
+        "enter": {
+          "type": "cellular",
+          "pattern": "voronoi",
+          "seed": 42,
+          "cell_count": 24
+        },
+        "exit": {
+          "type": "cellular",
+          "pattern": "hexagonal",
+          "seed": 99,
+          "cell_count": 16
+        }
+      },
+      "style": {
+        "base_style": {
+          "foreground": {
+            "type": "light_green"
+          },
+          "background": {
+            "type": "rgb",
+            "r": 10,
+            "g": 30,
+            "b": 20
+          }
+        }
+      }
+    }
+  }
+}

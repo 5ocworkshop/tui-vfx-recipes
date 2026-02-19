@@ -1,0 +1,101 @@
+{
+  "schema_version": 1,
+  "id": "scandi.disconnected",
+  "title": "Disconnected",
+  "description": "Quiet absence. Charcoal slate, direct entry, no effects - emptiness communicates loss.",
+  "version": "2.0.0",
+  "last_updated": "2025-12-30",
+  "config": {
+    "message": "Connection lost",
+    "layout": {
+      "width": 32,
+      "height": 3,
+      "anchor": "top_right"
+    },
+    "lifecycle": {
+      "auto_dismiss_ms": 8000
+    },
+    "border": {
+      "type": "rounded",
+      "trim": "none"
+    },
+    "pipeline": {
+      "enter": {
+        "duration_ms": 400,
+        "easing": "sine_out",
+        "motion_path": {
+          "type": "linear"
+        },
+        "snapping": {
+          "type": "round"
+        }
+      },
+      "exit": {
+        "duration_ms": 350,
+        "easing": "sine_in",
+        "snapping": {
+          "type": "round"
+        }
+      },
+      "mask": {
+        "enter": {
+          "type": "none"
+        },
+        "exit": {
+          "type": "dissolve",
+          "seed": 42,
+          "chunk_size": 2
+        }
+      },
+      "sampler": {
+        "enter": {
+          "type": "none"
+        },
+        "exit": {
+          "type": "none"
+        }
+      },
+      "filter": {
+        "enter": {
+          "type": "tint",
+          "color": {
+            "type": "rgb",
+            "r": 40,
+            "g": 45,
+            "b": 50
+          },
+          "strength": 0.1,
+          "apply_to": "both"
+        },
+        "exit": {
+          "type": "none"
+        }
+      },
+      "style": {
+        "region": "All",
+        "base_style": {
+          "foreground": {
+            "type": "rgb",
+            "r": 180,
+            "g": 185,
+            "b": 190
+          },
+          "background": {
+            "type": "rgb",
+            "r": 62,
+            "g": 68,
+            "b": 72
+          },
+          "added_modifiers": [],
+          "removed_modifiers": []
+        },
+        "enter_effect": null,
+        "exit_effect": {
+          "type": "fade_out",
+          "apply_to": "both",
+          "ease": "Linear"
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,89 @@
+{
+  "schema_version": 1,
+  "id": "debug.shader.focused_row_gradient",
+  "title": "Debug: Shader - FocusedRowGradient",
+  "description": "Tests FocusedRowGradient spatial shader with selected_row_ratio, falloff, and apply_to",
+  "version": "1.0.0",
+  "last_updated": "2025-12-30",
+  "config": {
+    "message": "SHADER TEST: FocusedRowGradient",
+    "layout": {
+      "width": 40,
+      "height": 7,
+      "anchor": "center"
+    },
+    "lifecycle": {
+      "auto_dismiss_ms": 6000
+    },
+    "border": {
+      "type": "rounded",
+      "trim": "none"
+    },
+    "pipeline": {
+      "enter": {
+        "duration_ms": 1000,
+        "easing": "quad_out"
+      },
+      "exit": {
+        "duration_ms": 1000,
+        "easing": "quad_in"
+      },
+      "mask": {
+        "enter": {
+          "type": "none"
+        },
+        "exit": {
+          "type": "none"
+        }
+      },
+      "sampler": {
+        "enter": {
+          "type": "none"
+        },
+        "exit": {
+          "type": "none"
+        }
+      },
+      "filter": {
+        "enter": {
+          "type": "none"
+        },
+        "exit": {
+          "type": "none"
+        }
+      },
+      "style": {
+        "region": "All",
+        "base_style": {
+          "foreground": {
+            "type": "white"
+          },
+          "background": {
+            "type": "rgb",
+            "r": 40,
+            "g": 40,
+            "b": 60
+          }
+        },
+        "spatial_shader": {
+          "type": "focused_row_gradient",
+          "bright_color": {
+            "type": "rgb",
+            "r": 100,
+            "g": 150,
+            "b": 255
+          },
+          "dim_color": {
+            "type": "rgb",
+            "r": 40,
+            "g": 40,
+            "b": 60
+          },
+          "selected_row_ratio": 0.5,
+          "falloff_distance": 2,
+          "apply_to": "Background"
+        }
+      }
+    }
+  }
+}

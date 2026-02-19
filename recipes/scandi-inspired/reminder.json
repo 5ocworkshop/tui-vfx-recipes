@@ -1,0 +1,112 @@
+{
+  "schema_version": 1,
+  "id": "scandi.reminder",
+  "title": "Reminder",
+  "description": "Gentle gravity. Warm oat linen with soft downward settle, amber glisten like morning light.",
+  "version": "2.0.0",
+  "last_updated": "2025-12-30",
+  "config": {
+    "message": "Standup in 5 minutes",
+    "layout": {
+      "width": 34,
+      "height": 3,
+      "anchor": "top_right"
+    },
+    "lifecycle": {
+      "auto_dismiss_ms": 10000
+    },
+    "border": {
+      "type": "rounded",
+      "trim": "none"
+    },
+    "pipeline": {
+      "enter": {
+        "duration_ms": 620,
+        "easing": "sine_out",
+        "motion_path": {
+          "type": "arc",
+          "bulge": 0.18
+        },
+        "snapping": {
+          "type": "round"
+        }
+      },
+      "exit": {
+        "duration_ms": 480,
+        "easing": "sine_in",
+        "snapping": {
+          "type": "round"
+        }
+      },
+      "mask": {
+        "enter": {
+          "type": "none"
+        },
+        "exit": {
+          "type": "none"
+        }
+      },
+      "sampler": {
+        "enter": {
+          "type": "none"
+        },
+        "exit": {
+          "type": "none"
+        }
+      },
+      "filter": {
+        "enter": {
+          "type": "none"
+        },
+        "exit": {
+          "type": "none"
+        }
+      },
+      "style": {
+        "region": "All",
+        "base_style": {
+          "foreground": {
+            "type": "rgb",
+            "r": 65,
+            "g": 55,
+            "b": 48
+          },
+          "background": {
+            "type": "rgb",
+            "r": 238,
+            "g": 228,
+            "b": 212
+          },
+          "added_modifiers": [],
+          "removed_modifiers": []
+        },
+        "enter_effect": {
+          "type": "spatial",
+          "shader": {
+            "type": "glisten_band",
+            "band_width": 6,
+            "speed": 0.35,
+            "angle_deg": 15.0,
+            "head": {
+              "type": "rgb",
+              "r": 218,
+              "g": 185,
+              "b": 140
+            },
+            "tail": {
+              "type": "rgb",
+              "r": 232,
+              "g": 218,
+              "b": 198
+            }
+          }
+        },
+        "exit_effect": {
+          "type": "fade_out",
+          "apply_to": "both",
+          "ease": "SineOut"
+        }
+      }
+    }
+  }
+}

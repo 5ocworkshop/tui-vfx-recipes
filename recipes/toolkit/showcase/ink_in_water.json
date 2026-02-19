@@ -1,0 +1,148 @@
+{
+  "schema_version": 1,
+  "id": "toolkit.showcase.ink_in_water",
+  "title": "Ink in Water",
+  "description": "A slow, painterly moment: content dissolves in, swirls via ripple distortion, and soaks into a deep blue gradient like ink in water.",
+  "version": "0.1.0",
+  "last_updated": "2025-12-23",
+  "config": {
+    "message": "Letter sealed\nink disperses...",
+    "layout": {
+      "width": 48,
+      "height": 5,
+      "anchor": "bottom_center"
+    },
+    "lifecycle": {
+      "auto_dismiss_ms": 15000
+    },
+    "border": {
+      "type": "double",
+      "trim": "none"
+    },
+    "content": {
+      "mode": "enter_only",
+      "effect": {
+        "type": "typewriter",
+        "speed_variance": 0.2
+      }
+    },
+    "pipeline": {
+      "enter": {
+        "duration_ms": 2600,
+        "easing": "quad_in_out",
+        "snapping": {
+          "type": "round"
+        }
+      },
+      "exit": {
+        "duration_ms": 1200,
+        "easing": "cubic_in",
+        "snapping": {
+          "type": "round"
+        }
+      },
+      "mask": {
+        "enter": {
+          "type": "dissolve",
+          "seed": 1001,
+          "chunk_size": 1
+        },
+        "exit": {
+          "type": "dissolve",
+          "seed": 1001,
+          "chunk_size": 4
+        }
+      },
+      "sampler": {
+        "enter": {
+          "type": "ripple",
+          "amplitude": 1.8,
+          "wavelength": 8.0,
+          "speed": 0.7,
+          "center": "center"
+        },
+        "exit": {
+          "type": "fault_line",
+          "seed": 1001,
+          "intensity": 2.0,
+          "split_bias": 0.5
+        }
+      },
+      "filter": {
+        "enter": {
+          "type": "tint",
+          "color": {
+            "type": "rgb",
+            "r": 70,
+            "g": 110,
+            "b": 200
+          },
+          "strength": 0.22,
+          "apply_to": "background"
+        },
+        "exit": {
+          "type": "tint",
+          "color": {
+            "type": "black"
+          },
+          "strength": 0.8,
+          "apply_to": "both"
+        }
+      },
+      "style": {
+        "region": "All",
+        "base_style": {
+          "foreground": {
+            "type": "rgb",
+            "r": 240,
+            "g": 240,
+            "b": 255
+          },
+          "background": {
+            "type": "rgb",
+            "r": 8,
+            "g": 8,
+            "b": 18
+          },
+          "added_modifiers": [],
+          "removed_modifiers": []
+        },
+        "enter_effect": {
+          "type": "spatial",
+          "shader": {
+            "type": "linear_gradient",
+            "gradient": {
+              "stops": [
+                [
+                  0.0,
+                  {
+                    "type": "rgb",
+                    "r": 8,
+                    "g": 8,
+                    "b": 18
+                  }
+                ],
+                [
+                  1.0,
+                  {
+                    "type": "rgb",
+                    "r": 40,
+                    "g": 60,
+                    "b": 120
+                  }
+                ]
+              ],
+              "space": "rgb"
+            },
+            "angle_deg": 90.0
+          }
+        },
+        "exit_effect": {
+          "type": "fade_out",
+          "apply_to": "foreground",
+          "ease": "CubicIn"
+        }
+      }
+    }
+  }
+}

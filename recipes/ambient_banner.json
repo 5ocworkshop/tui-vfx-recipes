@@ -1,0 +1,130 @@
+{
+  "schema_version": 1,
+  "id": "notifications.ambient_banner",
+  "title": "Ambient Banner",
+  "description": "Wide top-center banner that materializes with a gentle dissolve. Creates a calm, ambient presence for system messages and status updates.",
+  "version": "1.0.0",
+  "last_updated": "2025-12-24",
+  "config": {
+    "message": "System update available",
+    "layout": {
+      "width": 40,
+      "height": 3,
+      "anchor": "top_center"
+    },
+    "lifecycle": {
+      "auto_dismiss_ms": 5000
+    },
+    "border": {
+      "type": "none",
+      "trim": "none"
+    },
+    "pipeline": {
+      "enter": {
+        "duration_ms": 400,
+        "easing": "quad_out",
+        "motion_path": {
+          "type": "linear"
+        },
+        "snapping": {
+          "type": "round"
+        },
+        "from": {
+          "type": "offscreen",
+          "direction": "from_top",
+          "margin_cells": 0
+        }
+      },
+      "exit": {
+        "duration_ms": 300,
+        "easing": "quad_in",
+        "motion_path": {
+          "type": "linear"
+        },
+        "snapping": {
+          "type": "round"
+        },
+        "to": {
+          "type": "offscreen",
+          "direction": "from_top",
+          "margin_cells": 0
+        }
+      },
+      "mask": {
+        "enter": {
+          "type": "dissolve",
+          "seed": 8472,
+          "chunk_size": 1
+        },
+        "exit": {
+          "type": "dissolve",
+          "seed": 8472,
+          "chunk_size": 1
+        }
+      },
+      "sampler": {
+        "enter": {
+          "type": "none"
+        },
+        "exit": {
+          "type": "none"
+        }
+      },
+      "filter": {
+        "enter": {
+          "type": "none"
+        },
+        "exit": {
+          "type": "none"
+        }
+      },
+      "style": {
+        "region": "All",
+        "base_style": {
+          "foreground": {
+            "type": "rgb",
+            "r": 253,
+            "g": 246,
+            "b": 227
+          },
+          "background": {
+            "type": "rgb",
+            "r": 68,
+            "g": 64,
+            "b": 60
+          },
+          "added_modifiers": [],
+          "removed_modifiers": []
+        },
+        "enter_effect": {
+          "type": "fade_in",
+          "apply_to": "foreground",
+          "ease": "QuadOut"
+        },
+        "exit_effect": {
+          "type": "fade_out",
+          "apply_to": "both",
+          "ease": "CubicIn"
+        },
+        "spatial_shader": {
+          "type": "glisten_band",
+          "speed": 0.4,
+          "band_width": 8,
+          "angle_deg": 0,
+          "head": {
+            "type": "rgb",
+            "r": 251,
+            "g": 191,
+            "b": 36
+          },
+          "tail": {
+            "type": "rgb",
+            "r": 180,
+            "g": 140,
+            "b": 30
+          }
+        }
+      }
+    }
+  }
+}

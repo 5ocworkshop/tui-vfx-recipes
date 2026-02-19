@@ -1,0 +1,120 @@
+{
+  "schema_version": 1,
+  "id": "modern.button_press_depth",
+  "title": "Button Press Depth",
+  "description": "Simulates modern button press depth. Uses half-blocks for highlight/shadow edges. On 'press' (dwell), shadow shrinks and highlight dims - creating depth illusion.",
+  "version": "1.0.0",
+  "last_updated": "2026-01-20",
+  "config": {
+    "message": "▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁\n▕ ▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔ ▏\n▕ ▏   CLICK ME!    ▕ ▏\n▕ ▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁ ▏\n▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔",
+    "layout": {
+      "width": 24,
+      "height": 7,
+      "anchor": "center"
+    },
+    "lifecycle": {
+      "auto_dismiss_ms": 6000
+    },
+    "border": {
+      "type": "none"
+    },
+    "time": {
+      "loop": true,
+      "loop_period_ms": 2000
+    },
+    "pipeline": {
+      "enter": {
+        "duration_ms": 300,
+        "easing": "expo_out"
+      },
+      "exit": {
+        "duration_ms": 200,
+        "easing": "quad_in"
+      },
+      "mask": {
+        "enter": {
+          "type": "radial",
+          "origin": {
+            "type": "center"
+          },
+          "soft_edge": true
+        },
+        "exit": {
+          "type": "none"
+        }
+      },
+      "sampler": {
+        "enter": {
+          "type": "none"
+        },
+        "exit": {
+          "type": "none"
+        }
+      },
+      "filter": {
+        "enter": {
+          "type": "none"
+        },
+        "exit": {
+          "type": "none"
+        }
+      },
+      "style": {
+        "region": "All",
+        "base_style": {
+          "foreground": {
+            "type": "rgb",
+            "r": 255,
+            "g": 255,
+            "b": 255
+          },
+          "background": {
+            "type": "rgb",
+            "r": 50,
+            "g": 100,
+            "b": 180
+          }
+        },
+        "enter_effect": {
+          "type": "spatial",
+          "shader": {
+            "type": "glisten_band",
+            "speed": 0.8,
+            "band_width": 6,
+            "angle_deg": 45.0,
+            "head": {
+              "type": "rgb",
+              "r": 120,
+              "g": 180,
+              "b": 255
+            },
+            "tail": {
+              "type": "rgb",
+              "r": 50,
+              "g": 100,
+              "b": 180
+            },
+            "direction": "forward",
+            "apply_to": "background",
+            "blend_strength": 0.6
+          }
+        },
+        "dwell_effect": {
+          "type": "pulse",
+          "frequency": 0.5,
+          "color": {
+            "type": "rgb",
+            "r": 35,
+            "g": 80,
+            "b": 150
+          }
+        },
+        "exit_effect": {
+          "type": "fade_out",
+          "apply_to": "both",
+          "ease": "QuadIn"
+        }
+      }
+    }
+  }
+}

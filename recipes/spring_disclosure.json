@@ -1,0 +1,109 @@
+{
+  "schema_version": 1,
+  "id": "notifications.spring_disclosure",
+  "title": "Springy Disclosure",
+  "description": "Spring path with expand/collapse geometry",
+  "version": "2.0.0",
+  "last_updated": "2025-12-18",
+  "config": {
+    "message": "Details revealed below: System running at 100%",
+    "layout": {
+      "width": 40,
+      "height": 6,
+      "anchor": "bottom_right"
+    },
+    "lifecycle": {
+      "auto_dismiss_ms": 7000
+    },
+    "border": {
+      "type": "rounded",
+      "trim": "none"
+    },
+    "pipeline": {
+      "enter": {
+        "duration_ms": 1800,
+        "easing": "quad_out",
+        "rect_scale": {
+          "type": "rect_scale_spring",
+          "origin": "bottom_right",
+          "min_width": 3,
+          "min_height": 1,
+          "stiffness": 15.0,
+          "damping": 0.7
+        },
+        "snapping": {
+          "type": "round"
+        }
+      },
+      "exit": {
+        "duration_ms": 900,
+        "easing": "quad_in",
+        "rect_scale": {
+          "type": "rect_scale",
+          "origin": "bottom_right",
+          "min_width": 3,
+          "min_height": 1
+        },
+        "snapping": {
+          "type": "round"
+        }
+      },
+      "mask": {
+        "enter": {
+          "type": "dissolve",
+          "seed": 31337,
+          "chunk_size": 1
+        },
+        "exit": {
+          "type": "none"
+        }
+      },
+      "sampler": {
+        "enter": {
+          "type": "none"
+        },
+        "exit": {
+          "type": "none"
+        }
+      },
+      "filter": {
+        "enter": {
+          "type": "none"
+        },
+        "exit": {
+          "type": "none"
+        }
+      },
+      "style": {
+        "region": "All",
+        "base_style": {
+          "foreground": {
+            "type": "white"
+          },
+          "background": {
+            "type": "black"
+          },
+          "added_modifiers": [
+            "bold"
+          ],
+          "removed_modifiers": []
+        },
+        "enter_effect": {
+          "type": "fade_in",
+          "apply_to": "foreground",
+          "ease": "QuadOut"
+        },
+        "exit_effect": {
+          "type": "fade_out",
+          "apply_to": "foreground",
+          "ease": "QuadIn"
+        }
+      }
+    },
+    "requires_primitives": [
+      "geometry.rect_scale",
+      "geometry.rect_scale_spring",
+      "mask.dissolve_params"
+    ]
+  }
+}

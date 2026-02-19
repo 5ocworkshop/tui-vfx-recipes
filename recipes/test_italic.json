@@ -1,0 +1,88 @@
+{
+  "schema_version": 1,
+  "id": "test.italic",
+  "title": "Italic Test",
+  "description": "Minimal test for ITALIC modifier - should flash with italic text frequently",
+  "version": "1.0.0",
+  "last_updated": "2025-12-29",
+  "config": {
+    "message": "This text should go ITALIC during flashes",
+    "layout": {
+      "width": 50,
+      "height": 3,
+      "anchor": "center"
+    },
+    "lifecycle": {
+      "auto_dismiss_ms": 0
+    },
+    "time": {
+      "loop": true,
+      "loop_period_ms": 2000
+    },
+    "border": {
+      "type": "rounded",
+      "trim": "none"
+    },
+    "pipeline": {
+      "enter": {
+        "duration_ms": 300,
+        "easing": "quad_out"
+      },
+      "exit": {
+        "duration_ms": 300,
+        "easing": "quad_in"
+      },
+      "mask": {
+        "enter": {
+          "type": "none"
+        },
+        "exit": {
+          "type": "none"
+        }
+      },
+      "sampler": {
+        "enter": {
+          "type": "none"
+        },
+        "exit": {
+          "type": "none"
+        }
+      },
+      "filter": {
+        "enter": {
+          "type": "none"
+        },
+        "exit": {
+          "type": "none"
+        }
+      },
+      "style": {
+        "base_style": {
+          "foreground": {
+            "type": "white"
+          },
+          "background": {
+            "type": "rgb",
+            "r": 30,
+            "g": 30,
+            "b": 50
+          },
+          "added_modifiers": [],
+          "removed_modifiers": []
+        },
+        "dwell_effect": {
+          "type": "spatial",
+          "shader": {
+            "type": "glitch_lines",
+            "seed": 42,
+            "intensity": 0.8,
+            "max_lines": 2,
+            "speed": 0.5,
+            "flash_chance": 0.5,
+            "italic_on_flash": true
+          }
+        }
+      }
+    }
+  }
+}

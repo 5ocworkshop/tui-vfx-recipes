@@ -1,0 +1,81 @@
+{
+  "schema_version": 1,
+  "id": "debug.content.glitch_shift",
+  "title": "Debug: Content - GlitchShift",
+  "description": "Tests GlitchShift content effect with shift_amount, glitch_start/end, and seed",
+  "version": "1.0.0",
+  "last_updated": "2025-12-30",
+  "config": {
+    "message": "CONTENT TEST: GlitchShift horizontal shift",
+    "layout": {
+      "width": 45,
+      "height": 3,
+      "anchor": "center"
+    },
+    "lifecycle": {
+      "auto_dismiss_ms": 6000
+    },
+    "border": {
+      "type": "double",
+      "trim": "none"
+    },
+    "content": {
+      "mode": "enter_only",
+      "effect": {
+        "type": "glitch_shift",
+        "shift_amount": 5,
+        "glitch_start": 0.3,
+        "glitch_end": 0.6,
+        "seed": 42
+      }
+    },
+    "pipeline": {
+      "enter": {
+        "duration_ms": 2500,
+        "easing": "linear"
+      },
+      "exit": {
+        "duration_ms": 1000,
+        "easing": "quad_in"
+      },
+      "mask": {
+        "enter": {
+          "type": "none"
+        },
+        "exit": {
+          "type": "none"
+        }
+      },
+      "sampler": {
+        "enter": {
+          "type": "none"
+        },
+        "exit": {
+          "type": "none"
+        }
+      },
+      "filter": {
+        "enter": {
+          "type": "none"
+        },
+        "exit": {
+          "type": "none"
+        }
+      },
+      "style": {
+        "region": "All",
+        "base_style": {
+          "foreground": {
+            "type": "light_cyan"
+          },
+          "background": {
+            "type": "rgb",
+            "r": 15,
+            "g": 25,
+            "b": 40
+          }
+        }
+      }
+    }
+  }
+}

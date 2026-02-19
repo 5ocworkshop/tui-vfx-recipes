@@ -1,0 +1,23 @@
+{
+  "schema_version": 1,
+  "extends": "themes/wopr_green.json",
+  "id": "wargames.games_list",
+  "title": "WarGames - Games List",
+  "description": "WOPR games menu listing - Fast, steady computer enumeration",
+  "version": "2.0.0",
+  "last_updated": "2025-12-24",
+  "config": {
+    "message": "GAMES\n\n  CHESS\n  CHECKERS\n  BACKGAMMON\n  POKER\n  FIGHTER COMBAT\n  GUERRILLA ENGAGEMENT\n  DESERT WARFARE\n  AIR-TO-GROUND ACTIONS\n  THEATERWIDE TACTICAL WARFARE\n  THEATERWIDE BIOTOXIC AND\n    CHEMICAL WARFARE\n\n  GLOBAL THERMONUCLEAR WAR",
+    "layout": {
+      "height": 17
+    },
+    "lifecycle": {
+      "auto_dismiss_ms": 15000
+    },
+    "pipeline": {
+      "enter": {
+        "duration_ms": 6000
+      }
+    }
+  }
+}

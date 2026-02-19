@@ -1,0 +1,146 @@
+{
+  "schema_version": 1,
+  "id": "notifications.progress_scanner",
+  "title": "Progress Scanner",
+  "description": "Orange text with a 3-character yellow band sweeping back and forth as a spinner/progress indicator.",
+  "version": "1.0.0",
+  "last_updated": "2025-12-29",
+  "config": {
+    "message": "Processing your request...",
+    "layout": {
+      "width": 35,
+      "height": 3,
+      "anchor": "top_right"
+    },
+    "lifecycle": {
+      "auto_dismiss_ms": 0
+    },
+    "time": {
+      "loop": true,
+      "loop_period_ms": 2500
+    },
+    "border": {
+      "type": "rounded",
+      "trim": "none"
+    },
+    "pipeline": {
+      "enter": {
+        "duration_ms": 500,
+        "easing": "quad_out",
+        "snapping": {
+          "type": "round"
+        }
+      },
+      "exit": {
+        "duration_ms": 400,
+        "easing": "quad_in",
+        "snapping": {
+          "type": "round"
+        }
+      },
+      "mask": {
+        "enter": {
+          "type": "none"
+        },
+        "exit": {
+          "type": "none"
+        }
+      },
+      "sampler": {
+        "enter": {
+          "type": "none"
+        },
+        "exit": {
+          "type": "none"
+        }
+      },
+      "filter": {
+        "enter": {
+          "type": "none"
+        },
+        "exit": {
+          "type": "none"
+        }
+      },
+      "style": {
+        "region": "TextOnly",
+        "base_style": {
+          "foreground": {
+            "type": "rgb",
+            "r": 255,
+            "g": 140,
+            "b": 0
+          },
+          "background": {
+            "type": "rgb",
+            "r": 30,
+            "g": 20,
+            "b": 10
+          },
+          "added_modifiers": [
+            "bold"
+          ],
+          "removed_modifiers": []
+        },
+        "enter_effect": {
+          "type": "spatial",
+          "shader": {
+            "type": "glisten_band",
+            "speed": 0.6,
+            "band_width": 5,
+            "angle_deg": 0.0,
+            "head": {
+              "type": "rgb",
+              "r": 255,
+              "g": 255,
+              "b": 150
+            },
+            "tail": {
+              "type": "rgb",
+              "r": 255,
+              "g": 245,
+              "b": 100
+            },
+            "direction": "ping_pong",
+            "repeat_count": 0,
+            "apply_to": "foreground",
+            "blend_strength": 0.95
+          }
+        },
+        "dwell_effect": {
+          "type": "spatial",
+          "shader": {
+            "type": "glisten_band",
+            "speed": 0.6,
+            "band_width": 5,
+            "angle_deg": 0.0,
+            "head": {
+              "type": "rgb",
+              "r": 255,
+              "g": 255,
+              "b": 150
+            },
+            "tail": {
+              "type": "rgb",
+              "r": 255,
+              "g": 245,
+              "b": 100
+            },
+            "direction": "ping_pong",
+            "repeat_count": 0,
+            "apply_to": "foreground",
+            "blend_strength": 0.95
+          }
+        },
+        "exit_effect": {
+          "type": "fade_out",
+          "apply_to": "both",
+          "ease": "Linear"
+        }
+      }
+    },
+    "requires_primitives": [
+      "shader.glisten_band"
+    ]
+  }
+}

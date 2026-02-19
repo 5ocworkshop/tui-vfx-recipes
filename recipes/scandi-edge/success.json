@@ -1,0 +1,116 @@
+{
+  "schema_version": 1,
+  "id": "scandi_edge.success",
+  "title": "Success",
+  "description": "Triumphant geometry. Deep emerald with bold diagonal glisten, upward arc suggests ascension.",
+  "version": "1.0.0",
+  "last_updated": "2025-12-31",
+  "config": {
+    "message": "Build completed successfully",
+    "layout": {
+      "width": 38,
+      "height": 3,
+      "anchor": "top_right"
+    },
+    "lifecycle": {
+      "auto_dismiss_ms": 4000
+    },
+    "border": {
+      "type": "thick",
+      "trim": "none"
+    },
+    "pipeline": {
+      "enter": {
+        "duration_ms": 420,
+        "easing": "back_out",
+        "motion_path": {
+          "type": "arc",
+          "bulge": -0.2
+        },
+        "snapping": {
+          "type": "round"
+        }
+      },
+      "exit": {
+        "duration_ms": 300,
+        "easing": "cubic_in",
+        "snapping": {
+          "type": "round"
+        }
+      },
+      "mask": {
+        "enter": {
+          "type": "wipe",
+          "direction": "bottom_left_to_top_right",
+          "soft_edge": true
+        },
+        "exit": {
+          "type": "none"
+        }
+      },
+      "sampler": {
+        "enter": {
+          "type": "none"
+        },
+        "exit": {
+          "type": "none"
+        }
+      },
+      "filter": {
+        "enter": {
+          "type": "none"
+        },
+        "exit": {
+          "type": "none"
+        }
+      },
+      "style": {
+        "region": "All",
+        "base_style": {
+          "foreground": {
+            "type": "rgb",
+            "r": 240,
+            "g": 255,
+            "b": 245
+          },
+          "background": {
+            "type": "rgb",
+            "r": 28,
+            "g": 82,
+            "b": 52
+          },
+          "added_modifiers": [
+            "bold"
+          ],
+          "removed_modifiers": []
+        },
+        "enter_effect": {
+          "type": "spatial",
+          "shader": {
+            "type": "glisten_band",
+            "band_width": 4,
+            "speed": 0.8,
+            "angle_deg": 35.0,
+            "head": {
+              "type": "rgb",
+              "r": 120,
+              "g": 220,
+              "b": 160
+            },
+            "tail": {
+              "type": "rgb",
+              "r": 45,
+              "g": 120,
+              "b": 75
+            }
+          }
+        },
+        "exit_effect": {
+          "type": "fade_out",
+          "apply_to": "both",
+          "ease": "CubicOut"
+        }
+      }
+    }
+  }
+}

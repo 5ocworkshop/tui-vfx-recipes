@@ -1,0 +1,100 @@
+{
+  "schema_version": 1,
+  "id": "examples.scramble_dynamic_pace",
+  "title": "Scramble with Dynamic Resolve Pace",
+  "description": "Scrambled text that resolves with organic-feeling pace variation.",
+  "version": "2.0.0",
+  "last_updated": "2025-12-24",
+  "config": {
+    "message": "MESSAGE SCRAMBLED - RESOLVING AT VARIABLE PACE",
+    "layout": {
+      "mode": "fixed",
+      "width": 50,
+      "height": 4,
+      "anchor": "center"
+    },
+    "lifecycle": {
+      "auto_dismiss_ms": 6500
+    },
+    "border": {
+      "type": "double",
+      "trim": "none"
+    },
+    "content": {
+      "mode": "enter_only",
+      "effect": {
+        "type": "scramble",
+        "charset": "alphanumeric",
+        "seed": 42
+      }
+    },
+    "pipeline": {
+      "animation_type": "none",
+      "enter": {
+        "duration_ms": 3000,
+        "easing": "linear",
+        "snapping": {
+          "type": "round"
+        }
+      },
+      "exit": {
+        "duration_ms": 500,
+        "easing": "linear",
+        "snapping": {
+          "type": "round"
+        }
+      },
+      "mask": {
+        "enter": {
+          "type": "none"
+        },
+        "dwell": {
+          "type": "none"
+        },
+        "exit": {
+          "type": "none"
+        }
+      },
+      "sampler": {
+        "enter": {
+          "type": "none"
+        },
+        "dwell": {
+          "type": "none"
+        },
+        "exit": {
+          "type": "none"
+        }
+      },
+      "filter": {
+        "enter": {
+          "type": "none"
+        },
+        "dwell": {
+          "type": "none"
+        },
+        "exit": {
+          "type": "none"
+        }
+      },
+      "style": {
+        "region": "All",
+        "base_style": {
+          "foreground": {
+            "type": "yellow"
+          },
+          "background": {
+            "type": "black"
+          },
+          "added_modifiers": [
+            "bold"
+          ],
+          "removed_modifiers": []
+        },
+        "enter_effect": null,
+        "dwell_effect": null,
+        "exit_effect": null
+      }
+    }
+  }
+}

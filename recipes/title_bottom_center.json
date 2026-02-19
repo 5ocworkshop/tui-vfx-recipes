@@ -1,0 +1,88 @@
+{
+  "schema_version": 1,
+  "id": "notifications.title_bottom_center",
+  "title": "Title Bottom Center",
+  "description": "Title positioned at bottom with center alignment",
+  "version": "1.0.0",
+  "last_updated": "2025-12-23",
+  "config": {
+    "message": "Title below content",
+    "layout": {
+      "width": 32,
+      "height": 5,
+      "anchor": "bottom_center"
+    },
+    "lifecycle": {
+      "auto_dismiss_ms": 3500
+    },
+    "border": {
+      "type": "thick",
+      "trim": "none",
+      "title": "STATUS",
+      "title_position": "bottom",
+      "title_alignment": "center"
+    },
+    "pipeline": {
+      "enter": {
+        "duration_ms": 400,
+        "easing": "back_out",
+        "motion_path": {
+          "type": "linear"
+        },
+        "snapping": {
+          "type": "round"
+        }
+      },
+      "exit": {
+        "duration_ms": 300,
+        "easing": "quad_in",
+        "motion_path": {
+          "type": "linear"
+        },
+        "snapping": {
+          "type": "round"
+        }
+      },
+      "mask": {
+        "enter": {
+          "type": "none"
+        },
+        "exit": {
+          "type": "none"
+        }
+      },
+      "sampler": {
+        "enter": {
+          "type": "none"
+        },
+        "exit": {
+          "type": "none"
+        }
+      },
+      "filter": {
+        "enter": {
+          "type": "none"
+        },
+        "exit": {
+          "type": "none"
+        }
+      },
+      "style": {
+        "region": "All",
+        "base_style": {
+          "foreground": {
+            "type": "green"
+          },
+          "background": {
+            "type": "rgb",
+            "r": 20,
+            "g": 50,
+            "b": 30
+          },
+          "added_modifiers": [],
+          "removed_modifiers": []
+        }
+      }
+    }
+  }
+}

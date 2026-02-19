@@ -1,0 +1,94 @@
+{
+  "schema_version": 1,
+  "id": "debug.mask.wipe_fade_left_right",
+  "title": "Debug: Wipe + Fade Left-Right",
+  "description": "Wipe and fade in from left to right, out from right to left",
+  "version": "1.0.0",
+  "last_updated": "2026-01-16",
+  "config": {
+    "message": "Center expand/collapse",
+    "layout": {
+      "width": 42,
+      "height": 5,
+      "anchor": "center"
+    },
+    "lifecycle": {
+      "auto_dismiss_ms": 2600
+    },
+    "border": {
+      "type": "rounded",
+      "trim": "none"
+    },
+    "pipeline": {
+      "animation_type": "fade",
+      "enter": {
+        "duration_ms": 550,
+        "easing": "quad_out",
+        "snapping": {
+          "type": "round"
+        }
+      },
+      "exit": {
+        "duration_ms": 650,
+        "easing": "quad_in",
+        "snapping": {
+          "type": "round"
+        }
+      },
+      "mask": {
+        "enter": {
+          "type": "wipe",
+          "direction": "left_to_right",
+          "soft_edge": true
+        },
+        "exit": {
+          "type": "wipe",
+          "direction": "right_to_left",
+          "soft_edge": true
+        }
+      },
+      "sampler": {
+        "enter": {
+          "type": "none"
+        },
+        "exit": {
+          "type": "none"
+        }
+      },
+      "filter": {
+        "enter": {
+          "type": "none"
+        },
+        "exit": {
+          "type": "none"
+        }
+      },
+      "style": {
+        "region": "All",
+        "base_style": {
+          "foreground": {
+            "type": "white"
+          },
+          "background": {
+            "type": "rgb",
+            "r": 12,
+            "g": 14,
+            "b": 20
+          },
+          "added_modifiers": [],
+          "removed_modifiers": []
+        },
+        "enter_effect": {
+          "type": "fade_in",
+          "apply_to": "both",
+          "ease": "QuadOut"
+        },
+        "exit_effect": {
+          "type": "fade_out",
+          "apply_to": "both",
+          "ease": "QuadIn"
+        }
+      }
+    }
+  }
+}

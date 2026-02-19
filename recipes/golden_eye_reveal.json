@@ -1,0 +1,113 @@
+{
+  "schema_version": 1,
+  "id": "notifications.golden_eye_reveal",
+  "title": "Golden Eye Reveal",
+  "description": "Classic spy movie iris opening with golden coloring. Spiral motion combined with circular mask creates a dramatic lens-opening reveal effect.",
+  "version": "1.0.0",
+  "last_updated": "2025-12-22",
+  "config": {
+    "message": "╔══════════════════════════╗\n║   CLASSIFIED INTEL       ║\n║   ━━━━━━━━━━━━━━━━━━━━   ║\n║   Eyes Only. Level 5.    ║\n║   Authorization Required ║\n╚══════════════════════════╝",
+    "layout": {
+      "width": 30,
+      "height": 8,
+      "anchor": "center"
+    },
+    "lifecycle": {
+      "auto_dismiss_ms": 10000
+    },
+    "border": {
+      "type": "none",
+      "trim": "none"
+    },
+    "pipeline": {
+      "enter": {
+        "duration_ms": 2200,
+        "easing": "cubic_out",
+        "motion_path": {
+          "type": "linear"
+        },
+        "snapping": {
+          "type": "round"
+        }
+      },
+      "exit": {
+        "duration_ms": 1000,
+        "easing": "cubic_in",
+        "motion_path": {
+          "type": "linear"
+        },
+        "snapping": {
+          "type": "round"
+        }
+      },
+      "mask": {
+        "enter": {
+          "type": "iris",
+          "shape": "circle",
+          "soft_edge": true
+        },
+        "exit": {
+          "type": "iris",
+          "shape": "circle",
+          "soft_edge": true
+        }
+      },
+      "sampler": {
+        "enter": {
+          "type": "none"
+        },
+        "exit": {
+          "type": "none"
+        }
+      },
+      "filter": {
+        "enter": {
+          "type": "none"
+        },
+        "exit": {
+          "type": "none"
+        }
+      },
+      "style": {
+        "region": "All",
+        "base_style": {
+          "foreground": {
+            "type": "yellow"
+          },
+          "background": {
+            "type": "black"
+          },
+          "added_modifiers": [
+            "bold"
+          ],
+          "removed_modifiers": []
+        },
+        "enter_effect": {
+          "type": "spatial",
+          "shader": {
+            "type": "glisten_band",
+            "speed": 2.0,
+            "band_width": 4,
+            "angle_deg": 45.0,
+            "head": {
+              "type": "white"
+            },
+            "tail": {
+              "type": "yellow"
+            }
+          }
+        },
+        "dwell_effect": null,
+        "exit_effect": {
+          "type": "fade_out",
+          "apply_to": "both",
+          "ease": "CubicIn"
+        }
+      }
+    },
+    "requires_primitives": [
+      "mask.iris",
+      "style.shader.glisten_band"
+    ]
+  }
+}

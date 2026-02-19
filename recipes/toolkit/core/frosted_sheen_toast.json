@@ -1,0 +1,121 @@
+{
+  "schema_version": 1,
+  "id": "toolkit.core.frosted_sheen_toast",
+  "title": "Frosted Sheen Toast",
+  "description": "A premium toast that feels like frosted glass: soft wipe, micro-wave distortion, and a single calm sheen pass.",
+  "version": "0.1.0",
+  "last_updated": "2025-12-23",
+  "config": {
+    "message": "✓ Saved — Preferences updated",
+    "layout": {
+      "width": 44,
+      "height": 4,
+      "anchor": "top_right"
+    },
+    "lifecycle": {
+      "auto_dismiss_ms": 3200
+    },
+    "border": {
+      "type": "rounded",
+      "trim": "none"
+    },
+    "content": {
+      "mode": "enter_only"
+    },
+    "pipeline": {
+      "enter": {
+        "duration_ms": 650,
+        "easing": "cubic_out",
+        "snapping": {
+          "type": "round"
+        }
+      },
+      "exit": {
+        "duration_ms": 420,
+        "easing": "cubic_in",
+        "snapping": {
+          "type": "round"
+        }
+      },
+      "mask": {
+        "enter": {
+          "type": "wipe",
+          "direction": "right_to_left",
+          "soft_edge": true
+        },
+        "exit": {
+          "type": "wipe",
+          "direction": "left_to_right",
+          "soft_edge": false
+        }
+      },
+      "sampler": {
+        "enter": {
+          "type": "sine_wave",
+          "axis": "x",
+          "amplitude": 0.35,
+          "frequency": 0.22,
+          "speed": 1.0,
+          "phase": 0.0
+        },
+        "exit": {
+          "type": "none"
+        }
+      },
+      "filter": {
+        "enter": {
+          "type": "vignette",
+          "strength": 0.18,
+          "radius": 0.92
+        },
+        "exit": {
+          "type": "tint",
+          "color": {
+            "type": "black"
+          },
+          "strength": 0.55,
+          "apply_to": "both"
+        }
+      },
+      "style": {
+        "region": "All",
+        "base_style": {
+          "foreground": {
+            "type": "rgb",
+            "r": 245,
+            "g": 248,
+            "b": 255
+          },
+          "background": {
+            "type": "rgb",
+            "r": 26,
+            "g": 28,
+            "b": 36
+          },
+          "added_modifiers": [],
+          "removed_modifiers": []
+        },
+        "enter_effect": {
+          "type": "spatial",
+          "shader": {
+            "type": "glisten_band",
+            "speed": 1.4,
+            "band_width": 2,
+            "angle_deg": 35,
+            "head": {
+              "type": "white"
+            },
+            "tail": {
+              "type": "light_cyan"
+            }
+          }
+        },
+        "exit_effect": {
+          "type": "fade_out",
+          "apply_to": "both",
+          "ease": "CubicIn"
+        }
+      }
+    }
+  }
+}

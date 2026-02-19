@@ -1,0 +1,117 @@
+{
+  "schema_version": 1,
+  "id": "physics.pendulum_swing",
+  "title": "Pendulum Swing",
+  "description": "Notification swings in like a hanging sign, oscillating to rest",
+  "version": "1.0.0",
+  "last_updated": "2025-12-31",
+  "config": {
+    "message": "Now Open",
+    "layout": {
+      "width": 24,
+      "height": 3,
+      "anchor": "top_center"
+    },
+    "lifecycle": {
+      "auto_dismiss_ms": 5000
+    },
+    "border": {
+      "type": "rounded",
+      "trim": "none"
+    },
+    "pipeline": {
+      "enter": {
+        "duration_ms": 1400,
+        "easing": "linear",
+        "motion_path": {
+          "type": "pendulum",
+          "amplitude": 25.0,
+          "oscillations": 4.0,
+          "damping": 2.5
+        },
+        "snapping": {
+          "type": "round"
+        },
+        "from": {
+          "type": "offscreen",
+          "direction": "from_top",
+          "margin_cells": 3
+        }
+      },
+      "exit": {
+        "duration_ms": 800,
+        "easing": "quad_in",
+        "motion_path": {
+          "type": "pendulum",
+          "amplitude": 15.0,
+          "oscillations": 2.0,
+          "damping": 3.0
+        },
+        "snapping": {
+          "type": "round"
+        },
+        "to": {
+          "type": "offscreen",
+          "direction": "from_top",
+          "margin_cells": 3
+        }
+      },
+      "mask": {
+        "enter": {
+          "type": "none"
+        },
+        "exit": {
+          "type": "none"
+        }
+      },
+      "sampler": {
+        "enter": {
+          "type": "none"
+        },
+        "exit": {
+          "type": "none"
+        }
+      },
+      "filter": {
+        "enter": {
+          "type": "none"
+        },
+        "exit": {
+          "type": "none"
+        }
+      },
+      "style": {
+        "region": "All",
+        "base_style": {
+          "foreground": {
+            "type": "rgb",
+            "r": 255,
+            "g": 215,
+            "b": 0
+          },
+          "background": {
+            "type": "rgb",
+            "r": 40,
+            "g": 30,
+            "b": 50
+          },
+          "added_modifiers": [
+            "bold"
+          ],
+          "removed_modifiers": []
+        },
+        "enter_effect": {
+          "type": "fade_in",
+          "apply_to": "both",
+          "ease": "QuadOut"
+        },
+        "exit_effect": {
+          "type": "fade_out",
+          "apply_to": "both",
+          "ease": "QuadIn"
+        }
+      }
+    },
+    "requires_primitives": []
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "schema_version": 1,
+  "extends": "themes/new_rapid_sequence_base.json",
+  "id": "wargames.new_rapid_flip_2",
+  "title": "WarGames - Rapid Flip Sequence Screen 2",
+  "description": "Second screen of rapid system status montage. Different system data to show variation.",
+  "version": "1.0.0",
+  "last_updated": "2025-12-25",
+  "config": {
+    "message": "LESM-SJ-SKU: CONTR PAK\n(311) 787-1883"
+  }
+}

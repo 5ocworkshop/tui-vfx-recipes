@@ -1,0 +1,26 @@
+{
+  "schema_version": 1,
+  "extends": "themes/human_input.json",
+  "id": "wargames.login",
+  "title": "WarGames - Login",
+  "description": "WOPR login sequence - Human typing with variable speed, hesitant pacing",
+  "version": "2.0.0",
+  "last_updated": "2025-12-24",
+  "config": {
+    "message": "LOGON: Joshua\nPASSWORD: ******\n\nGREETINGS PROFESSOR FALKEN",
+    "layout": {
+      "height": 6
+    },
+    "lifecycle": {
+      "auto_dismiss_ms": 10000
+    },
+    "border": {
+      "type": "none"
+    },
+    "pipeline": {
+      "enter": {
+        "duration_ms": 3500
+      }
+    }
+  }
+}

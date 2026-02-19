@@ -1,0 +1,118 @@
+{
+  "schema_version": 1,
+  "id": "toolkit.showcase.fireworks_confetti",
+  "title": "Fireworks Confetti",
+  "description": "A cinematic celebration: sparkles dissolve in, a huge ripple burst expands, rainbow flare hits, then concentric rings carry it away.",
+  "version": "0.1.0",
+  "last_updated": "2025-12-23",
+  "config": {
+    "message": "🎆 DEPLOYED\nAll systems go",
+    "layout": {
+      "width": 40,
+      "height": 5,
+      "anchor": "bottom_right"
+    },
+    "lifecycle": {
+      "auto_dismiss_ms": 12000
+    },
+    "border": {
+      "type": "thick",
+      "trim": "none"
+    },
+    "content": {
+      "mode": "enter_only"
+    },
+    "pipeline": {
+      "enter": {
+        "duration_ms": 1800,
+        "easing": "linear",
+        "snapping": {
+          "type": "round"
+        }
+      },
+      "exit": {
+        "duration_ms": 1200,
+        "easing": "cubic_in",
+        "snapping": {
+          "type": "round"
+        }
+      },
+      "mask": {
+        "enter": {
+          "type": "dissolve",
+          "seed": 7777,
+          "chunk_size": 1
+        },
+        "exit": {
+          "type": "dissolve",
+          "seed": 7777,
+          "chunk_size": 1
+        }
+      },
+      "sampler": {
+        "enter": {
+          "type": "ripple",
+          "amplitude": 2.8,
+          "wavelength": 4.0,
+          "speed": 3.2,
+          "center": "center"
+        },
+        "exit": {
+          "type": "shredder",
+          "stripe_width": 1,
+          "odd_speed": -2.4,
+          "even_speed": 2.4
+        }
+      },
+      "filter": {
+        "enter": {
+          "type": "invert",
+          "apply_to": "foreground"
+        },
+        "exit": {
+          "type": "tint",
+          "color": {
+            "type": "black"
+          },
+          "strength": 0.75,
+          "apply_to": "both"
+        }
+      },
+      "style": {
+        "region": "All",
+        "base_style": {
+          "foreground": {
+            "type": "white"
+          },
+          "background": {
+            "type": "rgb",
+            "r": 10,
+            "g": 10,
+            "b": 10
+          },
+          "added_modifiers": [
+            "bold"
+          ],
+          "removed_modifiers": []
+        },
+        "enter_effect": {
+          "type": "rainbow",
+          "speed": 3.6
+        },
+        "exit_effect": {
+          "type": "spatial",
+          "shader": {
+            "type": "pulse_wave",
+            "frequency": 4.0,
+            "speed": 2.0,
+            "color": {
+              "type": "light_yellow"
+            },
+            "direction": "radial",
+            "wavelength": 3.0
+          }
+        }
+      }
+    }
+  }
+}

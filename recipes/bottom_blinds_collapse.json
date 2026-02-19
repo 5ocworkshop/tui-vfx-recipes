@@ -1,0 +1,115 @@
+{
+  "schema_version": 1,
+  "id": "notifications.bottom_blinds_collapse",
+  "title": "Bottom Blinds Collapse",
+  "description": "Slide up with blinds, collapse on exit",
+  "version": "2.0.0",
+  "last_updated": "2025-12-18",
+  "config": {
+    "message": "Bottom blinds collapse",
+    "layout": {
+      "width": 40,
+      "height": 5,
+      "anchor": "bottom_center"
+    },
+    "lifecycle": {
+      "auto_dismiss_ms": 2600
+    },
+    "border": {
+      "type": "rounded",
+      "trim": "vanishing_edge"
+    },
+    "pipeline": {
+      "enter": {
+        "duration_ms": 650,
+        "easing": "quad_out",
+        "motion_path": {
+          "type": "linear"
+        },
+        "snapping": {
+          "type": "round"
+        },
+        "from": {
+          "type": "offscreen",
+          "direction": "from_bottom",
+          "margin_cells": 1
+        }
+      },
+      "exit": {
+        "duration_ms": 800,
+        "easing": "quad_in",
+        "rect_scale": {
+          "type": "rect_scale",
+          "origin": "bottom_center",
+          "min_width": 3,
+          "min_height": 1
+        },
+        "snapping": {
+          "type": "round"
+        },
+        "to": {
+          "type": "offscreen",
+          "direction": "from_bottom",
+          "margin_cells": 1
+        }
+      },
+      "mask": {
+        "enter": {
+          "type": "blinds",
+          "orientation": "horizontal",
+          "count": 10
+        },
+        "exit": {
+          "type": "none"
+        }
+      },
+      "sampler": {
+        "enter": {
+          "type": "none"
+        },
+        "exit": {
+          "type": "none"
+        }
+      },
+      "filter": {
+        "enter": {
+          "type": "none"
+        },
+        "exit": {
+          "type": "none"
+        }
+      },
+      "style": {
+        "region": "All",
+        "base_style": {
+          "foreground": {
+            "type": "white"
+          },
+          "background": {
+            "type": "rgb",
+            "r": 12,
+            "g": 14,
+            "b": 20
+          },
+          "added_modifiers": [],
+          "removed_modifiers": []
+        },
+        "enter_effect": {
+          "type": "fade_in",
+          "apply_to": "both",
+          "ease": "QuadOut"
+        },
+        "exit_effect": {
+          "type": "fade_out",
+          "apply_to": "both",
+          "ease": "QuadIn"
+        }
+      }
+    },
+    "requires_primitives": [
+      "geometry.rect_scale",
+      "compositor.mask.blinds_params",
+      "border.trim.vanishing_edge"
+    ]
+  }
+}

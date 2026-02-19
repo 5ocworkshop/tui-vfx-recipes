@@ -1,0 +1,115 @@
+{
+  "schema_version": 1,
+  "id": "midcentury.tests_passed",
+  "title": "Tests Passed",
+  "description": "Avocado triumph. Classic 60s green with checkmark title, quick celebratory bounce.",
+  "version": "1.0.0",
+  "last_updated": "2025-12-31",
+  "config": {
+    "message": "✓ 42 tests passed",
+    "layout": {
+      "width": 34,
+      "height": 3,
+      "anchor": "top_right"
+    },
+    "lifecycle": {
+      "auto_dismiss_ms": 3000
+    },
+    "border": {
+      "type": "rounded",
+      "trim": "none",
+      "title": "PASSED",
+      "title_position": "right",
+      "title_alignment": "center"
+    },
+    "pipeline": {
+      "enter": {
+        "duration_ms": 320,
+        "easing": "bounce_out",
+        "motion_path": {
+          "type": "arc",
+          "bulge": -0.2
+        },
+        "snapping": {
+          "type": "round"
+        }
+      },
+      "exit": {
+        "duration_ms": 250,
+        "easing": "sine_in",
+        "snapping": {
+          "type": "round"
+        }
+      },
+      "mask": {
+        "enter": {
+          "type": "none"
+        },
+        "exit": {
+          "type": "none"
+        }
+      },
+      "sampler": {
+        "enter": {
+          "type": "none"
+        },
+        "exit": {
+          "type": "none"
+        }
+      },
+      "filter": {
+        "enter": {
+          "type": "none"
+        },
+        "exit": {
+          "type": "none"
+        }
+      },
+      "style": {
+        "region": "All",
+        "base_style": {
+          "foreground": {
+            "type": "rgb",
+            "r": 35,
+            "g": 45,
+            "b": 25
+          },
+          "background": {
+            "type": "rgb",
+            "r": 143,
+            "g": 188,
+            "b": 143
+          },
+          "added_modifiers": [],
+          "removed_modifiers": []
+        },
+        "enter_effect": {
+          "type": "spatial",
+          "shader": {
+            "type": "glisten_band",
+            "band_width": 3,
+            "speed": 1.3,
+            "angle_deg": -15.0,
+            "head": {
+              "type": "rgb",
+              "r": 200,
+              "g": 235,
+              "b": 200
+            },
+            "tail": {
+              "type": "rgb",
+              "r": 165,
+              "g": 205,
+              "b": 165
+            }
+          }
+        },
+        "exit_effect": {
+          "type": "fade_out",
+          "apply_to": "both",
+          "ease": "SineOut"
+        }
+      }
+    }
+  }
+}

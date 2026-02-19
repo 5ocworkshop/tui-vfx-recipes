@@ -1,0 +1,83 @@
+{
+  "schema_version": 1,
+  "id": "debug.shader.glitch_lines",
+  "title": "Debug: Shader - GlitchLines",
+  "description": "Tests GlitchLines spatial shader with intensity, max_lines, speed, flash_chance",
+  "version": "1.0.0",
+  "last_updated": "2025-12-30",
+  "config": {
+    "message": "SHADER TEST: GlitchLines",
+    "layout": {
+      "width": 40,
+      "height": 5,
+      "anchor": "center"
+    },
+    "lifecycle": {
+      "auto_dismiss_ms": 6000
+    },
+    "border": {
+      "type": "double",
+      "trim": "none"
+    },
+    "pipeline": {
+      "enter": {
+        "duration_ms": 1500,
+        "easing": "linear"
+      },
+      "exit": {
+        "duration_ms": 1000,
+        "easing": "linear"
+      },
+      "mask": {
+        "enter": {
+          "type": "none"
+        },
+        "exit": {
+          "type": "none"
+        }
+      },
+      "sampler": {
+        "enter": {
+          "type": "none"
+        },
+        "exit": {
+          "type": "none"
+        }
+      },
+      "filter": {
+        "enter": {
+          "type": "none"
+        },
+        "exit": {
+          "type": "none"
+        }
+      },
+      "style": {
+        "region": "All",
+        "base_style": {
+          "foreground": {
+            "type": "light_cyan"
+          },
+          "background": {
+            "type": "rgb",
+            "r": 10,
+            "g": 20,
+            "b": 30
+          }
+        },
+        "spatial_shader": {
+          "type": "glitch_lines",
+          "seed": 42,
+          "intensity": 0.7,
+          "max_lines": 5,
+          "speed": 3.0,
+          "flash_chance": 0.1,
+          "pulse_color": {
+            "type": "white"
+          },
+          "pulse_speed": 0.5
+        }
+      }
+    }
+  }
+}

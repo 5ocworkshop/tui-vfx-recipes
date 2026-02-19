@@ -1,0 +1,80 @@
+{
+  "schema_version": 1,
+  "id": "debug.content.scramble",
+  "title": "Debug: Content - Scramble",
+  "description": "Tests Scramble content effect with resolve_pace, charset, and seed parameters",
+  "version": "1.0.0",
+  "last_updated": "2025-12-30",
+  "config": {
+    "message": "CONTENT TEST: Scramble decode effect",
+    "layout": {
+      "width": 45,
+      "height": 3,
+      "anchor": "center"
+    },
+    "lifecycle": {
+      "auto_dismiss_ms": 6000
+    },
+    "border": {
+      "type": "rounded",
+      "trim": "none"
+    },
+    "content": {
+      "mode": "enter_only",
+      "effect": {
+        "type": "scramble",
+        "resolve_pace": 0.7,
+        "charset": "alphanumeric",
+        "seed": 42
+      }
+    },
+    "pipeline": {
+      "enter": {
+        "duration_ms": 3000,
+        "easing": "linear"
+      },
+      "exit": {
+        "duration_ms": 1000,
+        "easing": "quad_in"
+      },
+      "mask": {
+        "enter": {
+          "type": "none"
+        },
+        "exit": {
+          "type": "none"
+        }
+      },
+      "sampler": {
+        "enter": {
+          "type": "none"
+        },
+        "exit": {
+          "type": "none"
+        }
+      },
+      "filter": {
+        "enter": {
+          "type": "none"
+        },
+        "exit": {
+          "type": "none"
+        }
+      },
+      "style": {
+        "region": "All",
+        "base_style": {
+          "foreground": {
+            "type": "cyan"
+          },
+          "background": {
+            "type": "rgb",
+            "r": 10,
+            "g": 30,
+            "b": 50
+          }
+        }
+      }
+    }
+  }
+}

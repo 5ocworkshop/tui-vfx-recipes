@@ -1,0 +1,123 @@
+{
+  "schema_version": 1,
+  "id": "notifications.signal_heartbeat_monitor",
+  "title": "Heartbeat Monitor",
+  "description": "Critical alert with pulsing border brightness simulating a medical monitor heartbeat",
+  "version": "1.0.0",
+  "last_updated": "2025-12-24",
+  "config": {
+    "message": "Critical Status Alert",
+    "layout": {
+      "mode": "fixed",
+      "width": 40,
+      "height": 5,
+      "anchor": "center"
+    },
+    "lifecycle": {
+      "auto_dismiss_ms": 0
+    },
+    "border": {
+      "type": "rounded",
+      "padding": {
+        "top": 1,
+        "right": 2,
+        "bottom": 1,
+        "left": 2
+      }
+    },
+    "time": {
+      "loop": true,
+      "loop_period_ms": 1200
+    },
+    "pipeline": {
+      "enter": {
+        "duration_ms": 300,
+        "easing": "quad_out",
+        "motion_path": {
+          "type": "linear"
+        },
+        "from": {
+          "type": "offscreen",
+          "direction": "from_top",
+          "margin_cells": 1
+        }
+      },
+      "exit": {
+        "duration_ms": 200,
+        "easing": "quad_in",
+        "motion_path": {
+          "type": "linear"
+        }
+      },
+      "mask": {
+        "enter": {
+          "type": "none"
+        },
+        "dwell": {
+          "type": "none"
+        },
+        "exit": {
+          "type": "none"
+        }
+      },
+      "sampler": {
+        "enter": {
+          "type": "none"
+        },
+        "dwell": {
+          "type": "none"
+        },
+        "exit": {
+          "type": "none"
+        }
+      },
+      "filter": {
+        "enter": {
+          "type": "none"
+        },
+        "exit": {
+          "type": "none"
+        },
+        "dwell": {
+          "type": "dim",
+          "factor": {
+            "type": "multiply",
+            "a": {
+              "type": "sine",
+              "frequency": 1.0,
+              "amplitude": 0.3,
+              "offset": 0.7,
+              "phase": 0.0
+            },
+            "b": {
+              "type": "adsr",
+              "attack": 0.05,
+              "decay": 0.1,
+              "sustain": 0.8,
+              "release": 0.2
+            }
+          },
+          "apply_to": "both"
+        }
+      },
+      "style": {
+        "region": "All",
+        "base_style": {
+          "foreground": {
+            "type": "rgb",
+            "r": 255,
+            "g": 50,
+            "b": 50
+          },
+          "background": {
+            "type": "black"
+          },
+          "added_modifiers": [
+            "bold"
+          ],
+          "removed_modifiers": []
+        }
+      }
+    }
+  }
+}

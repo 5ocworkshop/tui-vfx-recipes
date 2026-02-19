@@ -1,0 +1,113 @@
+{
+  "schema_version": 1,
+  "id": "notifications.quantum_dissolve",
+  "title": "Quantum Dissolve",
+  "description": "Particle-like materialization from quantum uncertainty. Chunky dissolve mask with rapid sine wave distortion creates the illusion of particles coalescing from noise into coherent form. Reality assembling itself.",
+  "version": "1.0.0",
+  "last_updated": "2025-12-22",
+  "config": {
+    "message": "QUANTUM STATE: COLLAPSED",
+    "layout": {
+      "width": 36,
+      "height": 4,
+      "anchor": "top_center"
+    },
+    "lifecycle": {
+      "auto_dismiss_ms": 6000
+    },
+    "border": {
+      "type": "double",
+      "trim": "none"
+    },
+    "pipeline": {
+      "enter": {
+        "duration_ms": 2000,
+        "easing": "linear",
+        "motion_path": {
+          "type": "linear"
+        },
+        "snapping": {
+          "type": "stochastic",
+          "seed": 12345
+        }
+      },
+      "exit": {
+        "duration_ms": 800,
+        "easing": "linear",
+        "motion_path": {
+          "type": "linear"
+        },
+        "snapping": {
+          "type": "stochastic",
+          "seed": 54321
+        }
+      },
+      "mask": {
+        "enter": {
+          "type": "dissolve",
+          "seed": 42,
+          "chunk_size": 3
+        },
+        "exit": {
+          "type": "dissolve",
+          "seed": 24,
+          "chunk_size": 2
+        }
+      },
+      "sampler": {
+        "enter": {
+          "type": "sine_wave",
+          "axis": "x",
+          "amplitude": 2.5,
+          "frequency": 1.2,
+          "speed": 3.0,
+          "phase": 0.0
+        },
+        "exit": {
+          "type": "none"
+        }
+      },
+      "filter": {
+        "enter": {
+          "type": "none"
+        },
+        "exit": {
+          "type": "none"
+        }
+      },
+      "style": {
+        "region": "All",
+        "base_style": {
+          "foreground": {
+            "type": "rgb",
+            "r": 120,
+            "g": 180,
+            "b": 255
+          },
+          "background": {
+            "type": "black"
+          },
+          "added_modifiers": [
+            "bold"
+          ],
+          "removed_modifiers": []
+        },
+        "enter_effect": {
+          "type": "glitch",
+          "seed": 999,
+          "intensity": 0.3
+        },
+        "exit_effect": {
+          "type": "fade_out",
+          "apply_to": "both",
+          "ease": "Linear"
+        }
+      }
+    },
+    "requires_primitives": [
+      "mask.dissolve_params",
+      "sampler.sinewave_params",
+      "style.effect.glitch"
+    ]
+  }
+}

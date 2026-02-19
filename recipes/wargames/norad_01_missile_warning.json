@@ -1,0 +1,15 @@
+{
+  "schema_version": 1,
+  "id": "wargames.norad.01_missile_warning",
+  "title": "NORAD 01 - Missile Warning",
+  "description": "NORAD main display - MISSILE WARNING with world map outline",
+  "version": "1.0.0",
+  "last_updated": "2025-12-25",
+  "extends": "themes/new_wopr_fullscreen_cyan.json",
+  "config": {
+    "message": "╔════════════════════════════════════════════════════════════╗\n║                                                            ║\n║           ██   ██  ██  ███  ███  ██ ██    ███             ║\n║           ███ ███  ██  ██ █ █ █  ██ ██    ██              ║\n║           ██ █ ██  ██  ██  █  ██ ██ ██    ██              ║\n║           ██   ██  ██  ███   ███ ██ ███   ███             ║\n║                                                            ║\n║            █   █  ███  ████  ██  ██ ██ ██  ███            ║\n║            █   █  █ █  █  █  ███ ██ ██ ██  █ █            ║\n║            █ █ █  ███  ████  ██ ███ ██ ██  ███            ║\n║            █████  █ █  █ █   ██  ██ ██ ██  █ █            ║\n║             █ █   █ █  █  █  ██  ██ ██ ███ █ █            ║\n║                                                            ║\n╚════════════════════════════════════════════════════════════╝",
+    "lifecycle": {
+      "auto_dismiss_ms": 0
+    }
+  }
+}

@@ -1,0 +1,105 @@
+{
+  "schema_version": 1,
+  "id": "notifications.gun_barrel_reveal",
+  "title": "Gun Barrel Reveal",
+  "description": "Dramatic circular iris opening from center, like a camera lens aperture revealing the message. The notification spirals into view with bold cinematic flair.",
+  "version": "1.0.0",
+  "last_updated": "2025-12-22",
+  "config": {
+    "message": "MISSION BRIEFING\n━━━━━━━━━━━━━━━━━━━━\nAgent, your target awaits.\nProceed with caution.\nGood luck.",
+    "layout": {
+      "width": 28,
+      "height": 7,
+      "anchor": "center"
+    },
+    "lifecycle": {
+      "auto_dismiss_ms": 8000
+    },
+    "border": {
+      "type": "double",
+      "trim": "none"
+    },
+    "pipeline": {
+      "enter": {
+        "duration_ms": 3500,
+        "easing": "linear",
+        "motion_path": {
+          "type": "linear"
+        },
+        "snapping": {
+          "type": "round"
+        }
+      },
+      "exit": {
+        "duration_ms": 800,
+        "easing": "cubic_in",
+        "motion_path": {
+          "type": "linear"
+        },
+        "snapping": {
+          "type": "round"
+        }
+      },
+      "mask": {
+        "enter": {
+          "type": "path_reveal",
+          "path": {
+            "type": "spiral",
+            "rotations": 2.5,
+            "direction": "clockwise"
+          },
+          "soft_edge": true
+        },
+        "exit": {
+          "type": "iris",
+          "shape": "circle",
+          "soft_edge": true
+        }
+      },
+      "sampler": {
+        "enter": {
+          "type": "none"
+        },
+        "exit": {
+          "type": "none"
+        }
+      },
+      "filter": {
+        "enter": {
+          "type": "none"
+        },
+        "exit": {
+          "type": "none"
+        }
+      },
+      "style": {
+        "region": "All",
+        "base_style": {
+          "foreground": {
+            "type": "white"
+          },
+          "background": {
+            "type": "black"
+          },
+          "added_modifiers": [
+            "bold"
+          ],
+          "removed_modifiers": []
+        },
+        "enter_effect": {
+          "type": "fade_in",
+          "apply_to": "both",
+          "ease": "CubicOut"
+        },
+        "exit_effect": {
+          "type": "fade_out",
+          "apply_to": "both",
+          "ease": "CubicIn"
+        }
+      }
+    },
+    "requires_primitives": [
+      "mask.iris"
+    ]
+  }
+}

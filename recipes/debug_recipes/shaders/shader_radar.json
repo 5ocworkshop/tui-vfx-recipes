@@ -1,0 +1,85 @@
+{
+  "schema_version": 1,
+  "id": "debug.shader.radar",
+  "title": "Debug: Shader - Radar",
+  "description": "Tests Radar spatial shader with speed and tail_length parameters",
+  "version": "1.0.0",
+  "last_updated": "2025-12-30",
+  "config": {
+    "message": "SHADER TEST: Radar Sweep",
+    "layout": {
+      "width": 40,
+      "height": 7,
+      "anchor": "center"
+    },
+    "lifecycle": {
+      "auto_dismiss_ms": 6000
+    },
+    "border": {
+      "type": "rounded",
+      "trim": "none"
+    },
+    "pipeline": {
+      "enter": {
+        "duration_ms": 1000,
+        "easing": "quad_out"
+      },
+      "exit": {
+        "duration_ms": 1000,
+        "easing": "quad_in"
+      },
+      "mask": {
+        "enter": {
+          "type": "none"
+        },
+        "exit": {
+          "type": "none"
+        }
+      },
+      "sampler": {
+        "enter": {
+          "type": "none"
+        },
+        "exit": {
+          "type": "none"
+        }
+      },
+      "filter": {
+        "enter": {
+          "type": "none"
+        },
+        "exit": {
+          "type": "none"
+        }
+      },
+      "style": {
+        "region": "All",
+        "base_style": {
+          "foreground": {
+            "type": "rgb",
+            "r": 0,
+            "g": 255,
+            "b": 100
+          },
+          "background": {
+            "type": "rgb",
+            "r": 10,
+            "g": 30,
+            "b": 20
+          }
+        },
+        "spatial_shader": {
+          "type": "radar",
+          "color": {
+            "type": "rgb",
+            "r": 100,
+            "g": 255,
+            "b": 150
+          },
+          "speed": 1.5,
+          "tail_length": 1.5
+        }
+      }
+    }
+  }
+}

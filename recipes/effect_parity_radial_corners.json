@@ -1,0 +1,63 @@
+{
+  "schema_version": 1,
+  "id": "showcase.effect_parity_radial_corners",
+  "title": "Radial Mask from Corner",
+  "description": "Radial reveal expanding from top-left corner with custom origin",
+  "version": "1.0.0",
+  "last_updated": "2025-12-26",
+  "config": {
+    "message": "CORNER RADIAL REVEAL",
+    "layout": {
+      "anchor": "bottom_right",
+      "width": 28,
+      "height": 5
+    },
+    "lifecycle": {
+      "auto_dismiss_ms": 5000
+    },
+    "border": {
+      "type": "double"
+    },
+    "pipeline": {
+      "enter": {
+        "duration_ms": 1200,
+        "easing": "cubic_out"
+      },
+      "exit": {
+        "duration_ms": 600,
+        "easing": "cubic_in"
+      },
+      "mask": {
+        "enter": {
+          "type": "radial",
+          "origin": {
+            "type": "top_left"
+          },
+          "soft_edge": false
+        },
+        "exit": {
+          "type": "radial",
+          "origin": {
+            "type": "custom",
+            "x": 0.75,
+            "y": 0.25
+          },
+          "soft_edge": true
+        }
+      },
+      "style": {
+        "base_style": {
+          "foreground": {
+            "type": "light_blue"
+          },
+          "background": {
+            "type": "rgb",
+            "r": 20,
+            "g": 20,
+            "b": 40
+          }
+        }
+      }
+    }
+  }
+}

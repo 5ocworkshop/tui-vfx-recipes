@@ -1,0 +1,15 @@
+{
+  "schema_version": 1,
+  "id": "wargames.dialogue.02_feeling_today",
+  "title": "Dialogue 02 - How Are You Feeling",
+  "description": "Full conversation - user responds, WOPR asks about account removal",
+  "version": "1.0.0",
+  "last_updated": "2025-12-25",
+  "extends": "themes/new_wopr_fullscreen_cyan.json",
+  "config": {
+    "message": "GREETINGS PROFESSOR FALKEN.\n\nHello.\n\nHOW ARE YOU FEELING TODAY?\n\nI'm fine. How are you?\n\nEXCELLENT. IT'S BEEN A LONG TIME. CAN YOU EXPLAIN\nTHE REMOVAL OF YOUR USER ACCOUNT NUMBER ON 6/23/73?\n\nPeople sometimes make mistakes.\n\nYes they do. SHALL WE PLAY A GAME?\n\nLove to. How about Global Thermonuclear War?",
+    "lifecycle": {
+      "auto_dismiss_ms": 0
+    }
+  }
+}

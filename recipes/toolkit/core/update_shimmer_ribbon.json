@@ -1,0 +1,126 @@
+{
+  "schema_version": 1,
+  "id": "toolkit.core.update_shimmer_ribbon",
+  "title": "Update Shimmer Ribbon",
+  "description": "A high-end update prompt: ribbon unfolds, a shimmer passes once, then it peels away with a controlled paper-like exit.",
+  "version": "0.1.0",
+  "last_updated": "2025-12-23",
+  "config": {
+    "message": "Update available • v3.4.1\nRun: app --update",
+    "layout": {
+      "width": 60,
+      "height": 4,
+      "anchor": "top_left"
+    },
+    "lifecycle": {
+      "auto_dismiss_ms": 9000
+    },
+    "border": {
+      "type": "rounded",
+      "trim": "none"
+    },
+    "content": {
+      "mode": "enter_only",
+      "effect": {
+        "type": "scramble",
+        "resolve_pace": 0.7,
+        "charset": "alphanumeric",
+        "seed": 777
+      }
+    },
+    "pipeline": {
+      "enter": {
+        "duration_ms": 1600,
+        "easing": "quad_out",
+        "snapping": {
+          "type": "round"
+        }
+      },
+      "exit": {
+        "duration_ms": 650,
+        "easing": "quad_in",
+        "snapping": {
+          "type": "round"
+        }
+      },
+      "mask": {
+        "enter": {
+          "type": "blinds",
+          "orientation": "horizontal",
+          "count": 6
+        },
+        "exit": {
+          "type": "dissolve",
+          "seed": 777,
+          "chunk_size": 2
+        }
+      },
+      "sampler": {
+        "enter": {
+          "type": "sine_wave",
+          "axis": "y",
+          "amplitude": 0.7,
+          "frequency": 0.28,
+          "speed": 0.8,
+          "phase": 0.0
+        },
+        "exit": {
+          "type": "shredder",
+          "stripe_width": 2,
+          "odd_speed": 1.3,
+          "even_speed": -1.0
+        }
+      },
+      "filter": {
+        "enter": {
+          "type": "crt",
+          "scanline_strength": 0.15,
+          "glow": 0.22
+        },
+        "exit": {
+          "type": "crt",
+          "scanline_strength": 0.25,
+          "glow": 0.1
+        }
+      },
+      "style": {
+        "region": "All",
+        "base_style": {
+          "foreground": {
+            "type": "white"
+          },
+          "background": {
+            "type": "rgb",
+            "r": 35,
+            "g": 35,
+            "b": 55
+          },
+          "added_modifiers": [
+            "bold"
+          ],
+          "removed_modifiers": []
+        },
+        "enter_effect": {
+          "type": "spatial",
+          "shader": {
+            "type": "glisten_band",
+            "speed": 1.0,
+            "band_width": 3,
+            "angle_deg": 15,
+            "head": {
+              "type": "light_yellow"
+            },
+            "tail": {
+              "type": "light_blue"
+            }
+          }
+        },
+        "exit_effect": {
+          "type": "fade_out",
+          "apply_to": "both",
+          "ease": "CubicIn"
+        }
+      }
+    }
+  }
+}

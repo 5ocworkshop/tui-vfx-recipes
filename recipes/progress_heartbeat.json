@@ -1,0 +1,142 @@
+{
+  "schema_version": 1,
+  "id": "progress.heartbeat",
+  "title": "Heartbeat Monitor",
+  "description": "EKG-style horizontal pulse with two QRS complexes spaced for 78 BPM rhythm.",
+  "version": "1.0.0",
+  "last_updated": "2025-12-29",
+  "config": {
+    "message": "─╱╲╱╲────────────╱╲╱╲────────────────",
+    "layout": {
+      "width": 38,
+      "height": 1,
+      "anchor": "center"
+    },
+    "lifecycle": {
+      "auto_dismiss_ms": 0
+    },
+    "time": {
+      "loop": true,
+      "loop_period_ms": 1538
+    },
+    "border": {
+      "type": "none",
+      "trim": "none"
+    },
+    "pipeline": {
+      "enter": {
+        "duration_ms": 300,
+        "easing": "linear",
+        "snapping": {
+          "type": "round"
+        }
+      },
+      "exit": {
+        "duration_ms": 200,
+        "easing": "linear",
+        "snapping": {
+          "type": "round"
+        }
+      },
+      "mask": {
+        "enter": {
+          "type": "none"
+        },
+        "exit": {
+          "type": "none"
+        }
+      },
+      "sampler": {
+        "enter": {
+          "type": "none"
+        },
+        "exit": {
+          "type": "none"
+        }
+      },
+      "filter": {
+        "enter": {
+          "type": "none"
+        },
+        "exit": {
+          "type": "none"
+        }
+      },
+      "style": {
+        "region": "All",
+        "base_style": {
+          "foreground": {
+            "type": "rgb",
+            "r": 0,
+            "g": 100,
+            "b": 50
+          },
+          "background": {
+            "type": "rgb",
+            "r": 0,
+            "g": 15,
+            "b": 10
+          },
+          "added_modifiers": [],
+          "removed_modifiers": []
+        },
+        "enter_effect": {
+          "type": "spatial",
+          "shader": {
+            "type": "glisten_band",
+            "speed": 0.65,
+            "band_width": 3,
+            "angle_deg": 0.0,
+            "head": {
+              "type": "rgb",
+              "r": 150,
+              "g": 255,
+              "b": 150
+            },
+            "tail": {
+              "type": "rgb",
+              "r": 0,
+              "g": 180,
+              "b": 80
+            },
+            "direction": "forward",
+            "apply_to": "foreground",
+            "blend_strength": 1.0
+          }
+        },
+        "dwell_effect": {
+          "type": "spatial",
+          "shader": {
+            "type": "glisten_band",
+            "speed": 0.65,
+            "band_width": 3,
+            "angle_deg": 0.0,
+            "head": {
+              "type": "rgb",
+              "r": 150,
+              "g": 255,
+              "b": 150
+            },
+            "tail": {
+              "type": "rgb",
+              "r": 0,
+              "g": 180,
+              "b": 80
+            },
+            "direction": "forward",
+            "apply_to": "foreground",
+            "blend_strength": 1.0
+          }
+        },
+        "exit_effect": {
+          "type": "fade_out",
+          "apply_to": "both",
+          "ease": "Linear"
+        }
+      }
+    },
+    "requires_primitives": [
+      "shader.glisten_band"
+    ]
+  }
+}

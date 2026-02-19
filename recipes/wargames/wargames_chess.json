@@ -1,0 +1,23 @@
+{
+  "schema_version": 1,
+  "extends": "themes/wopr_green.json",
+  "id": "wargames.chess",
+  "title": "WarGames - Chess",
+  "description": "WOPR chess suggestion - WOULDN'T YOU PREFER A NICE GAME OF CHESS? - Steady computer output",
+  "version": "2.0.0",
+  "last_updated": "2025-12-24",
+  "config": {
+    "message": "WOULDN'T YOU PREFER\nA NICE GAME OF CHESS?",
+    "layout": {
+      "height": 4
+    },
+    "lifecycle": {
+      "auto_dismiss_ms": 8000
+    },
+    "pipeline": {
+      "enter": {
+        "duration_ms": 1800
+      }
+    }
+  }
+}

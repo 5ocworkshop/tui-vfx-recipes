@@ -1,0 +1,138 @@
+{
+  "schema_version": 1,
+  "id": "toolkit.sizzle.kintsugi_repair",
+  "title": "Kintsugi Repair",
+  "description": "A crash-recovery moment treated like kintsugi: a ‘crack’ appears, then a warm gold seam shimmers across it—calmly triumphant.",
+  "version": "0.1.0",
+  "last_updated": "2025-12-23",
+  "config": {
+    "message": "Recovered session\nNothing was lost",
+    "layout": {
+      "width": 46,
+      "height": 5,
+      "anchor": "middle_right"
+    },
+    "lifecycle": {
+      "auto_dismiss_ms": 7000
+    },
+    "border": {
+      "type": "rounded",
+      "trim": "none"
+    },
+    "content": {
+      "mode": "enter_only",
+      "effect": {
+        "type": "scramble",
+        "resolve_pace": 0.85,
+        "charset": "alphanumeric",
+        "seed": 1618
+      }
+    },
+    "pipeline": {
+      "enter": {
+        "duration_ms": 2000,
+        "easing": "quad_in_out",
+        "snapping": {
+          "type": "round"
+        }
+      },
+      "exit": {
+        "duration_ms": 900,
+        "easing": "cubic_in",
+        "snapping": {
+          "type": "round"
+        }
+      },
+      "mask": {
+        "enter": {
+          "type": "diamond",
+          "soft_edge": true
+        },
+        "exit": {
+          "type": "dissolve",
+          "seed": 1618,
+          "chunk_size": 3
+        }
+      },
+      "sampler": {
+        "enter": {
+          "type": "fault_line",
+          "seed": 1618,
+          "intensity": 2.6,
+          "split_bias": 0.45
+        },
+        "exit": {
+          "type": "shredder",
+          "stripe_width": 1,
+          "odd_speed": -2.0,
+          "even_speed": 1.4
+        }
+      },
+      "filter": {
+        "enter": {
+          "type": "tint",
+          "color": {
+            "type": "rgb",
+            "r": 255,
+            "g": 215,
+            "b": 120
+          },
+          "strength": 0.08,
+          "apply_to": "background"
+        },
+        "exit": {
+          "type": "vignette",
+          "strength": 0.85,
+          "radius": 0.35
+        }
+      },
+      "style": {
+        "region": "All",
+        "base_style": {
+          "foreground": {
+            "type": "rgb",
+            "r": 250,
+            "g": 250,
+            "b": 245
+          },
+          "background": {
+            "type": "rgb",
+            "r": 25,
+            "g": 20,
+            "b": 20
+          },
+          "added_modifiers": [
+            "bold"
+          ],
+          "removed_modifiers": []
+        },
+        "enter_effect": {
+          "type": "spatial",
+          "shader": {
+            "type": "glisten_band",
+            "speed": 0.9,
+            "band_width": 1,
+            "angle_deg": 60,
+            "head": {
+              "type": "rgb",
+              "r": 255,
+              "g": 215,
+              "b": 120
+            },
+            "tail": {
+              "type": "rgb",
+              "r": 90,
+              "g": 70,
+              "b": 40
+            }
+          }
+        },
+        "exit_effect": {
+          "type": "fade_out",
+          "apply_to": "both",
+          "ease": "CubicIn"
+        }
+      }
+    }
+  }
+}

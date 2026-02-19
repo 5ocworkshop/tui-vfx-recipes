@@ -1,0 +1,93 @@
+{
+  "schema_version": 1,
+  "id": "showcase.multi_filter_faded_notice",
+  "title": "Multi-Filter: Faded Notice",
+  "description": "Demonstrates multiple filters: Vignette + Dim for subtle, recessed notification appearance",
+  "version": "1.0.0",
+  "last_updated": "2025-12-26",
+  "config": {
+    "message": "Background process complete",
+    "layout": {
+      "anchor": "bottom_left",
+      "width": 36,
+      "height": 4
+    },
+    "lifecycle": {
+      "auto_dismiss_ms": 5000
+    },
+    "border": {
+      "type": "rounded"
+    },
+    "pipeline": {
+      "enter": {
+        "duration_ms": 400,
+        "easing": "quad_out"
+      },
+      "exit": {
+        "duration_ms": 600,
+        "easing": "quad_in"
+      },
+      "style": {
+        "base_style": {
+          "foreground": {
+            "type": "rgb",
+            "r": 180,
+            "g": 180,
+            "b": 180
+          },
+          "background": {
+            "type": "rgb",
+            "r": 30,
+            "g": 30,
+            "b": 35
+          }
+        }
+      },
+      "filter": {
+        "enter": [
+          {
+            "type": "dim",
+            "factor": 0.5,
+            "apply_to": "both"
+          }
+        ],
+        "dwell": [
+          {
+            "type": "vignette",
+            "strength": 0.6,
+            "radius": 0.7
+          },
+          {
+            "type": "dim",
+            "factor": 0.75,
+            "apply_to": "both"
+          }
+        ],
+        "exit": [
+          {
+            "type": "vignette",
+            "strength": 0.8,
+            "radius": 0.5
+          },
+          {
+            "type": "dim",
+            "factor": 0.4,
+            "apply_to": "both"
+          }
+        ]
+      },
+      "mask": {
+        "enter": {
+          "type": "wipe",
+          "direction": "bottom_to_top",
+          "soft_edge": true
+        },
+        "exit": {
+          "type": "wipe",
+          "direction": "top_to_bottom",
+          "soft_edge": true
+        }
+      }
+    }
+  }
+}

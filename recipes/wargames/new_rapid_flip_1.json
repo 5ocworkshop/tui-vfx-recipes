@@ -1,0 +1,12 @@
+{
+  "schema_version": 1,
+  "extends": "themes/new_rapid_sequence_base.json",
+  "id": "wargames.new_rapid_flip_1",
+  "title": "WarGames - Rapid Flip Sequence Screen 1",
+  "description": "First screen of rapid system status montage. Fast reveal, 600ms auto-dismiss. Tests speed and snappy transitions.",
+  "version": "1.0.0",
+  "last_updated": "2025-12-25",
+  "config": {
+    "message": "FLNC    TMD    EMS    RGDI    PZSO    GJBZ    FPO3    ZMO8    JMB9\nBT TMCDR: 03.53242.349\nSYSTMC FUNCT READY          ALT NET READY"
+  }
+}

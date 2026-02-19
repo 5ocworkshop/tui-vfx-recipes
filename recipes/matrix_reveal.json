@@ -1,0 +1,137 @@
+{
+  "schema_version": 1,
+  "id": "notifications.matrix_reveal",
+  "title": "The Matrix",
+  "description": "Katakana scramble with green vertical gradient and blinds reveal",
+  "version": "2.0.0",
+  "last_updated": "2025-12-18",
+  "config": {
+    "message": "Wake up, Neo... The Matrix has you. Follow the white rabbit.",
+    "layout": {
+      "width": 40,
+      "height": 5,
+      "anchor": "bottom_right"
+    },
+    "lifecycle": {
+      "auto_dismiss_ms": 12000
+    },
+    "border": {
+      "type": "plain",
+      "trim": "none"
+    },
+    "content": {
+      "mode": "enter_only",
+      "effect": {
+        "type": "scramble",
+        "resolve_pace": 0.75,
+        "charset": "katakana",
+        "seed": 4242
+      }
+    },
+    "pipeline": {
+      "enter": {
+        "duration_ms": 3000,
+        "easing": "linear",
+        "snapping": {
+          "type": "round"
+        }
+      },
+      "exit": {
+        "duration_ms": 800,
+        "easing": "linear",
+        "snapping": {
+          "type": "round"
+        }
+      },
+      "mask": {
+        "enter": {
+          "type": "blinds",
+          "orientation": "vertical",
+          "count": 14
+        },
+        "exit": {
+          "type": "none"
+        }
+      },
+      "sampler": {
+        "enter": {
+          "type": "none"
+        },
+        "exit": {
+          "type": "none"
+        }
+      },
+      "filter": {
+        "enter": {
+          "type": "dim",
+          "factor": 0.25,
+          "apply_to": "background"
+        },
+        "exit": {
+          "type": "none"
+        }
+      },
+      "style": {
+        "region": "All",
+        "base_style": {
+          "foreground": {
+            "type": "light_green"
+          },
+          "background": {
+            "type": "black"
+          },
+          "added_modifiers": [
+            "bold"
+          ],
+          "removed_modifiers": []
+        },
+        "enter_effect": {
+          "type": "spatial",
+          "shader": {
+            "type": "linear_gradient",
+            "gradient": {
+              "stops": [
+                [
+                  0.0,
+                  {
+                    "type": "rgb",
+                    "r": 0,
+                    "g": 60,
+                    "b": 0
+                  }
+                ],
+                [
+                  0.5,
+                  {
+                    "type": "light_green"
+                  }
+                ],
+                [
+                  1.0,
+                  {
+                    "type": "rgb",
+                    "r": 0,
+                    "g": 60,
+                    "b": 0
+                  }
+                ]
+              ],
+              "space": "rgb"
+            },
+            "angle_deg": 90.0
+          }
+        },
+        "exit_effect": {
+          "type": "fade_out",
+          "apply_to": "foreground",
+          "ease": "Linear"
+        }
+      }
+    },
+    "requires_primitives": [
+      "content.scramble_katakana",
+      "style.spatial_per_cell",
+      "mask.blinds_params"
+    ]
+  }
+}

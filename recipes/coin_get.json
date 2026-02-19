@@ -1,0 +1,121 @@
+{
+  "schema_version": 1,
+  "id": "notifications.coin_get",
+  "title": "Coin Get",
+  "description": "Bouncing coin drop with reflective sheen",
+  "version": "2.0.1",
+  "last_updated": "2025-12-18",
+  "config": {
+    "message": "+500 GOLD",
+    "layout": {
+      "width": 16,
+      "height": 3,
+      "anchor": "bottom_right"
+    },
+    "lifecycle": {
+      "auto_dismiss_ms": 2800
+    },
+    "border": {
+      "type": "rounded",
+      "trim": "none"
+    },
+    "pipeline": {
+      "enter": {
+        "duration_ms": 1000,
+        "easing": "quad_out",
+        "motion_path": {
+          "type": "bounce",
+          "bounces": 4,
+          "decay": 0.5
+        },
+        "snapping": {
+          "type": "round"
+        },
+        "from": {
+          "type": "offscreen",
+          "direction": "from_top",
+          "margin_cells": 1
+        }
+      },
+      "exit": {
+        "duration_ms": 650,
+        "easing": "quad_in",
+        "motion_path": {
+          "type": "linear"
+        },
+        "snapping": {
+          "type": "round"
+        },
+        "to": {
+          "type": "offscreen",
+          "direction": "from_bottom",
+          "margin_cells": 1
+        }
+      },
+      "mask": {
+        "enter": {
+          "type": "none"
+        },
+        "exit": {
+          "type": "none"
+        }
+      },
+      "sampler": {
+        "enter": {
+          "type": "none"
+        },
+        "exit": {
+          "type": "none"
+        }
+      },
+      "filter": {
+        "enter": {
+          "type": "none"
+        },
+        "exit": {
+          "type": "none"
+        }
+      },
+      "style": {
+        "region": "TextOnly",
+        "base_style": {
+          "foreground": {
+            "type": "rgb",
+            "r": 255,
+            "g": 215,
+            "b": 0
+          },
+          "background": {
+            "type": "black"
+          },
+          "added_modifiers": [
+            "bold"
+          ],
+          "removed_modifiers": []
+        },
+        "enter_effect": {
+          "type": "fade_in",
+          "apply_to": "foreground",
+          "ease": "QuadOut"
+        },
+        "exit_effect": {
+          "type": "fade_out",
+          "apply_to": "foreground",
+          "ease": "QuadIn"
+        },
+        "spatial_shader": {
+          "type": "reflect",
+          "speed": 3.0,
+          "color": {
+            "type": "white"
+          }
+        }
+      }
+    },
+    "requires_primitives": [
+      "geometry.path.bounce",
+      "style.shader.reflect",
+      "style.region_targeting"
+    ]
+  }
+}

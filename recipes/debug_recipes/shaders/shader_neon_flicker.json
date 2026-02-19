@@ -1,0 +1,81 @@
+{
+  "schema_version": 1,
+  "id": "debug.shader.neon_flicker",
+  "title": "Debug: Shader - NeonFlicker",
+  "description": "Tests NeonFlicker spatial shader with stability, segment, and dim_amount",
+  "version": "1.0.0",
+  "last_updated": "2025-12-30",
+  "config": {
+    "message": "SHADER TEST: NeonFlicker",
+    "layout": {
+      "width": 40,
+      "height": 3,
+      "anchor": "center"
+    },
+    "lifecycle": {
+      "auto_dismiss_ms": 6000
+    },
+    "border": {
+      "type": "double",
+      "trim": "none"
+    },
+    "pipeline": {
+      "enter": {
+        "duration_ms": 1500,
+        "easing": "linear"
+      },
+      "exit": {
+        "duration_ms": 1000,
+        "easing": "linear"
+      },
+      "mask": {
+        "enter": {
+          "type": "none"
+        },
+        "exit": {
+          "type": "none"
+        }
+      },
+      "sampler": {
+        "enter": {
+          "type": "none"
+        },
+        "exit": {
+          "type": "none"
+        }
+      },
+      "filter": {
+        "enter": {
+          "type": "none"
+        },
+        "exit": {
+          "type": "none"
+        }
+      },
+      "style": {
+        "region": "All",
+        "base_style": {
+          "foreground": {
+            "type": "rgb",
+            "r": 255,
+            "g": 50,
+            "b": 200
+          },
+          "background": {
+            "type": "rgb",
+            "r": 20,
+            "g": 5,
+            "b": 20
+          }
+        },
+        "spatial_shader": {
+          "type": "neon_flicker",
+          "stability": 0.6,
+          "segment": "row",
+          "dim_amount": 0.4,
+          "seed": 42
+        }
+      }
+    }
+  }
+}

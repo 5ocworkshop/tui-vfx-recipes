@@ -1,0 +1,596 @@
+# <FILE>tools/pipeline-validator/rules/visibility.toml</FILE>
+# <DESC>Default visibility validation rules for recipe effects</DESC>
+# <VERS>VERSION: 1.6.0</VERS>
+# <WCTX>Pipeline debugging tools - faultline visibility validation</WCTX>
+# <CLOG>Add fault-line-excessive-intensity rule for out-of-bounds cell detection</CLOG>
+
+[meta]
+version = "1.6.0"
+description = "Visibility validation rules for tui-vfx-recipes recipes"
+
+# =============================================================================
+# SPATIAL SHADERS (13 rules: 11 errors, 2 warnings)
+# =============================================================================
+
+[[rules]]
+id = "glisten-band-coverage"
+severity = "error"
+category = "spatial.glisten_band"
+description = "GlistenBand band_width covers entire sweep range"
+condition = "shader.type == 'glisten_band' and band_width >= max_projection(layout, angle_deg)"
+message = "band_width ({band_width}) >= sweep range ({max_proj}); effect invisible"
+fix_hint = "Reduce band_width to less than {max_proj}"
+
+[[rules]]
+id = "glisten-band-mostly-covered"
+severity = "warning"
+category = "spatial.glisten_band"
+description = "GlistenBand band_width covers most of sweep range"
+condition = "shader.type == 'glisten_band' and band_width > 0"
+message = "band_width ({band_width}) may cover too much of sweep range"
+fix_hint = "Consider reducing band_width for clearer effect"
+
+[[rules]]
+id = "glisten-band-zero-width"
+severity = "error"
+category = "spatial.glisten_band"
+description = "GlistenBand has zero band_width"
+condition = "shader.type == 'glisten_band' and band_width == 0"
+message = "band_width is 0; no visible band"
+
+[[rules]]
+id = "pulse-wave-zero-wavelength"
+severity = "error"
+category = "spatial.pulse_wave"
+description = "PulseWave has zero wavelength"
+condition = "shader.type == 'pulse_wave' and wavelength == 0"
+message = "wavelength is 0; wave invisible"
+
+[[rules]]
+id = "pulse-wave-zero-frequency"
+severity = "error"
+category = "spatial.pulse_wave"
+description = "PulseWave has zero frequency"
+condition = "shader.type == 'pulse_wave' and frequency == 0"
+message = "frequency is 0; wave invisible"
+
+[[rules]]
+id = "radar-zero-tail"
+severity = "error"
+category = "spatial.radar"
+description = "Radar has zero tail_length"
+condition = "shader.type == 'radar' and tail_length == 0"
+message = "tail_length is 0; sweep invisible"
+
+[[rules]]
+id = "border-sweep-zero-length"
+severity = "error"
+category = "spatial.border_sweep"
+description = "BorderSweep has zero length"
+condition = "shader.type == 'border_sweep' and length == 0"
+message = "length is 0; highlight invisible"
+
+[[rules]]
+id = "barber-pole-zero-stripe"
+severity = "error"
+category = "spatial.barber_pole"
+description = "BarberPole has zero stripe_width"
+condition = "shader.type == 'barber_pole' and stripe_width == 0"
+message = "stripe_width is 0; stripes invisible"
+
+[[rules]]
+id = "barber-pole-zero-gap"
+severity = "error"
+category = "spatial.barber_pole"
+description = "BarberPole has zero gap_width"
+condition = "shader.type == 'barber_pole' and gap_width == 0"
+message = "gap_width is 0; stripes merge into solid"
+
+[[rules]]
+id = "glitch-lines-zero-intensity"
+severity = "error"
+category = "spatial.glitch_lines"
+description = "GlitchLines has zero intensity"
+condition = "shader.type == 'glitch_lines' and intensity == 0"
+message = "intensity is 0; no glitch visible"
+
+[[rules]]
+id = "glitch-lines-zero-max-lines"
+severity = "error"
+category = "spatial.glitch_lines"
+description = "GlitchLines has zero max_lines"
+condition = "shader.type == 'glitch_lines' and max_lines == 0"
+message = "max_lines is 0; no glitch visible"
+
+[[rules]]
+id = "neon-flicker-full-stability"
+severity = "warning"
+category = "spatial.neon_flicker"
+description = "NeonFlicker has full stability (no flicker)"
+condition = "shader.type == 'neon_flicker' and stability >= 1.0"
+message = "stability is 1.0; effect never flickers"
+
+[[rules]]
+id = "focused-row-zero-falloff"
+severity = "error"
+category = "spatial.focused_row_gradient"
+description = "FocusedRowGradient has zero falloff_distance"
+condition = "shader.type == 'focused_row_gradient' and falloff_distance == 0"
+message = "falloff_distance is 0; gradient collapses to single row"
+
+# =============================================================================
+# GENERAL SHADER PARAMETERS (4 rules: 1 error, 3 warnings)
+# =============================================================================
+
+[[rules]]
+id = "blend-strength-too-low"
+severity = "warning"
+category = "shader.general"
+description = "Shader blend_strength is very low"
+condition = "blend_strength < 0.2 and blend_strength > 0"
+message = "blend_strength ({blend_strength}) is very low; effect may be imperceptible"
+threshold = 0.2
+
+[[rules]]
+id = "blend-strength-zero"
+severity = "error"
+category = "shader.general"
+description = "Shader blend_strength is zero"
+condition = "blend_strength == 0"
+message = "blend_strength is 0; shader has no effect"
+
+[[rules]]
+id = "speed-too-fast"
+severity = "warning"
+category = "shader.general"
+description = "Animation speed too fast to perceive"
+condition = "speed > 5.0"
+message = "speed ({speed}) is very high; animation may appear as flicker"
+threshold = 5.0
+
+[[rules]]
+id = "speed-zero"
+severity = "warning"
+category = "shader.general"
+description = "Animation speed is zero (static)"
+condition = "speed == 0"
+message = "speed is 0; animation is static"
+
+# =============================================================================
+# COLOR CONTRAST (5 rules: 0 errors, 5 warnings)
+# =============================================================================
+
+[[rules]]
+id = "glisten-head-low-contrast-fg"
+severity = "warning"
+category = "color.contrast"
+description = "GlistenBand head color too similar to base foreground"
+condition = "shader.type == 'glisten_band' and color_distance(shader.head, style.base.fg) < 50"
+message = "head color is too similar to base fg (distance: {color_dist}); glisten may be invisible"
+fix_hint = "Use a head color with more contrast from base fg (e.g., white, cyan)"
+threshold = 50.0
+
+[[rules]]
+id = "glisten-tail-low-contrast-fg"
+severity = "warning"
+category = "color.contrast"
+description = "GlistenBand tail color too similar to base foreground"
+condition = "shader.type == 'glisten_band' and color_distance(shader.tail, style.base.fg) < 50"
+message = "tail color is too similar to base fg (distance: {color_dist}); glisten may be invisible"
+fix_hint = "Use a tail color with more contrast from base fg"
+threshold = 50.0
+
+[[rules]]
+id = "glisten-head-tail-too-similar"
+severity = "warning"
+category = "color.contrast"
+description = "GlistenBand head and tail colors too similar (no gradient)"
+condition = "shader.type == 'glisten_band' and color_distance(shader.head, shader.tail) < 30"
+message = "head and tail colors are too similar (distance: {color_dist}); band has no visible gradient"
+fix_hint = "Use distinct head/tail colors for visible gradient within band"
+threshold = 30.0
+
+[[rules]]
+id = "shader-fg-only-sparse-text"
+severity = "warning"
+category = "color.contrast"
+description = "Shader applies to fg only but widget has sparse text content"
+condition = "shader.apply_to == 'fg' and layout.width * layout.height > 100 and text_density < 0.3"
+message = "apply_to='fg' but widget is mostly background; shader affects little of visible area"
+fix_hint = "Consider apply_to='both' or 'bg' for larger visual impact"
+
+[[rules]]
+id = "sweep-shader-low-contrast-bg"
+severity = "warning"
+category = "color.contrast"
+description = "Sweep shader colors low contrast against dark background"
+condition = "shader.type in ['glisten_band', 'reflect', 'border_sweep'] and is_dark(style.base.bg) and max_luminance(shader.head, shader.tail) < 0.5"
+message = "Sweep shader colors are dim against dark background; effect may be hard to see"
+fix_hint = "Use brighter head/tail colors (closer to white) for dark backgrounds"
+
+# =============================================================================
+# MASKS (3 rules: 3 errors)
+# =============================================================================
+
+[[rules]]
+id = "blinds-too-many"
+severity = "error"
+category = "mask.blinds"
+description = "Blinds mask has too many slats (fully opaque)"
+condition = "mask.type == 'blinds' and count > 100"
+message = "blinds count ({count}) is very high; mask may be fully opaque"
+threshold = 100.0
+
+[[rules]]
+id = "checkers-zero-cell"
+severity = "error"
+category = "mask.checkers"
+description = "Checkers mask has zero cell_size"
+condition = "mask.type == 'checkers' and cell_size == 0"
+message = "cell_size is 0; undefined behavior"
+
+[[rules]]
+id = "cellular-zero-cells"
+severity = "error"
+category = "mask.cellular"
+description = "Cellular mask has zero cell_count"
+condition = "mask.type == 'cellular' and cell_count == 0"
+message = "cell_count is 0; undefined behavior"
+
+# =============================================================================
+# SAMPLERS (7 rules: 5 errors, 2 warnings)
+# =============================================================================
+
+[[rules]]
+id = "sine-wave-zero-amplitude"
+severity = "error"
+category = "sampler.sine_wave"
+description = "SineWave sampler has zero amplitude"
+condition = "sampler.type == 'sine_wave' and amplitude == 0"
+message = "amplitude is 0; no distortion visible"
+
+[[rules]]
+id = "sine-wave-zero-frequency"
+severity = "warning"
+category = "sampler.sine_wave"
+description = "SineWave sampler has zero frequency"
+condition = "sampler.type == 'sine_wave' and frequency == 0"
+message = "frequency is 0; wave appears flat"
+
+[[rules]]
+id = "ripple-zero-amplitude"
+severity = "error"
+category = "sampler.ripple"
+description = "Ripple sampler has zero amplitude"
+condition = "sampler.type == 'ripple' and amplitude == 0"
+message = "amplitude is 0; no ripple visible"
+
+[[rules]]
+id = "ripple-zero-wavelength"
+severity = "error"
+category = "sampler.ripple"
+description = "Ripple sampler has zero wavelength"
+condition = "sampler.type == 'ripple' and wavelength == 0"
+message = "wavelength is 0; ripple undefined"
+
+[[rules]]
+id = "shredder-zero-stripe"
+severity = "error"
+category = "sampler.shredder"
+description = "Shredder sampler has zero stripe_width"
+condition = "sampler.type == 'shredder' and stripe_width == 0"
+message = "stripe_width is 0; no shredding visible"
+
+[[rules]]
+id = "fault-line-zero-intensity"
+severity = "error"
+category = "sampler.fault_line"
+description = "FaultLine sampler has zero intensity"
+condition = "sampler.type == 'fault_line' and intensity == 0"
+message = "intensity is 0; no displacement visible"
+
+[[rules]]
+id = "fault-line-excessive-intensity"
+severity = "warning"
+category = "sampler.fault_line"
+description = "FaultLine intensity may cause most cells to be out-of-bounds"
+condition = "sampler.type == 'fault_line' and intensity > 0 and fault_line_displacement(intensity) > half_width()"
+message = "intensity causes displacement exceeding half widget width; most cells will be out-of-bounds at t=0"
+fix_hint = "Reduce intensity to less than max_safe_fault_intensity() for this widget width, or use a wider layout"
+
+[[rules]]
+id = "crt-jitter-zero-intensity"
+severity = "warning"
+category = "sampler.crt_jitter"
+description = "CrtJitter sampler has zero intensity"
+condition = "sampler.type == 'crt_jitter' and intensity == 0"
+message = "intensity is 0; no jitter visible"
+
+# =============================================================================
+# FILTERS (4 rules: 2 errors, 2 warnings)
+# =============================================================================
+
+[[rules]]
+id = "dim-zero-factor"
+severity = "error"
+category = "filter.dim"
+description = "Dim filter has zero factor (completely black)"
+condition = "filter.type == 'dim' and factor == 0"
+message = "factor is 0; output is completely black"
+
+[[rules]]
+id = "dim-full-factor"
+severity = "warning"
+category = "filter.dim"
+description = "Dim filter has factor 1.0 (no dimming)"
+condition = "filter.type == 'dim' and factor >= 1.0"
+message = "factor is 1.0; no dimming effect"
+
+[[rules]]
+id = "tint-zero-strength"
+severity = "error"
+category = "filter.tint"
+description = "Tint filter has zero strength"
+condition = "filter.type == 'tint' and strength == 0"
+message = "strength is 0; no tint applied"
+
+[[rules]]
+id = "vignette-zero-strength"
+severity = "warning"
+category = "filter.vignette"
+description = "Vignette filter has zero strength"
+condition = "filter.type == 'vignette' and strength == 0"
+message = "strength is 0; no vignette visible"
+
+# =============================================================================
+# STYLE EFFECTS (5 rules: 4 errors, 1 warning)
+# =============================================================================
+
+[[rules]]
+id = "pulse-zero-frequency"
+severity = "error"
+category = "effect.pulse"
+description = "Pulse effect has zero frequency"
+condition = "effect.type == 'pulse' and frequency == 0"
+message = "frequency is 0; no pulsing"
+
+[[rules]]
+id = "glitch-zero-intensity"
+severity = "error"
+category = "effect.glitch"
+description = "Glitch effect has zero intensity"
+condition = "effect.type == 'glitch' and intensity == 0"
+message = "intensity is 0; no glitch visible"
+
+[[rules]]
+id = "italic-window-invalid"
+severity = "error"
+category = "effect.italic_window"
+description = "ItalicWindow has start >= end"
+condition = "effect.type == 'italic_window' and start >= end"
+message = "start ({start}) >= end ({end}); window never activates"
+
+[[rules]]
+id = "color-shift-all-zero"
+severity = "warning"
+category = "effect.color_shift"
+description = "ColorShift has all zero shifts"
+condition = "effect.type == 'color_shift' and hue_shift == 0 and saturation_shift == 0 and lightness_shift == 0"
+message = "all shifts are 0; no color change"
+
+[[rules]]
+id = "color-shift-black"
+severity = "error"
+category = "effect.color_shift"
+description = "ColorShift lightness makes content black"
+condition = "effect.type == 'color_shift' and lightness_shift <= -1.0"
+message = "lightness_shift <= -1.0; content becomes black"
+
+# =============================================================================
+# TIMING (5 rules: 0 errors, 5 warnings)
+# =============================================================================
+
+[[rules]]
+id = "phase-too-short"
+severity = "warning"
+category = "timing"
+description = "Phase duration too short to perceive effect"
+condition = "phase_duration_ms < 100"
+message = "Phase duration ({phase_duration_ms}ms) may be too short to perceive"
+threshold = 100.0
+
+[[rules]]
+id = "effect-wont-complete-cycle"
+severity = "warning"
+category = "timing"
+description = "Effect won't complete a full cycle in phase duration"
+condition = "speed > 0 and phase_duration_ms > 0"
+message = "Check if effect completes a cycle in the phase duration"
+
+[[rules]]
+id = "loop-truncates-sweep"
+severity = "warning"
+category = "timing"
+description = "Looping shader won't complete full sweep before loop resets"
+condition = "time.loop == true and speed < 1.0 and shader.type in ['glisten_band', 'reflect', 'border_sweep', 'radar', 'barber_pole']"
+message = "speed ({speed}) < 1.0 with looping enabled; shader only sweeps {speed_pct}% before loop resets"
+fix_hint = "Set speed >= 1.0 for complete sweep per loop, or disable looping"
+
+[[rules]]
+id = "loop-period-vs-phase-mismatch"
+severity = "warning"
+category = "timing"
+description = "Loop period shorter than enter/exit phase may cause visual jumps"
+condition = "time.loop == true and time.loop_period_ms < phase_duration_ms"
+message = "loop_period_ms ({loop_period_ms}) < phase duration ({phase_duration_ms}ms); loop may reset mid-animation"
+fix_hint = "Increase loop_period_ms or reduce phase duration"
+
+[[rules]]
+id = "dwell-shader-without-loop"
+severity = "warning"
+category = "timing"
+description = "Dwell shader configured but looping disabled with auto_dismiss"
+condition = "dwell_effect.type == 'spatial' and time.loop == false and lifecycle.auto_dismiss_ms > 0"
+message = "Spatial dwell_effect with loop=false and auto_dismiss; shader plays once then freezes until dismiss"
+fix_hint = "Enable time.loop for continuous dwell animation, or remove auto_dismiss"
+
+# =============================================================================
+# LAYOUT (1 rule: 0 errors, 1 warning)
+# =============================================================================
+
+[[rules]]
+id = "vertical-sweep-short-widget"
+severity = "warning"
+category = "layout"
+description = "Vertical sweep on short widget may be hard to see"
+condition = "layout.height < 8"
+message = "Widget height ({height}) is short; vertical sweeps may be hard to see"
+threshold = 8.0
+
+# =============================================================================
+# MOTION PATHS - PHYSICS (7 rules: 2 errors, 5 warnings)
+# =============================================================================
+
+[[rules]]
+id = "bounce-insufficient-duration"
+severity = "warning"
+category = "motion_path.bounce"
+description = "Bounce animation too short for visible bounces"
+condition = "motion_path.type == 'bounce' and motion_path.bounces > 0 and motion_path.duration_ms / motion_path.bounces < 300"
+message = "Bounce duration ({duration_ms}ms) with {bounces} bounces = {ms_per_bounce}ms per bounce; minimum 300ms recommended for visible effect"
+fix_hint = "Increase duration_ms to at least {min_duration}ms, or reduce bounces"
+
+[[rules]]
+id = "bounce-very-short-duration"
+severity = "error"
+category = "motion_path.bounce"
+description = "Bounce animation far too short to perceive bounces"
+condition = "motion_path.type == 'bounce' and motion_path.bounces > 0 and motion_path.duration_ms / motion_path.bounces < 150"
+message = "Bounce duration ({duration_ms}ms) with {bounces} bounces = {ms_per_bounce}ms per bounce; effect will appear as linear motion"
+fix_hint = "Increase duration_ms to at least {min_duration}ms for {bounces} bounces"
+
+[[rules]]
+id = "spring-insufficient-duration"
+severity = "warning"
+category = "motion_path.spring"
+description = "Spring animation too short to show oscillation"
+condition = "motion_path.type == 'spring' and motion_path.duration_ms < 400"
+message = "Spring duration ({duration_ms}ms) may be too short to show elastic overshoot"
+fix_hint = "Increase duration_ms to at least 400ms for visible spring effect"
+
+[[rules]]
+id = "pendulum-insufficient-duration"
+severity = "warning"
+category = "motion_path.pendulum"
+description = "Pendulum animation too short for visible oscillations"
+condition = "motion_path.type == 'pendulum' and motion_path.oscillations > 0 and motion_path.duration_ms / motion_path.oscillations < 250"
+message = "Pendulum duration ({duration_ms}ms) with {oscillations} oscillations may be too fast to perceive"
+fix_hint = "Increase duration_ms or reduce oscillations"
+
+[[rules]]
+id = "orbit-insufficient-duration"
+severity = "warning"
+category = "motion_path.orbit"
+description = "Orbit animation too short for smooth circular motion"
+condition = "motion_path.type == 'orbit' and motion_path.duration_ms < 500"
+message = "Orbit duration ({duration_ms}ms) may appear jerky; recommend at least 500ms"
+fix_hint = "Increase duration_ms for smoother orbital motion"
+
+[[rules]]
+id = "projectile-zero-arc"
+severity = "error"
+category = "motion_path.projectile"
+description = "Projectile with zero arc height is just linear motion"
+condition = "motion_path.type == 'projectile' and motion_path.arc_height == 0"
+message = "arc_height is 0; projectile will move in straight line (use Linear path instead)"
+fix_hint = "Set arc_height to non-zero value for parabolic trajectory"
+
+[[rules]]
+id = "friction-zero-drag"
+severity = "warning"
+category = "motion_path.friction"
+description = "Friction with very low drag behaves like linear"
+condition = "motion_path.type == 'friction' and motion_path.drag < 0.5"
+message = "drag ({drag}) is very low; motion will appear nearly linear"
+fix_hint = "Increase drag for more pronounced deceleration effect"
+
+# =============================================================================
+# PHYSICS/ANCHOR COMPATIBILITY (8 rules: 0 errors, 8 warnings)
+# These warn when physics effects may not work well at certain anchor positions
+# =============================================================================
+
+[[rules]]
+id = "bounce-top-anchor-from-top"
+severity = "warning"
+category = "motion_path.bounce.position"
+description = "Bounce from top with top-row anchor has no room to fall"
+condition = "motion_path.type == 'bounce' and motion_path.from_direction == 'from_top' and layout.anchor in ['top_left', 'top_center', 'top_right']"
+message = "Bounce enters from top but anchor is at top edge; no visible fall distance for bouncing"
+fix_hint = "Use center or bottom anchor, or enter from a different direction"
+
+[[rules]]
+id = "bounce-bottom-anchor-from-bottom"
+severity = "warning"
+category = "motion_path.bounce.position"
+description = "Bounce from bottom with bottom-row anchor has no room to fall"
+condition = "motion_path.type == 'bounce' and motion_path.from_direction == 'from_bottom' and layout.anchor in ['bottom_left', 'bottom_center', 'bottom_right']"
+message = "Bounce enters from bottom but anchor is at bottom edge; no visible fall distance for bouncing"
+fix_hint = "Use center or top anchor, or enter from a different direction"
+
+[[rules]]
+id = "orbit-top-anchor"
+severity = "warning"
+category = "motion_path.orbit.position"
+description = "Orbit at top edge occurs mostly off-screen"
+condition = "motion_path.type == 'orbit' and layout.anchor in ['top_left', 'top_center', 'top_right']"
+message = "Orbit with top-row anchor; half of orbital path occurs above visible frame"
+fix_hint = "Use center anchor for fully visible orbit, or reduce revolutions"
+
+[[rules]]
+id = "orbit-bottom-anchor"
+severity = "warning"
+category = "motion_path.orbit.position"
+description = "Orbit at bottom edge occurs mostly off-screen"
+condition = "motion_path.type == 'orbit' and layout.anchor in ['bottom_left', 'bottom_center', 'bottom_right']"
+message = "Orbit with bottom-row anchor; half of orbital path occurs below visible frame"
+fix_hint = "Use center anchor for fully visible orbit, or reduce revolutions"
+
+[[rules]]
+id = "pendulum-edge-anchor"
+severity = "warning"
+category = "motion_path.pendulum.position"
+description = "Pendulum at screen edge may clip swing"
+condition = "motion_path.type == 'pendulum' and layout.anchor in ['top_left', 'top_right', 'bottom_left', 'bottom_right', 'middle_left', 'middle_right']"
+message = "Pendulum at screen edge; swing may be clipped by frame boundary"
+fix_hint = "Use center anchor for fully visible pendulum swing"
+
+[[rules]]
+id = "spring-edge-anchor-overshoot"
+severity = "warning"
+category = "motion_path.spring.position"
+description = "Spring at edge may overshoot off-screen"
+condition = "motion_path.type == 'spring' and motion_path.stiffness > 2.0 and layout.anchor in ['top_left', 'top_center', 'top_right', 'bottom_left', 'bottom_center', 'bottom_right']"
+message = "Spring with high stiffness ({stiffness}) at edge anchor; overshoot may occur off-screen"
+fix_hint = "Use center anchor or reduce stiffness to keep overshoot visible"
+
+[[rules]]
+id = "projectile-top-anchor-upward-arc"
+severity = "warning"
+category = "motion_path.projectile.position"
+description = "Projectile arc at top edge goes off-screen"
+condition = "motion_path.type == 'projectile' and motion_path.arc_height < 0 and layout.anchor in ['top_left', 'top_center', 'top_right']"
+message = "Projectile with upward arc (arc_height < 0) at top anchor; arc peak occurs above visible frame"
+fix_hint = "Use positive arc_height for downward arc, or use center/bottom anchor"
+
+[[rules]]
+id = "projectile-bottom-anchor-downward-arc"
+severity = "warning"
+category = "motion_path.projectile.position"
+description = "Projectile arc at bottom edge goes off-screen"
+condition = "motion_path.type == 'projectile' and motion_path.arc_height > 0 and layout.anchor in ['bottom_left', 'bottom_center', 'bottom_right']"
+message = "Projectile with downward arc (arc_height > 0) at bottom anchor; arc peak occurs below visible frame"
+fix_hint = "Use negative arc_height for upward arc, or use center/top anchor"
+
+# <FILE>tools/pipeline-validator/rules/visibility.toml</FILE>
+# <DESC>Default visibility validation rules for recipe effects</DESC>
+# <VERS>END OF VERSION: 1.6.0</VERS>

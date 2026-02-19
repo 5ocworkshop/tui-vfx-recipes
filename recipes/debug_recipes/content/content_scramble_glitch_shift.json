@@ -1,0 +1,80 @@
+{
+  "schema_version": 1,
+  "id": "debug.content.scramble_glitch_shift",
+  "title": "Debug: Content - ScrambleGlitchShift",
+  "description": "Tests combined ScrambleGlitchShift content effect with all parameters",
+  "version": "1.0.0",
+  "last_updated": "2025-12-30",
+  "config": {
+    "message": "CONTENT TEST: Scramble + GlitchShift combo",
+    "layout": {
+      "width": 45,
+      "height": 3,
+      "anchor": "center"
+    },
+    "lifecycle": {
+      "auto_dismiss_ms": 6000
+    },
+    "border": {
+      "type": "double",
+      "trim": "none"
+    },
+    "content": {
+      "mode": "enter_only",
+      "effect": {
+        "type": "scramble_glitch_shift",
+        "resolve_pace": 0.8,
+        "charset": "binary",
+        "scramble_seed": 42,
+        "shift_amount": 4,
+        "glitch_start": 0.25,
+        "glitch_end": 0.55
+      }
+    },
+    "pipeline": {
+      "enter": {
+        "duration_ms": 3000,
+        "easing": "linear"
+      },
+      "exit": {
+        "duration_ms": 1000,
+        "easing": "quad_in"
+      },
+      "mask": {
+        "enter": {
+          "type": "none"
+        },
+        "exit": {
+          "type": "none"
+        }
+      },
+      "sampler": {
+        "enter": {
+          "type": "none"
+        },
+        "exit": {
+          "type": "none"
+        }
+      },
+      "filter": {
+        "enter": {
+          "type": "none"
+        },
+        "exit": {
+          "type": "none"
+        }
+      },
+      "style": {
+        "region": "All",
+        "base_style": {
+          "foreground": {
+            "type": "light_green"
+          },
+          "background": {
+            "type": "black"
+          }
+        }
+      }
+    }
+  }
+}

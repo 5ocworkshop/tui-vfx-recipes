@@ -1,0 +1,23 @@
+{
+  "schema_version": 1,
+  "extends": "themes/wopr_cyan.json",
+  "id": "wargames.winning_move",
+  "title": "WarGames - Winning Move",
+  "description": "The famous ending quote - A STRANGE GAME - Contemplative cyan, slower pacing",
+  "version": "2.0.0",
+  "last_updated": "2025-12-24",
+  "config": {
+    "message": "A STRANGE GAME.\n\nTHE ONLY WINNING MOVE IS\nNOT TO PLAY.",
+    "layout": {
+      "height": 6
+    },
+    "lifecycle": {
+      "auto_dismiss_ms": 12000
+    },
+    "pipeline": {
+      "enter": {
+        "duration_ms": 4000
+      }
+    }
+  }
+}

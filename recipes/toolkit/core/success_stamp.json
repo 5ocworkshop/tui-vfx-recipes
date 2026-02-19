@@ -1,0 +1,114 @@
+{
+  "schema_version": 1,
+  "id": "toolkit.core.success_stamp",
+  "title": "Success Stamp",
+  "description": "A confident, paper-stamp style confirmation: box iris pops open, micro-bounce, then dissolves like ink drying away.",
+  "version": "0.1.0",
+  "last_updated": "2025-12-23",
+  "config": {
+    "message": "APPROVED\nChanges applied successfully.",
+    "layout": {
+      "width": 40,
+      "height": 6,
+      "anchor": "top_center"
+    },
+    "lifecycle": {
+      "auto_dismiss_ms": 3500
+    },
+    "border": {
+      "type": "double",
+      "trim": "none"
+    },
+    "content": {
+      "mode": "enter_only"
+    },
+    "pipeline": {
+      "enter": {
+        "duration_ms": 720,
+        "easing": "quad_out",
+        "motion_path": {
+          "type": "hover",
+          "amplitude": 0.22,
+          "frequency": 12.56637
+        },
+        "snapping": {
+          "type": "round"
+        }
+      },
+      "exit": {
+        "duration_ms": 520,
+        "easing": "cubic_in",
+        "snapping": {
+          "type": "round"
+        }
+      },
+      "mask": {
+        "enter": {
+          "type": "iris",
+          "shape": "box",
+          "soft_edge": false
+        },
+        "exit": {
+          "type": "dissolve",
+          "seed": 802,
+          "chunk_size": 2
+        }
+      },
+      "sampler": {
+        "enter": {
+          "type": "none"
+        },
+        "exit": {
+          "type": "ripple",
+          "amplitude": 0.9,
+          "wavelength": 9.0,
+          "speed": -1.2,
+          "center": "center"
+        }
+      },
+      "filter": {
+        "enter": {
+          "type": "none"
+        },
+        "exit": {
+          "type": "dim",
+          "factor": 0.25,
+          "apply_to": "both"
+        }
+      },
+      "style": {
+        "region": "All",
+        "base_style": {
+          "foreground": {
+            "type": "rgb",
+            "r": 18,
+            "g": 34,
+            "b": 28
+          },
+          "background": {
+            "type": "rgb",
+            "r": 222,
+            "g": 246,
+            "b": 236
+          },
+          "added_modifiers": [
+            "bold"
+          ],
+          "removed_modifiers": []
+        },
+        "enter_effect": {
+          "type": "pulse",
+          "frequency": 1.6,
+          "color": {
+            "type": "light_cyan"
+          }
+        },
+        "exit_effect": {
+          "type": "fade_out",
+          "apply_to": "both",
+          "ease": "CubicIn"
+        }
+      }
+    }
+  }
+}

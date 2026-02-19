@@ -1,0 +1,15 @@
+{
+  "schema_version": 1,
+  "id": "wargames.norad.03_threat_board",
+  "title": "NORAD 03 - Threat Assessment Board",
+  "description": "NORAD threat assessment display - regional status monitoring",
+  "version": "1.0.0",
+  "last_updated": "2025-12-25",
+  "extends": "themes/new_wopr_fullscreen_cyan.json",
+  "config": {
+    "message": "NORTH AMERICAN AEROSPACE DEFENSE COMMAND\nTHREAT ASSESSMENT BOARD\n\nREGIONAL STATUS:\n\nSECTOR 1 (ALASKA):        CLEAR\nSECTOR 2 (CANADA WEST):   CLEAR\nSECTOR 3 (CANADA EAST):   CLEAR\nSECTOR 4 (CONUS WEST):    CLEAR\nSECTOR 5 (CONUS CENTRAL): CLEAR\nSECTOR 6 (CONUS EAST):    CLEAR\nSECTOR 7 (ATLANTIC):      CLEAR\nSECTOR 8 (PACIFIC):       CLEAR\n\nRADAR SYSTEMS:\nDEW LINE: OPERATIONAL\nBMEWS: OPERATIONAL\nPAVE PAWS: OPERATIONAL\nPERIMETER ACQUISITION: OPERATIONAL\n\nSATELLITE SURVEILLANCE:\nDSP CONSTELLATION: 4 SATELLITES ACTIVE\nCOVERAGE: GLOBAL\n\nSTATUS: ALL QUIET",
+    "lifecycle": {
+      "auto_dismiss_ms": 0
+    }
+  }
+}

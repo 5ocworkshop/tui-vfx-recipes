@@ -1,0 +1,118 @@
+{
+  "schema_version": 1,
+  "id": "notifications.slingshot_elastic",
+  "title": "Slingshot Elastic",
+  "description": "Dramatic slingshot with elastic spring physics. Pulls back down-left with tension, then snaps forward with oscillating release up and off screen.",
+  "version": "1.0.0",
+  "last_updated": "2025-12-22",
+  "config": {
+    "message": "⚡ FIRED! ⚡",
+    "layout": {
+      "width": 16,
+      "height": 3,
+      "anchor": "center"
+    },
+    "lifecycle": {
+      "auto_dismiss_ms": 2500
+    },
+    "border": {
+      "type": "thick",
+      "trim": "none"
+    },
+    "pipeline": {
+      "enter": {
+        "duration_ms": 500,
+        "easing": "elastic_out",
+        "motion_path": {
+          "type": "spring",
+          "stiffness": 300.0,
+          "damping": 15.0
+        },
+        "from": {
+          "type": "offscreen",
+          "direction": "from_left",
+          "margin_cells": 2
+        },
+        "snapping": {
+          "type": "round"
+        }
+      },
+      "exit": {
+        "duration_ms": 600,
+        "easing": "back_in",
+        "motion_path": {
+          "type": "arc",
+          "bulge": -1.2
+        },
+        "to": {
+          "type": "offscreen",
+          "direction": "from_top_right",
+          "margin_cells": 8
+        },
+        "snapping": {
+          "type": "stochastic",
+          "seed": 1337
+        }
+      },
+      "mask": {
+        "enter": {
+          "type": "none"
+        },
+        "exit": {
+          "type": "none"
+        }
+      },
+      "sampler": {
+        "enter": {
+          "type": "none"
+        },
+        "exit": {
+          "type": "sine_wave",
+          "axis": "y",
+          "amplitude": 0.5,
+          "frequency": 2.0,
+          "speed": 3.0,
+          "phase": 0.0
+        }
+      },
+      "filter": {
+        "enter": {
+          "type": "none"
+        },
+        "exit": {
+          "type": "none"
+        }
+      },
+      "style": {
+        "region": "All",
+        "base_style": {
+          "foreground": {
+            "type": "yellow"
+          },
+          "background": {
+            "type": "red"
+          },
+          "added_modifiers": [
+            "bold"
+          ],
+          "removed_modifiers": []
+        },
+        "enter_effect": {
+          "type": "fade_in",
+          "apply_to": "both",
+          "ease": "QuadOut"
+        },
+        "exit_effect": {
+          "type": "fade_out",
+          "apply_to": "background",
+          "ease": "CubicIn"
+        }
+      }
+    },
+    "requires_primitives": [
+      "geometry.path.arc",
+      "geometry.path.spring",
+      "sampler.sinewave_params"
+    ]
+  }
+}

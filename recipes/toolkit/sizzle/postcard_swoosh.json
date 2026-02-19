@@ -1,0 +1,163 @@
+{
+  "schema_version": 1,
+  "id": "toolkit.sizzle.postcard_swoosh",
+  "title": "Postcard Swoosh",
+  "description": "A travel postcard arrives: diamond reveal like a postcard flip, a tiny ‘stamp’ ripple in the corner, then a closing sheen signature.",
+  "version": "0.1.0",
+  "last_updated": "2025-12-23",
+  "config": {
+    "message": "Postcard from Porto\n“Wish you were here.”",
+    "layout": {
+      "width": 52,
+      "height": 6,
+      "anchor": "center"
+    },
+    "lifecycle": {
+      "auto_dismiss_ms": 10500
+    },
+    "border": {
+      "type": "rounded",
+      "trim": "none"
+    },
+    "content": {
+      "mode": "enter_only",
+      "effect": {
+        "type": "typewriter",
+        "speed_variance": 0.2
+      }
+    },
+    "pipeline": {
+      "enter": {
+        "duration_ms": 2200,
+        "easing": "cubic_out",
+        "snapping": {
+          "type": "round"
+        }
+      },
+      "exit": {
+        "duration_ms": 1000,
+        "easing": "quad_in",
+        "snapping": {
+          "type": "round"
+        }
+      },
+      "mask": {
+        "enter": {
+          "type": "diamond",
+          "soft_edge": true
+        },
+        "exit": {
+          "type": "wipe",
+          "direction": "bottom_to_top",
+          "soft_edge": false
+        }
+      },
+      "sampler": {
+        "enter": {
+          "type": "ripple",
+          "amplitude": 0.9,
+          "wavelength": 11.0,
+          "speed": 0.9,
+          "center": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        "exit": {
+          "type": "fault_line",
+          "seed": 404,
+          "intensity": 1.5,
+          "split_bias": 0.8
+        }
+      },
+      "filter": {
+        "enter": {
+          "type": "tint",
+          "color": {
+            "type": "light_blue"
+          },
+          "strength": 0.05,
+          "apply_to": "both"
+        },
+        "exit": {
+          "type": "tint",
+          "color": {
+            "type": "black"
+          },
+          "strength": 0.75,
+          "apply_to": "both"
+        }
+      },
+      "style": {
+        "region": "All",
+        "base_style": {
+          "foreground": {
+            "type": "rgb",
+            "r": 15,
+            "g": 35,
+            "b": 45
+          },
+          "background": {
+            "type": "rgb",
+            "r": 255,
+            "g": 245,
+            "b": 230
+          },
+          "added_modifiers": [],
+          "removed_modifiers": []
+        },
+        "enter_effect": {
+          "type": "spatial",
+          "shader": {
+            "type": "linear_gradient",
+            "gradient": {
+              "stops": [
+                [
+                  0.0,
+                  {
+                    "type": "rgb",
+                    "r": 255,
+                    "g": 245,
+                    "b": 230
+                  }
+                ],
+                [
+                  1.0,
+                  {
+                    "type": "rgb",
+                    "r": 215,
+                    "g": 240,
+                    "b": 255
+                  }
+                ]
+              ],
+              "space": "rgb"
+            },
+            "angle_deg": 90.0
+          }
+        },
+        "exit_effect": {
+          "type": "spatial",
+          "shader": {
+            "type": "glisten_band",
+            "speed": 1.8,
+            "band_width": 2,
+            "angle_deg": -30,
+            "head": {
+              "type": "rgb",
+              "r": 255,
+              "g": 190,
+              "b": 180
+            },
+            "tail": {
+              "type": "rgb",
+              "r": 180,
+              "g": 220,
+              "b": 255
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "schema_version": 1,
+  "id": "wargames.enhanced.games_list",
+  "title": "Enhanced CRT - WOPR Games List",
+  "description": "Full CRT effect stack demonstration - the famous games list with barrel distortion, jitter, and vignette",
+  "version": "1.0.0",
+  "last_updated": "2025-12-24",
+  "extends": "themes/enhanced_crt_computer.json",
+  "config": {
+    "message": "LIST OF GAMES\n\nFALKEN'S MAZE\nBLACK JACK\nGIN RUMMY\nHEARTS\nBRIDGE\nCHECKERS\nCHESS\nPOKER\nFIGHTER COMBAT\nGUERRILLA ENGAGEMENT\nDESERT WARFARE\nAIR-TO-GROUND ACTIONS\nTHEATER-WIDE TACTICAL WARFARE\nTHEATER-WIDE BIOTOXIC AND CHEMICAL WARFARE\n\nGLOBAL THERMONUCLEAR WAR\n\nNATO/WARSAW PACT EXERCISES\nSUPERPOWER STANDOFF\nICBM LAUNCH SIMULATION\nSTRATEGIC AIR COMMAND\nSUBMARINE WARFARE",
+    "lifecycle": {
+      "auto_dismiss_ms": 0
+    }
+  }
+}

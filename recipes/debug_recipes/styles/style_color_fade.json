@@ -1,0 +1,91 @@
+{
+  "schema_version": 1,
+  "id": "debug.style.color_fade",
+  "title": "Debug: Style - ColorFade",
+  "description": "Tests ColorFade style effect with target color and color_space parameters",
+  "version": "1.0.0",
+  "last_updated": "2025-12-30",
+  "config": {
+    "message": "STYLE TEST: ColorFade",
+    "layout": {
+      "width": 35,
+      "height": 3,
+      "anchor": "center"
+    },
+    "lifecycle": {
+      "auto_dismiss_ms": 5000
+    },
+    "border": {
+      "type": "rounded",
+      "trim": "none"
+    },
+    "pipeline": {
+      "enter": {
+        "duration_ms": 2000,
+        "easing": "linear"
+      },
+      "exit": {
+        "duration_ms": 1500,
+        "easing": "linear"
+      },
+      "mask": {
+        "enter": {
+          "type": "none"
+        },
+        "exit": {
+          "type": "none"
+        }
+      },
+      "sampler": {
+        "enter": {
+          "type": "none"
+        },
+        "exit": {
+          "type": "none"
+        }
+      },
+      "filter": {
+        "enter": {
+          "type": "none"
+        },
+        "exit": {
+          "type": "none"
+        }
+      },
+      "style": {
+        "region": "All",
+        "base_style": {
+          "foreground": {
+            "type": "white"
+          },
+          "background": {
+            "type": "rgb",
+            "r": 60,
+            "g": 20,
+            "b": 80
+          }
+        },
+        "enter_effect": {
+          "type": "color_fade",
+          "color_space": "rgb",
+          "target": {
+            "type": "rgb",
+            "r": 255,
+            "g": 200,
+            "b": 50
+          }
+        },
+        "exit_effect": {
+          "type": "color_fade",
+          "color_space": "hsl",
+          "target": {
+            "type": "rgb",
+            "r": 50,
+            "g": 50,
+            "b": 100
+          }
+        }
+      }
+    }
+  }
+}

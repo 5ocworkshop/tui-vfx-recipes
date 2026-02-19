@@ -1,0 +1,15 @@
+{
+  "schema_version": 1,
+  "extends": "themes/new_human_input_smooth.json",
+  "id": "wargames.new_postlogon_human_input",
+  "title": "WarGames - Human Input Example",
+  "description": "Test human hacker typing with smooth speed variance. Demonstrates faster, confident typing with natural variance. Mixed case convention.",
+  "version": "1.0.0",
+  "last_updated": "2025-12-25",
+  "config": {
+    "message": "HELP GAMES",
+    "lifecycle": {
+      "auto_dismiss_ms": 3000
+    }
+  }
+}

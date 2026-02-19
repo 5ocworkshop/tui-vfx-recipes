@@ -1,0 +1,113 @@
+{
+  "schema_version": 1,
+  "id": "physics.bounce_drop",
+  "title": "Bounce Drop",
+  "description": "Notification drops from above and bounces to a stop like a ball",
+  "version": "1.0.0",
+  "last_updated": "2025-12-31",
+  "config": {
+    "message": "Dropped In!",
+    "layout": {
+      "width": 24,
+      "height": 3,
+      "anchor": "center"
+    },
+    "lifecycle": {
+      "auto_dismiss_ms": 4500
+    },
+    "border": {
+      "type": "thick",
+      "trim": "none"
+    },
+    "pipeline": {
+      "enter": {
+        "duration_ms": 1100,
+        "easing": "linear",
+        "motion_path": {
+          "type": "bounce",
+          "bounces": 3,
+          "decay": 0.6
+        },
+        "snapping": {
+          "type": "round"
+        },
+        "from": {
+          "type": "offscreen",
+          "direction": "from_top",
+          "margin_cells": 12
+        }
+      },
+      "exit": {
+        "duration_ms": 500,
+        "easing": "quad_in",
+        "motion_path": {
+          "type": "linear"
+        },
+        "snapping": {
+          "type": "round"
+        },
+        "to": {
+          "type": "offscreen",
+          "direction": "from_bottom",
+          "margin_cells": 5
+        }
+      },
+      "mask": {
+        "enter": {
+          "type": "none"
+        },
+        "exit": {
+          "type": "none"
+        }
+      },
+      "sampler": {
+        "enter": {
+          "type": "none"
+        },
+        "exit": {
+          "type": "none"
+        }
+      },
+      "filter": {
+        "enter": {
+          "type": "none"
+        },
+        "exit": {
+          "type": "none"
+        }
+      },
+      "style": {
+        "region": "All",
+        "base_style": {
+          "foreground": {
+            "type": "rgb",
+            "r": 255,
+            "g": 100,
+            "b": 50
+          },
+          "background": {
+            "type": "rgb",
+            "r": 60,
+            "g": 25,
+            "b": 15
+          },
+          "added_modifiers": [
+            "bold"
+          ],
+          "removed_modifiers": []
+        },
+        "enter_effect": {
+          "type": "fade_in",
+          "apply_to": "both",
+          "ease": "QuadOut"
+        },
+        "exit_effect": {
+          "type": "fade_out",
+          "apply_to": "both",
+          "ease": "QuadIn"
+        }
+      }
+    },
+    "requires_primitives": []
+  }
+}

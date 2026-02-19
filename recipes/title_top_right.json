@@ -1,0 +1,90 @@
+{
+  "schema_version": 1,
+  "id": "notifications.title_top_right",
+  "title": "Title Top Right",
+  "description": "Title positioned at top with right alignment",
+  "version": "1.0.0",
+  "last_updated": "2025-12-23",
+  "config": {
+    "message": "Right-aligned title",
+    "layout": {
+      "width": 30,
+      "height": 4,
+      "anchor": "top_right"
+    },
+    "lifecycle": {
+      "auto_dismiss_ms": 3500
+    },
+    "border": {
+      "type": "double",
+      "trim": "none",
+      "title": "ALERT",
+      "title_position": "top",
+      "title_alignment": "right"
+    },
+    "pipeline": {
+      "enter": {
+        "duration_ms": 300,
+        "easing": "quad_out",
+        "motion_path": {
+          "type": "linear"
+        },
+        "snapping": {
+          "type": "round"
+        }
+      },
+      "exit": {
+        "duration_ms": 300,
+        "easing": "quad_in",
+        "motion_path": {
+          "type": "linear"
+        },
+        "snapping": {
+          "type": "round"
+        }
+      },
+      "mask": {
+        "enter": {
+          "type": "none"
+        },
+        "exit": {
+          "type": "none"
+        }
+      },
+      "sampler": {
+        "enter": {
+          "type": "none"
+        },
+        "exit": {
+          "type": "none"
+        }
+      },
+      "filter": {
+        "enter": {
+          "type": "none"
+        },
+        "exit": {
+          "type": "none"
+        }
+      },
+      "style": {
+        "region": "All",
+        "base_style": {
+          "foreground": {
+            "type": "yellow"
+          },
+          "background": {
+            "type": "rgb",
+            "r": 60,
+            "g": 50,
+            "b": 20
+          },
+          "added_modifiers": [
+            "bold"
+          ],
+          "removed_modifiers": []
+        }
+      }
+    }
+  }
+}

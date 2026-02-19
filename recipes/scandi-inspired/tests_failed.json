@@ -1,0 +1,91 @@
+{
+  "schema_version": 1,
+  "id": "scandi.tests_failed",
+  "title": "Tests Failed",
+  "description": "Clear signal. Terracotta with direct arrival, BorderOnly tint adds subtle urgency.",
+  "version": "2.0.0",
+  "last_updated": "2025-12-30",
+  "config": {
+    "message": "3 tests failed",
+    "layout": {
+      "width": 32,
+      "height": 3,
+      "anchor": "top_right"
+    },
+    "lifecycle": {
+      "auto_dismiss_ms": 8000
+    },
+    "border": {
+      "type": "rounded",
+      "trim": "none"
+    },
+    "pipeline": {
+      "enter": {
+        "duration_ms": 320,
+        "easing": "cubic_out",
+        "motion_path": {
+          "type": "linear"
+        },
+        "snapping": {
+          "type": "round"
+        }
+      },
+      "exit": {
+        "duration_ms": 450,
+        "easing": "sine_in",
+        "snapping": {
+          "type": "round"
+        }
+      },
+      "mask": {
+        "enter": {
+          "type": "none"
+        },
+        "exit": {
+          "type": "none"
+        }
+      },
+      "sampler": {
+        "enter": {
+          "type": "none"
+        },
+        "exit": {
+          "type": "none"
+        }
+      },
+      "filter": {
+        "enter": {
+          "type": "none"
+        },
+        "exit": {
+          "type": "none"
+        }
+      },
+      "style": {
+        "region": "All",
+        "base_style": {
+          "foreground": {
+            "type": "rgb",
+            "r": 255,
+            "g": 248,
+            "b": 242
+          },
+          "background": {
+            "type": "rgb",
+            "r": 155,
+            "g": 88,
+            "b": 78
+          },
+          "added_modifiers": [],
+          "removed_modifiers": []
+        },
+        "enter_effect": null,
+        "exit_effect": {
+          "type": "fade_out",
+          "apply_to": "both",
+          "ease": "Linear"
+        }
+      }
+    }
+  }
+}

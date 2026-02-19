@@ -1,0 +1,80 @@
+{
+  "schema_version": 1,
+  "id": "debug.sampler.crt_jitter",
+  "title": "Debug: Sampler - CrtJitter",
+  "description": "Tests CrtJitter sampler with intensity, speed_hz, and decay_ms parameters",
+  "version": "1.0.0",
+  "last_updated": "2025-12-30",
+  "config": {
+    "message": "SAMPLER TEST: CrtJitter Effect",
+    "layout": {
+      "width": 40,
+      "height": 5,
+      "anchor": "center"
+    },
+    "lifecycle": {
+      "auto_dismiss_ms": 6000
+    },
+    "border": {
+      "type": "double",
+      "trim": "none"
+    },
+    "pipeline": {
+      "enter": {
+        "duration_ms": 2000,
+        "easing": "linear"
+      },
+      "exit": {
+        "duration_ms": 1500,
+        "easing": "linear"
+      },
+      "mask": {
+        "enter": {
+          "type": "none"
+        },
+        "exit": {
+          "type": "none"
+        }
+      },
+      "sampler": {
+        "enter": {
+          "type": "crt_jitter",
+          "intensity": 0.7,
+          "speed_hz": 8.0,
+          "decay_ms": 200
+        },
+        "exit": {
+          "type": "crt_jitter",
+          "intensity": 1.0,
+          "speed_hz": 12.0,
+          "decay_ms": 150
+        }
+      },
+      "filter": {
+        "enter": {
+          "type": "none"
+        },
+        "exit": {
+          "type": "none"
+        }
+      },
+      "style": {
+        "region": "All",
+        "base_style": {
+          "foreground": {
+            "type": "rgb",
+            "r": 255,
+            "g": 100,
+            "b": 50
+          },
+          "background": {
+            "type": "rgb",
+            "r": 20,
+            "g": 10,
+            "b": 5
+          }
+        }
+      }
+    }
+  }
+}

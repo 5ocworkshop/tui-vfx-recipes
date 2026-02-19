@@ -1,0 +1,139 @@
+{
+  "schema_version": 1,
+  "id": "progress.minimal_line",
+  "title": "Minimal Line",
+  "description": "Ultra-minimal single thin line with subtle white highlight. Clean modern design.",
+  "version": "1.0.0",
+  "last_updated": "2025-12-29",
+  "config": {
+    "message": "─────────────────────────────────────────────────",
+    "layout": {
+      "width": 50,
+      "height": 1,
+      "anchor": "bottom_center"
+    },
+    "lifecycle": {
+      "auto_dismiss_ms": 0
+    },
+    "time": {
+      "loop": true,
+      "loop_period_ms": 1667
+    },
+    "border": {
+      "type": "none",
+      "trim": "none"
+    },
+    "pipeline": {
+      "enter": {
+        "duration_ms": 200,
+        "easing": "linear",
+        "snapping": {
+          "type": "round"
+        }
+      },
+      "exit": {
+        "duration_ms": 200,
+        "easing": "linear",
+        "snapping": {
+          "type": "round"
+        }
+      },
+      "mask": {
+        "enter": {
+          "type": "none"
+        },
+        "exit": {
+          "type": "none"
+        }
+      },
+      "sampler": {
+        "enter": {
+          "type": "none"
+        },
+        "exit": {
+          "type": "none"
+        }
+      },
+      "filter": {
+        "enter": {
+          "type": "none"
+        },
+        "exit": {
+          "type": "none"
+        }
+      },
+      "style": {
+        "region": "All",
+        "base_style": {
+          "foreground": {
+            "type": "rgb",
+            "r": 60,
+            "g": 60,
+            "b": 60
+          },
+          "background": {
+            "type": "reset"
+          },
+          "added_modifiers": [],
+          "removed_modifiers": []
+        },
+        "enter_effect": {
+          "type": "spatial",
+          "shader": {
+            "type": "glisten_band",
+            "speed": 0.6,
+            "band_width": 4,
+            "angle_deg": 0.0,
+            "head": {
+              "type": "rgb",
+              "r": 255,
+              "g": 255,
+              "b": 255
+            },
+            "tail": {
+              "type": "rgb",
+              "r": 140,
+              "g": 140,
+              "b": 140
+            },
+            "direction": "forward",
+            "apply_to": "foreground",
+            "blend_strength": 1.0
+          }
+        },
+        "dwell_effect": {
+          "type": "spatial",
+          "shader": {
+            "type": "glisten_band",
+            "speed": 0.6,
+            "band_width": 4,
+            "angle_deg": 0.0,
+            "head": {
+              "type": "rgb",
+              "r": 255,
+              "g": 255,
+              "b": 255
+            },
+            "tail": {
+              "type": "rgb",
+              "r": 140,
+              "g": 140,
+              "b": 140
+            },
+            "direction": "forward",
+            "apply_to": "foreground",
+            "blend_strength": 1.0
+          }
+        },
+        "exit_effect": {
+          "type": "fade_out",
+          "apply_to": "foreground",
+          "ease": "Linear"
+        }
+      }
+    },
+    "requires_primitives": [
+      "shader.glisten_band"
+    ]
+  }
+}

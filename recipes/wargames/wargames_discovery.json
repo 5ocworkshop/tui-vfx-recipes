@@ -1,0 +1,72 @@
+{
+  "schema_version": 1,
+  "extends": "themes/wopr_cyan.json",
+  "id": "wargames.discovery",
+  "title": "WarGames - Discovery",
+  "description": "Joshua/WOPR discovery moment - Cyan CRT with subtle jitter and neon flicker effects",
+  "version": "2.0.0",
+  "last_updated": "2025-12-24",
+  "config": {
+    "message": "A STRANGE GAME.\nTHE ONLY WINNING MOVE\nIS NOT TO PLAY.",
+    "layout": {
+      "height": 5
+    },
+    "lifecycle": {
+      "auto_dismiss_ms": 12000
+    },
+    "border": {
+      "type": "rounded"
+    },
+    "pipeline": {
+      "enter": {
+        "duration_ms": 4500
+      },
+      "sampler": {
+        "enter": {
+          "type": "crt_jitter",
+          "intensity": 0.15,
+          "speed_hz": 8.0,
+          "decay_ms": 300
+        },
+        "dwell": {
+          "type": "crt_jitter",
+          "intensity": 0.08,
+          "speed_hz": 5.0,
+          "decay_ms": 500
+        }
+      },
+      "filter": {
+        "enter": {
+          "type": "crt",
+          "scanline_strength": 0.3,
+          "glow": 0.15
+        },
+        "dwell": {
+          "type": "crt",
+          "scanline_strength": 0.25,
+          "glow": 0.1
+        }
+      },
+      "style": {
+        "base_style": {
+          "foreground": {
+            "type": "light_cyan"
+          }
+        },
+        "enter_effect": {
+          "type": "neon_flicker",
+          "stability": 0.85
+        },
+        "dwell_effect": {
+          "type": "neon_flicker",
+          "stability": 0.92
+        }
+      }
+    },
+    "requires_primitives": [
+      "sampler.crt_jitter",
+      "filter.crt",
+      "shader.neon_flicker"
+    ]
+  }
+}

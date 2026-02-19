@@ -1,0 +1,106 @@
+{
+  "schema_version": 1,
+  "id": "notifications.prism_refraction",
+  "title": "Prism Refraction",
+  "description": "Light-splitting color separation with rainbow effect, horizontal sine distortion, and diagonal glisten. Light refracts through a prism, splitting into spectrum colors that shimmer and wave. Optical physics as art.",
+  "version": "1.0.0",
+  "last_updated": "2025-12-22",
+  "config": {
+    "message": "SPECTRUM ANALYSIS COMPLETE",
+    "layout": {
+      "width": 38,
+      "height": 4,
+      "anchor": "top_center"
+    },
+    "lifecycle": {
+      "auto_dismiss_ms": 8000
+    },
+    "border": {
+      "type": "rounded",
+      "trim": "none"
+    },
+    "pipeline": {
+      "enter": {
+        "duration_ms": 2500,
+        "easing": "cubic_out",
+        "motion_path": {
+          "type": "arc",
+          "bulge": 0.4
+        },
+        "snapping": {
+          "type": "round"
+        }
+      },
+      "exit": {
+        "duration_ms": 1200,
+        "easing": "cubic_in",
+        "motion_path": {
+          "type": "linear"
+        },
+        "snapping": {
+          "type": "round"
+        }
+      },
+      "mask": {
+        "enter": {
+          "type": "none"
+        },
+        "exit": {
+          "type": "diamond",
+          "soft_edge": true
+        }
+      },
+      "sampler": {
+        "enter": {
+          "type": "sine_wave",
+          "axis": "x",
+          "amplitude": 1.0,
+          "frequency": 0.7,
+          "speed": 0.8,
+          "phase": 0.0
+        },
+        "exit": {
+          "type": "none"
+        }
+      },
+      "filter": {
+        "enter": {
+          "type": "none"
+        },
+        "exit": {
+          "type": "none"
+        }
+      },
+      "style": {
+        "region": "All",
+        "base_style": {
+          "foreground": {
+            "type": "white"
+          },
+          "background": {
+            "type": "black"
+          },
+          "added_modifiers": [
+            "bold"
+          ],
+          "removed_modifiers": []
+        },
+        "enter_effect": {
+          "type": "rainbow",
+          "speed": 2.0
+        },
+        "exit_effect": {
+          "type": "fade_out",
+          "apply_to": "both",
+          "ease": "Linear"
+        }
+      }
+    },
+    "requires_primitives": [
+      "path.arc",
+      "sampler.sinewave_params",
+      "mask.diamond",
+      "style.effect.rainbow"
+    ]
+  }
+}

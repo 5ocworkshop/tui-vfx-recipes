@@ -1,0 +1,126 @@
+{
+  "schema_version": 1,
+  "id": "toolkit.showcase.pop_art_halftone",
+  "title": "Pop Art Halftone",
+  "description": "Comic-book energy: halftone dots reveal, a crack offsets the panel, loud rainbow hits, and a radial ‘POW’ wave exits.",
+  "version": "0.1.0",
+  "last_updated": "2025-12-23",
+  "config": {
+    "message": "POP ART MODE\nBANG! POW!",
+    "layout": {
+      "width": 34,
+      "height": 5,
+      "anchor": "top_right"
+    },
+    "lifecycle": {
+      "auto_dismiss_ms": 12000
+    },
+    "border": {
+      "type": "rounded",
+      "trim": "none"
+    },
+    "content": {
+      "mode": "enter_only",
+      "effect": {
+        "type": "scramble",
+        "resolve_pace": 0.9,
+        "charset": "matrix",
+        "seed": 1962
+      }
+    },
+    "pipeline": {
+      "enter": {
+        "duration_ms": 1300,
+        "easing": "linear",
+        "snapping": {
+          "type": "round"
+        }
+      },
+      "exit": {
+        "duration_ms": 1100,
+        "easing": "linear",
+        "snapping": {
+          "type": "round"
+        }
+      },
+      "mask": {
+        "enter": {
+          "type": "noise_dither",
+          "seed": 1962,
+          "matrix": "bayer4"
+        },
+        "exit": {
+          "type": "checkers",
+          "cell_size": 1
+        }
+      },
+      "sampler": {
+        "enter": {
+          "type": "fault_line",
+          "seed": 1962,
+          "intensity": 1.6,
+          "split_bias": 0.35
+        },
+        "exit": {
+          "type": "crt_jitter",
+          "intensity": 2.0,
+          "speed_hz": 18.0,
+          "decay_ms": 600
+        }
+      },
+      "filter": {
+        "enter": {
+          "type": "tint",
+          "color": {
+            "type": "light_blue"
+          },
+          "strength": 0.18,
+          "apply_to": "both"
+        },
+        "exit": {
+          "type": "tint",
+          "color": {
+            "type": "black"
+          },
+          "strength": 0.8,
+          "apply_to": "both"
+        }
+      },
+      "style": {
+        "region": "All",
+        "base_style": {
+          "foreground": {
+            "type": "black"
+          },
+          "background": {
+            "type": "rgb",
+            "r": 255,
+            "g": 250,
+            "b": 120
+          },
+          "added_modifiers": [
+            "bold"
+          ],
+          "removed_modifiers": []
+        },
+        "enter_effect": {
+          "type": "rainbow",
+          "speed": 4.0
+        },
+        "exit_effect": {
+          "type": "spatial",
+          "shader": {
+            "type": "pulse_wave",
+            "frequency": 5.0,
+            "speed": 4.2,
+            "color": {
+              "type": "light_magenta"
+            },
+            "direction": "radial",
+            "wavelength": 2.8
+          }
+        }
+      }
+    }
+  }
+}

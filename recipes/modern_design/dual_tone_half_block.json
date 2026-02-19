@@ -1,0 +1,117 @@
+{
+  "schema_version": 1,
+  "id": "modern.dual_tone_half_block",
+  "title": "Dual-Tone Half Block Art",
+  "description": "Demonstrates the fg/bg half-block trick: each cell shows TWO colors by using ▀ (upper) or ▄ (lower) with different fg/bg. Doubles effective vertical resolution.",
+  "version": "1.0.0",
+  "last_updated": "2026-01-20",
+  "config": {
+    "message": "▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄\n█▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀█\n█ ▄▀▄▀ DUAL-TONE DEMO ▀▄▀▄       █\n█                                █\n█ Each cell = 2 stacked colors!  █\n█                                █\n█ ▀▀▀▀ fg on top (upper half)    █\n█ ▄▄▄▄ fg on bottom (lower half) █\n█                                █\n█ ░▒▓█ Dither creates midtones   █\n█                                █\n█▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄█\n▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀",
+    "layout": {
+      "width": 38,
+      "height": 15,
+      "anchor": "center"
+    },
+    "lifecycle": {
+      "auto_dismiss_ms": 10000
+    },
+    "border": {
+      "type": "none"
+    },
+    "pipeline": {
+      "enter": {
+        "duration_ms": 600,
+        "easing": "expo_out"
+      },
+      "exit": {
+        "duration_ms": 400,
+        "easing": "quad_in"
+      },
+      "mask": {
+        "enter": {
+          "type": "iris",
+          "shape": "box",
+          "soft_edge": true
+        },
+        "exit": {
+          "type": "wipe",
+          "hide": "bottom_to_top",
+          "soft_edge": true
+        }
+      },
+      "sampler": {
+        "enter": {
+          "type": "none"
+        },
+        "exit": {
+          "type": "none"
+        }
+      },
+      "filter": {
+        "enter": {
+          "type": "none"
+        },
+        "exit": {
+          "type": "none"
+        }
+      },
+      "style": {
+        "region": "All",
+        "base_style": {
+          "foreground": {
+            "type": "rgb",
+            "r": 255,
+            "g": 200,
+            "b": 100
+          },
+          "background": {
+            "type": "rgb",
+            "r": 80,
+            "g": 50,
+            "b": 20
+          }
+        },
+        "enter_effect": {
+          "type": "fade_in",
+          "apply_to": "both",
+          "ease": "QuadOut"
+        },
+        "dwell_effect": {
+          "type": "spatial",
+          "shader": {
+            "type": "linear_gradient",
+            "gradient": {
+              "stops": [
+                [
+                  0.0,
+                  {
+                    "type": "rgb",
+                    "r": 255,
+                    "g": 220,
+                    "b": 120
+                  }
+                ],
+                [
+                  1.0,
+                  {
+                    "type": "rgb",
+                    "r": 200,
+                    "g": 150,
+                    "b": 80
+                  }
+                ]
+              ],
+              "space": "rgb"
+            },
+            "angle_deg": 180.0
+          }
+        },
+        "exit_effect": {
+          "type": "fade_out",
+          "apply_to": "both",
+          "ease": "QuadIn"
+        }
+      }
+    }
+  }
+}

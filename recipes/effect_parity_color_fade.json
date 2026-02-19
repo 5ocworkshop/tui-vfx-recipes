@@ -1,0 +1,63 @@
+{
+  "schema_version": 1,
+  "id": "showcase.effect_parity_color_fade",
+  "title": "Color Fade Effect",
+  "description": "Demonstrates the new ColorFade style effect with configurable target color",
+  "version": "1.0.0",
+  "last_updated": "2025-12-26",
+  "config": {
+    "message": "FADING TO GOLD",
+    "layout": {
+      "anchor": "bottom_right",
+      "width": 25,
+      "height": 4
+    },
+    "lifecycle": {
+      "auto_dismiss_ms": 5000
+    },
+    "border": {
+      "type": "rounded"
+    },
+    "pipeline": {
+      "enter": {
+        "duration_ms": 1200,
+        "easing": "cubic_out"
+      },
+      "exit": {
+        "duration_ms": 600,
+        "easing": "cubic_in"
+      },
+      "style": {
+        "region": "TextOnly",
+        "base_style": {
+          "foreground": {
+            "type": "white"
+          },
+          "background": {
+            "type": "black"
+          }
+        },
+        "enter_effect": {
+          "type": "color_fade",
+          "color_space": "hsl",
+          "target": {
+            "type": "rgb",
+            "r": 255,
+            "g": 215,
+            "b": 0
+          }
+        },
+        "exit_effect": {
+          "type": "color_fade",
+          "color_space": "rgb",
+          "target": {
+            "type": "rgb",
+            "r": 50,
+            "g": 50,
+            "b": 50
+          }
+        }
+      }
+    }
+  }
+}

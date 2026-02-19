@@ -1,0 +1,118 @@
+{
+  "schema_version": 1,
+  "id": "experimental.hexagon_shape",
+  "title": "Hexagon Shape Demo",
+  "description": "Hexagonal appearance using angled corner blocks. Suggests a non-rectangular shape.",
+  "version": "1.0.0",
+  "last_updated": "2025-12-31",
+  "config": {
+    "message": "◆ Hexagonal ◆",
+    "layout": {
+      "width": 22,
+      "height": 5,
+      "anchor": "top_right"
+    },
+    "lifecycle": {
+      "auto_dismiss_ms": 7000
+    },
+    "border": {
+      "type": "none",
+      "frame": {
+        "top_left": "◸",
+        "top_right": "◹",
+        "bottom_left": "◺",
+        "bottom_right": "◿",
+        "top": "─",
+        "bottom": "─",
+        "left": "│",
+        "right": "│"
+      }
+    },
+    "pipeline": {
+      "enter": {
+        "duration_ms": 600,
+        "easing": "elastic_out",
+        "motion_path": {
+          "type": "linear"
+        },
+        "snapping": {
+          "type": "round"
+        }
+      },
+      "exit": {
+        "duration_ms": 400,
+        "easing": "sine_in",
+        "snapping": {
+          "type": "round"
+        }
+      },
+      "mask": {
+        "enter": {
+          "type": "none"
+        },
+        "exit": {
+          "type": "iris",
+          "shape": "diamond",
+          "soft_edge": true
+        }
+      },
+      "sampler": {
+        "enter": {
+          "type": "none"
+        },
+        "exit": {
+          "type": "none"
+        }
+      },
+      "filter": {
+        "enter": {
+          "type": "none"
+        },
+        "exit": {
+          "type": "none"
+        }
+      },
+      "style": {
+        "region": "All",
+        "base_style": {
+          "foreground": {
+            "type": "rgb",
+            "r": 180,
+            "g": 140,
+            "b": 100
+          },
+          "background": {
+            "type": "rgb",
+            "r": 45,
+            "g": 35,
+            "b": 25
+          },
+          "added_modifiers": [],
+          "removed_modifiers": []
+        },
+        "enter_effect": {
+          "type": "spatial",
+          "shader": {
+            "type": "glisten_band",
+            "band_width": 4,
+            "speed": 0.4,
+            "angle_deg": 30.0,
+            "head": {
+              "type": "rgb",
+              "r": 220,
+              "g": 180,
+              "b": 130
+            },
+            "tail": {
+              "type": "rgb",
+              "r": 180,
+              "g": 140,
+              "b": 100
+            }
+          }
+        },
+        "exit_effect": null
+      }
+    }
+  }
+}

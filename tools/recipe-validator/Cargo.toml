@@ -1,0 +1,25 @@
+# <FILE>tools/recipe-validator/Cargo.toml</FILE> - <DESC>Recipe validator CLI manifest</DESC>
+# <VERS>VERSION: 0.1.0</VERS>
+# <WCTX>TUI VFX recipes extraction</WCTX>
+# <CLOG>Updated dependencies to use tui-vfx-recipes</CLOG>
+
+[package]
+name = "recipe-validator"
+version = "0.1.0"
+edition = "2024"
+rust-version = "1.86.0"
+description = "CLI tool for validating tui-vfx recipes"
+
+[[bin]]
+name = "recipe-validator"
+path = "src/main.rs"
+
+[dependencies]
+tui-vfx-recipes = { version = "0.2", path = "../.." }
+anyhow = "1.0"
+walkdir = "2.3"
+colored = "2.0"
+clap = { version = "4.4", features = ["derive"] }
+
+# <FILE>tools/recipe-validator/Cargo.toml</FILE> - <DESC>Recipe validator CLI manifest</DESC>
+# <VERS>END OF VERSION: 0.1.0</VERS>

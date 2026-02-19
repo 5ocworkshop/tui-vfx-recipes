@@ -1,0 +1,99 @@
+{
+  "schema_version": 1,
+  "id": "notifications.completion_snap",
+  "title": "Completion Snap",
+  "description": "Satisfying finish confirmation with bounce path and brief bright flash. Snaps into place with spring physics, giving tactile feedback that something completed successfully. The bounce creates joy and confirmation.",
+  "version": "1.0.0",
+  "last_updated": "2025-12-22",
+  "config": {
+    "message": "✓ Complete",
+    "layout": {
+      "width": 20,
+      "height": 3,
+      "anchor": "top_right"
+    },
+    "lifecycle": {
+      "auto_dismiss_ms": 2500
+    },
+    "border": {
+      "type": "rounded",
+      "trim": "none"
+    },
+    "pipeline": {
+      "enter": {
+        "duration_ms": 800,
+        "easing": "linear",
+        "motion_path": {
+          "type": "bounce",
+          "bounces": 2,
+          "decay": 8.0
+        },
+        "snapping": {
+          "type": "round"
+        }
+      },
+      "exit": {
+        "duration_ms": 300,
+        "easing": "quad_in",
+        "snapping": {
+          "type": "round"
+        }
+      },
+      "mask": {
+        "enter": {
+          "type": "none"
+        },
+        "exit": {
+          "type": "none"
+        }
+      },
+      "sampler": {
+        "enter": {
+          "type": "none"
+        },
+        "exit": {
+          "type": "none"
+        }
+      },
+      "filter": {
+        "enter": {
+          "type": "none"
+        },
+        "exit": {
+          "type": "none"
+        }
+      },
+      "style": {
+        "region": "All",
+        "base_style": {
+          "foreground": {
+            "type": "light_green"
+          },
+          "background": {
+            "type": "black"
+          },
+          "added_modifiers": [
+            "bold"
+          ],
+          "removed_modifiers": []
+        },
+        "enter_effect": {
+          "type": "pulse",
+          "frequency": 4.0,
+          "color": {
+            "type": "white"
+          }
+        },
+        "exit_effect": {
+          "type": "fade_out",
+          "apply_to": "both",
+          "ease": "Linear"
+        }
+      }
+    },
+    "requires_primitives": [
+      "path.bounce",
+      "style.effect.pulse"
+    ]
+  }
+}

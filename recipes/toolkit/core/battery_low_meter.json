@@ -1,0 +1,119 @@
+{
+  "schema_version": 1,
+  "id": "toolkit.core.battery_low_meter",
+  "title": "Battery Low Meter",
+  "description": "A high-contrast battery warning: geometric reveal with cool banding across warm paper, then a clean darkened exit.",
+  "version": "0.1.0",
+  "last_updated": "2025-12-23",
+  "config": {
+    "message": "Battery low\n12% remaining",
+    "layout": {
+      "width": 32,
+      "height": 5,
+      "anchor": "top_right"
+    },
+    "lifecycle": {
+      "auto_dismiss_ms": 9000
+    },
+    "border": {
+      "type": "thick",
+      "trim": "none"
+    },
+    "content": {
+      "mode": "enter_only"
+    },
+    "pipeline": {
+      "enter": {
+        "duration_ms": 1100,
+        "easing": "quad_out",
+        "snapping": {
+          "type": "round"
+        }
+      },
+      "exit": {
+        "duration_ms": 650,
+        "easing": "cubic_in",
+        "snapping": {
+          "type": "round"
+        }
+      },
+      "mask": {
+        "enter": {
+          "type": "diamond",
+          "soft_edge": true
+        },
+        "exit": {
+          "type": "wipe",
+          "direction": "right_to_left",
+          "soft_edge": false
+        }
+      },
+      "sampler": {
+        "enter": {
+          "type": "none"
+        },
+        "exit": {
+          "type": "fault_line",
+          "seed": 12,
+          "intensity": 1.8,
+          "split_bias": 0.6
+        }
+      },
+      "filter": {
+        "enter": {
+          "type": "none"
+        },
+        "exit": {
+          "type": "tint",
+          "color": {
+            "type": "black"
+          },
+          "strength": 0.7,
+          "apply_to": "both"
+        }
+      },
+      "style": {
+        "region": "All",
+        "base_style": {
+          "foreground": {
+            "type": "rgb",
+            "r": 20,
+            "g": 20,
+            "b": 20
+          },
+          "background": {
+            "type": "rgb",
+            "r": 255,
+            "g": 230,
+            "b": 130
+          },
+          "added_modifiers": [
+            "bold"
+          ],
+          "removed_modifiers": []
+        },
+        "enter_effect": {
+          "type": "spatial",
+          "shader": {
+            "type": "pulse_wave",
+            "frequency": 1.8,
+            "speed": 1.2,
+            "color": {
+              "type": "rgb",
+              "r": 80,
+              "g": 120,
+              "b": 200
+            },
+            "direction": "vertical",
+            "wavelength": 8.0
+          }
+        },
+        "exit_effect": {
+          "type": "fade_out",
+          "apply_to": "both",
+          "ease": "CubicIn"
+        }
+      }
+    }
+  }
+}

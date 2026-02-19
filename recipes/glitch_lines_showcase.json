@@ -1,0 +1,101 @@
+{
+  "schema_version": 1,
+  "id": "notifications.glitch_lines_showcase",
+  "title": "Glitch Lines Showcase",
+  "description": "Demonstrates GlitchLines shader with medium intensity, flash effects, and cyan pulse color for cyber-aesthetic notifications.",
+  "version": "1.0.0",
+  "last_updated": "2025-12-23",
+  "config": {
+    "message": "SYSTEM GLITCH DETECTED - INTERFERENCE LINES ACTIVE",
+    "layout": {
+      "width": 50,
+      "height": 4,
+      "anchor": "center"
+    },
+    "lifecycle": {
+      "auto_dismiss_ms": 8000
+    },
+    "border": {
+      "type": "rounded",
+      "trim": "none"
+    },
+    "pipeline": {
+      "enter": {
+        "duration_ms": 800,
+        "easing": "quad_out",
+        "snapping": {
+          "type": "round"
+        }
+      },
+      "exit": {
+        "duration_ms": 600,
+        "easing": "quad_in",
+        "snapping": {
+          "type": "round"
+        }
+      },
+      "mask": {
+        "enter": {
+          "type": "none"
+        },
+        "exit": {
+          "type": "none"
+        }
+      },
+      "sampler": {
+        "enter": {
+          "type": "none"
+        },
+        "exit": {
+          "type": "none"
+        }
+      },
+      "filter": {
+        "enter": {
+          "type": "none"
+        },
+        "exit": {
+          "type": "none"
+        }
+      },
+      "style": {
+        "region": "All",
+        "base_style": {
+          "foreground": {
+            "type": "light_cyan"
+          },
+          "background": {
+            "type": "black"
+          },
+          "added_modifiers": [
+            "bold"
+          ],
+          "removed_modifiers": []
+        },
+        "enter_effect": {
+          "type": "spatial",
+          "shader": {
+            "type": "glitch_lines",
+            "seed": 42,
+            "intensity": 0.5,
+            "max_lines": 6,
+            "speed": 1.5,
+            "flash_chance": 0.1,
+            "pulse_color": {
+              "type": "cyan"
+            },
+            "pulse_speed": 0.8
+          }
+        },
+        "exit_effect": {
+          "type": "fade_out",
+          "apply_to": "both",
+          "ease": "Linear"
+        }
+      }
+    },
+    "requires_primitives": [
+      "shader.glitch_lines"
+    ]
+  }
+}

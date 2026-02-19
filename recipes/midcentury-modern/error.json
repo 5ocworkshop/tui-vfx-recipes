@@ -1,0 +1,98 @@
+{
+  "schema_version": 1,
+  "id": "midcentury.error",
+  "title": "Error",
+  "description": "Bold statement. Coral red with geometric double border, direct and unapologetic.",
+  "version": "1.0.0",
+  "last_updated": "2025-12-31",
+  "config": {
+    "message": "Build failed",
+    "layout": {
+      "width": 40,
+      "height": 3,
+      "anchor": "top_right"
+    },
+    "lifecycle": {
+      "auto_dismiss_ms": 10000
+    },
+    "border": {
+      "type": "double",
+      "trim": "none",
+      "title": "◆ ERROR",
+      "title_position": "top",
+      "title_alignment": "left"
+    },
+    "pipeline": {
+      "enter": {
+        "duration_ms": 200,
+        "easing": "expo_out",
+        "motion_path": {
+          "type": "linear"
+        },
+        "snapping": {
+          "type": "round"
+        }
+      },
+      "exit": {
+        "duration_ms": 600,
+        "easing": "sine_in",
+        "snapping": {
+          "type": "round"
+        }
+      },
+      "mask": {
+        "enter": {
+          "type": "none"
+        },
+        "exit": {
+          "type": "iris",
+          "shape": "diamond",
+          "soft_edge": false
+        }
+      },
+      "sampler": {
+        "enter": {
+          "type": "none"
+        },
+        "exit": {
+          "type": "none"
+        }
+      },
+      "filter": {
+        "enter": {
+          "type": "none"
+        },
+        "exit": {
+          "type": "none"
+        }
+      },
+      "style": {
+        "region": "All",
+        "base_style": {
+          "foreground": {
+            "type": "rgb",
+            "r": 255,
+            "g": 250,
+            "b": 245
+          },
+          "background": {
+            "type": "rgb",
+            "r": 205,
+            "g": 92,
+            "b": 92
+          },
+          "added_modifiers": [
+            "bold"
+          ],
+          "removed_modifiers": []
+        },
+        "enter_effect": null,
+        "exit_effect": {
+          "type": "fade_out",
+          "apply_to": "both",
+          "ease": "Linear"
+        }
+      }
+    }
+  }
+}

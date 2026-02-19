@@ -1,0 +1,109 @@
+{
+  "schema_version": 1,
+  "id": "toolkit.sizzle.heartbeat_monitor",
+  "title": "Heartbeat Monitor",
+  "description": "A playful ‘systems OK’ cue: rhythmic pulse like a monitor, CRT scanlines for texture, then a dramatic alarm glitch on exit.",
+  "version": "0.1.0",
+  "last_updated": "2025-12-23",
+  "config": {
+    "message": "Service healthy\nuptime 99.98%",
+    "layout": {
+      "width": 38,
+      "height": 4,
+      "anchor": "top_center"
+    },
+    "lifecycle": {
+      "auto_dismiss_ms": 7000
+    },
+    "border": {
+      "type": "plain",
+      "trim": "none"
+    },
+    "content": {
+      "mode": "enter_only"
+    },
+    "pipeline": {
+      "enter": {
+        "duration_ms": 1200,
+        "easing": "linear",
+        "snapping": {
+          "type": "round"
+        }
+      },
+      "exit": {
+        "duration_ms": 850,
+        "easing": "linear",
+        "snapping": {
+          "type": "round"
+        }
+      },
+      "mask": {
+        "enter": {
+          "type": "wipe",
+          "direction": "left_to_right",
+          "soft_edge": false
+        },
+        "exit": {
+          "type": "wipe",
+          "direction": "right_to_left",
+          "soft_edge": false
+        }
+      },
+      "sampler": {
+        "enter": {
+          "type": "sine_wave",
+          "axis": "y",
+          "amplitude": 0.7,
+          "frequency": 0.45,
+          "speed": 2.2,
+          "phase": 0.0
+        },
+        "exit": {
+          "type": "crt_jitter",
+          "intensity": 3.2,
+          "speed_hz": 40.0,
+          "decay_ms": 700
+        }
+      },
+      "filter": {
+        "enter": {
+          "type": "crt",
+          "scanline_strength": 0.45,
+          "glow": 0.5
+        },
+        "exit": {
+          "type": "crt",
+          "scanline_strength": 0.65,
+          "glow": 0.15
+        }
+      },
+      "style": {
+        "region": "All",
+        "base_style": {
+          "foreground": {
+            "type": "light_cyan"
+          },
+          "background": {
+            "type": "black"
+          },
+          "added_modifiers": [
+            "bold"
+          ],
+          "removed_modifiers": []
+        },
+        "enter_effect": {
+          "type": "pulse",
+          "frequency": 2.8,
+          "color": {
+            "type": "white"
+          }
+        },
+        "exit_effect": {
+          "type": "glitch",
+          "seed": 88,
+          "intensity": 0.6
+        }
+      }
+    }
+  }
+}

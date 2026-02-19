@@ -1,0 +1,109 @@
+{
+  "schema_version": 1,
+  "id": "modern.glow_ring_focus",
+  "title": "Glow Ring Focus",
+  "description": "Modern focus ring with soft glow. Uses dither patterns for glow rings (ring 0 = solid accent, ring 1 = dithered, ring 2 = sparse). Creates bloom effect without alpha.",
+  "version": "1.0.0",
+  "last_updated": "2026-01-20",
+  "config": {
+    "message": "       ░░░░░░░░░░░░░░       \n    ░░░▒▒▒▒▒▒▒▒▒▒▒▒▒▒░░░    \n  ░░▒▒▒▓▓▓▓▓▓▓▓▓▓▓▓▓▓▒▒▒░░  \n ░▒▒▓▓██████████████████▓▓▒▒░ \n ░▒▓██                  ██▓▒░ \n░▒▓██   FOCUSED INPUT   ██▓▒░\n░▒▓██                   ██▓▒░\n ░▒▓██                  ██▓▒░ \n ░▒▒▓▓██████████████████▓▓▒▒░ \n  ░░▒▒▒▓▓▓▓▓▓▓▓▓▓▓▓▓▓▒▒▒░░  \n    ░░░▒▒▒▒▒▒▒▒▒▒▒▒▒▒░░░    \n       ░░░░░░░░░░░░░░       ",
+    "layout": {
+      "width": 30,
+      "height": 14,
+      "anchor": "center"
+    },
+    "lifecycle": {
+      "auto_dismiss_ms": 8000
+    },
+    "border": {
+      "type": "none"
+    },
+    "time": {
+      "loop": true,
+      "loop_period_ms": 3000
+    },
+    "pipeline": {
+      "enter": {
+        "duration_ms": 500,
+        "easing": "expo_out"
+      },
+      "exit": {
+        "duration_ms": 400,
+        "easing": "quad_in"
+      },
+      "mask": {
+        "enter": {
+          "type": "iris",
+          "shape": "circle",
+          "soft_edge": true
+        },
+        "exit": {
+          "type": "radial",
+          "origin": {
+            "type": "center"
+          },
+          "soft_edge": true
+        }
+      },
+      "sampler": {
+        "enter": {
+          "type": "none"
+        },
+        "exit": {
+          "type": "none"
+        }
+      },
+      "filter": {
+        "enter": {
+          "type": "none"
+        },
+        "exit": {
+          "type": "none"
+        }
+      },
+      "style": {
+        "region": "All",
+        "base_style": {
+          "foreground": {
+            "type": "rgb",
+            "r": 100,
+            "g": 180,
+            "b": 255
+          },
+          "background": {
+            "type": "rgb",
+            "r": 15,
+            "g": 25,
+            "b": 40
+          }
+        },
+        "enter_effect": {
+          "type": "fade_in",
+          "apply_to": "both",
+          "ease": "ExpoOut"
+        },
+        "dwell_effect": {
+          "type": "spatial",
+          "shader": {
+            "type": "pulse_wave",
+            "color": {
+              "type": "rgb",
+              "r": 140,
+              "g": 200,
+              "b": 255
+            },
+            "frequency": 0.3,
+            "speed": 0.5,
+            "wavelength": 15,
+            "direction": "horizontal"
+          }
+        },
+        "exit_effect": {
+          "type": "fade_out",
+          "apply_to": "foreground",
+          "ease": "QuadIn"
+        }
+      }
+    }
+  }
+}

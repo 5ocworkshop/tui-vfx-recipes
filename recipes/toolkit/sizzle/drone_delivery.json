@@ -1,0 +1,152 @@
+{
+  "schema_version": 1,
+  "id": "toolkit.sizzle.drone_delivery",
+  "title": "Drone Delivery",
+  "description": "A tiny narrative: the card hovers in like a drone, arrives through a radar iris, pulses rings, then lifts away via vertical blinds.",
+  "version": "0.1.0",
+  "last_updated": "2025-12-23",
+  "config": {
+    "message": "Artifact delivered\ncache warmed ✓",
+    "layout": {
+      "width": 40,
+      "height": 4,
+      "anchor": "bottom_left"
+    },
+    "lifecycle": {
+      "auto_dismiss_ms": 9000
+    },
+    "border": {
+      "type": "rounded",
+      "trim": "none"
+    },
+    "content": {
+      "mode": "enter_only",
+      "effect": {
+        "type": "scramble",
+        "resolve_pace": 0.8,
+        "charset": "alphanumeric",
+        "seed": 314
+      }
+    },
+    "pipeline": {
+      "enter": {
+        "duration_ms": 1900,
+        "easing": "quad_out",
+        "motion_path": {
+          "type": "hover",
+          "amplitude": 0.6,
+          "frequency": 31.415926
+        },
+        "snapping": {
+          "type": "round"
+        }
+      },
+      "exit": {
+        "duration_ms": 1000,
+        "easing": "quad_in",
+        "snapping": {
+          "type": "round"
+        }
+      },
+      "mask": {
+        "enter": {
+          "type": "iris",
+          "shape": "circle",
+          "soft_edge": true
+        },
+        "exit": {
+          "type": "blinds",
+          "orientation": "vertical",
+          "count": 8
+        }
+      },
+      "sampler": {
+        "enter": {
+          "type": "ripple",
+          "amplitude": 1.2,
+          "wavelength": 6.5,
+          "speed": 2.0,
+          "center": {
+            "x": 40,
+            "y": 0
+          }
+        },
+        "exit": {
+          "type": "sine_wave",
+          "axis": "x",
+          "amplitude": 1.0,
+          "frequency": 0.3,
+          "speed": 1.8,
+          "phase": 0.0
+        }
+      },
+      "filter": {
+        "enter": {
+          "type": "vignette",
+          "strength": 0.45,
+          "radius": 0.75
+        },
+        "exit": {
+          "type": "tint",
+          "color": {
+            "type": "black"
+          },
+          "strength": 0.65,
+          "apply_to": "both"
+        }
+      },
+      "style": {
+        "region": "All",
+        "base_style": {
+          "foreground": {
+            "type": "rgb",
+            "r": 240,
+            "g": 255,
+            "b": 255
+          },
+          "background": {
+            "type": "rgb",
+            "r": 10,
+            "g": 25,
+            "b": 35
+          },
+          "added_modifiers": [
+            "bold"
+          ],
+          "removed_modifiers": []
+        },
+        "enter_effect": {
+          "type": "spatial",
+          "shader": {
+            "type": "pulse_wave",
+            "frequency": 2.6,
+            "speed": 2.3,
+            "color": {
+              "type": "light_cyan"
+            },
+            "direction": "radial",
+            "wavelength": 4.2
+          }
+        },
+        "exit_effect": {
+          "type": "spatial",
+          "shader": {
+            "type": "glisten_band",
+            "speed": 2.0,
+            "band_width": 1,
+            "angle_deg": 90,
+            "head": {
+              "type": "white"
+            },
+            "tail": {
+              "type": "rgb",
+              "r": 70,
+              "g": 120,
+              "b": 200
+            }
+          }
+        }
+      }
+    }
+  }
+}

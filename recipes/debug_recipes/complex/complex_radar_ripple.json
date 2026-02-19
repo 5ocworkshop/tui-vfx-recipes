@@ -1,0 +1,215 @@
+{
+  "schema_version": 1,
+  "id": "debug.complex.radar_ripple",
+  "title": "Debug: Radial Mask + Ripple + Cell Targeting + Radar Shader",
+  "description": "Tests Radial mask with custom origin, Ripple sampler, Tint filter with Fg/Bg targeting, Radar shader, Marquee content, and Cell/Cells targeting",
+  "version": "1.0.0",
+  "last_updated": "2025-12-30",
+  "config": {
+    "message": "RADAR DETECTION ACTIVE - SCANNING PERIMETER",
+    "layout": {
+      "width": 60,
+      "height": 9,
+      "anchor": "center"
+    },
+    "lifecycle": {
+      "auto_dismiss_ms": 15000
+    },
+    "border": {
+      "type": "thick",
+      "trim": "none"
+    },
+    "content": {
+      "mode": "loop",
+      "effect": {
+        "type": "marquee",
+        "speed": 1.0,
+        "width": 50
+      }
+    },
+    "pipeline": {
+      "enter": {
+        "duration_ms": 2000,
+        "easing": "quad_out"
+      },
+      "exit": {
+        "duration_ms": 2000,
+        "easing": "quad_in"
+      },
+      "mask": {
+        "enter": {
+          "type": "radial",
+          "origin": {
+            "type": "center"
+          },
+          "soft_edge": true
+        },
+        "exit": {
+          "type": "radial",
+          "origin": {
+            "type": "top_left"
+          },
+          "soft_edge": false
+        }
+      },
+      "sampler": {
+        "enter": {
+          "type": "ripple",
+          "amplitude": 1.5,
+          "wavelength": 5.0,
+          "speed": 2.0,
+          "center": "center"
+        },
+        "exit": {
+          "type": "ripple",
+          "amplitude": 2.0,
+          "wavelength": 3.0,
+          "speed": 1.5,
+          "center": {
+            "x": 30,
+            "y": 4
+          }
+        }
+      },
+      "filter": {
+        "enter": {
+          "type": "tint",
+          "color": {
+            "type": "rgb",
+            "r": 0,
+            "g": 255,
+            "b": 100
+          },
+          "strength": 0.3,
+          "apply_to": "foreground"
+        },
+        "exit": {
+          "type": "tint",
+          "color": {
+            "type": "rgb",
+            "r": 50,
+            "g": 50,
+            "b": 80
+          },
+          "strength": 0.5,
+          "apply_to": "background"
+        }
+      },
+      "styles": [
+        {
+          "region": {
+            "Cell": {
+              "x": 30,
+              "y": 4
+            }
+          },
+          "base_style": {
+            "foreground": {
+              "type": "rgb",
+              "r": 255,
+              "g": 255,
+              "b": 0
+            },
+            "background": {
+              "type": "rgb",
+              "r": 100,
+              "g": 100,
+              "b": 0
+            }
+          },
+          "spatial_shader": {
+            "type": "radar",
+            "color": {
+              "r": 255,
+              "g": 255,
+              "b": 100
+            },
+            "speed": 3.0,
+            "tail_length": 1.5
+          }
+        },
+        {
+          "region": {
+            "Cells": [
+              {
+                "x": 28,
+                "y": 4
+              },
+              {
+                "x": 29,
+                "y": 4
+              },
+              {
+                "x": 31,
+                "y": 4
+              },
+              {
+                "x": 32,
+                "y": 4
+              },
+              {
+                "x": 30,
+                "y": 3
+              },
+              {
+                "x": 30,
+                "y": 5
+              }
+            ]
+          },
+          "base_style": {
+            "foreground": {
+              "type": "rgb",
+              "r": 0,
+              "g": 200,
+              "b": 100
+            },
+            "background": {
+              "type": "rgb",
+              "r": 0,
+              "g": 40,
+              "b": 20
+            }
+          },
+          "spatial_shader": {
+            "type": "radar",
+            "color": {
+              "r": 0,
+              "g": 255,
+              "b": 150
+            },
+            "speed": 2.0,
+            "tail_length": 2.0
+          }
+        },
+        {
+          "region": "BorderOnly",
+          "base_style": {
+            "foreground": {
+              "type": "rgb",
+              "r": 0,
+              "g": 150,
+              "b": 80
+            },
+            "background": {
+              "type": "rgb",
+              "r": 0,
+              "g": 30,
+              "b": 15
+            }
+          },
+          "spatial_shader": {
+            "type": "radar",
+            "color": {
+              "r": 0,
+              "g": 200,
+              "b": 100
+            },
+            "speed": 1.5,
+            "tail_length": 0.8
+          }
+        }
+      ]
+    }
+  }
+}

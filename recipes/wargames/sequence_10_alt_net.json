@@ -1,0 +1,15 @@
+{
+  "schema_version": 1,
+  "id": "wargames.sequence.10_alt_net",
+  "title": "Sequence 10 - ALT NET Ready",
+  "description": "Tenth screen - checksum validation, SISPAK ready, ALT NET ready",
+  "version": "1.0.0",
+  "last_updated": "2025-12-25",
+  "extends": "themes/enhanced_crt_computer.json",
+  "config": {
+    "message": "FLNP    TA1    BN83    RG01    PZ38    GJ82    FP83    ZM88    JM89\nCP CHECKSUM: 43.354E2.943\nSISPAK FUNCT READY\n                                      ALT NET READY",
+    "lifecycle": {
+      "auto_dismiss_ms": 600
+    }
+  }
+}

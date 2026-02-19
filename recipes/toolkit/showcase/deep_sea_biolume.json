@@ -1,0 +1,149 @@
+{
+  "schema_version": 1,
+  "id": "toolkit.showcase.deep_sea_biolume",
+  "title": "Deep Sea Biolume",
+  "description": "Bioluminescent storytelling: a soft circular portal opens, bright rings pulse, then currents tug the scene away into darkness.",
+  "version": "0.1.0",
+  "last_updated": "2025-12-23",
+  "config": {
+    "message": "BIOLUMINESCENCE\nplankton pulse detected",
+    "layout": {
+      "width": 44,
+      "height": 6,
+      "anchor": "middle_left"
+    },
+    "lifecycle": {
+      "auto_dismiss_ms": 14000
+    },
+    "border": {
+      "type": "rounded",
+      "trim": "none"
+    },
+    "content": {
+      "mode": "enter_only",
+      "effect": {
+        "type": "scramble",
+        "resolve_pace": 0.8,
+        "charset": "matrix",
+        "seed": 808
+      }
+    },
+    "pipeline": {
+      "enter": {
+        "duration_ms": 2800,
+        "easing": "quad_in_out",
+        "snapping": {
+          "type": "round"
+        }
+      },
+      "exit": {
+        "duration_ms": 1300,
+        "easing": "cubic_in",
+        "snapping": {
+          "type": "round"
+        }
+      },
+      "mask": {
+        "enter": {
+          "type": "iris",
+          "shape": "circle",
+          "soft_edge": true
+        },
+        "exit": {
+          "type": "diamond",
+          "soft_edge": true
+        }
+      },
+      "sampler": {
+        "enter": {
+          "type": "ripple",
+          "amplitude": 2.0,
+          "wavelength": 5.5,
+          "speed": 0.9,
+          "center": {
+            "x": 44,
+            "y": 6
+          }
+        },
+        "exit": {
+          "type": "sine_wave",
+          "axis": "y",
+          "amplitude": 1.4,
+          "frequency": 0.28,
+          "speed": 1.8,
+          "phase": 0.0
+        }
+      },
+      "filter": {
+        "enter": {
+          "type": "tint",
+          "color": {
+            "type": "rgb",
+            "r": 0,
+            "g": 140,
+            "b": 180
+          },
+          "strength": 0.18,
+          "apply_to": "both"
+        },
+        "exit": {
+          "type": "vignette",
+          "strength": 0.8,
+          "radius": 0.45
+        }
+      },
+      "style": {
+        "region": "All",
+        "base_style": {
+          "foreground": {
+            "type": "rgb",
+            "r": 210,
+            "g": 255,
+            "b": 255
+          },
+          "background": {
+            "type": "rgb",
+            "r": 0,
+            "g": 20,
+            "b": 35
+          },
+          "added_modifiers": [
+            "bold"
+          ],
+          "removed_modifiers": []
+        },
+        "enter_effect": {
+          "type": "spatial",
+          "shader": {
+            "type": "pulse_wave",
+            "frequency": 1.9,
+            "speed": 1.1,
+            "color": {
+              "type": "light_cyan"
+            },
+            "direction": "radial",
+            "wavelength": 3.8
+          }
+        },
+        "exit_effect": {
+          "type": "spatial",
+          "shader": {
+            "type": "glisten_band",
+            "speed": 1.6,
+            "band_width": 1,
+            "angle_deg": 70,
+            "head": {
+              "type": "white"
+            },
+            "tail": {
+              "type": "rgb",
+              "r": 140,
+              "g": 210,
+              "b": 255
+            }
+          }
+        }
+      }
+    }
+  }
+}

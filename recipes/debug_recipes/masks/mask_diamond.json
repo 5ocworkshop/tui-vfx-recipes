@@ -1,0 +1,73 @@
+{
+  "schema_version": 1,
+  "id": "debug.mask.diamond",
+  "title": "Debug: Mask - Diamond",
+  "description": "Tests Diamond mask with soft edge parameter",
+  "version": "1.0.0",
+  "last_updated": "2025-12-30",
+  "config": {
+    "message": "MASK TEST: Diamond Effect",
+    "layout": {
+      "width": 35,
+      "height": 5,
+      "anchor": "center"
+    },
+    "lifecycle": {
+      "auto_dismiss_ms": 5000
+    },
+    "border": {
+      "type": "rounded",
+      "trim": "none"
+    },
+    "pipeline": {
+      "enter": {
+        "duration_ms": 2000,
+        "easing": "quad_out"
+      },
+      "exit": {
+        "duration_ms": 1000,
+        "easing": "quad_in"
+      },
+      "mask": {
+        "enter": {
+          "type": "diamond",
+          "soft_edge": true
+        },
+        "exit": {
+          "type": "diamond",
+          "soft_edge": false
+        }
+      },
+      "sampler": {
+        "enter": {
+          "type": "none"
+        },
+        "exit": {
+          "type": "none"
+        }
+      },
+      "filter": {
+        "enter": {
+          "type": "none"
+        },
+        "exit": {
+          "type": "none"
+        }
+      },
+      "style": {
+        "region": "All",
+        "base_style": {
+          "foreground": {
+            "type": "light_blue"
+          },
+          "background": {
+            "type": "rgb",
+            "r": 20,
+            "g": 30,
+            "b": 60
+          }
+        }
+      }
+    }
+  }
+}

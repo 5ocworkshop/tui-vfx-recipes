@@ -1,0 +1,55 @@
+{
+  "schema_version": 1,
+  "id": "showcase.effect_parity_color_shift",
+  "title": "Color Shift Effect",
+  "description": "Demonstrates the new ColorShift style effect with HSL manipulation",
+  "version": "1.0.0",
+  "last_updated": "2025-12-26",
+  "config": {
+    "message": "COLOR SHIFTING!",
+    "layout": {
+      "anchor": "bottom_right",
+      "width": 25,
+      "height": 4
+    },
+    "lifecycle": {
+      "auto_dismiss_ms": 5000
+    },
+    "border": {
+      "type": "double"
+    },
+    "pipeline": {
+      "enter": {
+        "duration_ms": 800,
+        "easing": "cubic_out"
+      },
+      "exit": {
+        "duration_ms": 400,
+        "easing": "cubic_in"
+      },
+      "style": {
+        "region": "All",
+        "base_style": {
+          "foreground": {
+            "type": "rgb",
+            "r": 255,
+            "g": 100,
+            "b": 100
+          },
+          "background": {
+            "type": "rgb",
+            "r": 20,
+            "g": 20,
+            "b": 30
+          }
+        },
+        "enter_effect": {
+          "type": "color_shift",
+          "hue_shift": 120.0,
+          "saturation_shift": 0.2,
+          "lightness_shift": 0.1
+        }
+      }
+    }
+  }
+}

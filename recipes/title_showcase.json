@@ -1,0 +1,88 @@
+{
+  "schema_version": 1,
+  "id": "notifications.title_showcase",
+  "title": "Title Showcase",
+  "description": "Demonstrates border title with position and alignment options",
+  "version": "1.0.0",
+  "last_updated": "2025-12-23",
+  "config": {
+    "message": "Title at top-center",
+    "layout": {
+      "width": 35,
+      "height": 5,
+      "anchor": "center"
+    },
+    "lifecycle": {
+      "auto_dismiss_ms": 4000
+    },
+    "border": {
+      "type": "rounded",
+      "trim": "none",
+      "title": "NOTIFICATION",
+      "title_position": "top",
+      "title_alignment": "center"
+    },
+    "pipeline": {
+      "enter": {
+        "duration_ms": 400,
+        "easing": "quad_out",
+        "motion_path": {
+          "type": "linear"
+        },
+        "snapping": {
+          "type": "round"
+        }
+      },
+      "exit": {
+        "duration_ms": 400,
+        "easing": "quad_in",
+        "motion_path": {
+          "type": "linear"
+        },
+        "snapping": {
+          "type": "round"
+        }
+      },
+      "mask": {
+        "enter": {
+          "type": "none"
+        },
+        "exit": {
+          "type": "none"
+        }
+      },
+      "sampler": {
+        "enter": {
+          "type": "none"
+        },
+        "exit": {
+          "type": "none"
+        }
+      },
+      "filter": {
+        "enter": {
+          "type": "none"
+        },
+        "exit": {
+          "type": "none"
+        }
+      },
+      "style": {
+        "region": "All",
+        "base_style": {
+          "foreground": {
+            "type": "white"
+          },
+          "background": {
+            "type": "rgb",
+            "r": 40,
+            "g": 40,
+            "b": 60
+          },
+          "added_modifiers": [],
+          "removed_modifiers": []
+        }
+      }
+    }
+  }
+}

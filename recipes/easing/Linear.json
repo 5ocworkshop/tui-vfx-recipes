@@ -1,0 +1,100 @@
+{
+  "schema_version": 1,
+  "id": "easing.Linear",
+  "title": "Linear Easing",
+  "description": "Constant velocity - no acceleration or deceleration, pure identity function",
+  "version": "2.0.0",
+  "last_updated": "2025-12-24",
+  "config": {
+    "message": "━━━ LINEAR ━━━\n\nConstant speed throughout\ny = x (identity function)",
+    "layout": {
+      "width": 50,
+      "height": 6,
+      "anchor": "middle_right"
+    },
+    "lifecycle": {
+      "auto_dismiss_ms": 2500
+    },
+    "border": {
+      "type": "rounded",
+      "trim": "none"
+    },
+    "pipeline": {
+      "enter": {
+        "duration_ms": 400,
+        "easing": "linear",
+        "motion_path": {
+          "type": "linear"
+        },
+        "snapping": {
+          "type": "round"
+        },
+        "from": {
+          "type": "offscreen",
+          "direction": "from_right",
+          "margin_cells": 0
+        }
+      },
+      "exit": {
+        "duration_ms": 200,
+        "easing": "linear",
+        "motion_path": {
+          "type": "linear"
+        },
+        "snapping": {
+          "type": "round"
+        },
+        "to": {
+          "type": "offscreen",
+          "direction": "from_right",
+          "margin_cells": 0
+        }
+      },
+      "mask": {
+        "enter": {
+          "type": "none"
+        },
+        "exit": {
+          "type": "none"
+        }
+      },
+      "sampler": {
+        "enter": {
+          "type": "none"
+        },
+        "exit": {
+          "type": "none"
+        }
+      },
+      "filter": {
+        "enter": {
+          "type": "none"
+        },
+        "exit": {
+          "type": "none"
+        }
+      },
+      "style": {
+        "region": "All",
+        "base_style": {
+          "foreground": {
+            "type": "rgb",
+            "r": 240,
+            "g": 240,
+            "b": 240
+          },
+          "background": {
+            "type": "rgb",
+            "r": 40,
+            "g": 40,
+            "b": 40
+          },
+          "added_modifiers": [
+            "Bold"
+          ],
+          "removed_modifiers": []
+        }
+      }
+    }
+  }
+}

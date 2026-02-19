@@ -1,0 +1,68 @@
+{
+  "schema_version": 1,
+  "id": "showcase.multi_effect_color_dissolve",
+  "title": "Multi-Effect: Color Fade + Dissolve",
+  "description": "Combines ColorFade style effect with text Dissolve content transformer",
+  "version": "1.0.0",
+  "last_updated": "2025-12-26",
+  "config": {
+    "message": "FADING AND DISSOLVING",
+    "layout": {
+      "anchor": "bottom_right",
+      "width": 32,
+      "height": 4
+    },
+    "lifecycle": {
+      "auto_dismiss_ms": 6000
+    },
+    "border": {
+      "type": "rounded"
+    },
+    "content": {
+      "mode": "enter_only",
+      "effect": {
+        "type": "dissolve",
+        "replacement": "space",
+        "pattern": "edge_in",
+        "direction": "center_out",
+        "seed": 42
+      }
+    },
+    "pipeline": {
+      "enter": {
+        "duration_ms": 2500,
+        "easing": "cubic_out"
+      },
+      "exit": {
+        "duration_ms": 600,
+        "easing": "cubic_in"
+      },
+      "style": {
+        "region": "TextOnly",
+        "base_style": {
+          "foreground": {
+            "type": "rgb",
+            "r": 100,
+            "g": 200,
+            "b": 255
+          },
+          "background": {
+            "type": "black"
+          }
+        },
+        "enter_effect": {
+          "type": "color_fade",
+          "color_space": "hsl",
+          "target": {
+            "type": "white"
+          }
+        },
+        "exit_effect": {
+          "type": "fade_out",
+          "apply_to": "foreground",
+          "ease": "CubicIn"
+        }
+      }
+    }
+  }
+}

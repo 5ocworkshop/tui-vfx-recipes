@@ -1,0 +1,98 @@
+{
+  "schema_version": 1,
+  "id": "notifications.info_tooltip",
+  "title": "Info Tooltip",
+  "description": "Soft blue informational notification with subtle wave ripple. Contextual information that doesn't require action. Easy to ignore but available.",
+  "version": "1.0.0",
+  "last_updated": "2025-12-22",
+  "config": {
+    "message": "ℹ Keyboard shortcut: Alt+H shows help",
+    "layout": {
+      "width": 42,
+      "height": 2,
+      "anchor": "top_left"
+    },
+    "lifecycle": {
+      "auto_dismiss_ms": 6000
+    },
+    "border": {
+      "type": "rounded",
+      "trim": "none"
+    },
+    "pipeline": {
+      "enter": {
+        "duration_ms": 800,
+        "easing": "quad_out",
+        "motion_path": {
+          "type": "linear"
+        },
+        "snapping": {
+          "type": "round"
+        }
+      },
+      "exit": {
+        "duration_ms": 400,
+        "easing": "quad_in",
+        "snapping": {
+          "type": "round"
+        }
+      },
+      "mask": {
+        "enter": {
+          "type": "none"
+        },
+        "exit": {
+          "type": "none"
+        }
+      },
+      "sampler": {
+        "enter": {
+          "type": "ripple",
+          "amplitude": 0.4,
+          "wavelength": 12.0,
+          "speed": 0.8,
+          "center": "center"
+        },
+        "exit": {
+          "type": "none"
+        }
+      },
+      "filter": {
+        "enter": {
+          "type": "none"
+        },
+        "exit": {
+          "type": "none"
+        }
+      },
+      "style": {
+        "region": "All",
+        "base_style": {
+          "foreground": {
+            "type": "blue"
+          },
+          "background": {
+            "type": "black"
+          },
+          "added_modifiers": [
+            "dim"
+          ],
+          "removed_modifiers": []
+        },
+        "enter_effect": {
+          "type": "fade_in",
+          "apply_to": "foreground",
+          "ease": "Linear"
+        },
+        "exit_effect": {
+          "type": "fade_out",
+          "apply_to": "foreground",
+          "ease": "Linear"
+        }
+      }
+    },
+    "requires_primitives": [
+      "sampler.ripple"
+    ]
+  }
+}

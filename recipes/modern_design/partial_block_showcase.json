@@ -1,0 +1,99 @@
+{
+  "schema_version": 1,
+  "id": "modern.partial_block_showcase",
+  "title": "Partial Block Showcase",
+  "description": "Demonstrates the partial block toolkit: half blocks for dual-color cells, fractional bars for sub-cell precision, quadrants for soft corners, and dither shades for alpha-like blending.",
+  "version": "1.0.0",
+  "last_updated": "2026-01-20",
+  "config": {
+    "message": "╭─────────────────────────────────────╮\n│ HALF BLOCKS (2 colors per cell):    │\n│ ▀▀▀▀ upper  ▄▄▄▄ lower              │\n│                                     │\n│ FRACTIONAL BARS (sub-cell motion):  │\n│ ▁▂▃▄▅▆▇█ vertical                   │\n│ ▏▎▍▌▋▊▉█ horizontal                 │\n│                                     │\n│ QUADRANTS (soft corners/AA):        │\n│ ▖▗▘▙▚▛▜▝▞▟                          │\n│                                     │\n│ DITHER SHADES (fake alpha):         │\n│ ░░░ 25%  ▒▒▒ 50%  ▓▓▓ 75%  ███ full │\n│                                     │\n│ FG/BG TRICK (flip for inverse):     │\n│ ▀ fg=white bg=black = top white     │\n│ ▄ fg=white bg=black = bottom white  │\n╰─────────────────────────────────────╯",
+    "layout": {
+      "width": 43,
+      "height": 20,
+      "anchor": "center"
+    },
+    "lifecycle": {
+      "auto_dismiss_ms": 15000
+    },
+    "border": {
+      "type": "none"
+    },
+    "pipeline": {
+      "enter": {
+        "duration_ms": 800,
+        "easing": "expo_out"
+      },
+      "exit": {
+        "duration_ms": 500,
+        "easing": "quad_in"
+      },
+      "mask": {
+        "enter": {
+          "type": "wipe",
+          "reveal": "top_to_bottom",
+          "soft_edge": true
+        },
+        "exit": {
+          "type": "blinds",
+          "orientation": "horizontal",
+          "count": 6
+        }
+      },
+      "sampler": {
+        "enter": {
+          "type": "none"
+        },
+        "exit": {
+          "type": "none"
+        }
+      },
+      "filter": {
+        "enter": {
+          "type": "none"
+        },
+        "exit": {
+          "type": "none"
+        }
+      },
+      "style": {
+        "region": "All",
+        "base_style": {
+          "foreground": {
+            "type": "rgb",
+            "r": 180,
+            "g": 220,
+            "b": 255
+          },
+          "background": {
+            "type": "rgb",
+            "r": 20,
+            "g": 30,
+            "b": 45
+          }
+        },
+        "enter_effect": {
+          "type": "fade_in",
+          "apply_to": "both",
+          "ease": "QuadOut"
+        },
+        "dwell_effect": {
+          "type": "spatial",
+          "shader": {
+            "type": "highlighter",
+            "color": {
+              "type": "rgb",
+              "r": 255,
+              "g": 255,
+              "b": 200
+            }
+          }
+        },
+        "exit_effect": {
+          "type": "fade_out",
+          "apply_to": "both",
+          "ease": "QuadIn"
+        }
+      }
+    }
+  }
+}

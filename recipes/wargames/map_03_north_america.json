@@ -1,0 +1,19 @@
+{
+  "schema_version": 1,
+  "id": "wargames.map.03_north_america",
+  "title": "Map 03 - North America",
+  "description": "Detailed North America map for NORAD tactical displays",
+  "version": "1.0.0",
+  "last_updated": "2025-12-25",
+  "extends": "themes/new_wopr_fullscreen_cyan.json",
+  "config": {
+    "message": "                          ┌─────────────────────────┐\n                     ┌────┘                         └────┐\n                  ┌──┘        ALASKA                    └──┐\n                  │                                        │\n                  └───────────┬────────────────────────────┘\n                              │\n        ┌───────────────────┐ │  ┌─────────────────────────┐\n        │                   │ │  │                         │\n     ┌──┘                   └─┼──┘                         └──┐\n     │                        │                               │\n     │      CANADA            │         CANADA                │\n     │                        │                               │\n     │                        │                               │\n  ┌──┘                        └───────┐                       │\n  │                                   │                       │\n  │                                   └───────────────────────┘\n  │                                   │\n  │                               ┌───┘\n  │   ┌───────────────────────────┤\n  │   │                           │\n  │   │    UNITED STATES          │\n  └───┤                           │\n      │                           │\n      │                           │\n      └───────────┬───────────────┘\n                  │\n                  │    MEXICO\n                  └───────────────",
+    "lifecycle": {
+      "auto_dismiss_ms": 0
+    },
+    "content": {
+      "mode": "enter_only",
+      "effect": null
+    }
+  }
+}

@@ -1,0 +1,89 @@
+{
+  "schema_version": 1,
+  "id": "debug.sampler.sinewave",
+  "title": "Debug: Sampler - SineWave",
+  "description": "Tests SineWave sampler with axis, amplitude, frequency, speed, and phase parameters",
+  "version": "1.0.0",
+  "last_updated": "2025-12-30",
+  "config": {
+    "message": "SAMPLER TEST: SineWave Effect",
+    "layout": {
+      "width": 40,
+      "height": 5,
+      "anchor": "center"
+    },
+    "lifecycle": {
+      "auto_dismiss_ms": 6000
+    },
+    "border": {
+      "type": "rounded",
+      "trim": "none"
+    },
+    "pipeline": {
+      "enter": {
+        "duration_ms": 2000,
+        "easing": "linear"
+      },
+      "exit": {
+        "duration_ms": 1000,
+        "easing": "linear"
+      },
+      "mask": {
+        "enter": {
+          "type": "none"
+        },
+        "exit": {
+          "type": "none"
+        }
+      },
+      "sampler": {
+        "enter": {
+          "type": "sine_wave",
+          "axis": "y",
+          "amplitude": 2.0,
+          "frequency": 1.5,
+          "speed": 2.0,
+          "phase": 0.0
+        },
+        "dwell": {
+          "type": "sine_wave",
+          "axis": "x",
+          "amplitude": 1.0,
+          "frequency": 2.0,
+          "speed": 1.5,
+          "phase": 0.0
+        },
+        "exit": {
+          "type": "sine_wave",
+          "axis": "y",
+          "amplitude": 3.0,
+          "frequency": 1.0,
+          "speed": 3.0,
+          "phase": 0.0
+        }
+      },
+      "filter": {
+        "enter": {
+          "type": "none"
+        },
+        "exit": {
+          "type": "none"
+        }
+      },
+      "style": {
+        "region": "All",
+        "base_style": {
+          "foreground": {
+            "type": "light_cyan"
+          },
+          "background": {
+            "type": "rgb",
+            "r": 20,
+            "g": 40,
+            "b": 60
+          }
+        }
+      }
+    }
+  }
+}

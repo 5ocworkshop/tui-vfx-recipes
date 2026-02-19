@@ -1,0 +1,15 @@
+{
+  "schema_version": 1,
+  "id": "wargames.sequence.03_phone_number",
+  "title": "Sequence 03 - Phone Number",
+  "description": "Third screen - secondary phone number",
+  "version": "1.0.0",
+  "last_updated": "2025-12-25",
+  "extends": "themes/enhanced_crt_computer.json",
+  "config": {
+    "message": "(311) 936-2364",
+    "lifecycle": {
+      "auto_dismiss_ms": 600
+    }
+  }
+}

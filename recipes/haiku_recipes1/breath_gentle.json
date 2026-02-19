@@ -1,0 +1,102 @@
+{
+  "schema_version": 1,
+  "id": "notifications.breath_gentle",
+  "title": "Breath Gentle",
+  "description": "Soft cyan notification with slow pulsing effect mimicking gentle breathing. Creates a calming presence for mindful notifications or completion confirmations.",
+  "version": "1.0.0",
+  "last_updated": "2025-12-22",
+  "config": {
+    "message": "✓ Task completed peacefully",
+    "layout": {
+      "width": 28,
+      "height": 2,
+      "anchor": "top_center"
+    },
+    "lifecycle": {
+      "auto_dismiss_ms": 4000
+    },
+    "border": {
+      "type": "rounded",
+      "trim": "none"
+    },
+    "pipeline": {
+      "enter": {
+        "duration_ms": 1200,
+        "easing": "sine_in_out",
+        "motion_path": {
+          "type": "linear"
+        },
+        "snapping": {
+          "type": "round"
+        }
+      },
+      "exit": {
+        "duration_ms": 800,
+        "easing": "sine_in",
+        "snapping": {
+          "type": "round"
+        }
+      },
+      "mask": {
+        "enter": {
+          "type": "none"
+        },
+        "exit": {
+          "type": "none"
+        }
+      },
+      "sampler": {
+        "enter": {
+          "type": "none"
+        },
+        "exit": {
+          "type": "none"
+        }
+      },
+      "filter": {
+        "enter": {
+          "type": "none"
+        },
+        "exit": {
+          "type": "none"
+        }
+      },
+      "style": {
+        "region": "All",
+        "base_style": {
+          "foreground": {
+            "type": "cyan"
+          },
+          "background": {
+            "type": "black"
+          },
+          "added_modifiers": [
+            "dim"
+          ],
+          "removed_modifiers": []
+        },
+        "enter_effect": {
+          "type": "spatial",
+          "shader": {
+            "type": "pulse_wave",
+            "frequency": 0.8,
+            "speed": 0.6,
+            "color": {
+              "type": "cyan"
+            },
+            "direction": "radial",
+            "wavelength": 10.0
+          }
+        },
+        "exit_effect": {
+          "type": "fade_out",
+          "apply_to": "foreground",
+          "ease": "Linear"
+        }
+      }
+    },
+    "requires_primitives": [
+      "shader.pulse_wave"
+    ]
+  }
+}

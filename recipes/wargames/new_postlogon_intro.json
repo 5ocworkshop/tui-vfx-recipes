@@ -1,0 +1,15 @@
+{
+  "schema_version": 1,
+  "extends": "themes/new_wopr_fullscreen_cyan.json",
+  "id": "wargames.new_postlogon_intro",
+  "title": "WarGames - Post-Logon Intro",
+  "description": "Computer system status screen after successful login. Steady computer typing with multiple lines of system info. Tests full-screen cyan phosphor glow and steady typing.",
+  "version": "1.0.0",
+  "last_updated": "2025-12-25",
+  "config": {
+    "message": "NS\n!!!!!\nFIT CON. 3.4.5. SECTRAM 9.9.3.\n(311) 885-7305",
+    "lifecycle": {
+      "auto_dismiss_ms": 4000
+    }
+  }
+}

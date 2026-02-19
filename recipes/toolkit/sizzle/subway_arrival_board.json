@@ -1,0 +1,125 @@
+{
+  "schema_version": 1,
+  "id": "toolkit.sizzle.subway_arrival_board",
+  "title": "Subway Arrival Board",
+  "description": "A flip-board vibe: horizontal slats ‘flip’ in, CRT texture overlays, and an LED sweep glides across the sign.",
+  "version": "0.1.0",
+  "last_updated": "2025-12-23",
+  "config": {
+    "message": "Next: Train arrives in 2 min\nPlatform 3 • Doors left",
+    "layout": {
+      "width": 58,
+      "height": 5,
+      "anchor": "bottom_center"
+    },
+    "lifecycle": {
+      "auto_dismiss_ms": 9000
+    },
+    "border": {
+      "type": "plain",
+      "trim": "none"
+    },
+    "content": {
+      "mode": "enter_only",
+      "effect": {
+        "type": "scramble",
+        "resolve_pace": 0.65,
+        "charset": "alphanumeric",
+        "seed": 601
+      }
+    },
+    "pipeline": {
+      "enter": {
+        "duration_ms": 1400,
+        "easing": "linear",
+        "snapping": {
+          "type": "round"
+        }
+      },
+      "exit": {
+        "duration_ms": 900,
+        "easing": "linear",
+        "snapping": {
+          "type": "round"
+        }
+      },
+      "mask": {
+        "enter": {
+          "type": "blinds",
+          "orientation": "horizontal",
+          "count": 12
+        },
+        "exit": {
+          "type": "blinds",
+          "orientation": "horizontal",
+          "count": 12
+        }
+      },
+      "sampler": {
+        "enter": {
+          "type": "crt_jitter",
+          "intensity": 2.4,
+          "speed_hz": 24.0,
+          "decay_ms": 1100
+        },
+        "exit": {
+          "type": "none"
+        }
+      },
+      "filter": {
+        "enter": {
+          "type": "crt",
+          "scanline_strength": 0.35,
+          "glow": 0.25
+        },
+        "exit": {
+          "type": "crt",
+          "scanline_strength": 0.55,
+          "glow": 0.1
+        }
+      },
+      "style": {
+        "region": "All",
+        "base_style": {
+          "foreground": {
+            "type": "rgb",
+            "r": 255,
+            "g": 235,
+            "b": 120
+          },
+          "background": {
+            "type": "rgb",
+            "r": 10,
+            "g": 10,
+            "b": 10
+          },
+          "added_modifiers": [
+            "bold"
+          ],
+          "removed_modifiers": []
+        },
+        "enter_effect": {
+          "type": "spatial",
+          "shader": {
+            "type": "pulse_wave",
+            "frequency": 3.5,
+            "speed": 1.2,
+            "color": {
+              "type": "rgb",
+              "r": 80,
+              "g": 150,
+              "b": 255
+            },
+            "direction": "horizontal",
+            "wavelength": 10.0
+          }
+        },
+        "exit_effect": {
+          "type": "fade_out",
+          "apply_to": "both",
+          "ease": "Linear"
+        }
+      }
+    }
+  }
+}

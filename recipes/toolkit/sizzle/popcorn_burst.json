@@ -1,0 +1,125 @@
+{
+  "schema_version": 1,
+  "id": "toolkit.sizzle.popcorn_burst",
+  "title": "Popcorn Burst",
+  "description": "A fun build-finished pop: tiny particles appear, a burst ripple kicks, then color flares like a quick celebratory ‘pop’.",
+  "version": "0.1.0",
+  "last_updated": "2025-12-23",
+  "config": {
+    "message": "Build finished!\n12 tests passed",
+    "layout": {
+      "width": 40,
+      "height": 4,
+      "anchor": "bottom_right"
+    },
+    "lifecycle": {
+      "auto_dismiss_ms": 6500
+    },
+    "border": {
+      "type": "thick",
+      "trim": "none"
+    },
+    "content": {
+      "mode": "enter_only",
+      "effect": {
+        "type": "scramble",
+        "resolve_pace": 0.9,
+        "charset": "matrix",
+        "seed": 909
+      }
+    },
+    "pipeline": {
+      "enter": {
+        "duration_ms": 1300,
+        "easing": "linear",
+        "snapping": {
+          "type": "round"
+        }
+      },
+      "exit": {
+        "duration_ms": 950,
+        "easing": "cubic_in",
+        "snapping": {
+          "type": "round"
+        }
+      },
+      "mask": {
+        "enter": {
+          "type": "dissolve",
+          "seed": 909,
+          "chunk_size": 1
+        },
+        "exit": {
+          "type": "dissolve",
+          "seed": 909,
+          "chunk_size": 2
+        }
+      },
+      "sampler": {
+        "enter": {
+          "type": "ripple",
+          "amplitude": 1.6,
+          "wavelength": 5.5,
+          "speed": 2.8,
+          "center": {
+            "x": 0,
+            "y": 4
+          }
+        },
+        "exit": {
+          "type": "sine_wave",
+          "axis": "x",
+          "amplitude": 1.2,
+          "frequency": 0.35,
+          "speed": 2.0,
+          "phase": 0.0
+        }
+      },
+      "filter": {
+        "enter": {
+          "type": "tint",
+          "color": {
+            "type": "rgb",
+            "r": 255,
+            "g": 240,
+            "b": 180
+          },
+          "strength": 0.1,
+          "apply_to": "both"
+        },
+        "exit": {
+          "type": "vignette",
+          "strength": 0.8,
+          "radius": 0.4
+        }
+      },
+      "style": {
+        "region": "All",
+        "base_style": {
+          "foreground": {
+            "type": "white"
+          },
+          "background": {
+            "type": "rgb",
+            "r": 40,
+            "g": 20,
+            "b": 0
+          },
+          "added_modifiers": [
+            "bold"
+          ],
+          "removed_modifiers": []
+        },
+        "enter_effect": {
+          "type": "rainbow",
+          "speed": 2.2
+        },
+        "exit_effect": {
+          "type": "fade_out",
+          "apply_to": "both",
+          "ease": "CubicIn"
+        }
+      }
+    }
+  }
+}

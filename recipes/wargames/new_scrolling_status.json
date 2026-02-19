@@ -1,0 +1,12 @@
+{
+  "schema_version": 1,
+  "extends": "themes/new_scrolling_output.json",
+  "id": "wargames.new_scrolling_status",
+  "title": "WarGames - Scrolling Status Output",
+  "description": "Multi-line system status that scrolls/reveals. Longer dwell time (3000ms) for readability. Tests medium-speed, smooth typing with sustained visibility.",
+  "version": "1.0.0",
+  "last_updated": "2025-12-25",
+  "config": {
+    "message": "SYSTEM INTEGRITY VERIFIED\nCOMMUNICATIONS CHANNEL OPEN\nAUTHORIZATION LEVEL: ADMINISTRATOR\nWARNING: UNAUTHORIZED ACCESS ATTEMPT LOGGED"
+  }
+}

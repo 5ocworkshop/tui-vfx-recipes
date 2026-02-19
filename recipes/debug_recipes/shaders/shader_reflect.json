@@ -1,0 +1,81 @@
+{
+  "schema_version": 1,
+  "id": "debug.shader.reflect",
+  "title": "Debug: Shader - Reflect",
+  "description": "Tests Reflect spatial shader for moving reflective glint band",
+  "version": "1.0.0",
+  "last_updated": "2025-12-30",
+  "config": {
+    "message": "SHADER TEST: Reflect Glint",
+    "layout": {
+      "width": 40,
+      "height": 3,
+      "anchor": "center"
+    },
+    "lifecycle": {
+      "auto_dismiss_ms": 6000
+    },
+    "border": {
+      "type": "rounded",
+      "trim": "none"
+    },
+    "pipeline": {
+      "enter": {
+        "duration_ms": 1000,
+        "easing": "quad_out"
+      },
+      "exit": {
+        "duration_ms": 1000,
+        "easing": "quad_in"
+      },
+      "mask": {
+        "enter": {
+          "type": "none"
+        },
+        "exit": {
+          "type": "none"
+        }
+      },
+      "sampler": {
+        "enter": {
+          "type": "none"
+        },
+        "exit": {
+          "type": "none"
+        }
+      },
+      "filter": {
+        "enter": {
+          "type": "none"
+        },
+        "exit": {
+          "type": "none"
+        }
+      },
+      "style": {
+        "region": "All",
+        "base_style": {
+          "foreground": {
+            "type": "rgb",
+            "r": 200,
+            "g": 200,
+            "b": 220
+          },
+          "background": {
+            "type": "rgb",
+            "r": 50,
+            "g": 50,
+            "b": 70
+          }
+        },
+        "spatial_shader": {
+          "type": "reflect",
+          "color": {
+            "type": "white"
+          },
+          "speed": 1.2
+        }
+      }
+    }
+  }
+}

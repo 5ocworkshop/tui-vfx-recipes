@@ -1,0 +1,121 @@
+{
+  "schema_version": 1,
+  "id": "midcentury.info",
+  "title": "Info",
+  "description": "Cool sophistication. Olive green with italic text and side title, understated elegance.",
+  "version": "1.0.0",
+  "last_updated": "2025-12-31",
+  "config": {
+    "message": "Configuration updated",
+    "layout": {
+      "width": 38,
+      "height": 3,
+      "anchor": "top_right"
+    },
+    "lifecycle": {
+      "auto_dismiss_ms": 4000
+    },
+    "border": {
+      "type": "rounded",
+      "trim": "none",
+      "title": "ⓘ",
+      "title_position": "left",
+      "title_alignment": "center"
+    },
+    "pipeline": {
+      "enter": {
+        "duration_ms": 420,
+        "easing": "cubic_out",
+        "motion_path": {
+          "type": "arc",
+          "bulge": 0.06
+        },
+        "snapping": {
+          "type": "round"
+        }
+      },
+      "exit": {
+        "duration_ms": 350,
+        "easing": "sine_in",
+        "snapping": {
+          "type": "round"
+        }
+      },
+      "mask": {
+        "enter": {
+          "type": "wipe",
+          "direction": "top_to_bottom",
+          "soft_edge": true
+        },
+        "exit": {
+          "type": "dissolve",
+          "seed": 77,
+          "chunk_size": 2
+        }
+      },
+      "sampler": {
+        "enter": {
+          "type": "none"
+        },
+        "exit": {
+          "type": "none"
+        }
+      },
+      "filter": {
+        "enter": {
+          "type": "none"
+        },
+        "exit": {
+          "type": "none"
+        }
+      },
+      "style": {
+        "region": "All",
+        "base_style": {
+          "foreground": {
+            "type": "rgb",
+            "r": 245,
+            "g": 245,
+            "b": 235
+          },
+          "background": {
+            "type": "rgb",
+            "r": 107,
+            "g": 142,
+            "b": 35
+          },
+          "added_modifiers": [
+            "italic"
+          ],
+          "removed_modifiers": []
+        },
+        "enter_effect": {
+          "type": "spatial",
+          "shader": {
+            "type": "glisten_band",
+            "band_width": 6,
+            "speed": 0.4,
+            "angle_deg": 90.0,
+            "head": {
+              "type": "rgb",
+              "r": 160,
+              "g": 195,
+              "b": 85
+            },
+            "tail": {
+              "type": "rgb",
+              "r": 125,
+              "g": 160,
+              "b": 55
+            }
+          }
+        },
+        "exit_effect": {
+          "type": "fade_out",
+          "apply_to": "both",
+          "ease": "SineOut"
+        }
+      }
+    }
+  }
+}

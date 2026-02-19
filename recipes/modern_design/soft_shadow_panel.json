@@ -1,0 +1,94 @@
+{
+  "schema_version": 1,
+  "id": "modern.soft_shadow_panel",
+  "title": "Soft Shadow Panel",
+  "description": "Panel with soft shadow using partial blocks and gradient fade. Demonstrates 'drawing light not lines' - shadow created via dithering instead of hard borders.",
+  "version": "1.0.0",
+  "last_updated": "2026-01-20",
+  "config": {
+    "message": "                              \n  ░░░░░░░░░░░░░░░░░░░░░░░░░▒  \n  ░                       ░▒  \n  ░   Soft Shadow Panel   ░▒  \n  ░                       ░▒  \n  ░   No hard borders -   ░▒  \n  ░   just light & shade  ░▒  \n  ░                       ░▒  \n  ░░░░░░░░░░░░░░░░░░░░░░░░░▒  \n   ▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▓  \n    ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓   ",
+    "layout": {
+      "width": 32,
+      "height": 13,
+      "anchor": "center"
+    },
+    "lifecycle": {
+      "auto_dismiss_ms": 8000
+    },
+    "border": {
+      "type": "none"
+    },
+    "pipeline": {
+      "enter": {
+        "duration_ms": 600,
+        "easing": "expo_out"
+      },
+      "exit": {
+        "duration_ms": 400,
+        "easing": "quad_in"
+      },
+      "mask": {
+        "enter": {
+          "type": "radial",
+          "origin": {
+            "type": "center"
+          },
+          "soft_edge": true
+        },
+        "exit": {
+          "type": "dissolve",
+          "seed": 42,
+          "chunk_size": 2
+        }
+      },
+      "sampler": {
+        "enter": {
+          "type": "none"
+        },
+        "exit": {
+          "type": "none"
+        }
+      },
+      "filter": {
+        "enter": {
+          "type": "none"
+        },
+        "dwell": {
+          "type": "vignette",
+          "strength": 0.15,
+          "radius": 0.85
+        },
+        "exit": {
+          "type": "none"
+        }
+      },
+      "style": {
+        "region": "All",
+        "base_style": {
+          "foreground": {
+            "type": "rgb",
+            "r": 200,
+            "g": 200,
+            "b": 210
+          },
+          "background": {
+            "type": "rgb",
+            "r": 25,
+            "g": 28,
+            "b": 35
+          }
+        },
+        "enter_effect": {
+          "type": "fade_in",
+          "apply_to": "both",
+          "ease": "QuadOut"
+        },
+        "exit_effect": {
+          "type": "fade_out",
+          "apply_to": "both",
+          "ease": "QuadIn"
+        }
+      }
+    }
+  }
+}

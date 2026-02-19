@@ -1,0 +1,15 @@
+{
+  "schema_version": 1,
+  "id": "wargames.launch.02_changes_locked",
+  "title": "Launch 02 - Changes Locked Out",
+  "description": "Point of no return - changes locked out, missiles ready to launch",
+  "version": "1.0.0",
+  "last_updated": "2025-12-25",
+  "extends": "themes/new_wopr_fullscreen_cyan.json",
+  "config": {
+    "message": "MISSILES TARGETED AND READY\n═══════════════════════════════════════════════\n\n\nCHANGES LOCKED OUT\n══════════════════",
+    "lifecycle": {
+      "auto_dismiss_ms": 0
+    }
+  }
+}

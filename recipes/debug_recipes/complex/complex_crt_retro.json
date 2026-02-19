@@ -1,0 +1,165 @@
+{
+  "schema_version": 1,
+  "id": "debug.complex.crt_retro",
+  "title": "Debug: CRT Retro with PathReveal + GlitchLines + Rows",
+  "description": "Tests PathReveal (Spiral/Radial) masks, Crt sampler, Crt filter, Vignette, GlitchLines shader, ScrambleGlitchShift content, and Rows targeting",
+  "version": "1.0.0",
+  "last_updated": "2025-12-30",
+  "config": {
+    "message": "CRT RETRO TERMINAL",
+    "layout": {
+      "width": 55,
+      "height": 9,
+      "anchor": "center"
+    },
+    "lifecycle": {
+      "auto_dismiss_ms": 12000
+    },
+    "border": {
+      "type": "double",
+      "trim": "none"
+    },
+    "content": {
+      "mode": "enter_only",
+      "effect": {
+        "type": "scramble_glitch_shift",
+        "resolve_pace": 2.0,
+        "charset": "binary",
+        "scramble_seed": 999,
+        "shift_amount": 5,
+        "glitch_start": 0.2,
+        "glitch_end": 0.4
+      }
+    },
+    "pipeline": {
+      "enter": {
+        "duration_ms": 3000,
+        "easing": "quad_out"
+      },
+      "exit": {
+        "duration_ms": 2500,
+        "easing": "quad_in"
+      },
+      "mask": {
+        "enter": {
+          "type": "path_reveal",
+          "path": {
+            "type": "spiral",
+            "rotations": 3.0,
+            "direction": "clockwise"
+          },
+          "soft_edge": true
+        },
+        "exit": {
+          "type": "path_reveal",
+          "path": {
+            "type": "radial",
+            "start_angle": 0.0,
+            "direction": "counter_clockwise"
+          },
+          "soft_edge": false
+        }
+      },
+      "sampler": {
+        "enter": {
+          "type": "crt",
+          "scanline_strength": 0.6,
+          "jitter": 0.3,
+          "curvature": 0.15
+        },
+        "exit": {
+          "type": "crt",
+          "scanline_strength": 0.8,
+          "jitter": 0.5,
+          "curvature": 0.2
+        }
+      },
+      "filter": {
+        "enter": {
+          "type": "crt",
+          "scanline_strength": 0.4,
+          "glow": 0.3
+        },
+        "exit": {
+          "type": "vignette",
+          "strength": 0.7,
+          "radius": 0.4
+        }
+      },
+      "styles": [
+        {
+          "region": {
+            "Rows": [
+              0,
+              1,
+              7,
+              8
+            ]
+          },
+          "base_style": {
+            "foreground": {
+              "type": "rgb",
+              "r": 0,
+              "g": 255,
+              "b": 100
+            },
+            "background": {
+              "type": "rgb",
+              "r": 0,
+              "g": 20,
+              "b": 10
+            }
+          },
+          "spatial_shader": {
+            "type": "glitch_lines",
+            "pulse_color": {
+              "type": "rgb",
+              "r": 255,
+              "g": 255,
+              "b": 255
+            },
+            "intensity": 0.7,
+            "max_lines": 3,
+            "speed": 2.0,
+            "seed": 1337
+          }
+        },
+        {
+          "region": {
+            "Rows": [
+              2,
+              3,
+              4,
+              5,
+              6
+            ]
+          },
+          "base_style": {
+            "foreground": {
+              "type": "rgb",
+              "r": 0,
+              "g": 200,
+              "b": 80
+            },
+            "background": {
+              "type": "black"
+            }
+          },
+          "spatial_shader": {
+            "type": "glitch_lines",
+            "pulse_color": {
+              "type": "rgb",
+              "r": 0,
+              "g": 255,
+              "b": 150
+            },
+            "intensity": 0.4,
+            "max_lines": 2,
+            "speed": 1.5,
+            "seed": 7331
+          }
+        }
+      ]
+    }
+  }
+}

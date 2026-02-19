@@ -1,0 +1,15 @@
+{
+  "schema_version": 1,
+  "id": "wargames.sequence.09_port_destruct",
+  "title": "Sequence 09 - Port Destruct",
+  "description": "Ninth screen - port destruct with long progress bar",
+  "version": "1.0.0",
+  "last_updated": "2025-12-25",
+  "extends": "themes/enhanced_crt_computer.json",
+  "config": {
+    "message": "DEFSET 9\nREPEAT ALT RT.SR.3J. XORF: BS33049    PROM ACTIVE\n                     PORT DESTRUCT: LOOPJ.CP39854394 COMP.CP39854394\n████████████████████████████████████████████████════════════════\n3691",
+    "lifecycle": {
+      "auto_dismiss_ms": 600
+    }
+  }
+}

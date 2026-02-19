@@ -1,0 +1,138 @@
+{
+  "schema_version": 1,
+  "id": "notifications.cyber_transmission_glitch_lines",
+  "title": "Cyber-Transmission (Glitch Lines)",
+  "description": "Binary scramble with randomized interference lines that vary in count and position",
+  "version": "1.1.0",
+  "last_updated": "2025-12-20",
+  "config": {
+    "message": "INCOMING ENCRYPTED DATA: 0xDEADBEEF 0xCAFEBABE",
+    "layout": {
+      "width": 42,
+      "height": 4,
+      "anchor": "bottom_right"
+    },
+    "lifecycle": {
+      "auto_dismiss_ms": 10000
+    },
+    "border": {
+      "type": "rounded",
+      "trim": "none"
+    },
+    "content": {
+      "mode": "enter_only",
+      "effect": {
+        "type": "scramble",
+        "resolve_pace": 0.8,
+        "charset": "binary",
+        "seed": 777
+      }
+    },
+    "pipeline": {
+      "enter": {
+        "duration_ms": 2500,
+        "easing": "linear",
+        "snapping": {
+          "type": "round"
+        }
+      },
+      "exit": {
+        "duration_ms": 700,
+        "easing": "linear",
+        "snapping": {
+          "type": "round"
+        }
+      },
+      "mask": {
+        "enter": {
+          "type": "dissolve",
+          "seed": 777,
+          "chunk_size": 1
+        },
+        "exit": {
+          "type": "none"
+        }
+      },
+      "sampler": {
+        "enter": {
+          "type": "sine_wave",
+          "axis": "y",
+          "amplitude": 1.0,
+          "frequency": 0.85,
+          "speed": 1.2,
+          "phase": 0.0
+        },
+        "exit": {
+          "type": "none"
+        }
+      },
+      "filter": {
+        "enter": {
+          "type": "none"
+        },
+        "exit": {
+          "type": "none"
+        }
+      },
+      "style": {
+        "region": "All",
+        "base_style": {
+          "foreground": {
+            "type": "light_cyan"
+          },
+          "background": {
+            "type": "black"
+          },
+          "added_modifiers": [
+            "bold"
+          ],
+          "removed_modifiers": []
+        },
+        "enter_effect": {
+          "type": "spatial",
+          "shader": {
+            "type": "glitch_lines",
+            "seed": 1337,
+            "intensity": 0.7,
+            "max_lines": 6,
+            "speed": 4.0,
+            "flash_chance": 0.12,
+            "pulse_color": {
+              "type": "white"
+            },
+            "pulse_speed": 0.4,
+            "italic_on_flash": true,
+            "flash_hold": 3
+          }
+        },
+        "dwell_effect": {
+          "type": "spatial",
+          "shader": {
+            "type": "glitch_lines",
+            "seed": 1337,
+            "intensity": 0.5,
+            "max_lines": 4,
+            "speed": 2.5,
+            "flash_chance": 0.06,
+            "pulse_color": {
+              "type": "white"
+            },
+            "pulse_speed": 0.3,
+            "italic_on_flash": true,
+            "flash_hold": 2
+          }
+        },
+        "exit_effect": {
+          "type": "fade_out",
+          "apply_to": "foreground",
+          "ease": "Linear"
+        }
+      }
+    },
+    "requires_primitives": [
+      "mask.dissolve_params",
+      "sampler.sinewave_params",
+      "shader.glitch_lines"
+    ]
+  }
+}

@@ -1,0 +1,105 @@
+{
+  "schema_version": 1,
+  "id": "notifications.circuit_trace",
+  "title": "Circuit Trace",
+  "description": "Rectilinear movement path like a PCB trace",
+  "version": "2.0.0",
+  "last_updated": "2025-12-18",
+  "config": {
+    "message": "ROUTING POWER...",
+    "layout": {
+      "width": 24,
+      "height": 3,
+      "anchor": "bottom_right"
+    },
+    "border": {
+      "type": "plain",
+      "trim": "none"
+    },
+    "pipeline": {
+      "enter": {
+        "duration_ms": 1500,
+        "easing": "linear",
+        "motion_path": {
+          "type": "rectilinear",
+          "x_first": true
+        },
+        "snapping": {
+          "type": "round"
+        },
+        "from": {
+          "type": "frame_permille",
+          "x_permille": 100,
+          "y_permille": 900
+        }
+      },
+      "exit": {
+        "duration_ms": 650,
+        "easing": "quad_in",
+        "motion_path": {
+          "type": "linear"
+        },
+        "snapping": {
+          "type": "round"
+        }
+      },
+      "mask": {
+        "enter": {
+          "type": "diamond",
+          "soft_edge": true
+        },
+        "exit": {
+          "type": "none"
+        }
+      },
+      "sampler": {
+        "enter": {
+          "type": "none"
+        },
+        "exit": {
+          "type": "none"
+        }
+      },
+      "filter": {
+        "enter": {
+          "type": "invert",
+          "apply_to": "both"
+        },
+        "exit": {
+          "type": "none"
+        }
+      },
+      "style": {
+        "region": "All",
+        "base_style": {
+          "foreground": {
+            "type": "light_green"
+          },
+          "background": {
+            "type": "black"
+          },
+          "added_modifiers": [
+            "bold"
+          ],
+          "removed_modifiers": []
+        },
+        "enter_effect": {
+          "type": "fade_in",
+          "apply_to": "foreground",
+          "ease": "Linear"
+        },
+        "exit_effect": {
+          "type": "fade_out",
+          "apply_to": "foreground",
+          "ease": "QuadIn"
+        }
+      }
+    },
+    "requires_primitives": [
+      "geometry.path.rectilinear",
+      "mask.diamond",
+      "filter.invert",
+      "placement.frame_permille"
+    ]
+  }
+}

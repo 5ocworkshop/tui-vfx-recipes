@@ -1,0 +1,113 @@
+{
+  "schema_version": 1,
+  "id": "notifications.sonic_boom",
+  "title": "Sonic Boom",
+  "description": "Explosive sound wave visualization with radial pulse, ripple sampler, and bounce entry. Crashes onto screen with impact physics, radiating pressure waves outward. Visceral and kinetic.",
+  "version": "1.0.0",
+  "last_updated": "2025-12-22",
+  "config": {
+    "message": "💥 IMPACT DETECTED",
+    "layout": {
+      "width": 28,
+      "height": 4,
+      "anchor": "bottom_center"
+    },
+    "lifecycle": {
+      "auto_dismiss_ms": 4000
+    },
+    "border": {
+      "type": "thick",
+      "trim": "none"
+    },
+    "pipeline": {
+      "enter": {
+        "duration_ms": 1000,
+        "easing": "linear",
+        "motion_path": {
+          "type": "bounce",
+          "bounces": 3,
+          "decay": 12.0
+        },
+        "snapping": {
+          "type": "round"
+        }
+      },
+      "exit": {
+        "duration_ms": 400,
+        "easing": "quad_in",
+        "snapping": {
+          "type": "round"
+        }
+      },
+      "mask": {
+        "enter": {
+          "type": "none"
+        },
+        "exit": {
+          "type": "none"
+        }
+      },
+      "sampler": {
+        "enter": {
+          "type": "ripple",
+          "amplitude": 2.0,
+          "wavelength": 6.0,
+          "speed": 3.5,
+          "center": "center"
+        },
+        "exit": {
+          "type": "none"
+        }
+      },
+      "filter": {
+        "enter": {
+          "type": "none"
+        },
+        "exit": {
+          "type": "none"
+        }
+      },
+      "style": {
+        "region": "All",
+        "base_style": {
+          "foreground": {
+            "type": "light_red"
+          },
+          "background": {
+            "type": "rgb",
+            "r": 60,
+            "g": 10,
+            "b": 0
+          },
+          "added_modifiers": [
+            "bold"
+          ],
+          "removed_modifiers": []
+        },
+        "enter_effect": {
+          "type": "spatial",
+          "shader": {
+            "type": "pulse_wave",
+            "frequency": 3.0,
+            "speed": 2.5,
+            "color": {
+              "type": "yellow"
+            },
+            "direction": "radial",
+            "wavelength": 5.0
+          }
+        },
+        "exit_effect": {
+          "type": "fade_out",
+          "apply_to": "both",
+          "ease": "Linear"
+        }
+      }
+    },
+    "requires_primitives": [
+      "path.bounce",
+      "sampler.ripple",
+      "shader.pulse_wave"
+    ]
+  }
+}

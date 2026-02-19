@@ -1,0 +1,108 @@
+{
+  "schema_version": 1,
+  "id": "notifications.step_motion",
+  "title": "Stop Motion",
+  "description": "Jerky quantized movement (5 steps)",
+  "version": "2.0.0",
+  "last_updated": "2025-12-18",
+  "config": {
+    "message": "ROBOTIC MOVEMENT",
+    "layout": {
+      "width": 24,
+      "height": 3,
+      "anchor": "middle_left"
+    },
+    "lifecycle": {
+      "auto_dismiss_ms": 5000
+    },
+    "border": {
+      "type": "plain",
+      "trim": "none"
+    },
+    "pipeline": {
+      "enter": {
+        "duration_ms": 1500,
+        "easing": "linear",
+        "motion_path": {
+          "type": "step",
+          "steps": 5
+        },
+        "snapping": {
+          "type": "round"
+        },
+        "from": {
+          "type": "offscreen",
+          "direction": "from_left",
+          "margin_cells": 1
+        }
+      },
+      "exit": {
+        "duration_ms": 700,
+        "easing": "linear",
+        "motion_path": {
+          "type": "step",
+          "steps": 5
+        },
+        "snapping": {
+          "type": "round"
+        },
+        "to": {
+          "type": "offscreen",
+          "direction": "from_left",
+          "margin_cells": 1
+        }
+      },
+      "mask": {
+        "enter": {
+          "type": "checkers",
+          "cell_size": 2
+        },
+        "exit": {
+          "type": "none"
+        }
+      },
+      "sampler": {
+        "enter": {
+          "type": "none"
+        },
+        "exit": {
+          "type": "none"
+        }
+      },
+      "filter": {
+        "enter": {
+          "type": "none"
+        },
+        "exit": {
+          "type": "none"
+        }
+      },
+      "style": {
+        "region": "All",
+        "base_style": {
+          "foreground": {
+            "type": "white"
+          },
+          "background": {
+            "type": "black"
+          },
+          "added_modifiers": [],
+          "removed_modifiers": []
+        },
+        "enter_effect": {
+          "type": "fade_in",
+          "apply_to": "foreground",
+          "ease": "Linear"
+        },
+        "exit_effect": {
+          "type": "fade_out",
+          "apply_to": "foreground",
+          "ease": "Linear"
+        }
+      }
+    },
+    "requires_primitives": [
+      "geometry.path.step"
+    ]
+  }
+}

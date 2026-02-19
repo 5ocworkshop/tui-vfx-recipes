@@ -1,0 +1,384 @@
+{
+  "schema_version": 1,
+  "id": "hll.leave_server",
+  "title": "HLL Leave Server",
+  "description": "Hell Let Loose style leave server confirmation dialog with CRT scanlines and interactive buttons",
+  "version": "1.15.0",
+  "config": {
+    "message": "LEAVE SERVER ────────────────────────────────────\n\nARE YOU SURE?\n\nYOUR PROGRESS BONUSES MAY BE LOST\nBY LEAVING EARLY!\n\n                ▌    YES [Y]     ▌     NO [N]    ",
+    "layout": {
+      "width": 57,
+      "height": 10,
+      "mode": "fixed",
+      "anchor": "center"
+    },
+    "lifecycle": {
+      "auto_dismiss_ms": 0
+    },
+    "border": {
+      "type": "none",
+      "trim": "none",
+      "padding": {
+        "top": 1,
+        "bottom": 1,
+        "left": 4,
+        "right": 4
+      },
+      "title_position": "top",
+      "title_alignment": "left"
+    },
+    "pipeline": {
+      "animation_type": "fade",
+      "enter": {
+        "duration_ms": 1000,
+        "easing": "QuadOut"
+      },
+      "exit": {
+        "duration_ms": 200,
+        "easing": "QuadIn"
+      },
+      "mask": {
+        "combine_mode": "all",
+        "enter": [],
+        "exit": [],
+        "dwell": []
+      },
+      "sampler": {
+        "enter": {
+          "type": "none"
+        },
+        "dwell": {
+          "type": "none"
+        },
+        "exit": {
+          "type": "none"
+        }
+      },
+      "filter": {
+        "enter": [
+          {
+            "type": "crt",
+            "scanline_strength": 0.05,
+            "glow": 0.1
+          },
+          {
+            "type": "vignette",
+            "radius": 0.035,
+            "strength": 0.2
+          }
+        ],
+        "dwell": [
+          {
+            "type": "crt",
+            "scanline_strength": 0.05,
+            "glow": 0.1
+          },
+          {
+            "type": "vignette",
+            "radius": 0.035,
+            "strength": 0.2
+          }
+        ],
+        "exit": [
+          {
+            "type": "crt",
+            "scanline_strength": 0.05,
+            "glow": 0.1
+          },
+          {
+            "type": "vignette",
+            "radius": 0.035,
+            "strength": 0.2
+          }
+        ]
+      },
+      "styles": [
+        {
+          "region": "All",
+          "base_style": {
+            "foreground": {
+              "r": 255,
+              "g": 255,
+              "b": 255
+            },
+            "background": {
+              "r": 10,
+              "g": 35,
+              "b": 18
+            }
+          }
+        },
+        {
+          "region": {
+            "RowRange": {
+              "start": 1,
+              "end": 2
+            }
+          },
+          "base_style": {
+            "foreground": {
+              "r": 200,
+              "g": 175,
+              "b": 50
+            },
+            "background": {
+              "r": 10,
+              "g": 35,
+              "b": 18
+            },
+            "added_modifiers": [
+              "BOLD"
+            ]
+          },
+          "dwell_effect": {
+            "type": "spatial",
+            "shader": {
+              "type": "glisten_band",
+              "speed": 0.5,
+              "band_width": 10,
+              "angle_deg": 45.0,
+              "head": {
+                "r": 240,
+                "g": 220,
+                "b": 100
+              },
+              "tail": {
+                "r": 200,
+                "g": 175,
+                "b": 50
+              }
+            }
+          }
+        },
+        {
+          "region": {
+            "Cells": [
+              {"x": 17, "y": 1}, {"x": 18, "y": 1}, {"x": 19, "y": 1}, {"x": 20, "y": 1},
+              {"x": 21, "y": 1}, {"x": 22, "y": 1}, {"x": 23, "y": 1}, {"x": 24, "y": 1},
+              {"x": 25, "y": 1}, {"x": 26, "y": 1}, {"x": 27, "y": 1}, {"x": 28, "y": 1},
+              {"x": 29, "y": 1}, {"x": 30, "y": 1}, {"x": 31, "y": 1}, {"x": 32, "y": 1},
+              {"x": 33, "y": 1}, {"x": 34, "y": 1}, {"x": 35, "y": 1}, {"x": 36, "y": 1},
+              {"x": 37, "y": 1}, {"x": 38, "y": 1}, {"x": 39, "y": 1}, {"x": 40, "y": 1},
+              {"x": 41, "y": 1}, {"x": 42, "y": 1}, {"x": 43, "y": 1}, {"x": 44, "y": 1},
+              {"x": 45, "y": 1}, {"x": 46, "y": 1}, {"x": 47, "y": 1}, {"x": 48, "y": 1},
+              {"x": 49, "y": 1}, {"x": 50, "y": 1}, {"x": 51, "y": 1}, {"x": 52, "y": 1}
+            ]
+          },
+          "base_style": {
+            "foreground": {
+              "r": 200,
+              "g": 175,
+              "b": 50
+            },
+            "background": {
+              "r": 10,
+              "g": 35,
+              "b": 18
+            }
+          },
+          "enter_effect": {
+            "type": "spatial",
+            "shader": {
+              "type": "reveal_wipe",
+              "direction": "left_to_right"
+            }
+          }
+        },
+        {
+          "region": {
+            "Cells": [
+              { "x": 20, "y": 8 }
+            ]
+          },
+          "base_style": {
+            "foreground": {
+              "r": 200,
+              "g": 175,
+              "b": 50
+            },
+            "background": {
+              "r": 10,
+              "g": 35,
+              "b": 18
+            }
+          },
+          "interaction_states": [
+            {
+              "state": "hover",
+              "geometry": {
+                "character": "█"
+              }
+            }
+          ],
+          "interaction_config": {
+            "element_id": "bar_yes",
+            "transition_duration_ms": 150,
+            "easing": "QuadOut",
+            "state_composition": "layered",
+            "accessibility": {
+              "focus_visible_required": false,
+              "min_contrast_ratio": 3.0,
+              "reduce_motion_compliant": true
+            }
+          }
+        },
+        {
+          "region": {
+            "Cells": [
+              { "x": 37, "y": 8 }
+            ]
+          },
+          "base_style": {
+            "foreground": {
+              "r": 200,
+              "g": 175,
+              "b": 50
+            },
+            "background": {
+              "r": 10,
+              "g": 35,
+              "b": 18
+            }
+          },
+          "interaction_states": [
+            {
+              "state": "hover",
+              "geometry": {
+                "character": "█"
+              }
+            }
+          ],
+          "interaction_config": {
+            "element_id": "bar_no",
+            "transition_duration_ms": 150,
+            "easing": "QuadOut",
+            "state_composition": "layered",
+            "accessibility": {
+              "focus_visible_required": false,
+              "min_contrast_ratio": 3.0,
+              "reduce_motion_compliant": true
+            }
+          }
+        },
+        {
+          "region": {
+            "Cells": [
+              { "x": 21, "y": 8 }, { "x": 22, "y": 8 }, { "x": 23, "y": 8 }, { "x": 24, "y": 8 },
+              { "x": 25, "y": 8 }, { "x": 26, "y": 8 }, { "x": 27, "y": 8 }, { "x": 28, "y": 8 },
+              { "x": 29, "y": 8 }, { "x": 30, "y": 8 }, { "x": 31, "y": 8 }, { "x": 32, "y": 8 },
+              { "x": 33, "y": 8 }, { "x": 34, "y": 8 }, { "x": 35, "y": 8 }
+            ]
+          },
+          "base_style": {
+            "foreground": {
+              "r": 255,
+              "g": 255,
+              "b": 255
+            },
+            "background": {
+              "r": 25,
+              "g": 55,
+              "b": 35
+            }
+          },
+          "interaction_states": [
+            {
+              "state": "hover",
+              "background": {
+                "r": 35,
+                "g": 75,
+                "b": 50
+              }
+            },
+            {
+              "state": "focus",
+              "foreground": {
+                "r": 200,
+                "g": 175,
+                "b": 50
+              }
+            },
+            {
+              "state": "active",
+              "background": {
+                "r": 45,
+                "g": 85,
+                "b": 60
+              }
+            }
+          ],
+          "interaction_config": {
+            "element_id": "button_yes",
+            "transition_duration_ms": 150,
+            "easing": "QuadOut",
+            "state_composition": "layered",
+            "accessibility": {
+              "focus_visible_required": true,
+              "min_contrast_ratio": 3.0,
+              "reduce_motion_compliant": true
+            }
+          }
+        },
+        {
+          "region": {
+            "Cells": [
+              { "x": 38, "y": 8 }, { "x": 39, "y": 8 }, { "x": 40, "y": 8 }, { "x": 41, "y": 8 },
+              { "x": 42, "y": 8 }, { "x": 43, "y": 8 }, { "x": 44, "y": 8 }, { "x": 45, "y": 8 },
+              { "x": 46, "y": 8 }, { "x": 47, "y": 8 }, { "x": 48, "y": 8 }, { "x": 49, "y": 8 },
+              { "x": 50, "y": 8 }, { "x": 51, "y": 8 }, { "x": 52, "y": 8 }
+            ]
+          },
+          "base_style": {
+            "foreground": {
+              "r": 255,
+              "g": 255,
+              "b": 255
+            },
+            "background": {
+              "r": 25,
+              "g": 55,
+              "b": 35
+            }
+          },
+          "interaction_states": [
+            {
+              "state": "hover",
+              "background": {
+                "r": 35,
+                "g": 75,
+                "b": 50
+              }
+            },
+            {
+              "state": "focus",
+              "foreground": {
+                "r": 200,
+                "g": 175,
+                "b": 50
+              }
+            },
+            {
+              "state": "active",
+              "background": {
+                "r": 45,
+                "g": 85,
+                "b": 60
+              }
+            }
+          ],
+          "interaction_config": {
+            "element_id": "button_no",
+            "transition_duration_ms": 150,
+            "easing": "QuadOut",
+            "state_composition": "layered",
+            "accessibility": {
+              "focus_visible_required": true,
+              "min_contrast_ratio": 3.0,
+              "reduce_motion_compliant": true
+            }
+          }
+        }
+      ]
+    }
+  }
+}

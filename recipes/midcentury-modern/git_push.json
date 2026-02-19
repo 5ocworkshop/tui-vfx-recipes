@@ -1,0 +1,117 @@
+{
+  "schema_version": 1,
+  "id": "midcentury.git_push",
+  "title": "Git Push",
+  "description": "Outward momentum. Retro purple with arrow title, diagonal energy projects forward.",
+  "version": "1.0.0",
+  "last_updated": "2025-12-31",
+  "config": {
+    "message": "Pushed to origin/main",
+    "layout": {
+      "width": 36,
+      "height": 3,
+      "anchor": "top_right"
+    },
+    "lifecycle": {
+      "auto_dismiss_ms": 3500
+    },
+    "border": {
+      "type": "rounded",
+      "trim": "none",
+      "title": "→ PUSH",
+      "title_position": "top",
+      "title_alignment": "right"
+    },
+    "pipeline": {
+      "enter": {
+        "duration_ms": 360,
+        "easing": "cubic_out",
+        "motion_path": {
+          "type": "arc",
+          "bulge": -0.12
+        },
+        "snapping": {
+          "type": "round"
+        }
+      },
+      "exit": {
+        "duration_ms": 280,
+        "easing": "sine_in",
+        "snapping": {
+          "type": "round"
+        }
+      },
+      "mask": {
+        "enter": {
+          "type": "wipe",
+          "direction": "right_to_left",
+          "soft_edge": true
+        },
+        "exit": {
+          "type": "none"
+        }
+      },
+      "sampler": {
+        "enter": {
+          "type": "none"
+        },
+        "exit": {
+          "type": "none"
+        }
+      },
+      "filter": {
+        "enter": {
+          "type": "none"
+        },
+        "exit": {
+          "type": "none"
+        }
+      },
+      "style": {
+        "region": "All",
+        "base_style": {
+          "foreground": {
+            "type": "rgb",
+            "r": 250,
+            "g": 245,
+            "b": 255
+          },
+          "background": {
+            "type": "rgb",
+            "r": 102,
+            "g": 51,
+            "b": 153
+          },
+          "added_modifiers": [],
+          "removed_modifiers": []
+        },
+        "enter_effect": {
+          "type": "spatial",
+          "shader": {
+            "type": "glisten_band",
+            "band_width": 4,
+            "speed": 0.85,
+            "angle_deg": -35.0,
+            "head": {
+              "type": "rgb",
+              "r": 175,
+              "g": 130,
+              "b": 210
+            },
+            "tail": {
+              "type": "rgb",
+              "r": 125,
+              "g": 75,
+              "b": 175
+            }
+          }
+        },
+        "exit_effect": {
+          "type": "fade_out",
+          "apply_to": "both",
+          "ease": "SineOut"
+        }
+      }
+    }
+  }
+}

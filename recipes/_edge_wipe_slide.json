@@ -1,0 +1,111 @@
+{
+  "schema_version": 1,
+  "id": "notifications.edge_wipe_slide",
+  "title": "_Edge Wipe Slide",
+  "description": "Slide with wipe mask and border trim (JSON port)",
+  "version": "2.0.0",
+  "last_updated": "2025-12-18",
+  "config": {
+    "message": "Edge wipe slide with trim",
+    "layout": {
+      "width": 36,
+      "height": 4,
+      "anchor": "bottom_right"
+    },
+    "lifecycle": {
+      "auto_dismiss_ms": 2600
+    },
+    "border": {
+      "type": "rounded",
+      "trim": "vanishing_edge"
+    },
+    "pipeline": {
+      "enter": {
+        "duration_ms": 700,
+        "easing": "quad_out",
+        "motion_path": {
+          "type": "linear"
+        },
+        "snapping": {
+          "type": "round"
+        },
+        "from": {
+          "type": "offscreen",
+          "direction": "from_right",
+          "margin_cells": 1
+        }
+      },
+      "exit": {
+        "duration_ms": 700,
+        "easing": "quad_in",
+        "motion_path": {
+          "type": "linear"
+        },
+        "snapping": {
+          "type": "round"
+        },
+        "to": {
+          "type": "offscreen",
+          "direction": "from_right",
+          "margin_cells": 1
+        }
+      },
+      "mask": {
+        "enter": {
+          "type": "wipe",
+          "direction": "right_to_left",
+          "soft_edge": true
+        },
+        "exit": {
+          "type": "none"
+        }
+      },
+      "sampler": {
+        "enter": {
+          "type": "none"
+        },
+        "exit": {
+          "type": "none"
+        }
+      },
+      "filter": {
+        "enter": {
+          "type": "none"
+        },
+        "exit": {
+          "type": "none"
+        }
+      },
+      "style": {
+        "region": "All",
+        "base_style": {
+          "foreground": {
+            "type": "white"
+          },
+          "background": {
+            "type": "rgb",
+            "r": 12,
+            "g": 14,
+            "b": 20
+          },
+          "added_modifiers": [],
+          "removed_modifiers": []
+        },
+        "enter_effect": {
+          "type": "fade_in",
+          "apply_to": "both",
+          "ease": "QuadOut"
+        },
+        "exit_effect": {
+          "type": "fade_out",
+          "apply_to": "both",
+          "ease": "QuadIn"
+        }
+      }
+    },
+    "requires_primitives": [
+      "mask.wipe_direction",
+      "border.trim.vanishing_edge"
+    ]
+  }
+}

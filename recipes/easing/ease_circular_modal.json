@@ -1,0 +1,113 @@
+{
+  "schema_version": 1,
+  "id": "examples.circular_smooth_modal",
+  "title": "Smooth Modal Dialog",
+  "description": "Professional modal dialog with smooth circular easing (CircOut for enter, CircIn for exit)",
+  "version": "1.0.0",
+  "last_updated": "2025-12-24",
+  "config": {
+    "message": "🎯 Polished Modal\n\nUsing CircOut for smooth, professional animation feel",
+    "layout": {
+      "width": 50,
+      "height": 7,
+      "anchor": "center"
+    },
+    "lifecycle": {
+      "auto_dismiss_ms": 3000
+    },
+    "border": {
+      "type": "double",
+      "trim": "none",
+      "title": "Circular Easing Demo",
+      "title_position": "top",
+      "title_alignment": "center"
+    },
+    "pipeline": {
+      "enter": {
+        "duration_ms": 400,
+        "easing": "circ_out",
+        "motion_path": {
+          "type": "linear"
+        },
+        "snapping": {
+          "type": "round"
+        },
+        "from": {
+          "type": "offscreen",
+          "direction": "from_top",
+          "margin_cells": 0
+        }
+      },
+      "exit": {
+        "duration_ms": 300,
+        "easing": "circ_in",
+        "motion_path": {
+          "type": "linear"
+        },
+        "snapping": {
+          "type": "round"
+        },
+        "to": {
+          "type": "offscreen",
+          "direction": "from_top",
+          "margin_cells": 0
+        }
+      },
+      "mask": {
+        "enter": {
+          "type": "none"
+        },
+        "exit": {
+          "type": "none"
+        }
+      },
+      "sampler": {
+        "enter": {
+          "type": "none"
+        },
+        "exit": {
+          "type": "none"
+        }
+      },
+      "filter": {
+        "enter": {
+          "type": "none"
+        },
+        "exit": {
+          "type": "none"
+        }
+      },
+      "style": {
+        "region": "All",
+        "base_style": {
+          "foreground": {
+            "type": "rgb",
+            "r": 255,
+            "g": 255,
+            "b": 255
+          },
+          "background": {
+            "type": "rgb",
+            "r": 26,
+            "g": 26,
+            "b": 46
+          },
+          "added_modifiers": [
+            "Bold"
+          ],
+          "removed_modifiers": []
+        },
+        "enter_effect": {
+          "type": "fade_in",
+          "apply_to": "both",
+          "ease": "CircOut"
+        },
+        "exit_effect": {
+          "type": "fade_out",
+          "apply_to": "both",
+          "ease": "CircIn"
+        }
+      }
+    }
+  }
+}

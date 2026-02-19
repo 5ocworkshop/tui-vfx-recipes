@@ -1,0 +1,77 @@
+{
+  "schema_version": 1,
+  "id": "debug.sampler.faultline",
+  "title": "Debug: Sampler - FaultLine",
+  "description": "Tests FaultLine sampler with seed, intensity, and split_bias parameters",
+  "version": "1.0.0",
+  "last_updated": "2025-12-30",
+  "config": {
+    "message": "SAMPLER TEST: FaultLine Effect",
+    "layout": {
+      "width": 40,
+      "height": 5,
+      "anchor": "center"
+    },
+    "lifecycle": {
+      "auto_dismiss_ms": 6000
+    },
+    "border": {
+      "type": "rounded",
+      "trim": "none"
+    },
+    "pipeline": {
+      "enter": {
+        "duration_ms": 2000,
+        "easing": "linear"
+      },
+      "exit": {
+        "duration_ms": 1500,
+        "easing": "linear"
+      },
+      "mask": {
+        "enter": {
+          "type": "none"
+        },
+        "exit": {
+          "type": "none"
+        }
+      },
+      "sampler": {
+        "enter": {
+          "type": "fault_line",
+          "seed": 42,
+          "intensity": 0.8,
+          "split_bias": 0.3
+        },
+        "exit": {
+          "type": "fault_line",
+          "seed": 99,
+          "intensity": 1.2,
+          "split_bias": -0.2
+        }
+      },
+      "filter": {
+        "enter": {
+          "type": "none"
+        },
+        "exit": {
+          "type": "none"
+        }
+      },
+      "style": {
+        "region": "All",
+        "base_style": {
+          "foreground": {
+            "type": "light_yellow"
+          },
+          "background": {
+            "type": "rgb",
+            "r": 50,
+            "g": 40,
+            "b": 20
+          }
+        }
+      }
+    }
+  }
+}

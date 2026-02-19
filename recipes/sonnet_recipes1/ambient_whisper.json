@@ -1,0 +1,102 @@
+{
+  "schema_version": 1,
+  "id": "notifications.ambient_whisper",
+  "title": "Ambient Whisper",
+  "description": "Ultra-subtle notification for background information. Barely-there fade-in with gentle hover creates ambient awareness without demanding attention. Perfect for status updates, auto-save confirmations, or passive monitoring.",
+  "version": "1.0.1",
+  "last_updated": "2025-12-22",
+  "config": {
+    "message": "Auto-saved",
+    "layout": {
+      "width": 20,
+      "height": 2,
+      "anchor": "bottom_right"
+    },
+    "lifecycle": {
+      "auto_dismiss_ms": 2000
+    },
+    "border": {
+      "type": "rounded",
+      "trim": "none"
+    },
+    "pipeline": {
+      "enter": {
+        "duration_ms": 1200,
+        "easing": "cubic_out",
+        "motion_path": {
+          "type": "hover",
+          "amplitude": 0.5,
+          "frequency": 2.0
+        },
+        "snapping": {
+          "type": "round"
+        },
+        "from": {
+          "type": "offscreen",
+          "direction": "from_right",
+          "margin_cells": 1
+        }
+      },
+      "exit": {
+        "duration_ms": 800,
+        "easing": "cubic_in",
+        "snapping": {
+          "type": "round"
+        },
+        "to": {
+          "type": "offscreen",
+          "direction": "from_right",
+          "margin_cells": 1
+        }
+      },
+      "mask": {
+        "enter": {
+          "type": "none"
+        },
+        "exit": {
+          "type": "none"
+        }
+      },
+      "sampler": {
+        "enter": {
+          "type": "none"
+        },
+        "exit": {
+          "type": "none"
+        }
+      },
+      "filter": {
+        "enter": {
+          "type": "none"
+        },
+        "exit": {
+          "type": "none"
+        }
+      },
+      "style": {
+        "region": "All",
+        "base_style": {
+          "foreground": {
+            "type": "gray"
+          },
+          "background": {
+            "type": "black"
+          },
+          "added_modifiers": [],
+          "removed_modifiers": []
+        },
+        "enter_effect": {
+          "type": "fade_in",
+          "apply_to": "both",
+          "ease": "CubicOut"
+        },
+        "exit_effect": {
+          "type": "fade_out",
+          "apply_to": "both",
+          "ease": "CubicIn"
+        }
+      }
+    },
+    "requires_primitives": []
+  }
+}

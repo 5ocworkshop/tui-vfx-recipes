@@ -1,0 +1,100 @@
+{
+  "schema_version": 1,
+  "id": "easing.CircOut",
+  "title": "Circular Out Easing",
+  "description": "Smooth circular deceleration - polished motion",
+  "version": "2.0.0",
+  "last_updated": "2025-12-24",
+  "config": {
+    "message": "━━━ CIRC OUT ━━━\n\nCircular deceleration\nPolished motion",
+    "layout": {
+      "width": 50,
+      "height": 6,
+      "anchor": "bottom_right"
+    },
+    "lifecycle": {
+      "auto_dismiss_ms": 2500
+    },
+    "border": {
+      "type": "rounded",
+      "trim": "none"
+    },
+    "pipeline": {
+      "enter": {
+        "duration_ms": 500,
+        "easing": "circ_out",
+        "motion_path": {
+          "type": "linear"
+        },
+        "snapping": {
+          "type": "round"
+        },
+        "from": {
+          "type": "offscreen",
+          "direction": "from_bottom",
+          "margin_cells": 0
+        }
+      },
+      "exit": {
+        "duration_ms": 300,
+        "easing": "circ_in",
+        "motion_path": {
+          "type": "linear"
+        },
+        "snapping": {
+          "type": "round"
+        },
+        "to": {
+          "type": "offscreen",
+          "direction": "from_bottom",
+          "margin_cells": 0
+        }
+      },
+      "mask": {
+        "enter": {
+          "type": "none"
+        },
+        "exit": {
+          "type": "none"
+        }
+      },
+      "sampler": {
+        "enter": {
+          "type": "none"
+        },
+        "exit": {
+          "type": "none"
+        }
+      },
+      "filter": {
+        "enter": {
+          "type": "none"
+        },
+        "exit": {
+          "type": "none"
+        }
+      },
+      "style": {
+        "region": "All",
+        "base_style": {
+          "foreground": {
+            "type": "rgb",
+            "r": 180,
+            "g": 220,
+            "b": 220
+          },
+          "background": {
+            "type": "rgb",
+            "r": 26,
+            "g": 26,
+            "b": 46
+          },
+          "added_modifiers": [
+            "Bold"
+          ],
+          "removed_modifiers": []
+        }
+      }
+    }
+  }
+}

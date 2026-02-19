@@ -1,0 +1,115 @@
+{
+  "schema_version": 1,
+  "id": "toolkit.showcase.film_noir_smoke",
+  "title": "Film Noir Smoke",
+  "description": "A noir interlude: slow drifting distortion like smoke, heavy vignette, italic tone, and a shadowy close.",
+  "version": "0.1.0",
+  "last_updated": "2025-12-23",
+  "config": {
+    "message": "NOIR MODE\nshadows deepen",
+    "layout": {
+      "width": 36,
+      "height": 5,
+      "anchor": "bottom_left"
+    },
+    "lifecycle": {
+      "auto_dismiss_ms": 16000
+    },
+    "border": {
+      "type": "plain",
+      "trim": "none"
+    },
+    "content": {
+      "mode": "enter_only"
+    },
+    "pipeline": {
+      "enter": {
+        "duration_ms": 3000,
+        "easing": "quad_in_out",
+        "snapping": {
+          "type": "round"
+        }
+      },
+      "exit": {
+        "duration_ms": 1400,
+        "easing": "cubic_in",
+        "snapping": {
+          "type": "round"
+        }
+      },
+      "mask": {
+        "enter": {
+          "type": "wipe",
+          "direction": "bottom_to_top",
+          "soft_edge": true
+        },
+        "exit": {
+          "type": "wipe",
+          "direction": "top_to_bottom",
+          "soft_edge": true
+        }
+      },
+      "sampler": {
+        "enter": {
+          "type": "sine_wave",
+          "axis": "x",
+          "amplitude": 0.9,
+          "frequency": 0.16,
+          "speed": 0.6,
+          "phase": 2.0
+        },
+        "exit": {
+          "type": "sine_wave",
+          "axis": "y",
+          "amplitude": 0.6,
+          "frequency": 0.25,
+          "speed": -0.8,
+          "phase": 0.0
+        }
+      },
+      "filter": {
+        "enter": {
+          "type": "vignette",
+          "strength": 0.75,
+          "radius": 0.55
+        },
+        "exit": {
+          "type": "vignette",
+          "strength": 0.9,
+          "radius": 0.25
+        }
+      },
+      "style": {
+        "region": "All",
+        "base_style": {
+          "foreground": {
+            "type": "rgb",
+            "r": 220,
+            "g": 220,
+            "b": 220
+          },
+          "background": {
+            "type": "rgb",
+            "r": 10,
+            "g": 10,
+            "b": 12
+          },
+          "added_modifiers": [
+            "italic"
+          ],
+          "removed_modifiers": []
+        },
+        "enter_effect": {
+          "type": "fade_in",
+          "apply_to": "foreground",
+          "ease": "CubicOut"
+        },
+        "exit_effect": {
+          "type": "fade_out",
+          "apply_to": "both",
+          "ease": "CubicIn"
+        }
+      }
+    }
+  }
+}

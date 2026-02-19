@@ -1,0 +1,144 @@
+{
+  "schema_version": 1,
+  "id": "border.gold_luxury",
+  "title": "Border Gold Luxury",
+  "description": "Elegant gold shimmer around a double border. Premium feel for important notifications.",
+  "version": "1.0.0",
+  "last_updated": "2025-12-29",
+  "config": {
+    "message": "★ PREMIUM\n\nExclusive access granted",
+    "layout": {
+      "width": 30,
+      "height": 6,
+      "anchor": "center"
+    },
+    "lifecycle": {
+      "auto_dismiss_ms": 0
+    },
+    "time": {
+      "loop": true,
+      "loop_period_ms": 2000
+    },
+    "border": {
+      "type": "double",
+      "trim": "none",
+      "center_content": true
+    },
+    "pipeline": {
+      "enter": {
+        "duration_ms": 500,
+        "easing": "quad_out",
+        "snapping": {
+          "type": "round"
+        }
+      },
+      "exit": {
+        "duration_ms": 400,
+        "easing": "quad_in",
+        "snapping": {
+          "type": "round"
+        }
+      },
+      "mask": {
+        "enter": {
+          "type": "none"
+        },
+        "exit": {
+          "type": "none"
+        }
+      },
+      "sampler": {
+        "enter": {
+          "type": "none"
+        },
+        "exit": {
+          "type": "none"
+        }
+      },
+      "filter": {
+        "enter": {
+          "type": "none"
+        },
+        "exit": {
+          "type": "none"
+        }
+      },
+      "style": {
+        "region": "All",
+        "base_style": {
+          "foreground": {
+            "type": "rgb",
+            "r": 255,
+            "g": 220,
+            "b": 140
+          },
+          "background": {
+            "type": "rgb",
+            "r": 25,
+            "g": 20,
+            "b": 10
+          },
+          "added_modifiers": [],
+          "removed_modifiers": []
+        },
+        "enter_effect": {
+          "type": "spatial",
+          "shader": {
+            "type": "glisten_band",
+            "speed": 1.0,
+            "band_width": 8,
+            "angle_deg": 45.0,
+            "head": {
+              "type": "rgb",
+              "r": 255,
+              "g": 255,
+              "b": 255
+            },
+            "tail": {
+              "type": "rgb",
+              "r": 0,
+              "g": 255,
+              "b": 255
+            },
+            "direction": "forward",
+            "apply_to": "both",
+            "blend_strength": 1.0
+          }
+        },
+        "dwell_effect": {
+          "type": "spatial",
+          "shader": {
+            "type": "glisten_band",
+            "speed": 1.0,
+            "band_width": 8,
+            "angle_deg": 45.0,
+            "head": {
+              "type": "rgb",
+              "r": 255,
+              "g": 255,
+              "b": 255
+            },
+            "tail": {
+              "type": "rgb",
+              "r": 0,
+              "g": 255,
+              "b": 255
+            },
+            "direction": "forward",
+            "apply_to": "both",
+            "blend_strength": 1.0
+          }
+        },
+        "exit_effect": {
+          "type": "fade_out",
+          "apply_to": "both",
+          "ease": "QuadIn"
+        }
+      }
+    },
+    "requires_primitives": [
+      "shader.glisten_band",
+      "region.border_only"
+    ]
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "schema_version": 1,
+  "id": "wargames.dialogue.04_first_strike",
+  "title": "Dialogue 04 - Awaiting First Strike",
+  "description": "Awaiting first strike command - list primary targets prompt",
+  "version": "1.0.0",
+  "last_updated": "2025-12-25",
+  "extends": "themes/new_wopr_fullscreen_cyan.json",
+  "config": {
+    "message": "AWAITING FIRST STRIKE COMMAND\n\nPLEASE LIST PRIMARY TARGETS BY\nCITY AND/OR COUNTY NAME",
+    "lifecycle": {
+      "auto_dismiss_ms": 0
+    }
+  }
+}

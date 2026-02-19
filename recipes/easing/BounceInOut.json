@@ -1,0 +1,100 @@
+{
+  "schema_version": 1,
+  "id": "easing.BounceInOut",
+  "title": "Bounce InOut Easing",
+  "description": "Bounces at both start and end - double bounce effect",
+  "version": "2.0.0",
+  "last_updated": "2025-12-24",
+  "config": {
+    "message": "━━━ BOUNCE INOUT ━━━\n\nDouble bounce\nPlayful both ends",
+    "layout": {
+      "width": 55,
+      "height": 7,
+      "anchor": "bottom_right"
+    },
+    "lifecycle": {
+      "auto_dismiss_ms": 3500
+    },
+    "border": {
+      "type": "rounded",
+      "trim": "none"
+    },
+    "pipeline": {
+      "enter": {
+        "duration_ms": 1200,
+        "easing": "bounce_in_out",
+        "motion_path": {
+          "type": "linear"
+        },
+        "snapping": {
+          "type": "round"
+        },
+        "from": {
+          "type": "offscreen",
+          "direction": "from_bottom",
+          "margin_cells": 0
+        }
+      },
+      "exit": {
+        "duration_ms": 600,
+        "easing": "bounce_in_out",
+        "motion_path": {
+          "type": "linear"
+        },
+        "snapping": {
+          "type": "round"
+        },
+        "to": {
+          "type": "offscreen",
+          "direction": "from_bottom",
+          "margin_cells": 0
+        }
+      },
+      "mask": {
+        "enter": {
+          "type": "none"
+        },
+        "exit": {
+          "type": "none"
+        }
+      },
+      "sampler": {
+        "enter": {
+          "type": "none"
+        },
+        "exit": {
+          "type": "none"
+        }
+      },
+      "filter": {
+        "enter": {
+          "type": "none"
+        },
+        "exit": {
+          "type": "none"
+        }
+      },
+      "style": {
+        "region": "All",
+        "base_style": {
+          "foreground": {
+            "type": "rgb",
+            "r": 255,
+            "g": 255,
+            "b": 255
+          },
+          "background": {
+            "type": "rgb",
+            "r": 26,
+            "g": 26,
+            "b": 46
+          },
+          "added_modifiers": [
+            "Bold"
+          ],
+          "removed_modifiers": []
+        }
+      }
+    }
+  }
+}

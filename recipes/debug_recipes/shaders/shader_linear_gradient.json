@@ -1,0 +1,98 @@
+{
+  "schema_version": 1,
+  "id": "debug.shader.linear_gradient",
+  "title": "Debug: Shader - LinearGradient",
+  "description": "Tests LinearGradient spatial shader with angle_deg parameter",
+  "version": "1.0.0",
+  "last_updated": "2025-12-30",
+  "config": {
+    "message": "SHADER TEST: LinearGradient",
+    "layout": {
+      "width": 40,
+      "height": 5,
+      "anchor": "center"
+    },
+    "lifecycle": {
+      "auto_dismiss_ms": 5000
+    },
+    "border": {
+      "type": "rounded",
+      "trim": "none"
+    },
+    "pipeline": {
+      "enter": {
+        "duration_ms": 1000,
+        "easing": "quad_out"
+      },
+      "exit": {
+        "duration_ms": 1000,
+        "easing": "quad_in"
+      },
+      "mask": {
+        "enter": {
+          "type": "none"
+        },
+        "exit": {
+          "type": "none"
+        }
+      },
+      "sampler": {
+        "enter": {
+          "type": "none"
+        },
+        "exit": {
+          "type": "none"
+        }
+      },
+      "filter": {
+        "enter": {
+          "type": "none"
+        },
+        "exit": {
+          "type": "none"
+        }
+      },
+      "style": {
+        "region": "All",
+        "base_style": {
+          "foreground": {
+            "type": "white"
+          },
+          "background": {
+            "type": "rgb",
+            "r": 30,
+            "g": 30,
+            "b": 60
+          }
+        },
+        "spatial_shader": {
+          "type": "linear_gradient",
+          "gradient": {
+            "stops": [
+              [
+                0.0,
+                {
+                  "type": "rgb",
+                  "r": 255,
+                  "g": 100,
+                  "b": 50
+                }
+              ],
+              [
+                1.0,
+                {
+                  "type": "rgb",
+                  "r": 50,
+                  "g": 100,
+                  "b": 255
+                }
+              ]
+            ],
+            "space": "rgb"
+          },
+          "angle_deg": 45.0
+        }
+      }
+    }
+  }
+}

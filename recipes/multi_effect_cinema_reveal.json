@@ -1,0 +1,114 @@
+{
+  "schema_version": 1,
+  "id": "showcase.multi_effect_cinema_reveal",
+  "title": "Multi-Effect: Cinema Reveal",
+  "description": "Showcases full multi-effect capability: multiple masks (AND) + multiple filters for cinematic entrance",
+  "version": "1.0.0",
+  "last_updated": "2025-12-26",
+  "config": {
+    "message": "FEATURE PRESENTATION",
+    "layout": {
+      "anchor": "center",
+      "width": 40,
+      "height": 9
+    },
+    "lifecycle": {
+      "auto_dismiss_ms": 6500
+    },
+    "border": {
+      "type": "double",
+      "title": "NOW SHOWING",
+      "title_position": "top",
+      "title_alignment": "center"
+    },
+    "pipeline": {
+      "enter": {
+        "duration_ms": 2000,
+        "easing": "quad_out"
+      },
+      "exit": {
+        "duration_ms": 1500,
+        "easing": "cubic_in"
+      },
+      "style": {
+        "base_style": {
+          "foreground": {
+            "r": 255,
+            "g": 215,
+            "b": 0
+          },
+          "background": {
+            "r": 20,
+            "g": 15,
+            "b": 30
+          }
+        }
+      },
+      "mask": {
+        "enter": [
+          {
+            "type": "blinds",
+            "orientation": "horizontal",
+            "count": 6
+          },
+          {
+            "type": "wipe",
+            "direction": "top_to_bottom",
+            "soft_edge": true
+          }
+        ],
+        "exit": [
+          {
+            "type": "iris",
+            "shape": "circle",
+            "soft_edge": true
+          }
+        ],
+        "combine_mode": "all"
+      },
+      "filter": {
+        "enter": [
+          {
+            "type": "dim",
+            "factor": 0.3,
+            "apply_to": "both"
+          },
+          {
+            "type": "vignette",
+            "strength": 0.7,
+            "radius": 0.4
+          }
+        ],
+        "dwell": [
+          {
+            "type": "vignette",
+            "strength": 0.5,
+            "radius": 0.6
+          },
+          {
+            "type": "tint",
+            "color": {
+              "r": 255,
+              "g": 200,
+              "b": 100
+            },
+            "strength": 0.1,
+            "apply_to": "both"
+          }
+        ],
+        "exit": [
+          {
+            "type": "dim",
+            "factor": 0.5,
+            "apply_to": "both"
+          },
+          {
+            "type": "vignette",
+            "strength": 0.9,
+            "radius": 0.3
+          }
+        ]
+      }
+    }
+  }
+}

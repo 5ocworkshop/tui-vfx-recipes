@@ -1,0 +1,138 @@
+{
+  "schema_version": 1,
+  "id": "midcentury.deploy",
+  "title": "Deploy",
+  "description": "Sputnik moment. Midnight blue with starburst title, atomic age grandeur.",
+  "version": "1.0.0",
+  "last_updated": "2025-12-31",
+  "config": {
+    "message": "🚀 Deployed to production",
+    "layout": {
+      "width": 38,
+      "height": 3,
+      "anchor": "top_right"
+    },
+    "lifecycle": {
+      "auto_dismiss_ms": 6000
+    },
+    "border": {
+      "type": "thick",
+      "trim": "none",
+      "title": "★ DEPLOY ★",
+      "title_position": "top",
+      "title_alignment": "center"
+    },
+    "pipeline": {
+      "enter": {
+        "duration_ms": 550,
+        "easing": "back_out",
+        "motion_path": {
+          "type": "arc",
+          "bulge": -0.2
+        },
+        "snapping": {
+          "type": "round"
+        }
+      },
+      "exit": {
+        "duration_ms": 450,
+        "easing": "cubic_in",
+        "snapping": {
+          "type": "round"
+        }
+      },
+      "mask": {
+        "enter": {
+          "type": "iris",
+          "shape": "circle",
+          "soft_edge": true
+        },
+        "exit": {
+          "type": "none"
+        }
+      },
+      "sampler": {
+        "enter": {
+          "type": "none"
+        },
+        "exit": {
+          "type": "none"
+        }
+      },
+      "filter": {
+        "enter": {
+          "type": "none"
+        },
+        "exit": {
+          "type": "none"
+        }
+      },
+      "style": {
+        "region": "All",
+        "base_style": {
+          "foreground": {
+            "type": "rgb",
+            "r": 255,
+            "g": 250,
+            "b": 240
+          },
+          "background": {
+            "type": "rgb",
+            "r": 25,
+            "g": 25,
+            "b": 112
+          },
+          "added_modifiers": [
+            "bold",
+            "underlined"
+          ],
+          "removed_modifiers": []
+        },
+        "enter_effect": {
+          "type": "spatial",
+          "shader": {
+            "type": "linear_gradient",
+            "gradient": {
+              "stops": [
+                [
+                  0.0,
+                  {
+                    "type": "rgb",
+                    "r": 70,
+                    "g": 70,
+                    "b": 180
+                  }
+                ],
+                [
+                  0.5,
+                  {
+                    "type": "rgb",
+                    "r": 40,
+                    "g": 40,
+                    "b": 140
+                  }
+                ],
+                [
+                  1.0,
+                  {
+                    "type": "rgb",
+                    "r": 25,
+                    "g": 25,
+                    "b": 112
+                  }
+                ]
+              ],
+              "space": "rgb"
+            },
+            "angle_deg": 45.0
+          }
+        },
+        "exit_effect": {
+          "type": "fade_out",
+          "apply_to": "both",
+          "ease": "CubicOut"
+        }
+      }
+    }
+  }
+}

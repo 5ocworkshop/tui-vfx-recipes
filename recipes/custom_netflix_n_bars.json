@@ -1,0 +1,170 @@
+{
+  "schema_version": 1,
+  "id": "custom.netflix_n_bars",
+  "title": "Netflix N Bars (Custom)",
+  "description": "Custom N built from 1/8 vertical bars with vertical shred and glow.",
+  "version": "1.0.0",
+  "last_updated": "2026-02-01",
+  "config": {
+    "message": "PLACEHOLDER",
+    "layout": {
+      "mode": "fixed",
+      "width": 26,
+      "height": 18,
+      "anchor": "center",
+      "wrap": false
+    },
+    "lifecycle": {
+      "auto_dismiss_ms": 12000
+    },
+    "border": {
+      "type": "none",
+      "trim": "none",
+      "center_content": true
+    },
+    "pipeline": {
+      "animation_type": "fade",
+      "enter": {
+        "duration_ms": 700,
+        "easing": "quad_out"
+      },
+      "exit": {
+        "duration_ms": 1100,
+        "easing": "quad_in"
+      },
+      "mask": {
+        "enter": [
+          {
+            "type": "blinds",
+            "orientation": "vertical",
+            "count": 16
+          }
+        ],
+        "exit": [
+          {
+            "type": "blinds",
+            "orientation": "vertical",
+            "count": 24
+          }
+        ]
+      },
+      "sampler": {
+        "enter": {
+          "type": "shredder",
+          "stripe_width": 1,
+          "odd_speed": 2.0,
+          "even_speed": -1.5
+        },
+        "dwell": {
+          "type": "shredder",
+          "stripe_width": 1,
+          "odd_speed": 0.35,
+          "even_speed": -0.25
+        },
+        "exit": {
+          "type": "shredder",
+          "stripe_width": 1,
+          "odd_speed": 5.5,
+          "even_speed": -4.0
+        }
+      },
+      "filter": {
+        "enter": [
+          {
+            "type": "crt",
+            "scanline_strength": 0.0,
+            "glow": 0.15
+          }
+        ],
+        "dwell": [
+          {
+            "type": "crt",
+            "scanline_strength": 0.0,
+            "glow": 0.2
+          }
+        ],
+        "exit": [
+          {
+            "type": "crt",
+            "scanline_strength": 0.0,
+            "glow": 0.25
+          }
+        ]
+      },
+      "styles": [
+        {
+          "region": "All",
+          "base_style": {
+            "foreground": {
+              "type": "rgb",
+              "r": 229,
+              "g": 9,
+              "b": 20
+            },
+            "background": {
+              "type": "black"
+            }
+          },
+          "enter_effect": {
+            "type": "fade_in",
+            "apply_to": "foreground",
+            "ease": "QuadOut"
+          },
+          "dwell_effect": {
+            "type": "spatial",
+            "shader": {
+              "type": "linear_gradient",
+              "gradient": {
+                "stops": [
+                  [
+                    0.0,
+                    {
+                      "type": "rgb",
+                      "r": 120,
+                      "g": 6,
+                      "b": 10
+                    }
+                  ],
+                  [
+                    0.45,
+                    {
+                      "type": "rgb",
+                      "r": 230,
+                      "g": 12,
+                      "b": 22
+                    }
+                  ],
+                  [
+                    0.7,
+                    {
+                      "type": "rgb",
+                      "r": 255,
+                      "g": 40,
+                      "b": 30
+                    }
+                  ],
+                  [
+                    1.0,
+                    {
+                      "type": "rgb",
+                      "r": 140,
+                      "g": 6,
+                      "b": 12
+                    }
+                  ]
+                ],
+                "space": "rgb"
+              },
+              "angle_deg": 92.0
+            }
+          },
+          "exit_effect": {
+            "type": "fade_out",
+            "apply_to": "foreground",
+            "ease": "QuadIn"
+          }
+        }
+      ]
+    }
+  }
+}

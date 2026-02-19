@@ -1,0 +1,75 @@
+{
+  "schema_version": 1,
+  "id": "debug.mask.dissolve",
+  "title": "Debug: Mask - Dissolve",
+  "description": "Tests Dissolve mask with seed and chunk size parameters",
+  "version": "1.0.0",
+  "last_updated": "2025-12-30",
+  "config": {
+    "message": "MASK TEST: Dissolve Effect",
+    "layout": {
+      "width": 35,
+      "height": 3,
+      "anchor": "center"
+    },
+    "lifecycle": {
+      "auto_dismiss_ms": 5000
+    },
+    "border": {
+      "type": "rounded",
+      "trim": "none"
+    },
+    "pipeline": {
+      "enter": {
+        "duration_ms": 2000,
+        "easing": "linear"
+      },
+      "exit": {
+        "duration_ms": 1000,
+        "easing": "linear"
+      },
+      "mask": {
+        "enter": {
+          "type": "dissolve",
+          "seed": 42,
+          "chunk_size": 1
+        },
+        "exit": {
+          "type": "dissolve",
+          "seed": 99,
+          "chunk_size": 2
+        }
+      },
+      "sampler": {
+        "enter": {
+          "type": "none"
+        },
+        "exit": {
+          "type": "none"
+        }
+      },
+      "filter": {
+        "enter": {
+          "type": "none"
+        },
+        "exit": {
+          "type": "none"
+        }
+      },
+      "style": {
+        "region": "All",
+        "base_style": {
+          "foreground": {
+            "type": "green"
+          },
+          "background": {
+            "type": "rgb",
+            "r": 20,
+            "g": 50,
+            "b": 20
+          }
+        }
+      }
+    }
+  }
+}

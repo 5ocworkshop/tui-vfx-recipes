@@ -1,0 +1,48 @@
+{
+  "schema_version": 1,
+  "extends": "themes/wopr_green.json",
+  "id": "wargames.id_not_recognized",
+  "title": "WarGames - ID Error",
+  "description": "WOPR identification error - Red error coloring with glitch lines effect, fast computer response",
+  "version": "2.0.0",
+  "last_updated": "2025-12-24",
+  "config": {
+    "message": "IDENTIFICATION NOT RECOGNIZED\n\nACCESS DENIED",
+    "layout": {
+      "height": 5
+    },
+    "lifecycle": {
+      "auto_dismiss_ms": 6000
+    },
+    "pipeline": {
+      "enter": {
+        "duration_ms": 800
+      },
+      "style": {
+        "base_style": {
+          "foreground": {
+            "type": "rgb",
+            "r": 255,
+            "g": 80,
+            "b": 80
+          },
+          "added_modifiers": [
+            "bold"
+          ]
+        },
+        "enter_effect": null,
+        "dwell_effect": {
+          "type": "spatial",
+          "shader": {
+            "type": "glitch_lines",
+            "seed": 42,
+            "intensity": 0.5,
+            "max_lines": 2,
+            "speed": 3.0,
+            "flash_chance": 0.0
+          }
+        }
+      }
+    }
+  }
+}

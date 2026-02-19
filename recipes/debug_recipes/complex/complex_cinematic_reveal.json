@@ -1,0 +1,111 @@
+{
+  "schema_version": 1,
+  "id": "debug.complex.cinematic_reveal",
+  "title": "Debug: Cinematic Path Reveal",
+  "description": "Tests PathReveal mask with spiral pattern and CRT filter for cinematic effects",
+  "version": "1.0.0",
+  "last_updated": "2025-12-30",
+  "config": {
+    "message": "CINEMATIC REVEAL",
+    "layout": {
+      "width": 60,
+      "height": 9,
+      "anchor": "center"
+    },
+    "lifecycle": {
+      "auto_dismiss_ms": 12000
+    },
+    "border": {
+      "type": "double",
+      "trim": "none"
+    },
+    "content": {
+      "mode": "enter_only",
+      "effect": {
+        "type": "scramble",
+        "resolve_pace": 1.2,
+        "charset": "matrix",
+        "seed": 12345
+      }
+    },
+    "pipeline": {
+      "enter": {
+        "duration_ms": 3000,
+        "easing": "cubic_out"
+      },
+      "exit": {
+        "duration_ms": 2000,
+        "easing": "cubic_in"
+      },
+      "mask": {
+        "enter": {
+          "type": "path_reveal",
+          "path": {
+            "type": "spiral",
+            "rotations": 3.0,
+            "direction": "clockwise"
+          },
+          "soft_edge": true
+        },
+        "exit": {
+          "type": "noise_dither",
+          "seed": 42,
+          "matrix": "bayer8"
+        }
+      },
+      "sampler": {
+        "enter": {
+          "type": "none"
+        },
+        "exit": {
+          "type": "crt",
+          "scanline_strength": 0.6,
+          "jitter": 0.3,
+          "curvature": 0.15
+        }
+      },
+      "filter": {
+        "enter": {
+          "type": "crt",
+          "scanline_strength": 0.4,
+          "glow": 0.2
+        },
+        "exit": {
+          "type": "dim",
+          "factor": 0.3,
+          "apply_to": "both"
+        }
+      },
+      "style": {
+        "region": "All",
+        "base_style": {
+          "foreground": {
+            "type": "rgb",
+            "r": 0,
+            "g": 255,
+            "b": 100
+          },
+          "background": {
+            "type": "rgb",
+            "r": 10,
+            "g": 20,
+            "b": 10
+          }
+        },
+        "spatial_shader": {
+          "type": "glitch_lines",
+          "intensity": 0.4,
+          "max_lines": 5,
+          "speed": 2.0,
+          "pulse_color": {
+            "type": "rgb",
+            "r": 0,
+            "g": 255,
+            "b": 150
+          },
+          "seed": 42
+        }
+      }
+    }
+  }
+}

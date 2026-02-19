@@ -1,0 +1,142 @@
+{
+  "schema_version": 1,
+  "id": "progress.cylon_scanner_minimal",
+  "title": "Cylon Scanner (Minimal)",
+  "description": "Battlestar Galactica inspired red eye scanner. Timing is 3x human heartbeat (~2.5s cycle). No visible track - just the light.",
+  "version": "1.0.0",
+  "last_updated": "2025-12-29",
+  "config": {
+    "message": "                              ",
+    "layout": {
+      "width": 32,
+      "height": 1,
+      "anchor": "bottom_center"
+    },
+    "lifecycle": {
+      "auto_dismiss_ms": 0
+    },
+    "time": {
+      "loop": true,
+      "loop_period_ms": 2500
+    },
+    "border": {
+      "type": "none",
+      "trim": "none"
+    },
+    "pipeline": {
+      "enter": {
+        "duration_ms": 300,
+        "easing": "quad_out",
+        "snapping": {
+          "type": "round"
+        }
+      },
+      "exit": {
+        "duration_ms": 300,
+        "easing": "quad_in",
+        "snapping": {
+          "type": "round"
+        }
+      },
+      "mask": {
+        "enter": {
+          "type": "none"
+        },
+        "exit": {
+          "type": "none"
+        }
+      },
+      "sampler": {
+        "enter": {
+          "type": "none"
+        },
+        "exit": {
+          "type": "none"
+        }
+      },
+      "filter": {
+        "enter": {
+          "type": "none"
+        },
+        "exit": {
+          "type": "none"
+        }
+      },
+      "style": {
+        "region": "All",
+        "base_style": {
+          "foreground": {
+            "type": "rgb",
+            "r": 10,
+            "g": 0,
+            "b": 0
+          },
+          "background": {
+            "type": "rgb",
+            "r": 10,
+            "g": 0,
+            "b": 0
+          },
+          "added_modifiers": [],
+          "removed_modifiers": []
+        },
+        "enter_effect": {
+          "type": "spatial",
+          "shader": {
+            "type": "glisten_band",
+            "speed": 0.4,
+            "band_width": 5,
+            "angle_deg": 0.0,
+            "head": {
+              "type": "rgb",
+              "r": 255,
+              "g": 50,
+              "b": 50
+            },
+            "tail": {
+              "type": "rgb",
+              "r": 180,
+              "g": 0,
+              "b": 0
+            },
+            "direction": "ping_pong",
+            "apply_to": "background",
+            "blend_strength": 1.0
+          }
+        },
+        "dwell_effect": {
+          "type": "spatial",
+          "shader": {
+            "type": "glisten_band",
+            "speed": 0.4,
+            "band_width": 5,
+            "angle_deg": 0.0,
+            "head": {
+              "type": "rgb",
+              "r": 255,
+              "g": 50,
+              "b": 50
+            },
+            "tail": {
+              "type": "rgb",
+              "r": 180,
+              "g": 0,
+              "b": 0
+            },
+            "direction": "ping_pong",
+            "apply_to": "background",
+            "blend_strength": 1.0
+          }
+        },
+        "exit_effect": {
+          "type": "fade_out",
+          "apply_to": "both",
+          "ease": "Linear"
+        }
+      }
+    },
+    "requires_primitives": [
+      "shader.glisten_band"
+    ]
+  }
+}

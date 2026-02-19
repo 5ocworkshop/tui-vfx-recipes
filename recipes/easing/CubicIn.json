@@ -1,0 +1,100 @@
+{
+  "schema_version": 1,
+  "id": "easing.CubicIn",
+  "title": "Cubic In Easing",
+  "description": "Slow start with strong acceleration - more dramatic than Quad",
+  "version": "2.0.0",
+  "last_updated": "2025-12-24",
+  "config": {
+    "message": "━━━ CUBIC IN ━━━\n\nDramatic acceleration\nStronger than Quadratic",
+    "layout": {
+      "width": 52,
+      "height": 6,
+      "anchor": "top_right"
+    },
+    "lifecycle": {
+      "auto_dismiss_ms": 2500
+    },
+    "border": {
+      "type": "rounded",
+      "trim": "none"
+    },
+    "pipeline": {
+      "enter": {
+        "duration_ms": 600,
+        "easing": "cubic_in",
+        "motion_path": {
+          "type": "linear"
+        },
+        "snapping": {
+          "type": "round"
+        },
+        "from": {
+          "type": "offscreen",
+          "direction": "from_top",
+          "margin_cells": 0
+        }
+      },
+      "exit": {
+        "duration_ms": 300,
+        "easing": "cubic_out",
+        "motion_path": {
+          "type": "linear"
+        },
+        "snapping": {
+          "type": "round"
+        },
+        "to": {
+          "type": "offscreen",
+          "direction": "from_top",
+          "margin_cells": 0
+        }
+      },
+      "mask": {
+        "enter": {
+          "type": "none"
+        },
+        "exit": {
+          "type": "none"
+        }
+      },
+      "sampler": {
+        "enter": {
+          "type": "none"
+        },
+        "exit": {
+          "type": "none"
+        }
+      },
+      "filter": {
+        "enter": {
+          "type": "none"
+        },
+        "exit": {
+          "type": "none"
+        }
+      },
+      "style": {
+        "region": "All",
+        "base_style": {
+          "foreground": {
+            "type": "rgb",
+            "r": 255,
+            "g": 255,
+            "b": 255
+          },
+          "background": {
+            "type": "rgb",
+            "r": 26,
+            "g": 26,
+            "b": 46
+          },
+          "added_modifiers": [
+            "Bold"
+          ],
+          "removed_modifiers": []
+        }
+      }
+    }
+  }
+}

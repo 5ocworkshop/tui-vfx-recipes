@@ -1,0 +1,108 @@
+{
+  "schema_version": 1,
+  "id": "physics.friction_slide",
+  "title": "Friction Slide",
+  "description": "Notification slides in with momentum, decelerating naturally like a scroll gesture",
+  "version": "1.0.0",
+  "last_updated": "2025-12-31",
+  "config": {
+    "message": "Sliding in...",
+    "layout": {
+      "width": 32,
+      "height": 3,
+      "anchor": "top_right"
+    },
+    "lifecycle": {
+      "auto_dismiss_ms": 4000
+    },
+    "border": {
+      "type": "plain",
+      "trim": "none"
+    },
+    "pipeline": {
+      "enter": {
+        "duration_ms": 900,
+        "easing": "linear",
+        "motion_path": {
+          "type": "friction",
+          "drag": 3.5
+        },
+        "snapping": {
+          "type": "round"
+        },
+        "from": {
+          "type": "offscreen",
+          "direction": "from_right",
+          "margin_cells": 10
+        }
+      },
+      "exit": {
+        "duration_ms": 700,
+        "easing": "linear",
+        "motion_path": {
+          "type": "friction",
+          "drag": 5.0
+        },
+        "snapping": {
+          "type": "round"
+        },
+        "to": {
+          "type": "offscreen",
+          "direction": "from_right",
+          "margin_cells": 8
+        }
+      },
+      "mask": {
+        "enter": {
+          "type": "none"
+        },
+        "exit": {
+          "type": "none"
+        }
+      },
+      "sampler": {
+        "enter": {
+          "type": "none"
+        },
+        "exit": {
+          "type": "none"
+        }
+      },
+      "filter": {
+        "enter": {
+          "type": "none"
+        },
+        "exit": {
+          "type": "none"
+        }
+      },
+      "style": {
+        "region": "All",
+        "base_style": {
+          "foreground": {
+            "type": "white"
+          },
+          "background": {
+            "type": "rgb",
+            "r": 45,
+            "g": 52,
+            "b": 64
+          },
+          "added_modifiers": [],
+          "removed_modifiers": []
+        },
+        "enter_effect": {
+          "type": "fade_in",
+          "apply_to": "both",
+          "ease": "Linear"
+        },
+        "exit_effect": {
+          "type": "fade_out",
+          "apply_to": "both",
+          "ease": "Linear"
+        }
+      }
+    },
+    "requires_primitives": []
+  }
+}

@@ -1,0 +1,110 @@
+{
+  "schema_version": 1,
+  "id": "templates.wargames.wopr_green",
+  "title": "WarGames WOPR Green Template",
+  "description": "Base template for WOPR/Joshua computer dialogue - classic green phosphor monochrome, scanlines, block cursor, 1983 CRT aesthetic",
+  "version": "1.0.0",
+  "last_updated": "2025-12-24",
+  "config": {
+    "message": "TEMPLATE: Replace this message in extending recipes",
+    "layout": {
+      "mode": "fixed",
+      "width": 60,
+      "height": 8,
+      "anchor": "center"
+    },
+    "lifecycle": {
+      "auto_dismiss_ms": 10000
+    },
+    "border": {
+      "type": "plain",
+      "trim": "none"
+    },
+    "content": {
+      "mode": "enter_only",
+      "effect": {
+        "type": "typewriter",
+        "speed_variance": 0.0,
+        "cursor": {
+          "character": "█",
+          "blink_interval": 0.0,
+          "show_while_typing": 1.0,
+          "show_after_complete": 0.0
+        }
+      }
+    },
+    "pipeline": {
+      "animation_type": "none",
+      "enter": {
+        "duration_ms": 100,
+        "easing": "linear",
+        "snapping": {
+          "type": "round"
+        }
+      },
+      "exit": {
+        "duration_ms": 100,
+        "easing": "linear",
+        "snapping": {
+          "type": "round"
+        }
+      },
+      "mask": {
+        "enter": {
+          "type": "none"
+        },
+        "dwell": {
+          "type": "none"
+        },
+        "exit": {
+          "type": "none"
+        }
+      },
+      "sampler": {
+        "enter": {
+          "type": "none"
+        },
+        "dwell": {
+          "type": "none"
+        },
+        "exit": {
+          "type": "none"
+        }
+      },
+      "filter": {
+        "enter": {
+          "type": "crt",
+          "scanline_strength": 0.08,
+          "glow": 0.08
+        },
+        "dwell": {
+          "type": "crt",
+          "scanline_strength": 0.08,
+          "glow": 0.08
+        },
+        "exit": {
+          "type": "none"
+        }
+      },
+      "style": {
+        "region": "All",
+        "base_style": {
+          "foreground": {
+            "type": "rgb",
+            "r": 190,
+            "g": 240,
+            "b": 255
+          },
+          "background": {
+            "type": "black"
+          },
+          "added_modifiers": [],
+          "removed_modifiers": []
+        },
+        "enter_effect": null,
+        "dwell_effect": null,
+        "exit_effect": null
+      }
+    }
+  }
+}

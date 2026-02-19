@@ -1,0 +1,116 @@
+{
+  "schema_version": 1,
+  "id": "modern.material_card",
+  "title": "Material Card",
+  "description": "Modern material design card with rounded corners using arc glyphs, subtle shadow via half-blocks, and hover glow. Demonstrates 'soft edges + corner language'.",
+  "version": "1.0.0",
+  "last_updated": "2026-01-20",
+  "config": {
+    "message": "    ▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁    \n   ▕╭────────────────────────╮▏   \n   ▕│                        │▏▁  \n   ▕│   Material Card        │▏▎  \n   ▕│                        │▏▎  \n   ▕│   Soft corners, subtle │▏▎  \n   ▕│   shadow, clean depth  │▏▎  \n   ▕│                        │▏▎  \n   ▕╰────────────────────────╯▏▎  \n    ▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▎  \n     ▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔   ",
+    "layout": {
+      "width": 36,
+      "height": 13,
+      "anchor": "center"
+    },
+    "lifecycle": {
+      "auto_dismiss_ms": 8000
+    },
+    "border": {
+      "type": "none"
+    },
+    "pipeline": {
+      "enter": {
+        "duration_ms": 500,
+        "easing": "expo_out"
+      },
+      "exit": {
+        "duration_ms": 400,
+        "easing": "quad_in"
+      },
+      "mask": {
+        "enter": {
+          "type": "wipe",
+          "reveal": "bottom_to_top",
+          "soft_edge": true
+        },
+        "exit": {
+          "type": "dissolve",
+          "seed": 99,
+          "chunk_size": 2
+        }
+      },
+      "sampler": {
+        "enter": {
+          "type": "none"
+        },
+        "exit": {
+          "type": "none"
+        }
+      },
+      "filter": {
+        "enter": {
+          "type": "none"
+        },
+        "dwell": {
+          "type": "vignette",
+          "strength": 0.1,
+          "radius": 0.9
+        },
+        "exit": {
+          "type": "none"
+        }
+      },
+      "style": {
+        "region": "All",
+        "base_style": {
+          "foreground": {
+            "type": "rgb",
+            "r": 220,
+            "g": 225,
+            "b": 235
+          },
+          "background": {
+            "type": "rgb",
+            "r": 35,
+            "g": 40,
+            "b": 50
+          }
+        },
+        "enter_effect": {
+          "type": "fade_in",
+          "apply_to": "both",
+          "ease": "ExpoOut"
+        },
+        "dwell_effect": {
+          "type": "spatial",
+          "shader": {
+            "type": "glisten_band",
+            "speed": 0.3,
+            "band_width": 10,
+            "angle_deg": 30.0,
+            "head": {
+              "type": "rgb",
+              "r": 250,
+              "g": 252,
+              "b": 255
+            },
+            "tail": {
+              "type": "rgb",
+              "r": 200,
+              "g": 210,
+              "b": 225
+            },
+            "direction": "ping_pong",
+            "apply_to": "foreground",
+            "blend_strength": 0.4
+          }
+        },
+        "exit_effect": {
+          "type": "fade_out",
+          "apply_to": "both",
+          "ease": "QuadIn"
+        }
+      }
+    }
+  }
+}

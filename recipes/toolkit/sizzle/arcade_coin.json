@@ -1,0 +1,113 @@
+{
+  "schema_version": 1,
+  "id": "toolkit.sizzle.arcade_coin",
+  "title": "Arcade Coin",
+  "description": "A grin-inducing arcade moment: pixel checkers appear, rainbow bursts, CRT blooms, then a final invert ‘coin flash’ on exit.",
+  "version": "0.1.0",
+  "last_updated": "2025-12-23",
+  "config": {
+    "message": "Achievement unlocked!\n+1 Credit",
+    "layout": {
+      "width": 36,
+      "height": 5,
+      "anchor": "center"
+    },
+    "lifecycle": {
+      "auto_dismiss_ms": 9500
+    },
+    "border": {
+      "type": "double",
+      "trim": "none"
+    },
+    "content": {
+      "mode": "enter_only",
+      "effect": {
+        "type": "scramble_glitch_shift",
+        "resolve_pace": 0.75,
+        "charset": "matrix",
+        "scramble_seed": 1984,
+        "shift_amount": 4,
+        "glitch_start": 0.18,
+        "glitch_end": 0.28
+      }
+    },
+    "pipeline": {
+      "enter": {
+        "duration_ms": 1600,
+        "easing": "linear",
+        "snapping": {
+          "type": "round"
+        }
+      },
+      "exit": {
+        "duration_ms": 700,
+        "easing": "linear",
+        "snapping": {
+          "type": "round"
+        }
+      },
+      "mask": {
+        "enter": {
+          "type": "checkers",
+          "cell_size": 2
+        },
+        "exit": {
+          "type": "checkers",
+          "cell_size": 1
+        }
+      },
+      "sampler": {
+        "enter": {
+          "type": "crt_jitter",
+          "intensity": 2.8,
+          "speed_hz": 30.0,
+          "decay_ms": 1400
+        },
+        "exit": {
+          "type": "shredder",
+          "stripe_width": 1,
+          "odd_speed": 2.4,
+          "even_speed": -2.4
+        }
+      },
+      "filter": {
+        "enter": {
+          "type": "crt",
+          "scanline_strength": 0.55,
+          "glow": 0.55
+        },
+        "exit": {
+          "type": "invert",
+          "apply_to": "both"
+        }
+      },
+      "style": {
+        "region": "All",
+        "base_style": {
+          "foreground": {
+            "type": "light_yellow"
+          },
+          "background": {
+            "type": "rgb",
+            "r": 20,
+            "g": 0,
+            "b": 35
+          },
+          "added_modifiers": [
+            "bold"
+          ],
+          "removed_modifiers": []
+        },
+        "enter_effect": {
+          "type": "rainbow",
+          "speed": 3.0
+        },
+        "exit_effect": {
+          "type": "glitch",
+          "seed": 1984,
+          "intensity": 0.7
+        }
+      }
+    }
+  }
+}

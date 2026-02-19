@@ -1,0 +1,83 @@
+{
+  "schema_version": 1,
+  "id": "debug.mask.path_reveal",
+  "title": "Debug: Mask - PathReveal",
+  "description": "Tests PathReveal mask with spiral path type",
+  "version": "1.0.0",
+  "last_updated": "2025-12-30",
+  "config": {
+    "message": "MASK TEST: PathReveal Effect",
+    "layout": {
+      "width": 35,
+      "height": 7,
+      "anchor": "center"
+    },
+    "lifecycle": {
+      "auto_dismiss_ms": 6000
+    },
+    "border": {
+      "type": "rounded",
+      "trim": "none"
+    },
+    "pipeline": {
+      "enter": {
+        "duration_ms": 3000,
+        "easing": "linear"
+      },
+      "exit": {
+        "duration_ms": 1500,
+        "easing": "linear"
+      },
+      "mask": {
+        "enter": {
+          "type": "path_reveal",
+          "path": {
+            "type": "spiral",
+            "rotations": 2.5,
+            "direction": "clockwise"
+          },
+          "soft_edge": true
+        },
+        "exit": {
+          "type": "path_reveal",
+          "path": {
+            "type": "radial",
+            "start_angle": 0.0,
+            "direction": "clockwise"
+          },
+          "soft_edge": true
+        }
+      },
+      "sampler": {
+        "enter": {
+          "type": "none"
+        },
+        "exit": {
+          "type": "none"
+        }
+      },
+      "filter": {
+        "enter": {
+          "type": "none"
+        },
+        "exit": {
+          "type": "none"
+        }
+      },
+      "style": {
+        "region": "All",
+        "base_style": {
+          "foreground": {
+            "type": "light_yellow"
+          },
+          "background": {
+            "type": "rgb",
+            "r": 50,
+            "g": 40,
+            "b": 10
+          }
+        }
+      }
+    }
+  }
+}

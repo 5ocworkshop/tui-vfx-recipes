@@ -1,0 +1,100 @@
+{
+  "schema_version": 1,
+  "id": "easing.BackIn",
+  "title": "Back In Easing",
+  "description": "Pulls back before moving forward - wind-up effect",
+  "version": "2.0.0",
+  "last_updated": "2025-12-24",
+  "config": {
+    "message": "━━━ BACK IN ━━━\n\nPulls back first\n'Wind-up' before launch",
+    "layout": {
+      "width": 55,
+      "height": 7,
+      "anchor": "middle_left"
+    },
+    "lifecycle": {
+      "auto_dismiss_ms": 3000
+    },
+    "border": {
+      "type": "rounded",
+      "trim": "none"
+    },
+    "pipeline": {
+      "enter": {
+        "duration_ms": 700,
+        "easing": "back_in",
+        "motion_path": {
+          "type": "linear"
+        },
+        "snapping": {
+          "type": "round"
+        },
+        "from": {
+          "type": "offscreen",
+          "direction": "from_left",
+          "margin_cells": 0
+        }
+      },
+      "exit": {
+        "duration_ms": 400,
+        "easing": "back_out",
+        "motion_path": {
+          "type": "linear"
+        },
+        "snapping": {
+          "type": "round"
+        },
+        "to": {
+          "type": "offscreen",
+          "direction": "from_left",
+          "margin_cells": 0
+        }
+      },
+      "mask": {
+        "enter": {
+          "type": "none"
+        },
+        "exit": {
+          "type": "none"
+        }
+      },
+      "sampler": {
+        "enter": {
+          "type": "none"
+        },
+        "exit": {
+          "type": "none"
+        }
+      },
+      "filter": {
+        "enter": {
+          "type": "none"
+        },
+        "exit": {
+          "type": "none"
+        }
+      },
+      "style": {
+        "region": "All",
+        "base_style": {
+          "foreground": {
+            "type": "rgb",
+            "r": 240,
+            "g": 240,
+            "b": 240
+          },
+          "background": {
+            "type": "rgb",
+            "r": 40,
+            "g": 40,
+            "b": 40
+          },
+          "added_modifiers": [
+            "Bold"
+          ],
+          "removed_modifiers": []
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,52 @@
+{
+  "schema_version": 1,
+  "id": "showcase.effect_parity_half_cell_wipe_by_word",
+  "title": "Half-Cell Word Wipe",
+  "description": "Sub-character resolution wipe word by word",
+  "version": "1.0.0",
+  "last_updated": "2025-12-26",
+  "config": {
+    "message": "ONE TWO THREE FOUR",
+    "layout": {
+      "anchor": "bottom_right",
+      "width": 26,
+      "height": 4
+    },
+    "lifecycle": {
+      "auto_dismiss_ms": 6000
+    },
+    "border": {
+      "type": "double"
+    },
+    "content": {
+      "mode": "enter_only",
+      "effect": {
+        "type": "morph",
+        "source": "",
+        "progression": "braille_half_cell_wipe_by_word",
+        "direction": "left_to_right",
+        "seed": 789
+      }
+    },
+    "pipeline": {
+      "enter": {
+        "duration_ms": 3000,
+        "easing": "linear"
+      },
+      "exit": {
+        "duration_ms": 400,
+        "easing": "cubic_in"
+      },
+      "style": {
+        "base_style": {
+          "foreground": {
+            "type": "light_green"
+          },
+          "background": {
+            "type": "black"
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "schema_version": 1,
+  "id": "wargames.norad.04_launch_detection",
+  "title": "NORAD 04 - Launch Detection Alert",
+  "description": "NORAD launch detection system - incoming missile warning",
+  "version": "1.0.0",
+  "last_updated": "2025-12-25",
+  "extends": "themes/new_wopr_fullscreen_cyan.json",
+  "config": {
+    "message": "⚠⚠⚠ LAUNCH DETECTION ⚠⚠⚠\n\nDSP SATELLITE CONSTELLATION\nINFRARED SIGNATURE DETECTED\n\nLAUNCH SITE: MULTIPLE LOCATIONS\nESTIMATED TRAJECTORY: POLAR\nTARGET ASSESSMENT: CONUS\n\nMISSILE COUNT: 00012\nTIME TO IMPACT: 28 MIN 43 SEC\n\nCONFIDENCE LEVEL: HIGH\n\nCOMMAND AUTHORITY NOTIFIED\nDEFCON 3 INITIATED\n\nSTANDBY FOR CONFIRMATION",
+    "lifecycle": {
+      "auto_dismiss_ms": 0
+    }
+  }
+}

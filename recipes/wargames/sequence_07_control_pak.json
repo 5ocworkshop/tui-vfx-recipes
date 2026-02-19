@@ -1,0 +1,15 @@
+{
+  "schema_version": 1,
+  "id": "wargames.sequence.07_control_pak",
+  "title": "Sequence 07 - Control Package",
+  "description": "Seventh screen - control package identifier",
+  "version": "1.0.0",
+  "last_updated": "2025-12-25",
+  "extends": "themes/enhanced_crt_computer.json",
+  "config": {
+    "message": "12334-01-434J: CONTR PAK\n(311) 767-1053",
+    "lifecycle": {
+      "auto_dismiss_ms": 600
+    }
+  }
+}

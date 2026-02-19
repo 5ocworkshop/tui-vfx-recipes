@@ -1,0 +1,15 @@
+{
+  "schema_version": 1,
+  "id": "wargames.enhanced.system_status",
+  "title": "Enhanced CRT - System Diagnostic",
+  "description": "Full CRT effect stack - long system status readout for effect observation",
+  "version": "1.0.0",
+  "last_updated": "2025-12-24",
+  "extends": "themes/enhanced_crt_computer.json",
+  "config": {
+    "message": "WOPR SYSTEM STATUS REPORT\n\nCPU UTILIZATION: 47%\nMEMORY AVAILABLE: 2048K\nDISK ARRAYS: ONLINE\nNETWORK LINKS: 12 ACTIVE\n\nDEFCON STATUS: 5\nTHREAT ASSESSMENT: NOMINAL\nSATELLITE TRACKING: 847 OBJECTS\nEARLY WARNING SYSTEMS: OPERATIONAL\n\nICBM SILOS STATUS:\nMALMSTROM AFB: 150 READY\nWARREN AFB: 150 READY\nMINOT AFB: 150 READY\nGRAND FORKS AFB: 150 READY\n\nBOMBER FLEET:\nB-52 STRATOFORTRESS: 744 AIRCRAFT\nFB-111 AARDVARK: 76 AIRCRAFT\n\nSUBMARINE FLEET:\nOHIO CLASS: 18 BOATS\nLAFAYETTE CLASS: 31 BOATS\n\nALL SYSTEMS FUNCTIONING WITHIN NORMAL PARAMETERS\n\nSTANDING BY FOR COMMAND INPUT",
+    "lifecycle": {
+      "auto_dismiss_ms": 0
+    }
+  }
+}

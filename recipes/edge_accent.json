@@ -1,0 +1,126 @@
+{
+  "schema_version": 1,
+  "id": "notifications.edge_accent",
+  "title": "Edge Accent",
+  "description": "Left-aligned notification with a glowing accent border that slides in smoothly. Ideal for informational messages that need gentle attention.",
+  "version": "1.0.0",
+  "last_updated": "2025-12-24",
+  "config": {
+    "message": "New message received",
+    "layout": {
+      "width": 26,
+      "height": 3,
+      "anchor": "middle_left"
+    },
+    "lifecycle": {
+      "auto_dismiss_ms": 4000
+    },
+    "border": {
+      "type": "rounded",
+      "trim": "none",
+      "title": "|",
+      "title_position": "left",
+      "title_alignment": "center"
+    },
+    "pipeline": {
+      "enter": {
+        "duration_ms": 320,
+        "easing": "cubic_out",
+        "motion_path": {
+          "type": "linear"
+        },
+        "snapping": {
+          "type": "round"
+        },
+        "from": {
+          "type": "offscreen",
+          "direction": "from_left",
+          "margin_cells": 0
+        }
+      },
+      "exit": {
+        "duration_ms": 250,
+        "easing": "quad_in",
+        "motion_path": {
+          "type": "linear"
+        },
+        "snapping": {
+          "type": "round"
+        },
+        "to": {
+          "type": "offscreen",
+          "direction": "from_left",
+          "margin_cells": 0
+        }
+      },
+      "mask": {
+        "enter": {
+          "type": "wipe",
+          "direction": "left_to_right",
+          "soft_edge": true
+        },
+        "exit": {
+          "type": "wipe",
+          "direction": "right_to_left",
+          "soft_edge": true
+        }
+      },
+      "sampler": {
+        "enter": {
+          "type": "none"
+        },
+        "exit": {
+          "type": "none"
+        }
+      },
+      "filter": {
+        "enter": {
+          "type": "none"
+        },
+        "exit": {
+          "type": "none"
+        }
+      },
+      "style": {
+        "region": "All",
+        "base_style": {
+          "foreground": {
+            "type": "rgb",
+            "r": 226,
+            "g": 232,
+            "b": 240
+          },
+          "background": {
+            "type": "rgb",
+            "r": 30,
+            "g": 41,
+            "b": 59
+          },
+          "added_modifiers": [],
+          "removed_modifiers": []
+        },
+        "enter_effect": {
+          "type": "fade_in",
+          "apply_to": "foreground",
+          "ease": "CubicOut"
+        },
+        "exit_effect": {
+          "type": "fade_out",
+          "apply_to": "both",
+          "ease": "QuadIn"
+        },
+        "spatial_shader": {
+          "type": "border_sweep",
+          "speed": 0.8,
+          "length": 12,
+          "color": {
+            "type": "rgb",
+            "r": 34,
+            "g": 211,
+            "b": 238
+          }
+        }
+      }
+    }
+  }
+}

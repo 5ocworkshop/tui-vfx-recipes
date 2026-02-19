@@ -1,0 +1,144 @@
+{
+  "schema_version": 1,
+  "id": "border.racing_green",
+  "title": "Border Racing (Green)",
+  "description": "Fast green light races around the border. Creates urgency or active processing feel.",
+  "version": "1.0.0",
+  "last_updated": "2025-12-29",
+  "config": {
+    "message": "⟳ SYNCING\n\nTransferring data...",
+    "layout": {
+      "width": 26,
+      "height": 6,
+      "anchor": "top_right"
+    },
+    "lifecycle": {
+      "auto_dismiss_ms": 0
+    },
+    "time": {
+      "loop": true,
+      "loop_period_ms": 800
+    },
+    "border": {
+      "type": "rounded",
+      "trim": "none",
+      "center_content": true
+    },
+    "pipeline": {
+      "enter": {
+        "duration_ms": 300,
+        "easing": "quad_out",
+        "snapping": {
+          "type": "round"
+        }
+      },
+      "exit": {
+        "duration_ms": 250,
+        "easing": "quad_in",
+        "snapping": {
+          "type": "round"
+        }
+      },
+      "mask": {
+        "enter": {
+          "type": "none"
+        },
+        "exit": {
+          "type": "none"
+        }
+      },
+      "sampler": {
+        "enter": {
+          "type": "none"
+        },
+        "exit": {
+          "type": "none"
+        }
+      },
+      "filter": {
+        "enter": {
+          "type": "none"
+        },
+        "exit": {
+          "type": "none"
+        }
+      },
+      "style": {
+        "region": "All",
+        "base_style": {
+          "foreground": {
+            "type": "rgb",
+            "r": 150,
+            "g": 255,
+            "b": 170
+          },
+          "background": {
+            "type": "rgb",
+            "r": 10,
+            "g": 20,
+            "b": 12
+          },
+          "added_modifiers": [],
+          "removed_modifiers": []
+        },
+        "enter_effect": {
+          "type": "spatial",
+          "shader": {
+            "type": "glisten_band",
+            "speed": 1.25,
+            "band_width": 5,
+            "angle_deg": 45.0,
+            "head": {
+              "type": "rgb",
+              "r": 100,
+              "g": 255,
+              "b": 120
+            },
+            "tail": {
+              "type": "rgb",
+              "r": 40,
+              "g": 150,
+              "b": 60
+            },
+            "direction": "forward",
+            "apply_to": "foreground",
+            "blend_strength": 1.0
+          }
+        },
+        "dwell_effect": {
+          "type": "spatial",
+          "shader": {
+            "type": "glisten_band",
+            "speed": 1.25,
+            "band_width": 5,
+            "angle_deg": 45.0,
+            "head": {
+              "type": "rgb",
+              "r": 100,
+              "g": 255,
+              "b": 120
+            },
+            "tail": {
+              "type": "rgb",
+              "r": 40,
+              "g": 150,
+              "b": 60
+            },
+            "direction": "forward",
+            "apply_to": "foreground",
+            "blend_strength": 1.0
+          }
+        },
+        "exit_effect": {
+          "type": "fade_out",
+          "apply_to": "both",
+          "ease": "QuadIn"
+        }
+      }
+    },
+    "requires_primitives": [
+      "shader.glisten_band",
+      "region.border_only"
+    ]
+  }
+}

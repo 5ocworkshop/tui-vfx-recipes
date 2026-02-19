@@ -1,0 +1,15 @@
+{
+  "schema_version": 1,
+  "id": "wargames.sequence.01_network_ports",
+  "title": "Sequence 01 - Network Ports",
+  "description": "First screen in rapid post-logon sequence - network port identifiers and status",
+  "version": "1.0.0",
+  "last_updated": "2025-12-25",
+  "extends": "themes/enhanced_crt_computer.json",
+  "config": {
+    "message": "45    1158       11009      11893       11972         11315\nPAT COM. S.A.S.  SECTRAM 9.4.3.       PORT STAT: SD-345",
+    "lifecycle": {
+      "auto_dismiss_ms": 600
+    }
+  }
+}

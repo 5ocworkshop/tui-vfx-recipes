@@ -1,0 +1,98 @@
+{
+  "schema_version": 1,
+  "id": "examples.marquee_oscillating_speed",
+  "title": "Marquee with Oscillating Speed",
+  "description": "Scrolling text with rhythmic speed variation for dynamic visual effect.",
+  "version": "2.0.0",
+  "last_updated": "2025-12-24",
+  "config": {
+    "message": "BREAKING: This scrolling text pulses with rhythmic speed variation for dynamic visual effect!",
+    "layout": {
+      "width": 50,
+      "height": 4,
+      "anchor": "top_left"
+    },
+    "lifecycle": {
+      "auto_dismiss_ms": 8000
+    },
+    "border": {
+      "type": "rounded",
+      "trim": "none"
+    },
+    "content": {
+      "mode": "loop",
+      "effect": {
+        "type": "marquee",
+        "width": 40,
+        "speed": 1.0
+      }
+    },
+    "pipeline": {
+      "enter": {
+        "duration_ms": 100,
+        "easing": "linear",
+        "snapping": {
+          "type": "round"
+        }
+      },
+      "exit": {
+        "duration_ms": 500,
+        "easing": "linear",
+        "snapping": {
+          "type": "round"
+        }
+      },
+      "mask": {
+        "enter": {
+          "type": "none"
+        },
+        "dwell": {
+          "type": "none"
+        },
+        "exit": {
+          "type": "none"
+        }
+      },
+      "sampler": {
+        "enter": {
+          "type": "none"
+        },
+        "dwell": {
+          "type": "none"
+        },
+        "exit": {
+          "type": "none"
+        }
+      },
+      "filter": {
+        "enter": {
+          "type": "none"
+        },
+        "dwell": {
+          "type": "none"
+        },
+        "exit": {
+          "type": "none"
+        }
+      },
+      "style": {
+        "region": "All",
+        "base_style": {
+          "foreground": {
+            "type": "magenta"
+          },
+          "background": {
+            "type": "black"
+          },
+          "added_modifiers": [
+            "bold"
+          ],
+          "removed_modifiers": []
+        },
+        "enter_effect": null,
+        "dwell_effect": null,
+        "exit_effect": null
+      }
+    }
+  }
+}

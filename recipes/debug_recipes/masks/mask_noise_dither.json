@@ -1,0 +1,75 @@
+{
+  "schema_version": 1,
+  "id": "debug.mask.noise_dither",
+  "title": "Debug: Mask - NoiseDither",
+  "description": "Tests NoiseDither mask with seed and matrix size",
+  "version": "1.0.0",
+  "last_updated": "2025-12-30",
+  "config": {
+    "message": "MASK TEST: NoiseDither Effect",
+    "layout": {
+      "width": 35,
+      "height": 3,
+      "anchor": "center"
+    },
+    "lifecycle": {
+      "auto_dismiss_ms": 5000
+    },
+    "border": {
+      "type": "rounded",
+      "trim": "none"
+    },
+    "pipeline": {
+      "enter": {
+        "duration_ms": 2000,
+        "easing": "linear"
+      },
+      "exit": {
+        "duration_ms": 1000,
+        "easing": "linear"
+      },
+      "mask": {
+        "enter": {
+          "type": "noise_dither",
+          "seed": 12345,
+          "matrix": "bayer4"
+        },
+        "exit": {
+          "type": "noise_dither",
+          "seed": 54321,
+          "matrix": "bayer8"
+        }
+      },
+      "sampler": {
+        "enter": {
+          "type": "none"
+        },
+        "exit": {
+          "type": "none"
+        }
+      },
+      "filter": {
+        "enter": {
+          "type": "none"
+        },
+        "exit": {
+          "type": "none"
+        }
+      },
+      "style": {
+        "region": "All",
+        "base_style": {
+          "foreground": {
+            "type": "light_green"
+          },
+          "background": {
+            "type": "rgb",
+            "r": 10,
+            "g": 40,
+            "b": 10
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,83 @@
+{
+  "schema_version": 1,
+  "id": "debug.shader.barber_pole",
+  "title": "Debug: Shader - BarberPole",
+  "description": "Tests BarberPole spatial shader with speed, stripe_width, and gap_width parameters",
+  "version": "1.0.0",
+  "last_updated": "2025-12-30",
+  "config": {
+    "message": "SHADER TEST: BarberPole",
+    "layout": {
+      "width": 40,
+      "height": 5,
+      "anchor": "center"
+    },
+    "lifecycle": {
+      "auto_dismiss_ms": 6000
+    },
+    "border": {
+      "type": "rounded",
+      "trim": "none"
+    },
+    "pipeline": {
+      "enter": {
+        "duration_ms": 1000,
+        "easing": "quad_out"
+      },
+      "exit": {
+        "duration_ms": 1000,
+        "easing": "quad_in"
+      },
+      "mask": {
+        "enter": {
+          "type": "none"
+        },
+        "exit": {
+          "type": "none"
+        }
+      },
+      "sampler": {
+        "enter": {
+          "type": "none"
+        },
+        "exit": {
+          "type": "none"
+        }
+      },
+      "filter": {
+        "enter": {
+          "type": "none"
+        },
+        "exit": {
+          "type": "none"
+        }
+      },
+      "style": {
+        "region": "All",
+        "base_style": {
+          "foreground": {
+            "type": "white"
+          },
+          "background": {
+            "type": "rgb",
+            "r": 40,
+            "g": 20,
+            "b": 20
+          }
+        },
+        "spatial_shader": {
+          "type": "barber_pole",
+          "color": {
+            "type": "rgb",
+            "r": 255,
+            "g": 50,
+            "b": 50
+          },
+          "speed": 2.0,
+          "stripe_width": 3,
+          "gap_width": 3
+        }
+      }
+    }
+  }
+}

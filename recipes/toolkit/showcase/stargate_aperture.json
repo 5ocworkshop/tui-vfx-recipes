@@ -1,0 +1,118 @@
+{
+  "schema_version": 1,
+  "id": "toolkit.showcase.stargate_aperture",
+  "title": "Stargate Aperture",
+  "description": "A sci-fi portal: circular iris opens, high-energy ripple distorts, magenta ring pulses, then an invert zap ends the scene.",
+  "version": "0.1.0",
+  "last_updated": "2025-12-23",
+  "config": {
+    "message": "STARGATE ONLINE\nchevron locked",
+    "layout": {
+      "width": 44,
+      "height": 5,
+      "anchor": "center"
+    },
+    "lifecycle": {
+      "auto_dismiss_ms": 14000
+    },
+    "border": {
+      "type": "thick",
+      "trim": "none"
+    },
+    "content": {
+      "mode": "enter_only",
+      "effect": {
+        "type": "scramble",
+        "resolve_pace": 0.6,
+        "charset": "alphanumeric",
+        "seed": 7
+      }
+    },
+    "pipeline": {
+      "enter": {
+        "duration_ms": 2400,
+        "easing": "linear",
+        "snapping": {
+          "type": "round"
+        }
+      },
+      "exit": {
+        "duration_ms": 900,
+        "easing": "linear",
+        "snapping": {
+          "type": "round"
+        }
+      },
+      "mask": {
+        "enter": {
+          "type": "iris",
+          "shape": "circle",
+          "soft_edge": true
+        },
+        "exit": {
+          "type": "iris",
+          "shape": "circle",
+          "soft_edge": false
+        }
+      },
+      "sampler": {
+        "enter": {
+          "type": "ripple",
+          "amplitude": 2.2,
+          "wavelength": 4.8,
+          "speed": 2.2,
+          "center": "center"
+        },
+        "exit": {
+          "type": "shredder",
+          "stripe_width": 2,
+          "odd_speed": 2.8,
+          "even_speed": -2.0
+        }
+      },
+      "filter": {
+        "enter": {
+          "type": "crt",
+          "scanline_strength": 0.25,
+          "glow": 0.6
+        },
+        "exit": {
+          "type": "invert",
+          "apply_to": "both"
+        }
+      },
+      "style": {
+        "region": "All",
+        "base_style": {
+          "foreground": {
+            "type": "light_cyan"
+          },
+          "background": {
+            "type": "black"
+          },
+          "added_modifiers": [
+            "bold"
+          ],
+          "removed_modifiers": []
+        },
+        "enter_effect": {
+          "type": "spatial",
+          "shader": {
+            "type": "pulse_wave",
+            "frequency": 3.2,
+            "speed": 3.0,
+            "color": {
+              "type": "light_magenta"
+            },
+            "direction": "radial",
+            "wavelength": 3.2
+          }
+        },
+        "exit_effect": {
+          "type": "neon_flicker",
+          "stability": 0.35
+        }
+      }
+    }
+  }
+}

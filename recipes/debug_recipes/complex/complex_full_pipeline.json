@@ -1,0 +1,115 @@
+{
+  "schema_version": 1,
+  "id": "debug.complex.full_pipeline",
+  "title": "Debug: Full Pipeline Stress Test",
+  "description": "Combines mask, filter, sampler, shader, and content effect - maximum pipeline complexity",
+  "version": "1.0.0",
+  "last_updated": "2025-12-30",
+  "config": {
+    "message": "FULL PIPELINE TEST",
+    "layout": {
+      "width": 45,
+      "height": 5,
+      "anchor": "center"
+    },
+    "lifecycle": {
+      "auto_dismiss_ms": 8000
+    },
+    "border": {
+      "type": "rounded",
+      "trim": "none"
+    },
+    "content": {
+      "mode": "enter_only",
+      "effect": {
+        "type": "typewriter",
+        "speed_variance": 0.3
+      }
+    },
+    "pipeline": {
+      "enter": {
+        "duration_ms": 2000,
+        "easing": "quad_out"
+      },
+      "exit": {
+        "duration_ms": 1500,
+        "easing": "quad_in"
+      },
+      "mask": {
+        "enter": {
+          "type": "wipe",
+          "direction": "left_to_right"
+        },
+        "exit": {
+          "type": "dissolve",
+          "seed": 42,
+          "chunk_size": 2
+        }
+      },
+      "sampler": {
+        "enter": {
+          "type": "sine_wave",
+          "axis": "y",
+          "amplitude": 0.3,
+          "frequency": 2.0,
+          "speed": 1.0,
+          "phase": 0.0
+        },
+        "exit": {
+          "type": "shredder",
+          "stripe_width": 2,
+          "odd_speed": 3.0,
+          "even_speed": -2.0
+        }
+      },
+      "filter": {
+        "enter": {
+          "type": "tint",
+          "color": {
+            "type": "rgb",
+            "r": 100,
+            "g": 200,
+            "b": 255
+          },
+          "strength": 0.3,
+          "apply_to": "both"
+        },
+        "exit": {
+          "type": "dim",
+          "factor": 0.5,
+          "apply_to": "both"
+        }
+      },
+      "style": {
+        "region": "All",
+        "base_style": {
+          "foreground": {
+            "type": "white"
+          },
+          "background": {
+            "type": "rgb",
+            "r": 30,
+            "g": 30,
+            "b": 50
+          }
+        },
+        "spatial_shader": {
+          "type": "glisten_band",
+          "head": {
+            "r": 255,
+            "g": 255,
+            "b": 255
+          },
+          "tail": {
+            "r": 100,
+            "g": 150,
+            "b": 200
+          },
+          "band_width": 4,
+          "speed": 0.8,
+          "angle_deg": 0.0
+        }
+      }
+    }
+  }
+}

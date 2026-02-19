@@ -1,0 +1,115 @@
+{
+  "schema_version": 1,
+  "id": "physics.spring_elastic",
+  "title": "Spring Elastic",
+  "description": "Notification springs into place with elastic overshoot and settle",
+  "version": "1.0.0",
+  "last_updated": "2025-12-31",
+  "config": {
+    "message": "Boing!",
+    "layout": {
+      "width": 22,
+      "height": 3,
+      "anchor": "bottom_left"
+    },
+    "lifecycle": {
+      "auto_dismiss_ms": 4000
+    },
+    "border": {
+      "type": "rounded",
+      "trim": "none"
+    },
+    "pipeline": {
+      "enter": {
+        "duration_ms": 1000,
+        "easing": "linear",
+        "motion_path": {
+          "type": "spring",
+          "stiffness": 180.0,
+          "damping": 12.0
+        },
+        "snapping": {
+          "type": "round"
+        },
+        "from": {
+          "type": "offscreen",
+          "direction": "from_left",
+          "margin_cells": 8
+        }
+      },
+      "exit": {
+        "duration_ms": 600,
+        "easing": "linear",
+        "motion_path": {
+          "type": "spring",
+          "stiffness": 250.0,
+          "damping": 8.0
+        },
+        "snapping": {
+          "type": "round"
+        },
+        "to": {
+          "type": "offscreen",
+          "direction": "from_left",
+          "margin_cells": 6
+        }
+      },
+      "mask": {
+        "enter": {
+          "type": "none"
+        },
+        "exit": {
+          "type": "none"
+        }
+      },
+      "sampler": {
+        "enter": {
+          "type": "none"
+        },
+        "exit": {
+          "type": "none"
+        }
+      },
+      "filter": {
+        "enter": {
+          "type": "none"
+        },
+        "exit": {
+          "type": "none"
+        }
+      },
+      "style": {
+        "region": "All",
+        "base_style": {
+          "foreground": {
+            "type": "rgb",
+            "r": 50,
+            "g": 205,
+            "b": 50
+          },
+          "background": {
+            "type": "rgb",
+            "r": 25,
+            "g": 40,
+            "b": 25
+          },
+          "added_modifiers": [
+            "bold"
+          ],
+          "removed_modifiers": []
+        },
+        "enter_effect": {
+          "type": "fade_in",
+          "apply_to": "both",
+          "ease": "QuadOut"
+        },
+        "exit_effect": {
+          "type": "fade_out",
+          "apply_to": "both",
+          "ease": "QuadIn"
+        }
+      }
+    },
+    "requires_primitives": []
+  }
+}

@@ -1,0 +1,114 @@
+{
+  "schema_version": 1,
+  "id": "scandi.info",
+  "title": "Info",
+  "description": "Quiet clarity. Warm white on slate with whisper-soft glisten. Present but unimposing.",
+  "version": "2.0.0",
+  "last_updated": "2025-12-30",
+  "config": {
+    "message": "Configuration updated",
+    "layout": {
+      "width": 38,
+      "height": 3,
+      "anchor": "top_right"
+    },
+    "lifecycle": {
+      "auto_dismiss_ms": 4000
+    },
+    "border": {
+      "type": "rounded",
+      "trim": "none"
+    },
+    "pipeline": {
+      "enter": {
+        "duration_ms": 500,
+        "easing": "sine_out",
+        "motion_path": {
+          "type": "arc",
+          "bulge": 0.06
+        },
+        "snapping": {
+          "type": "round"
+        }
+      },
+      "exit": {
+        "duration_ms": 380,
+        "easing": "sine_in",
+        "snapping": {
+          "type": "round"
+        }
+      },
+      "mask": {
+        "enter": {
+          "type": "none"
+        },
+        "exit": {
+          "type": "dissolve",
+          "seed": 99,
+          "chunk_size": 2
+        }
+      },
+      "sampler": {
+        "enter": {
+          "type": "none"
+        },
+        "exit": {
+          "type": "none"
+        }
+      },
+      "filter": {
+        "enter": {
+          "type": "none"
+        },
+        "exit": {
+          "type": "none"
+        }
+      },
+      "style": {
+        "region": "All",
+        "base_style": {
+          "foreground": {
+            "type": "rgb",
+            "r": 248,
+            "g": 246,
+            "b": 242
+          },
+          "background": {
+            "type": "rgb",
+            "r": 88,
+            "g": 102,
+            "b": 112
+          },
+          "added_modifiers": [],
+          "removed_modifiers": []
+        },
+        "enter_effect": {
+          "type": "spatial",
+          "shader": {
+            "type": "glisten_band",
+            "band_width": 6,
+            "speed": 0.4,
+            "angle_deg": 0.0,
+            "head": {
+              "type": "rgb",
+              "r": 140,
+              "g": 155,
+              "b": 168
+            },
+            "tail": {
+              "type": "rgb",
+              "r": 108,
+              "g": 122,
+              "b": 132
+            }
+          }
+        },
+        "exit_effect": {
+          "type": "fade_out",
+          "apply_to": "both",
+          "ease": "SineOut"
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,114 @@
+{
+  "schema_version": 1,
+  "id": "toolkit.core.permission_spotlight",
+  "title": "Permission Spotlight",
+  "description": "A focused, high-contrast permission prompt: strong vignette focus, soft rectangular iris, subtle hover, and a clean close.",
+  "version": "0.1.0",
+  "last_updated": "2025-12-23",
+  "config": {
+    "message": "Permission required\nAllow access to SSH key?\n[Y]es  [N]o",
+    "layout": {
+      "width": 52,
+      "height": 7,
+      "anchor": "center"
+    },
+    "lifecycle": {
+      "auto_dismiss_ms": 12000
+    },
+    "border": {
+      "type": "thick",
+      "trim": "none"
+    },
+    "content": {
+      "mode": "enter_only",
+      "effect": {
+        "type": "typewriter",
+        "speed_variance": 0.2
+      }
+    },
+    "pipeline": {
+      "enter": {
+        "duration_ms": 1200,
+        "easing": "cubic_out",
+        "motion_path": {
+          "type": "hover",
+          "amplitude": 0.25,
+          "frequency": 18.849556
+        },
+        "snapping": {
+          "type": "round"
+        }
+      },
+      "exit": {
+        "duration_ms": 900,
+        "easing": "cubic_in",
+        "snapping": {
+          "type": "round"
+        }
+      },
+      "mask": {
+        "enter": {
+          "type": "iris",
+          "shape": "box",
+          "soft_edge": true
+        },
+        "exit": {
+          "type": "iris",
+          "shape": "box",
+          "soft_edge": true
+        }
+      },
+      "sampler": {
+        "enter": {
+          "type": "none"
+        },
+        "exit": {
+          "type": "fault_line",
+          "seed": 31,
+          "intensity": 1.2,
+          "split_bias": 0.3
+        }
+      },
+      "filter": {
+        "enter": {
+          "type": "vignette",
+          "strength": 0.65,
+          "radius": 0.55
+        },
+        "exit": {
+          "type": "vignette",
+          "strength": 0.85,
+          "radius": 0.25
+        }
+      },
+      "style": {
+        "region": "All",
+        "base_style": {
+          "foreground": {
+            "type": "white"
+          },
+          "background": {
+            "type": "rgb",
+            "r": 18,
+            "g": 18,
+            "b": 24
+          },
+          "added_modifiers": [
+            "bold"
+          ],
+          "removed_modifiers": []
+        },
+        "enter_effect": {
+          "type": "fade_in",
+          "apply_to": "both",
+          "ease": "CubicOut"
+        },
+        "exit_effect": {
+          "type": "fade_out",
+          "apply_to": "both",
+          "ease": "CubicIn"
+        }
+      }
+    }
+  }
+}

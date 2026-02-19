@@ -1,0 +1,86 @@
+{
+  "schema_version": 1,
+  "id": "debug.sampler.ripple",
+  "title": "Debug: Sampler - Ripple",
+  "description": "Tests Ripple sampler with amplitude, wavelength, speed, and center parameters",
+  "version": "1.0.0",
+  "last_updated": "2025-12-30",
+  "config": {
+    "message": "SAMPLER TEST: Ripple Effect",
+    "layout": {
+      "width": 40,
+      "height": 7,
+      "anchor": "center"
+    },
+    "lifecycle": {
+      "auto_dismiss_ms": 6000
+    },
+    "border": {
+      "type": "rounded",
+      "trim": "none"
+    },
+    "pipeline": {
+      "enter": {
+        "duration_ms": 2000,
+        "easing": "linear"
+      },
+      "exit": {
+        "duration_ms": 1000,
+        "easing": "linear"
+      },
+      "mask": {
+        "enter": {
+          "type": "none"
+        },
+        "exit": {
+          "type": "none"
+        }
+      },
+      "sampler": {
+        "enter": {
+          "type": "ripple",
+          "amplitude": 1.5,
+          "wavelength": 5.0,
+          "speed": 2.0,
+          "center": "center"
+        },
+        "dwell": {
+          "type": "ripple",
+          "amplitude": 1.0,
+          "wavelength": 4.0,
+          "speed": 1.5,
+          "center": "center"
+        },
+        "exit": {
+          "type": "ripple",
+          "amplitude": 2.0,
+          "wavelength": 3.0,
+          "speed": 3.0,
+          "center": "center"
+        }
+      },
+      "filter": {
+        "enter": {
+          "type": "none"
+        },
+        "exit": {
+          "type": "none"
+        }
+      },
+      "style": {
+        "region": "All",
+        "base_style": {
+          "foreground": {
+            "type": "light_blue"
+          },
+          "background": {
+            "type": "rgb",
+            "r": 10,
+            "g": 30,
+            "b": 60
+          }
+        }
+      }
+    }
+  }
+}

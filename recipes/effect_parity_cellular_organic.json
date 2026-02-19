@@ -1,0 +1,59 @@
+{
+  "schema_version": 1,
+  "id": "showcase.effect_parity_cellular_organic",
+  "title": "Cellular Organic Pattern",
+  "description": "Organic blob-like cellular mask pattern",
+  "version": "1.0.0",
+  "last_updated": "2025-12-26",
+  "config": {
+    "message": "ORGANIC CELL REVEAL",
+    "layout": {
+      "anchor": "bottom_right",
+      "width": 28,
+      "height": 5
+    },
+    "lifecycle": {
+      "auto_dismiss_ms": 5000
+    },
+    "border": {
+      "type": "rounded"
+    },
+    "pipeline": {
+      "enter": {
+        "duration_ms": 1500,
+        "easing": "cubic_out"
+      },
+      "exit": {
+        "duration_ms": 800,
+        "easing": "cubic_in"
+      },
+      "mask": {
+        "enter": {
+          "type": "cellular",
+          "pattern": "organic",
+          "seed": 555,
+          "cell_count": 20
+        },
+        "exit": {
+          "type": "cellular",
+          "pattern": "voronoi",
+          "seed": 333,
+          "cell_count": 12
+        }
+      },
+      "style": {
+        "base_style": {
+          "foreground": {
+            "type": "light_red"
+          },
+          "background": {
+            "type": "rgb",
+            "r": 30,
+            "g": 15,
+            "b": 15
+          }
+        }
+      }
+    }
+  }
+}

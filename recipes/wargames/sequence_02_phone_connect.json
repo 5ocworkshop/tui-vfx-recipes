@@ -1,0 +1,15 @@
+{
+  "schema_version": 1,
+  "id": "wargames.sequence.02_phone_connect",
+  "title": "Sequence 02 - Phone Connection",
+  "description": "Second screen - dialing sequence with progress bar",
+  "version": "1.0.0",
+  "last_updated": "2025-12-25",
+  "extends": "themes/enhanced_crt_computer.json",
+  "config": {
+    "message": "45    1158       11009      11893       11972         11315\nPAT COM. S.A.S.  SECTRAM 9.4.3.       PORT STAT: SD-345\n\n(311) 889-7965\n████████████████",
+    "lifecycle": {
+      "auto_dismiss_ms": 600
+    }
+  }
+}

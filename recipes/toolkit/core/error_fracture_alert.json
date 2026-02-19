@@ -1,0 +1,127 @@
+{
+  "schema_version": 1,
+  "id": "toolkit.core.error_fracture_alert",
+  "title": "Error Fracture Alert",
+  "description": "A readable but dramatic error: fault-line displacement + brief controlled glitch, then alarm waves as it exits.",
+  "version": "0.1.0",
+  "last_updated": "2025-12-23",
+  "config": {
+    "message": "ERROR\nRequest failed — retry in a moment.",
+    "layout": {
+      "width": 44,
+      "height": 6,
+      "anchor": "top_right"
+    },
+    "lifecycle": {
+      "auto_dismiss_ms": 5200
+    },
+    "border": {
+      "type": "thick",
+      "trim": "none"
+    },
+    "content": {
+      "mode": "enter_only",
+      "effect": {
+        "type": "scramble",
+        "resolve_pace": 0.85,
+        "charset": "matrix",
+        "seed": 77
+      }
+    },
+    "pipeline": {
+      "enter": {
+        "duration_ms": 950,
+        "easing": "cubic_out",
+        "snapping": {
+          "type": "round"
+        }
+      },
+      "exit": {
+        "duration_ms": 780,
+        "easing": "linear",
+        "snapping": {
+          "type": "round"
+        }
+      },
+      "mask": {
+        "enter": {
+          "type": "diamond",
+          "soft_edge": true
+        },
+        "exit": {
+          "type": "dissolve",
+          "seed": 9001,
+          "chunk_size": 1
+        }
+      },
+      "sampler": {
+        "enter": {
+          "type": "fault_line",
+          "seed": 9001,
+          "intensity": 2.2,
+          "split_bias": 0.55
+        },
+        "exit": {
+          "type": "shredder",
+          "stripe_width": 1,
+          "odd_speed": 2.2,
+          "even_speed": -1.7
+        }
+      },
+      "filter": {
+        "enter": {
+          "type": "tint",
+          "color": {
+            "type": "magenta"
+          },
+          "strength": 0.12,
+          "apply_to": "both"
+        },
+        "exit": {
+          "type": "crt",
+          "scanline_strength": 0.25,
+          "glow": 0.3
+        }
+      },
+      "style": {
+        "region": "All",
+        "base_style": {
+          "foreground": {
+            "type": "rgb",
+            "r": 255,
+            "g": 235,
+            "b": 130
+          },
+          "background": {
+            "type": "rgb",
+            "r": 45,
+            "g": 10,
+            "b": 25
+          },
+          "added_modifiers": [
+            "bold"
+          ],
+          "removed_modifiers": []
+        },
+        "enter_effect": {
+          "type": "glitch",
+          "seed": 9001,
+          "intensity": 0.45
+        },
+        "exit_effect": {
+          "type": "spatial",
+          "shader": {
+            "type": "pulse_wave",
+            "frequency": 3.2,
+            "speed": 3.0,
+            "color": {
+              "type": "light_magenta"
+            },
+            "direction": "diagonal",
+            "wavelength": 4.5
+          }
+        }
+      }
+    }
+  }
+}

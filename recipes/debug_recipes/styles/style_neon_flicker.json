@@ -1,0 +1,78 @@
+{
+  "schema_version": 1,
+  "id": "debug.style.neon_flicker",
+  "title": "Debug: Style - NeonFlicker",
+  "description": "Tests NeonFlicker style effect with stability parameter",
+  "version": "1.0.0",
+  "last_updated": "2025-12-30",
+  "config": {
+    "message": "STYLE TEST: NeonFlicker",
+    "layout": {
+      "width": 35,
+      "height": 3,
+      "anchor": "center"
+    },
+    "lifecycle": {
+      "auto_dismiss_ms": 6000
+    },
+    "border": {
+      "type": "double",
+      "trim": "none"
+    },
+    "pipeline": {
+      "enter": {
+        "duration_ms": 1500,
+        "easing": "linear"
+      },
+      "exit": {
+        "duration_ms": 1000,
+        "easing": "linear"
+      },
+      "mask": {
+        "enter": {
+          "type": "none"
+        },
+        "exit": {
+          "type": "none"
+        }
+      },
+      "sampler": {
+        "enter": {
+          "type": "none"
+        },
+        "exit": {
+          "type": "none"
+        }
+      },
+      "filter": {
+        "enter": {
+          "type": "none"
+        },
+        "exit": {
+          "type": "none"
+        }
+      },
+      "style": {
+        "region": "All",
+        "base_style": {
+          "foreground": {
+            "type": "rgb",
+            "r": 255,
+            "g": 50,
+            "b": 150
+          },
+          "background": {
+            "type": "rgb",
+            "r": 20,
+            "g": 5,
+            "b": 15
+          }
+        },
+        "dwell_effect": {
+          "type": "neon_flicker",
+          "stability": 0.7
+        }
+      }
+    }
+  }
+}

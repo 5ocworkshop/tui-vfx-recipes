@@ -1,0 +1,100 @@
+{
+  "schema_version": 1,
+  "id": "experimental.block_border",
+  "title": "Block Border Demo",
+  "description": "Heavy block element borders for a bold, chunky aesthetic. Uses Unicode block characters.",
+  "version": "1.0.0",
+  "last_updated": "2025-12-31",
+  "config": {
+    "message": "█ Heavy blocks █",
+    "layout": {
+      "width": 28,
+      "height": 3,
+      "anchor": "top_right"
+    },
+    "lifecycle": {
+      "auto_dismiss_ms": 6000
+    },
+    "border": {
+      "type": "thick",
+      "trim": "none",
+      "custom_chars": {
+        "top_left": "▛",
+        "top_right": "▜",
+        "bottom_left": "▙",
+        "bottom_right": "▟",
+        "horizontal_top": "▀",
+        "horizontal_bottom": "▄",
+        "vertical_left": "▌",
+        "vertical_right": "▐"
+      }
+    },
+    "pipeline": {
+      "enter": {
+        "duration_ms": 500,
+        "easing": "cubic_out",
+        "motion_path": {
+          "type": "linear"
+        },
+        "snapping": {
+          "type": "round"
+        }
+      },
+      "exit": {
+        "duration_ms": 350,
+        "easing": "cubic_in",
+        "snapping": {
+          "type": "round"
+        }
+      },
+      "mask": {
+        "enter": {
+          "type": "wipe",
+          "direction": "from_left"
+        },
+        "exit": {
+          "type": "none"
+        }
+      },
+      "sampler": {
+        "enter": {
+          "type": "none"
+        },
+        "exit": {
+          "type": "none"
+        }
+      },
+      "filter": {
+        "enter": {
+          "type": "none"
+        },
+        "exit": {
+          "type": "none"
+        }
+      },
+      "style": {
+        "region": "All",
+        "base_style": {
+          "foreground": {
+            "type": "rgb",
+            "r": 255,
+            "g": 200,
+            "b": 100
+          },
+          "background": {
+            "type": "rgb",
+            "r": 60,
+            "g": 30,
+            "b": 10
+          },
+          "added_modifiers": [
+            "bold"
+          ],
+          "removed_modifiers": []
+        },
+        "enter_effect": null,
+        "exit_effect": null
+      }
+    }
+  }
+}

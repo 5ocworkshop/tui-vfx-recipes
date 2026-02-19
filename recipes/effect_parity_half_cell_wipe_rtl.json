@@ -1,0 +1,55 @@
+{
+  "schema_version": 1,
+  "id": "showcase.effect_parity_half_cell_wipe_rtl",
+  "title": "Half-Cell Wipe RTL",
+  "description": "Sub-character resolution wipe right-to-left",
+  "version": "1.0.0",
+  "last_updated": "2025-12-26",
+  "config": {
+    "message": "REVERSE WIPE",
+    "layout": {
+      "anchor": "bottom_right",
+      "width": 18,
+      "height": 4
+    },
+    "lifecycle": {
+      "auto_dismiss_ms": 5000
+    },
+    "border": {
+      "type": "rounded"
+    },
+    "content": {
+      "mode": "enter_only",
+      "effect": {
+        "type": "morph",
+        "source": "",
+        "progression": "braille_half_cell_wipe",
+        "direction": "right_to_left",
+        "seed": 42
+      }
+    },
+    "pipeline": {
+      "enter": {
+        "duration_ms": 2000,
+        "easing": "linear"
+      },
+      "exit": {
+        "duration_ms": 400,
+        "easing": "cubic_in"
+      },
+      "style": {
+        "base_style": {
+          "foreground": {
+            "type": "light_yellow"
+          },
+          "background": {
+            "type": "rgb",
+            "r": 25,
+            "g": 20,
+            "b": 10
+          }
+        }
+      }
+    }
+  }
+}

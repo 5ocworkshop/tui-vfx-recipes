@@ -1,0 +1,114 @@
+{
+  "schema_version": 1,
+  "id": "scandi_edge.reminder",
+  "title": "Reminder",
+  "description": "Warm gravity. Terracotta clay with generous settling arc, amber glisten evokes afternoon light.",
+  "version": "1.0.0",
+  "last_updated": "2025-12-31",
+  "config": {
+    "message": "Standup in 5 minutes",
+    "layout": {
+      "width": 34,
+      "height": 3,
+      "anchor": "top_right"
+    },
+    "lifecycle": {
+      "auto_dismiss_ms": 10000
+    },
+    "border": {
+      "type": "rounded",
+      "trim": "none"
+    },
+    "pipeline": {
+      "enter": {
+        "duration_ms": 680,
+        "easing": "expo_out",
+        "motion_path": {
+          "type": "arc",
+          "bulge": 0.25
+        },
+        "snapping": {
+          "type": "round"
+        }
+      },
+      "exit": {
+        "duration_ms": 480,
+        "easing": "sine_in",
+        "snapping": {
+          "type": "round"
+        }
+      },
+      "mask": {
+        "enter": {
+          "type": "blinds",
+          "orientation": "horizontal",
+          "count": 4
+        },
+        "exit": {
+          "type": "none"
+        }
+      },
+      "sampler": {
+        "enter": {
+          "type": "none"
+        },
+        "exit": {
+          "type": "none"
+        }
+      },
+      "filter": {
+        "enter": {
+          "type": "none"
+        },
+        "exit": {
+          "type": "none"
+        }
+      },
+      "style": {
+        "region": "All",
+        "base_style": {
+          "foreground": {
+            "type": "rgb",
+            "r": 45,
+            "g": 35,
+            "b": 28
+          },
+          "background": {
+            "type": "rgb",
+            "r": 215,
+            "g": 155,
+            "b": 125
+          },
+          "added_modifiers": [],
+          "removed_modifiers": []
+        },
+        "enter_effect": {
+          "type": "spatial",
+          "shader": {
+            "type": "glisten_band",
+            "band_width": 7,
+            "speed": 0.3,
+            "angle_deg": 20.0,
+            "head": {
+              "type": "rgb",
+              "r": 255,
+              "g": 210,
+              "b": 165
+            },
+            "tail": {
+              "type": "rgb",
+              "r": 235,
+              "g": 175,
+              "b": 140
+            }
+          }
+        },
+        "exit_effect": {
+          "type": "fade_out",
+          "apply_to": "both",
+          "ease": "SineOut"
+        }
+      }
+    }
+  }
+}

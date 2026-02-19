@@ -1,0 +1,108 @@
+{
+  "schema_version": 1,
+  "id": "notifications.slingshot_exit",
+  "title": "Slingshot Exit",
+  "description": "Message gets pulled down-left like a slingshot being drawn back, then launches up and to the right off screen. Satisfying elastic release effect.",
+  "version": "1.0.0",
+  "last_updated": "2025-12-22",
+  "config": {
+    "message": "🚀 Launching in 3... 2... 1...",
+    "layout": {
+      "width": 32,
+      "height": 3,
+      "anchor": "center"
+    },
+    "lifecycle": {
+      "auto_dismiss_ms": 3000
+    },
+    "border": {
+      "type": "rounded",
+      "trim": "none"
+    },
+    "pipeline": {
+      "enter": {
+        "duration_ms": 400,
+        "easing": "back_out",
+        "motion_path": {
+          "type": "linear"
+        },
+        "from": {
+          "type": "offscreen",
+          "direction": "from_bottom",
+          "margin_cells": 2
+        },
+        "snapping": {
+          "type": "round"
+        }
+      },
+      "exit": {
+        "duration_ms": 800,
+        "easing": "back_in",
+        "motion_path": {
+          "type": "arc",
+          "bulge": -0.8
+        },
+        "to": {
+          "type": "offscreen",
+          "direction": "from_top_right",
+          "margin_cells": 5
+        },
+        "snapping": {
+          "type": "round"
+        }
+      },
+      "mask": {
+        "enter": {
+          "type": "none"
+        },
+        "exit": {
+          "type": "none"
+        }
+      },
+      "sampler": {
+        "enter": {
+          "type": "none"
+        },
+        "exit": {
+          "type": "none"
+        }
+      },
+      "filter": {
+        "enter": {
+          "type": "none"
+        },
+        "exit": {
+          "type": "none"
+        }
+      },
+      "style": {
+        "region": "All",
+        "base_style": {
+          "foreground": {
+            "type": "light_cyan"
+          },
+          "background": {
+            "type": "black"
+          },
+          "added_modifiers": [
+            "bold"
+          ],
+          "removed_modifiers": []
+        },
+        "enter_effect": {
+          "type": "fade_in",
+          "apply_to": "foreground",
+          "ease": "QuadOut"
+        },
+        "exit_effect": {
+          "type": "fade_out",
+          "apply_to": "foreground",
+          "ease": "QuadIn"
+        }
+      }
+    },
+    "requires_primitives": [
+      "geometry.path.arc"
+    ]
+  }
+}

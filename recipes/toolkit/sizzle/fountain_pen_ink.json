@@ -1,0 +1,136 @@
+{
+  "schema_version": 1,
+  "id": "toolkit.sizzle.fountain_pen_ink",
+  "title": "Fountain Pen Ink",
+  "description": "Ink appears like a pen stroke: speckled dither, a slow bloom ripple, and a wet-ink highlight that catches once.",
+  "version": "0.1.0",
+  "last_updated": "2025-12-23",
+  "config": {
+    "message": "Note saved\nInk is dry.",
+    "layout": {
+      "width": 34,
+      "height": 4,
+      "anchor": "top_right"
+    },
+    "lifecycle": {
+      "auto_dismiss_ms": 8500
+    },
+    "border": {
+      "type": "double",
+      "trim": "none"
+    },
+    "content": {
+      "mode": "enter_only",
+      "effect": {
+        "type": "typewriter",
+        "speed_variance": 0.2
+      }
+    },
+    "pipeline": {
+      "enter": {
+        "duration_ms": 2100,
+        "easing": "quad_in_out",
+        "snapping": {
+          "type": "round"
+        }
+      },
+      "exit": {
+        "duration_ms": 900,
+        "easing": "cubic_in",
+        "snapping": {
+          "type": "round"
+        }
+      },
+      "mask": {
+        "enter": {
+          "type": "noise_dither",
+          "seed": 702,
+          "matrix": "bayer4"
+        },
+        "exit": {
+          "type": "wipe",
+          "direction": "right_to_left",
+          "soft_edge": true
+        }
+      },
+      "sampler": {
+        "enter": {
+          "type": "ripple",
+          "amplitude": 1.1,
+          "wavelength": 9.0,
+          "speed": 0.8,
+          "center": {
+            "x": 0,
+            "y": 4
+          }
+        },
+        "exit": {
+          "type": "none"
+        }
+      },
+      "filter": {
+        "enter": {
+          "type": "tint",
+          "color": {
+            "type": "rgb",
+            "r": 80,
+            "g": 120,
+            "b": 200
+          },
+          "strength": 0.18,
+          "apply_to": "background"
+        },
+        "exit": {
+          "type": "vignette",
+          "strength": 0.75,
+          "radius": 0.4
+        }
+      },
+      "style": {
+        "region": "All",
+        "base_style": {
+          "foreground": {
+            "type": "rgb",
+            "r": 245,
+            "g": 245,
+            "b": 255
+          },
+          "background": {
+            "type": "rgb",
+            "r": 5,
+            "g": 10,
+            "b": 20
+          },
+          "added_modifiers": [],
+          "removed_modifiers": []
+        },
+        "enter_effect": {
+          "type": "spatial",
+          "shader": {
+            "type": "glisten_band",
+            "speed": 0.6,
+            "band_width": 1,
+            "angle_deg": 10,
+            "head": {
+              "type": "rgb",
+              "r": 180,
+              "g": 210,
+              "b": 255
+            },
+            "tail": {
+              "type": "rgb",
+              "r": 80,
+              "g": 120,
+              "b": 200
+            }
+          }
+        },
+        "exit_effect": {
+          "type": "fade_out",
+          "apply_to": "both",
+          "ease": "CubicIn"
+        }
+      }
+    }
+  }
+}

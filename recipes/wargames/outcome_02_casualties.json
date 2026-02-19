@@ -1,0 +1,15 @@
+{
+  "schema_version": 1,
+  "id": "wargames.outcome.02_casualties",
+  "title": "Outcome 02 - Casualty Projections",
+  "description": "The horrifying moment - 69 million deaths, is this a game or real?",
+  "version": "1.0.0",
+  "last_updated": "2025-12-25",
+  "extends": "themes/new_wopr_fullscreen_cyan.json",
+  "config": {
+    "message": "69 MILLION                     NON-FATAL INJURED\n72 MILLION                     POPULATION DEATHS\n\nIs this a game or is it real?\n\n\n\n\nGAME TIME ELAPSED              ESTIMATED TIME REMAINING\n45 HRS  33 MIN  59 SEC         27 HRS  58 MIN  27 SEC",
+    "lifecycle": {
+      "auto_dismiss_ms": 0
+    }
+  }
+}

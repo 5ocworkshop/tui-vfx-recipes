@@ -1,0 +1,117 @@
+{
+  "schema_version": 1,
+  "id": "notifications.ocean_depths",
+  "title": "Ocean Depths",
+  "description": "Deep water emergence with ripple sampler and slow vertical sine waves. Rises from the depths with concentric ripples and gentle undulating motion, like a message surfacing from the abyss. Mysterious and fluid.",
+  "version": "1.0.0",
+  "last_updated": "2025-12-22",
+  "config": {
+    "message": "SIGNAL FROM THE DEEP",
+    "layout": {
+      "width": 32,
+      "height": 4,
+      "anchor": "bottom_center"
+    },
+    "lifecycle": {
+      "auto_dismiss_ms": 9000
+    },
+    "border": {
+      "type": "rounded",
+      "trim": "none"
+    },
+    "pipeline": {
+      "enter": {
+        "duration_ms": 3500,
+        "easing": "cubic_out",
+        "motion_path": {
+          "type": "linear"
+        },
+        "snapping": {
+          "type": "round"
+        }
+      },
+      "exit": {
+        "duration_ms": 2000,
+        "easing": "cubic_in",
+        "motion_path": {
+          "type": "linear"
+        },
+        "snapping": {
+          "type": "round"
+        }
+      },
+      "mask": {
+        "enter": {
+          "type": "none"
+        },
+        "exit": {
+          "type": "none"
+        }
+      },
+      "sampler": {
+        "enter": {
+          "type": "ripple",
+          "amplitude": 1.5,
+          "wavelength": 10.0,
+          "speed": 0.8,
+          "center": "center"
+        },
+        "exit": {
+          "type": "sine_wave",
+          "axis": "y",
+          "amplitude": 1.2,
+          "frequency": 0.6,
+          "speed": 1.0,
+          "phase": 0.0
+        }
+      },
+      "filter": {
+        "enter": {
+          "type": "tint",
+          "color": {
+            "type": "rgb",
+            "r": 0,
+            "g": 80,
+            "b": 120
+          },
+          "strength": 0.4,
+          "apply_to": "both"
+        },
+        "exit": {
+          "type": "none"
+        }
+      },
+      "style": {
+        "region": "All",
+        "base_style": {
+          "foreground": {
+            "type": "cyan"
+          },
+          "background": {
+            "type": "rgb",
+            "r": 0,
+            "g": 20,
+            "b": 40
+          },
+          "added_modifiers": [],
+          "removed_modifiers": []
+        },
+        "enter_effect": {
+          "type": "fade_in",
+          "apply_to": "both",
+          "ease": "Linear"
+        },
+        "exit_effect": {
+          "type": "fade_out",
+          "apply_to": "both",
+          "ease": "Linear"
+        }
+      }
+    },
+    "requires_primitives": [
+      "sampler.ripple",
+      "sampler.sinewave_params",
+      "filter.tint"
+    ]
+  }
+}

@@ -1,0 +1,117 @@
+{
+  "schema_version": 1,
+  "id": "midcentury.reminder",
+  "title": "Reminder",
+  "description": "Warm nudge. Terracotta with clock title, gentle blinds reveal and settling arc.",
+  "version": "1.0.0",
+  "last_updated": "2025-12-31",
+  "config": {
+    "message": "⏱ Standup in 5 minutes",
+    "layout": {
+      "width": 36,
+      "height": 3,
+      "anchor": "top_right"
+    },
+    "lifecycle": {
+      "auto_dismiss_ms": 10000
+    },
+    "border": {
+      "type": "rounded",
+      "trim": "none",
+      "title": "◐ REMINDER",
+      "title_position": "top",
+      "title_alignment": "center"
+    },
+    "pipeline": {
+      "enter": {
+        "duration_ms": 650,
+        "easing": "sine_out",
+        "motion_path": {
+          "type": "arc",
+          "bulge": 0.22
+        },
+        "snapping": {
+          "type": "round"
+        }
+      },
+      "exit": {
+        "duration_ms": 480,
+        "easing": "sine_in",
+        "snapping": {
+          "type": "round"
+        }
+      },
+      "mask": {
+        "enter": {
+          "type": "blinds",
+          "orientation": "horizontal",
+          "count": 3
+        },
+        "exit": {
+          "type": "none"
+        }
+      },
+      "sampler": {
+        "enter": {
+          "type": "none"
+        },
+        "exit": {
+          "type": "none"
+        }
+      },
+      "filter": {
+        "enter": {
+          "type": "none"
+        },
+        "exit": {
+          "type": "none"
+        }
+      },
+      "style": {
+        "region": "All",
+        "base_style": {
+          "foreground": {
+            "type": "rgb",
+            "r": 50,
+            "g": 35,
+            "b": 25
+          },
+          "background": {
+            "type": "rgb",
+            "r": 210,
+            "g": 105,
+            "b": 30
+          },
+          "added_modifiers": [],
+          "removed_modifiers": []
+        },
+        "enter_effect": {
+          "type": "spatial",
+          "shader": {
+            "type": "glisten_band",
+            "band_width": 6,
+            "speed": 0.35,
+            "angle_deg": 25.0,
+            "head": {
+              "type": "rgb",
+              "r": 255,
+              "g": 165,
+              "b": 90
+            },
+            "tail": {
+              "type": "rgb",
+              "r": 230,
+              "g": 130,
+              "b": 55
+            }
+          }
+        },
+        "exit_effect": {
+          "type": "fade_out",
+          "apply_to": "both",
+          "ease": "SineOut"
+        }
+      }
+    }
+  }
+}

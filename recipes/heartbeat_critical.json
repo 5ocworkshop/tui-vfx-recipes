@@ -1,0 +1,121 @@
+{
+  "schema_version": 1,
+  "id": "notifications.heartbeat_critical",
+  "title": "Heartbeat Critical",
+  "description": "Squash path pulsing with red pulse style",
+  "version": "2.0.0",
+  "last_updated": "2025-12-18",
+  "config": {
+    "message": "CRITICAL SYSTEM FAILURE: CORE OVERHEAT!",
+    "layout": {
+      "width": 36,
+      "height": 4,
+      "anchor": "bottom_right"
+    },
+    "lifecycle": {
+      "auto_dismiss_ms": 10000
+    },
+    "time": {
+      "loop": true,
+      "loop_period_ms": 1200
+    },
+    "border": {
+      "type": "rounded",
+      "trim": "none"
+    },
+    "pipeline": {
+      "enter": {
+        "duration_ms": 900,
+        "easing": "quad_out",
+        "motion_path": {
+          "type": "spring",
+          "stiffness": 14.0,
+          "damping": 0.9
+        },
+        "snapping": {
+          "type": "round"
+        },
+        "from": {
+          "type": "offscreen",
+          "direction": "from_bottom",
+          "margin_cells": 1
+        }
+      },
+      "exit": {
+        "duration_ms": 650,
+        "easing": "quad_in",
+        "motion_path": {
+          "type": "linear"
+        },
+        "snapping": {
+          "type": "round"
+        },
+        "to": {
+          "type": "offscreen",
+          "direction": "from_bottom",
+          "margin_cells": 1
+        }
+      },
+      "mask": {
+        "enter": {
+          "type": "none"
+        },
+        "exit": {
+          "type": "none"
+        }
+      },
+      "sampler": {
+        "enter": {
+          "type": "none"
+        },
+        "exit": {
+          "type": "none"
+        }
+      },
+      "filter": {
+        "enter": {
+          "type": "none"
+        },
+        "exit": {
+          "type": "none"
+        }
+      },
+      "style": {
+        "region": "All",
+        "base_style": {
+          "foreground": {
+            "type": "light_red"
+          },
+          "background": {
+            "type": "black"
+          },
+          "added_modifiers": [
+            "bold"
+          ],
+          "removed_modifiers": []
+        },
+        "enter_effect": {
+          "type": "fade_in",
+          "apply_to": "foreground",
+          "ease": "QuadOut"
+        },
+        "exit_effect": {
+          "type": "fade_out",
+          "apply_to": "foreground",
+          "ease": "QuadIn"
+        },
+        "dwell_effect": {
+          "type": "pulse",
+          "frequency": 3.0,
+          "color": {
+            "type": "white"
+          }
+        }
+      }
+    },
+    "requires_primitives": [
+      "time.looping",
+      "geometry.timeline_optional_for_true_scale"
+    ]
+  }
+}

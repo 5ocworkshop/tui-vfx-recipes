@@ -1,0 +1,95 @@
+{
+  "schema_version": 2,
+  "id": "slide_shift_barrier_down",
+  "title": "SlideShift Barrier Down",
+  "description": "SlideShiftingDemo drops below the Down! barrier and flows back.",
+  "version": "1.0.0",
+  "last_updated": "2026-01-22",
+  "config": {
+    "message": "SlideShiftingDemo",
+    "layout": {
+      "mode": "fixed",
+      "width": 58,
+      "height": 11,
+      "anchor": "center",
+      "wrap": false
+    },
+    "lifecycle": {
+      "auto_dismiss_ms": 0
+    },
+    "border": {
+      "type": "double",
+      "padding": {
+        "top": 2,
+        "right": 3,
+        "bottom": 2,
+        "left": 3
+      },
+      "title": "Down!",
+      "title_position": "bottom",
+      "title_alignment": "center"
+    },
+    "content": {
+      "mode": "loop",
+      "effect": {
+        "type": "slide_shift",
+        "start_col": -26,
+        "end_col": 30,
+        "start_row": 2,
+        "shift_col": 22,
+        "shift_width": 5,
+        "row_shift": 1,
+        "line_mode": "block",
+        "flow_mode": "flow_back"
+      }
+    },
+    "time": {
+      "loop": true,
+      "loop_period_ms": 2400
+    },
+    "pipeline": {
+      "animation_type": "none",
+      "enter": {
+        "duration_ms": 0
+      },
+      "exit": {
+        "duration_ms": 0
+      },
+      "styles": [
+        {
+          "region": "All",
+          "base_style": {
+            "foreground": {
+              "type": "light_gray"
+            },
+            "background": {
+              "type": "rgb",
+              "r": 18,
+              "g": 16,
+              "b": 28
+            }
+          }
+        },
+        {
+          "region": "BorderOnly",
+          "base_style": {
+            "foreground": {
+              "type": "rgb",
+              "r": 140,
+              "g": 220,
+              "b": 255
+            }
+          }
+        },
+        {
+          "region": "TextOnly",
+          "base_style": {
+            "foreground": {
+              "type": "white"
+            }
+          }
+        }
+      ]
+    }
+  }
+}

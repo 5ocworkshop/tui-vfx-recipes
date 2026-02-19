@@ -1,0 +1,130 @@
+{
+  "schema_version": 1,
+  "id": "toolkit.sizzle.origami_fold",
+  "title": "Origami Fold",
+  "description": "Feels like paper folding into place: vertical ‘crease’ blinds + a gentle paper sheen, then a crisp geometric snap away.",
+  "version": "0.1.0",
+  "last_updated": "2025-12-23",
+  "config": {
+    "message": "New shortcut created\nFolded into menu",
+    "layout": {
+      "width": 44,
+      "height": 5,
+      "anchor": "middle_left"
+    },
+    "lifecycle": {
+      "auto_dismiss_ms": 8000
+    },
+    "border": {
+      "type": "rounded",
+      "trim": "none"
+    },
+    "content": {
+      "mode": "enter_only",
+      "effect": {
+        "type": "typewriter",
+        "speed_variance": 0.2
+      }
+    },
+    "pipeline": {
+      "enter": {
+        "duration_ms": 1600,
+        "easing": "quad_in_out",
+        "snapping": {
+          "type": "round"
+        }
+      },
+      "exit": {
+        "duration_ms": 900,
+        "easing": "quad_in",
+        "snapping": {
+          "type": "round"
+        }
+      },
+      "mask": {
+        "enter": {
+          "type": "blinds",
+          "orientation": "vertical",
+          "count": 9
+        },
+        "exit": {
+          "type": "diamond",
+          "soft_edge": false
+        }
+      },
+      "sampler": {
+        "enter": {
+          "type": "sine_wave",
+          "axis": "y",
+          "amplitude": 1.0,
+          "frequency": 0.4,
+          "speed": 0.9,
+          "phase": 0.0
+        },
+        "exit": {
+          "type": "shredder",
+          "stripe_width": 1,
+          "odd_speed": 1.0,
+          "even_speed": -1.3
+        }
+      },
+      "filter": {
+        "enter": {
+          "type": "vignette",
+          "strength": 0.25,
+          "radius": 0.9
+        },
+        "exit": {
+          "type": "tint",
+          "color": {
+            "type": "black"
+          },
+          "strength": 0.6,
+          "apply_to": "both"
+        }
+      },
+      "style": {
+        "region": "All",
+        "base_style": {
+          "foreground": {
+            "type": "rgb",
+            "r": 25,
+            "g": 25,
+            "b": 40
+          },
+          "background": {
+            "type": "rgb",
+            "r": 235,
+            "g": 235,
+            "b": 245
+          },
+          "added_modifiers": [],
+          "removed_modifiers": []
+        },
+        "enter_effect": {
+          "type": "spatial",
+          "shader": {
+            "type": "glisten_band",
+            "speed": 0.8,
+            "band_width": 2,
+            "angle_deg": 45,
+            "head": {
+              "type": "white"
+            },
+            "tail": {
+              "type": "rgb",
+              "r": 160,
+              "g": 170,
+              "b": 220
+            }
+          }
+        },
+        "exit_effect": {
+          "type": "glitch",
+          "seed": 2025,
+          "intensity": 0.25
+        }
+      }
+    }
+  }
+}

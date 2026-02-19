@@ -1,0 +1,124 @@
+{
+  "schema_version": 1,
+  "id": "toolkit.core.download_complete_dither",
+  "title": "Download Complete Dither",
+  "description": "Feels like a high-quality print emerging: Bayer dither reveal + corner ripple, then a single clean highlight pass.",
+  "version": "0.1.0",
+  "last_updated": "2025-12-23",
+  "config": {
+    "message": "Download complete\nreport_2025Q4.pdf",
+    "layout": {
+      "width": 48,
+      "height": 4,
+      "anchor": "bottom_right"
+    },
+    "lifecycle": {
+      "auto_dismiss_ms": 6500
+    },
+    "border": {
+      "type": "double",
+      "trim": "none"
+    },
+    "content": {
+      "mode": "enter_only",
+      "effect": {
+        "type": "typewriter",
+        "speed_variance": 0.2
+      }
+    },
+    "pipeline": {
+      "enter": {
+        "duration_ms": 1500,
+        "easing": "linear",
+        "snapping": {
+          "type": "round"
+        }
+      },
+      "exit": {
+        "duration_ms": 780,
+        "easing": "cubic_in",
+        "snapping": {
+          "type": "round"
+        }
+      },
+      "mask": {
+        "enter": {
+          "type": "noise_dither",
+          "seed": 505,
+          "matrix": "bayer8"
+        },
+        "exit": {
+          "type": "dissolve",
+          "seed": 505,
+          "chunk_size": 1
+        }
+      },
+      "sampler": {
+        "enter": {
+          "type": "ripple",
+          "amplitude": 0.9,
+          "wavelength": 10.0,
+          "speed": 1.3,
+          "center": {
+            "x": 48,
+            "y": 4
+          }
+        },
+        "exit": {
+          "type": "none"
+        }
+      },
+      "filter": {
+        "enter": {
+          "type": "crt",
+          "scanline_strength": 0.08,
+          "glow": 0.12
+        },
+        "exit": {
+          "type": "vignette",
+          "strength": 0.7,
+          "radius": 0.45
+        }
+      },
+      "style": {
+        "region": "All",
+        "base_style": {
+          "foreground": {
+            "type": "rgb",
+            "r": 245,
+            "g": 245,
+            "b": 255
+          },
+          "background": {
+            "type": "rgb",
+            "r": 20,
+            "g": 24,
+            "b": 40
+          },
+          "added_modifiers": [],
+          "removed_modifiers": []
+        },
+        "enter_effect": {
+          "type": "spatial",
+          "shader": {
+            "type": "glisten_band",
+            "speed": 1.2,
+            "band_width": 2,
+            "angle_deg": 0,
+            "head": {
+              "type": "light_cyan"
+            },
+            "tail": {
+              "type": "light_magenta"
+            }
+          }
+        },
+        "exit_effect": {
+          "type": "fade_out",
+          "apply_to": "both",
+          "ease": "CubicIn"
+        }
+      }
+    }
+  }
+}

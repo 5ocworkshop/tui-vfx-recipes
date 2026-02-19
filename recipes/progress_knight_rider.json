@@ -1,0 +1,142 @@
+{
+  "schema_version": 1,
+  "id": "progress.knight_rider",
+  "title": "Knight Rider",
+  "description": "KITT-style bouncing light bar with amber glow trail. Wider band with smooth ping-pong motion.",
+  "version": "1.0.0",
+  "last_updated": "2025-12-29",
+  "config": {
+    "message": "▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰",
+    "layout": {
+      "width": 22,
+      "height": 1,
+      "anchor": "top_center"
+    },
+    "lifecycle": {
+      "auto_dismiss_ms": 0
+    },
+    "time": {
+      "loop": true,
+      "loop_period_ms": 1667
+    },
+    "border": {
+      "type": "none",
+      "trim": "none"
+    },
+    "pipeline": {
+      "enter": {
+        "duration_ms": 200,
+        "easing": "quad_out",
+        "snapping": {
+          "type": "round"
+        }
+      },
+      "exit": {
+        "duration_ms": 200,
+        "easing": "quad_in",
+        "snapping": {
+          "type": "round"
+        }
+      },
+      "mask": {
+        "enter": {
+          "type": "none"
+        },
+        "exit": {
+          "type": "none"
+        }
+      },
+      "sampler": {
+        "enter": {
+          "type": "none"
+        },
+        "exit": {
+          "type": "none"
+        }
+      },
+      "filter": {
+        "enter": {
+          "type": "none"
+        },
+        "exit": {
+          "type": "none"
+        }
+      },
+      "style": {
+        "region": "All",
+        "base_style": {
+          "foreground": {
+            "type": "rgb",
+            "r": 40,
+            "g": 20,
+            "b": 0
+          },
+          "background": {
+            "type": "rgb",
+            "r": 15,
+            "g": 8,
+            "b": 0
+          },
+          "added_modifiers": [],
+          "removed_modifiers": []
+        },
+        "enter_effect": {
+          "type": "spatial",
+          "shader": {
+            "type": "glisten_band",
+            "speed": 0.6,
+            "band_width": 6,
+            "angle_deg": 0.0,
+            "head": {
+              "type": "rgb",
+              "r": 255,
+              "g": 180,
+              "b": 50
+            },
+            "tail": {
+              "type": "rgb",
+              "r": 200,
+              "g": 100,
+              "b": 0
+            },
+            "direction": "ping_pong",
+            "apply_to": "both",
+            "blend_strength": 1.0
+          }
+        },
+        "dwell_effect": {
+          "type": "spatial",
+          "shader": {
+            "type": "glisten_band",
+            "speed": 0.6,
+            "band_width": 6,
+            "angle_deg": 0.0,
+            "head": {
+              "type": "rgb",
+              "r": 255,
+              "g": 180,
+              "b": 50
+            },
+            "tail": {
+              "type": "rgb",
+              "r": 200,
+              "g": 100,
+              "b": 0
+            },
+            "direction": "ping_pong",
+            "apply_to": "both",
+            "blend_strength": 1.0
+          }
+        },
+        "exit_effect": {
+          "type": "fade_out",
+          "apply_to": "both",
+          "ease": "Linear"
+        }
+      }
+    },
+    "requires_primitives": [
+      "shader.glisten_band"
+    ]
+  }
+}

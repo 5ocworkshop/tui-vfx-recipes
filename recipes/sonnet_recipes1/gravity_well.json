@@ -1,0 +1,128 @@
+{
+  "schema_version": 1,
+  "id": "notifications.gravity_well",
+  "title": "Gravity Well",
+  "description": "Spacetime distortion with spiral path, ripple sampler, and radial pulse. Swirls into existence along a spiral trajectory while ripples distort the space around it. Cosmic and hypnotic.",
+  "version": "1.0.0",
+  "last_updated": "2025-12-22",
+  "config": {
+    "message": "GRAVITATIONAL ANOMALY",
+    "layout": {
+      "width": 32,
+      "height": 4,
+      "anchor": "top_center"
+    },
+    "lifecycle": {
+      "auto_dismiss_ms": 9000
+    },
+    "border": {
+      "type": "rounded",
+      "trim": "none"
+    },
+    "pipeline": {
+      "enter": {
+        "duration_ms": 3000,
+        "easing": "cubic_out",
+        "motion_path": {
+          "type": "spiral",
+          "rotations": 3.0
+        },
+        "snapping": {
+          "type": "round"
+        }
+      },
+      "exit": {
+        "duration_ms": 1500,
+        "easing": "cubic_in",
+        "motion_path": {
+          "type": "spiral",
+          "rotations": 2.0
+        },
+        "snapping": {
+          "type": "round"
+        }
+      },
+      "mask": {
+        "enter": {
+          "type": "none"
+        },
+        "exit": {
+          "type": "iris",
+          "shape": "circle",
+          "soft_edge": true
+        }
+      },
+      "sampler": {
+        "enter": {
+          "type": "ripple",
+          "amplitude": 1.8,
+          "wavelength": 12.0,
+          "speed": 1.0,
+          "center": "center"
+        },
+        "exit": {
+          "type": "none"
+        }
+      },
+      "filter": {
+        "enter": {
+          "type": "tint",
+          "color": {
+            "type": "rgb",
+            "r": 80,
+            "g": 60,
+            "b": 120
+          },
+          "strength": 0.3,
+          "apply_to": "both"
+        },
+        "exit": {
+          "type": "none"
+        }
+      },
+      "style": {
+        "region": "All",
+        "base_style": {
+          "foreground": {
+            "type": "magenta"
+          },
+          "background": {
+            "type": "black"
+          },
+          "added_modifiers": [
+            "bold"
+          ],
+          "removed_modifiers": []
+        },
+        "enter_effect": {
+          "type": "spatial",
+          "shader": {
+            "type": "pulse_wave",
+            "frequency": 1.5,
+            "speed": 1.2,
+            "color": {
+              "type": "rgb",
+              "r": 180,
+              "g": 100,
+              "b": 255
+            },
+            "direction": "radial",
+            "wavelength": 10.0
+          }
+        },
+        "exit_effect": {
+          "type": "fade_out",
+          "apply_to": "both",
+          "ease": "Linear"
+        }
+      }
+    },
+    "requires_primitives": [
+      "path.spiral",
+      "sampler.ripple",
+      "mask.iris",
+      "filter.tint",
+      "shader.pulse_wave"
+    ]
+  }
+}

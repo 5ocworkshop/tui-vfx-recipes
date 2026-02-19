@@ -1,0 +1,120 @@
+{
+  "schema_version": 1,
+  "id": "notifications.crystalline_formation",
+  "title": "Crystalline Formation",
+  "description": "Geometric crystal growth with checkerboard mask and diamond exit. Forms in a precise grid pattern like mineral crystals assembling, then shatters into diamond shards. Cold, mathematical beauty.",
+  "version": "1.0.0",
+  "last_updated": "2025-12-22",
+  "config": {
+    "message": "CRYSTALLIZATION COMPLETE",
+    "layout": {
+      "width": 36,
+      "height": 4,
+      "anchor": "top_center"
+    },
+    "lifecycle": {
+      "auto_dismiss_ms": 7000
+    },
+    "border": {
+      "type": "double",
+      "trim": "none"
+    },
+    "pipeline": {
+      "enter": {
+        "duration_ms": 1500,
+        "easing": "quad_out",
+        "motion_path": {
+          "type": "linear"
+        },
+        "snapping": {
+          "type": "round"
+        }
+      },
+      "exit": {
+        "duration_ms": 1000,
+        "easing": "quad_in",
+        "motion_path": {
+          "type": "linear"
+        },
+        "snapping": {
+          "type": "round"
+        }
+      },
+      "mask": {
+        "enter": {
+          "type": "checkers",
+          "cell_size": 2
+        },
+        "exit": {
+          "type": "diamond",
+          "soft_edge": false
+        }
+      },
+      "sampler": {
+        "enter": {
+          "type": "none"
+        },
+        "exit": {
+          "type": "none"
+        }
+      },
+      "filter": {
+        "enter": {
+          "type": "none"
+        },
+        "exit": {
+          "type": "none"
+        }
+      },
+      "style": {
+        "region": "All",
+        "base_style": {
+          "foreground": {
+            "type": "rgb",
+            "r": 200,
+            "g": 230,
+            "b": 255
+          },
+          "background": {
+            "type": "rgb",
+            "r": 15,
+            "g": 25,
+            "b": 40
+          },
+          "added_modifiers": [
+            "bold"
+          ],
+          "removed_modifiers": []
+        },
+        "enter_effect": {
+          "type": "spatial",
+          "shader": {
+            "type": "glisten_band",
+            "band_width": 8,
+            "speed": 0.7,
+            "angle_deg": 45.0,
+            "head": {
+              "type": "white"
+            },
+            "tail": {
+              "type": "rgb",
+              "r": 200,
+              "g": 230,
+              "b": 255
+            }
+          }
+        },
+        "exit_effect": {
+          "type": "fade_out",
+          "apply_to": "both",
+          "ease": "Linear"
+        }
+      }
+    },
+    "requires_primitives": [
+      "mask.checkers",
+      "mask.diamond",
+      "shader.glisten_band"
+    ]
+  }
+}

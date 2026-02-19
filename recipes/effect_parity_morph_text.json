@@ -1,0 +1,52 @@
+{
+  "schema_version": 1,
+  "id": "showcase.effect_parity_morph_text",
+  "title": "Text Morph Effect",
+  "description": "Demonstrates the new text morph content transformer transitioning between texts",
+  "version": "1.0.0",
+  "last_updated": "2025-12-26",
+  "config": {
+    "message": "DESTINATION TEXT",
+    "layout": {
+      "anchor": "bottom_right",
+      "width": 30,
+      "height": 4
+    },
+    "lifecycle": {
+      "auto_dismiss_ms": 5000
+    },
+    "border": {
+      "type": "rounded"
+    },
+    "content": {
+      "mode": "enter_only",
+      "effect": {
+        "type": "morph",
+        "source": "SOURCE TEXT----",
+        "progression": "wave",
+        "direction": "left_to_right",
+        "seed": 123
+      }
+    },
+    "pipeline": {
+      "enter": {
+        "duration_ms": 2000,
+        "easing": "linear"
+      },
+      "exit": {
+        "duration_ms": 400,
+        "easing": "cubic_in"
+      },
+      "style": {
+        "base_style": {
+          "foreground": {
+            "type": "light_green"
+          },
+          "background": {
+            "type": "black"
+          }
+        }
+      }
+    }
+  }
+}

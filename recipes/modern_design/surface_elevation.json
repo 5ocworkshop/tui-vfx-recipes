@@ -1,0 +1,142 @@
+{
+  "schema_version": 1,
+  "id": "modern.surface_elevation",
+  "title": "Surface Elevation Demo",
+  "description": "Demonstrates elevation tokens using subtle luminance shifts. Surface(0) base -> Surface(3) raised. Each level is a small luminance + saturation shift.",
+  "version": "1.0.0",
+  "last_updated": "2026-01-20",
+  "config": {
+    "message": "▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄\n█ Surface(0): Base Background  █\n█▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄█\n█ ▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀ █\n█ █ Surface(1): Lifted Panel █ █\n█ █▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄█ █\n█ █ ▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀ █ █\n█ █ █ Surface(2): Card     █ █ █\n█ █ █▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄█ █ █\n█ █ █ ▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀ █ █ █\n█ █ █ █ Surface(3):    █ █ █ █\n█ █ █ █ Modal/Popover  █ █ █ █\n█ █ █ █▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄█ █ █ █\n█ █ █▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀█ █ █\n█ █▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀█ █\n█▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀█\n▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀",
+    "layout": {
+      "width": 34,
+      "height": 19,
+      "anchor": "center"
+    },
+    "lifecycle": {
+      "auto_dismiss_ms": 10000
+    },
+    "border": {
+      "type": "none"
+    },
+    "pipeline": {
+      "enter": {
+        "duration_ms": 800,
+        "easing": "expo_out"
+      },
+      "exit": {
+        "duration_ms": 500,
+        "easing": "quad_in"
+      },
+      "mask": {
+        "enter": {
+          "type": "wipe",
+          "reveal": "bottom_to_top",
+          "soft_edge": true
+        },
+        "exit": {
+          "type": "wipe",
+          "hide": "top_to_bottom",
+          "soft_edge": true
+        }
+      },
+      "sampler": {
+        "enter": {
+          "type": "none"
+        },
+        "exit": {
+          "type": "none"
+        }
+      },
+      "filter": {
+        "enter": {
+          "type": "none"
+        },
+        "exit": {
+          "type": "none"
+        }
+      },
+      "style": {
+        "region": "All",
+        "base_style": {
+          "foreground": {
+            "type": "rgb",
+            "r": 180,
+            "g": 185,
+            "b": 200
+          },
+          "background": {
+            "type": "rgb",
+            "r": 18,
+            "g": 20,
+            "b": 28
+          }
+        },
+        "enter_effect": {
+          "type": "spatial",
+          "shader": {
+            "type": "linear_gradient",
+            "gradient": {
+              "stops": [
+                [
+                  0.0,
+                  {
+                    "type": "rgb",
+                    "r": 30,
+                    "g": 35,
+                    "b": 50
+                  }
+                ],
+                [
+                  1.0,
+                  {
+                    "type": "rgb",
+                    "r": 60,
+                    "g": 70,
+                    "b": 95
+                  }
+                ]
+              ],
+              "space": "rgb"
+            },
+            "angle_deg": 135.0
+          }
+        },
+        "dwell_effect": {
+          "type": "spatial",
+          "shader": {
+            "type": "linear_gradient",
+            "gradient": {
+              "stops": [
+                [
+                  0.0,
+                  {
+                    "type": "rgb",
+                    "r": 30,
+                    "g": 35,
+                    "b": 50
+                  }
+                ],
+                [
+                  1.0,
+                  {
+                    "type": "rgb",
+                    "r": 55,
+                    "g": 65,
+                    "b": 85
+                  }
+                ]
+              ],
+              "space": "rgb"
+            },
+            "angle_deg": 135.0
+          }
+        },
+        "exit_effect": {
+          "type": "fade_out",
+          "apply_to": "both",
+          "ease": "QuadIn"
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,91 @@
+{
+  "schema_version": 1,
+  "id": "debug.complex.multi_sampler",
+  "title": "Debug: Multiple Samplers with Filters",
+  "description": "Tests different samplers on enter/exit combined with color filters",
+  "version": "1.0.0",
+  "last_updated": "2025-12-30",
+  "config": {
+    "message": "SAMPLER + FILTER TEST",
+    "layout": {
+      "width": 45,
+      "height": 5,
+      "anchor": "center"
+    },
+    "lifecycle": {
+      "auto_dismiss_ms": 7000
+    },
+    "border": {
+      "type": "double",
+      "trim": "none"
+    },
+    "pipeline": {
+      "enter": {
+        "duration_ms": 1500,
+        "easing": "quad_out"
+      },
+      "exit": {
+        "duration_ms": 1500,
+        "easing": "quad_in"
+      },
+      "mask": {
+        "enter": {
+          "type": "wipe",
+          "direction": "top_to_bottom"
+        },
+        "exit": {
+          "type": "wipe",
+          "direction": "bottom_to_top"
+        }
+      },
+      "sampler": {
+        "enter": {
+          "type": "sine_wave",
+          "axis": "x",
+          "amplitude": 0.4,
+          "frequency": 3.0,
+          "speed": 1.5,
+          "phase": 0.0
+        },
+        "exit": {
+          "type": "shredder",
+          "stripe_width": 3,
+          "odd_speed": 4.0,
+          "even_speed": -3.0
+        }
+      },
+      "filter": {
+        "enter": {
+          "type": "tint",
+          "color": {
+            "type": "rgb",
+            "r": 50,
+            "g": 200,
+            "b": 100
+          },
+          "strength": 0.4,
+          "apply_to": "both"
+        },
+        "exit": {
+          "type": "dim",
+          "factor": 0.6,
+          "apply_to": "both"
+        }
+      },
+      "style": {
+        "region": "All",
+        "base_style": {
+          "foreground": {
+            "type": "green"
+          },
+          "background": {
+            "type": "rgb",
+            "r": 10,
+            "g": 30,
+            "b": 20
+          }
+        }
+      }
+    }
+  }
+}

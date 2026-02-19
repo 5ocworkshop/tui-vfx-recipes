@@ -1,0 +1,109 @@
+{
+  "schema_version": 1,
+  "id": "debug.complex.layered_shaders",
+  "title": "Debug: Multiple Style Layers with Different Shaders",
+  "description": "Tests multiple style layers with different shaders on different regions",
+  "version": "1.0.0",
+  "last_updated": "2025-12-30",
+  "config": {
+    "message": "MULTI-LAYER SHADER TEST",
+    "layout": {
+      "width": 50,
+      "height": 5,
+      "anchor": "center"
+    },
+    "lifecycle": {
+      "auto_dismiss_ms": 8000
+    },
+    "border": {
+      "type": "double",
+      "trim": "none"
+    },
+    "pipeline": {
+      "enter": {
+        "duration_ms": 1500,
+        "easing": "quad_out"
+      },
+      "exit": {
+        "duration_ms": 1000,
+        "easing": "linear"
+      },
+      "mask": {
+        "enter": {
+          "type": "iris",
+          "shape": "circle",
+          "soft_edge": true
+        },
+        "exit": {
+          "type": "none"
+        }
+      },
+      "sampler": {
+        "enter": {
+          "type": "none"
+        },
+        "exit": {
+          "type": "none"
+        }
+      },
+      "filter": {
+        "enter": {
+          "type": "none"
+        },
+        "exit": {
+          "type": "none"
+        }
+      },
+      "styles": [
+        {
+          "region": "BorderOnly",
+          "base_style": {
+            "foreground": {
+              "type": "cyan"
+            },
+            "background": {
+              "type": "rgb",
+              "r": 20,
+              "g": 40,
+              "b": 60
+            }
+          },
+          "spatial_shader": {
+            "type": "border_sweep",
+            "color": {
+              "r": 255,
+              "g": 200,
+              "b": 100
+            },
+            "length": 10,
+            "speed": 1.5
+          }
+        },
+        {
+          "region": "TextOnly",
+          "base_style": {
+            "foreground": {
+              "type": "white"
+            },
+            "background": {
+              "type": "reset"
+            }
+          },
+          "spatial_shader": {
+            "type": "pulse_wave",
+            "color": {
+              "type": "rgb",
+              "r": 150,
+              "g": 220,
+              "b": 255
+            },
+            "frequency": 0.5,
+            "speed": 1.0,
+            "wavelength": 10,
+            "direction": "horizontal"
+          }
+        }
+      ]
+    }
+  }
+}

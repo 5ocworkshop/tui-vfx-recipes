@@ -1,0 +1,115 @@
+{
+  "schema_version": 1,
+  "id": "modern.gloss_highlight_sweep",
+  "title": "Gloss Highlight Sweep",
+  "description": "Animated specular highlight sweep that makes surfaces feel 'polished'. A thin bright band sweeps across, creating that premium glass/metal UI feel without real gradients.",
+  "version": "1.0.0",
+  "last_updated": "2026-01-20",
+  "config": {
+    "message": "╭────────────────────────────────────╮\n│                                    │\n│     Premium Glossy Surface         │\n│                                    │\n│     Watch the highlight sweep      │\n│                                    │\n╰────────────────────────────────────╯",
+    "layout": {
+      "width": 40,
+      "height": 9,
+      "anchor": "center"
+    },
+    "lifecycle": {
+      "auto_dismiss_ms": 10000
+    },
+    "border": {
+      "type": "none"
+    },
+    "time": {
+      "loop": true,
+      "loop_period_ms": 3000
+    },
+    "pipeline": {
+      "enter": {
+        "duration_ms": 500,
+        "easing": "expo_out"
+      },
+      "exit": {
+        "duration_ms": 400,
+        "easing": "quad_in"
+      },
+      "mask": {
+        "enter": {
+          "type": "wipe",
+          "reveal": "left_to_right",
+          "soft_edge": true
+        },
+        "exit": {
+          "type": "dissolve",
+          "seed": 42,
+          "chunk_size": 2
+        }
+      },
+      "sampler": {
+        "enter": {
+          "type": "none"
+        },
+        "exit": {
+          "type": "none"
+        }
+      },
+      "filter": {
+        "enter": {
+          "type": "none"
+        },
+        "exit": {
+          "type": "none"
+        }
+      },
+      "style": {
+        "region": "All",
+        "base_style": {
+          "foreground": {
+            "type": "rgb",
+            "r": 220,
+            "g": 225,
+            "b": 240
+          },
+          "background": {
+            "type": "rgb",
+            "r": 40,
+            "g": 50,
+            "b": 70
+          }
+        },
+        "enter_effect": {
+          "type": "fade_in",
+          "apply_to": "both",
+          "ease": "ExpoOut"
+        },
+        "dwell_effect": {
+          "type": "spatial",
+          "shader": {
+            "type": "glisten_band",
+            "speed": 0.5,
+            "band_width": 4,
+            "angle_deg": 25.0,
+            "head": {
+              "type": "rgb",
+              "r": 255,
+              "g": 255,
+              "b": 255
+            },
+            "tail": {
+              "type": "rgb",
+              "r": 180,
+              "g": 190,
+              "b": 210
+            },
+            "direction": "forward",
+            "apply_to": "foreground",
+            "blend_strength": 0.9
+          }
+        },
+        "exit_effect": {
+          "type": "fade_out",
+          "apply_to": "both",
+          "ease": "QuadIn"
+        }
+      }
+    }
+  }
+}

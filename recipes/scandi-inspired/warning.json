@@ -1,0 +1,107 @@
+{
+  "schema_version": 1,
+  "id": "scandi.warning",
+  "title": "Warning",
+  "description": "Measured caution. Amber ochre with deliberate arc, pulse shader draws the eye without alarm.",
+  "version": "2.0.0",
+  "last_updated": "2025-12-30",
+  "config": {
+    "message": "Deprecation warning",
+    "layout": {
+      "width": 38,
+      "height": 3,
+      "anchor": "top_right"
+    },
+    "lifecycle": {
+      "auto_dismiss_ms": 7000
+    },
+    "border": {
+      "type": "rounded",
+      "trim": "none"
+    },
+    "pipeline": {
+      "enter": {
+        "duration_ms": 520,
+        "easing": "sine_out",
+        "motion_path": {
+          "type": "arc",
+          "bulge": 0.1
+        },
+        "snapping": {
+          "type": "round"
+        }
+      },
+      "exit": {
+        "duration_ms": 400,
+        "easing": "sine_in",
+        "snapping": {
+          "type": "round"
+        }
+      },
+      "mask": {
+        "enter": {
+          "type": "none"
+        },
+        "exit": {
+          "type": "none"
+        }
+      },
+      "sampler": {
+        "enter": {
+          "type": "none"
+        },
+        "exit": {
+          "type": "none"
+        }
+      },
+      "filter": {
+        "enter": {
+          "type": "none"
+        },
+        "exit": {
+          "type": "none"
+        }
+      },
+      "style": {
+        "region": "All",
+        "base_style": {
+          "foreground": {
+            "type": "rgb",
+            "r": 42,
+            "g": 38,
+            "b": 35
+          },
+          "background": {
+            "type": "rgb",
+            "r": 196,
+            "g": 149,
+            "b": 74
+          },
+          "added_modifiers": [],
+          "removed_modifiers": []
+        },
+        "enter_effect": {
+          "type": "spatial",
+          "shader": {
+            "type": "pulse_wave",
+            "frequency": 0.8,
+            "speed": 0.4,
+            "color": {
+              "type": "rgb",
+              "r": 220,
+              "g": 180,
+              "b": 100
+            },
+            "direction": "horizontal",
+            "wavelength": 20.0
+          }
+        },
+        "exit_effect": {
+          "type": "fade_out",
+          "apply_to": "both",
+          "ease": "SineOut"
+        }
+      }
+    }
+  }
+}

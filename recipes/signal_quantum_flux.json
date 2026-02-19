@@ -1,0 +1,131 @@
+{
+  "schema_version": 1,
+  "id": "notifications.signal_quantum_flux",
+  "title": "Quantum Flux",
+  "description": "Sci-Fi portal effect with complex evolving motion via frequency modulation",
+  "version": "1.0.0",
+  "last_updated": "2025-12-24",
+  "config": {
+    "message": "Quantum Anomaly Detected",
+    "layout": {
+      "mode": "fixed",
+      "width": 42,
+      "height": 6,
+      "anchor": "center"
+    },
+    "lifecycle": {
+      "auto_dismiss_ms": 0
+    },
+    "time": {
+      "loop": true,
+      "loop_period_ms": 2000
+    },
+    "border": {
+      "type": "rounded",
+      "padding": {
+        "top": 1,
+        "right": 2,
+        "bottom": 1,
+        "left": 2
+      }
+    },
+    "pipeline": {
+      "enter": {
+        "duration_ms": 400,
+        "easing": "cubic_out",
+        "motion_path": {
+          "type": "linear"
+        },
+        "from": {
+          "type": "offscreen",
+          "direction": "from_left",
+          "margin_cells": 2
+        }
+      },
+      "exit": {
+        "duration_ms": 400,
+        "easing": "cubic_in",
+        "motion_path": {
+          "type": "linear"
+        }
+      },
+      "mask": {
+        "enter": {
+          "type": "none"
+        },
+        "dwell": {
+          "type": "none"
+        },
+        "exit": {
+          "type": "none"
+        }
+      },
+      "sampler": {
+        "enter": {
+          "type": "none"
+        },
+        "dwell": {
+          "type": "ripple",
+          "amplitude": {
+            "type": "frequency_mod",
+            "carrier": {
+              "type": "sine",
+              "frequency": 1.0,
+              "amplitude": 2.0,
+              "offset": 0.0,
+              "phase": 0.0
+            },
+            "modulator": {
+              "type": "sine",
+              "frequency": 3.7,
+              "amplitude": 1.0,
+              "offset": 0.0,
+              "phase": 0.0
+            },
+            "depth": 2.0,
+            "carrier_freq": 1.0
+          },
+          "wavelength": 6.0,
+          "speed": 1.5,
+          "center": "center"
+        },
+        "exit": {
+          "type": "none"
+        }
+      },
+      "filter": {
+        "enter": {
+          "type": "none"
+        },
+        "dwell": {
+          "type": "none"
+        },
+        "exit": {
+          "type": "none"
+        }
+      },
+      "style": {
+        "region": "All",
+        "base_style": {
+          "foreground": {
+            "type": "rgb",
+            "r": 0,
+            "g": 200,
+            "b": 255
+          },
+          "background": {
+            "type": "rgb",
+            "r": 100,
+            "g": 0,
+            "b": 100
+          },
+          "added_modifiers": [
+            "bold",
+            "italic"
+          ],
+          "removed_modifiers": []
+        }
+      }
+    }
+  }
+}

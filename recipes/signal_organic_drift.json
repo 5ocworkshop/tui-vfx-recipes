@@ -1,0 +1,118 @@
+{
+  "schema_version": 1,
+  "id": "notifications.signal_organic_drift",
+  "title": "Organic Drift",
+  "description": "Message drifts organically like floating in water with smooth Perlin noise motion",
+  "version": "1.0.0",
+  "last_updated": "2025-12-24",
+  "config": {
+    "message": "Gentle reminder...",
+    "layout": {
+      "mode": "fixed",
+      "width": 38,
+      "height": 4,
+      "anchor": "center"
+    },
+    "lifecycle": {
+      "auto_dismiss_ms": 0
+    },
+    "time": {
+      "loop": true,
+      "loop_period_ms": 4000
+    },
+    "border": {
+      "type": "rounded",
+      "padding": {
+        "top": 0,
+        "right": 1,
+        "bottom": 0,
+        "left": 1
+      }
+    },
+    "pipeline": {
+      "enter": {
+        "duration_ms": 500,
+        "easing": "quad_out",
+        "motion_path": {
+          "type": "linear"
+        },
+        "from": {
+          "type": "offscreen",
+          "direction": "from_right",
+          "margin_cells": 1
+        }
+      },
+      "exit": {
+        "duration_ms": 400,
+        "easing": "quad_in",
+        "motion_path": {
+          "type": "linear"
+        }
+      },
+      "mask": {
+        "enter": {
+          "type": "none"
+        },
+        "dwell": {
+          "type": "none"
+        },
+        "exit": {
+          "type": "none"
+        }
+      },
+      "sampler": {
+        "enter": {
+          "type": "none"
+        },
+        "dwell": {
+          "type": "sine_wave",
+          "axis": "y",
+          "amplitude": {
+            "type": "perlin",
+            "scale": 0.5,
+            "amplitude": 2.5,
+            "seed": 98765,
+            "octaves": 3,
+            "persistence": 0.5
+          },
+          "frequency": 0.3,
+          "speed": 0.8,
+          "phase": 0.0
+        },
+        "exit": {
+          "type": "none"
+        }
+      },
+      "filter": {
+        "enter": {
+          "type": "none"
+        },
+        "dwell": {
+          "type": "none"
+        },
+        "exit": {
+          "type": "none"
+        }
+      },
+      "style": {
+        "region": "All",
+        "base_style": {
+          "foreground": {
+            "type": "rgb",
+            "r": 150,
+            "g": 200,
+            "b": 180
+          },
+          "background": {
+            "type": "rgb",
+            "r": 30,
+            "g": 50,
+            "b": 50
+          },
+          "added_modifiers": [],
+          "removed_modifiers": []
+        }
+      }
+    }
+  }
+}

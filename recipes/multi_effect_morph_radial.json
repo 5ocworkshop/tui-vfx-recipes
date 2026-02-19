@@ -1,0 +1,70 @@
+{
+  "schema_version": 1,
+  "id": "showcase.multi_effect_morph_radial",
+  "title": "Multi-Effect: Morph + Radial",
+  "description": "Combines text Morph content transformer with Radial mask reveal",
+  "version": "1.0.0",
+  "last_updated": "2025-12-26",
+  "config": {
+    "message": "MORPHED TARGET",
+    "layout": {
+      "anchor": "bottom_right",
+      "width": 26,
+      "height": 4
+    },
+    "lifecycle": {
+      "auto_dismiss_ms": 5000
+    },
+    "border": {
+      "type": "double"
+    },
+    "content": {
+      "mode": "enter_only",
+      "effect": {
+        "type": "morph",
+        "source": "INITIAL SOURCE",
+        "progression": "scatter",
+        "direction": "simultaneous",
+        "seed": 999
+      }
+    },
+    "pipeline": {
+      "enter": {
+        "duration_ms": 1800,
+        "easing": "cubic_out"
+      },
+      "exit": {
+        "duration_ms": 500,
+        "easing": "cubic_in"
+      },
+      "mask": {
+        "enter": {
+          "type": "radial",
+          "origin": {
+            "type": "top_left"
+          },
+          "soft_edge": true
+        },
+        "exit": {
+          "type": "cellular",
+          "pattern": "organic",
+          "seed": 123,
+          "cell_count": 12
+        }
+      },
+      "style": {
+        "base_style": {
+          "foreground": {
+            "type": "light_yellow"
+          },
+          "background": {
+            "type": "rgb",
+            "r": 40,
+            "g": 30,
+            "b": 10
+          }
+        }
+      }
+    }
+  }
+}

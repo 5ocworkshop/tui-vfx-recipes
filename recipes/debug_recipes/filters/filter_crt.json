@@ -1,0 +1,83 @@
+{
+  "schema_version": 1,
+  "id": "debug.filter.crt",
+  "title": "Debug: Filter - CRT",
+  "description": "Tests CRT filter with scanline_strength and glow parameters",
+  "version": "1.0.0",
+  "last_updated": "2025-12-30",
+  "config": {
+    "message": "FILTER TEST: CRT Effect",
+    "layout": {
+      "width": 40,
+      "height": 5,
+      "anchor": "center"
+    },
+    "lifecycle": {
+      "auto_dismiss_ms": 5000
+    },
+    "border": {
+      "type": "double",
+      "trim": "none"
+    },
+    "pipeline": {
+      "enter": {
+        "duration_ms": 2000,
+        "easing": "linear"
+      },
+      "exit": {
+        "duration_ms": 1000,
+        "easing": "linear"
+      },
+      "mask": {
+        "enter": {
+          "type": "none"
+        },
+        "exit": {
+          "type": "none"
+        }
+      },
+      "sampler": {
+        "enter": {
+          "type": "none"
+        },
+        "exit": {
+          "type": "none"
+        }
+      },
+      "filter": {
+        "enter": {
+          "type": "crt",
+          "scanline_strength": 0.0,
+          "glow": 0.1
+        },
+        "dwell": {
+          "type": "crt",
+          "scanline_strength": 0.0,
+          "glow": 0.15
+        },
+        "exit": {
+          "type": "crt",
+          "scanline_strength": 0.0,
+          "glow": 0.2
+        }
+      },
+      "style": {
+        "region": "All",
+        "base_style": {
+          "foreground": {
+            "type": "rgb",
+            "r": 0,
+            "g": 255,
+            "b": 100
+          },
+          "background": {
+            "type": "rgb",
+            "r": 5,
+            "g": 15,
+            "b": 10
+          }
+        }
+      }
+    }
+  }
+}

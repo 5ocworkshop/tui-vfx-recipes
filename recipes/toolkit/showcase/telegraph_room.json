@@ -1,0 +1,116 @@
+{
+  "schema_version": 1,
+  "id": "toolkit.showcase.telegraph_room",
+  "title": "Telegraph Room",
+  "description": "A smoky comms room: a ticker types, the line jitters, neon sputters, and the whole thing dissolves into blackout.",
+  "version": "0.1.0",
+  "last_updated": "2025-12-23",
+  "config": {
+    "message": "TELEGRAPH\n— incoming —",
+    "layout": {
+      "width": 32,
+      "height": 5,
+      "anchor": "top_center"
+    },
+    "lifecycle": {
+      "auto_dismiss_ms": 15000
+    },
+    "border": {
+      "type": "plain",
+      "trim": "none"
+    },
+    "content": {
+      "mode": "loop",
+      "effect": {
+        "type": "typewriter",
+        "speed_variance": 0.2
+      }
+    },
+    "pipeline": {
+      "enter": {
+        "duration_ms": 1800,
+        "easing": "linear",
+        "snapping": {
+          "type": "round"
+        }
+      },
+      "exit": {
+        "duration_ms": 1200,
+        "easing": "cubic_in",
+        "snapping": {
+          "type": "round"
+        }
+      },
+      "mask": {
+        "enter": {
+          "type": "wipe",
+          "direction": "left_to_right",
+          "soft_edge": false
+        },
+        "exit": {
+          "type": "dissolve",
+          "seed": 222,
+          "chunk_size": 1
+        }
+      },
+      "sampler": {
+        "enter": {
+          "type": "crt_jitter",
+          "intensity": 2.6,
+          "speed_hz": 28.0,
+          "decay_ms": 1600
+        },
+        "exit": {
+          "type": "sine_wave",
+          "axis": "x",
+          "amplitude": 1.0,
+          "frequency": 0.3,
+          "speed": 2.0,
+          "phase": 0.0
+        }
+      },
+      "filter": {
+        "enter": {
+          "type": "crt",
+          "scanline_strength": 0.4,
+          "glow": 0.3
+        },
+        "exit": {
+          "type": "vignette",
+          "strength": 0.9,
+          "radius": 0.25
+        }
+      },
+      "style": {
+        "region": "All",
+        "base_style": {
+          "foreground": {
+            "type": "rgb",
+            "r": 255,
+            "g": 240,
+            "b": 210
+          },
+          "background": {
+            "type": "rgb",
+            "r": 20,
+            "g": 10,
+            "b": 5
+          },
+          "added_modifiers": [
+            "italic"
+          ],
+          "removed_modifiers": []
+        },
+        "enter_effect": {
+          "type": "neon_flicker",
+          "stability": 0.65
+        },
+        "exit_effect": {
+          "type": "glitch",
+          "seed": 222,
+          "intensity": 0.5
+        }
+      }
+    }
+  }
+}

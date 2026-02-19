@@ -1,0 +1,55 @@
+{
+  "schema_version": 1,
+  "id": "showcase.effect_parity_morph_braille_reveal",
+  "title": "Morph Braille Reveal",
+  "description": "All cells cycle through braille dots (⠀→⣿) simultaneously to reveal text",
+  "version": "1.0.0",
+  "last_updated": "2025-12-26",
+  "config": {
+    "message": "BRAILLE REVEAL",
+    "layout": {
+      "anchor": "bottom_right",
+      "width": 22,
+      "height": 4
+    },
+    "lifecycle": {
+      "auto_dismiss_ms": 5000
+    },
+    "border": {
+      "type": "double"
+    },
+    "content": {
+      "mode": "enter_only",
+      "effect": {
+        "type": "morph",
+        "source": "",
+        "progression": "braille_reveal",
+        "direction": "simultaneous",
+        "seed": 123
+      }
+    },
+    "pipeline": {
+      "enter": {
+        "duration_ms": 2500,
+        "easing": "linear"
+      },
+      "exit": {
+        "duration_ms": 400,
+        "easing": "cubic_in"
+      },
+      "style": {
+        "base_style": {
+          "foreground": {
+            "type": "white"
+          },
+          "background": {
+            "type": "rgb",
+            "r": 20,
+            "g": 20,
+            "b": 30
+          }
+        }
+      }
+    }
+  }
+}

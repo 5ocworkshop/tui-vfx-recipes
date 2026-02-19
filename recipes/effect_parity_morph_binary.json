@@ -1,0 +1,52 @@
+{
+  "schema_version": 1,
+  "id": "showcase.effect_parity_morph_binary",
+  "title": "Morph Binary Digits",
+  "description": "Text morphs showing flickering binary digits (0/1) during transition",
+  "version": "1.0.0",
+  "last_updated": "2025-12-26",
+  "config": {
+    "message": "DECRYPTED",
+    "layout": {
+      "anchor": "bottom_right",
+      "width": 22,
+      "height": 4
+    },
+    "lifecycle": {
+      "auto_dismiss_ms": 6000
+    },
+    "border": {
+      "type": "double"
+    },
+    "content": {
+      "mode": "enter_only",
+      "effect": {
+        "type": "morph",
+        "source": "ENCRYPTED",
+        "progression": "binary",
+        "direction": "left_to_right",
+        "seed": 1337
+      }
+    },
+    "pipeline": {
+      "enter": {
+        "duration_ms": 2500,
+        "easing": "linear"
+      },
+      "exit": {
+        "duration_ms": 400,
+        "easing": "cubic_in"
+      },
+      "style": {
+        "base_style": {
+          "foreground": {
+            "type": "light_green"
+          },
+          "background": {
+            "type": "black"
+          }
+        }
+      }
+    }
+  }
+}

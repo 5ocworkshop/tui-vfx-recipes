@@ -1,0 +1,110 @@
+{
+  "schema_version": 1,
+  "id": "midcentury.warning",
+  "title": "Warning",
+  "description": "Atomic caution. Mustard yellow with pulsing text, playful but pointed.",
+  "version": "1.0.0",
+  "last_updated": "2025-12-31",
+  "config": {
+    "message": "Deprecation warning",
+    "layout": {
+      "width": 40,
+      "height": 3,
+      "anchor": "top_right"
+    },
+    "lifecycle": {
+      "auto_dismiss_ms": 7000
+    },
+    "border": {
+      "type": "rounded",
+      "trim": "none",
+      "title": "⚠ CAUTION",
+      "title_position": "top",
+      "title_alignment": "center"
+    },
+    "pipeline": {
+      "enter": {
+        "duration_ms": 500,
+        "easing": "elastic_out",
+        "motion_path": {
+          "type": "arc",
+          "bulge": 0.12
+        },
+        "snapping": {
+          "type": "round"
+        }
+      },
+      "exit": {
+        "duration_ms": 400,
+        "easing": "sine_in",
+        "snapping": {
+          "type": "round"
+        }
+      },
+      "mask": {
+        "enter": {
+          "type": "none"
+        },
+        "exit": {
+          "type": "none"
+        }
+      },
+      "sampler": {
+        "enter": {
+          "type": "none"
+        },
+        "exit": {
+          "type": "none"
+        }
+      },
+      "filter": {
+        "enter": {
+          "type": "none"
+        },
+        "exit": {
+          "type": "none"
+        }
+      },
+      "style": {
+        "region": "All",
+        "base_style": {
+          "foreground": {
+            "type": "rgb",
+            "r": 45,
+            "g": 35,
+            "b": 20
+          },
+          "background": {
+            "type": "rgb",
+            "r": 218,
+            "g": 165,
+            "b": 32
+          },
+          "added_modifiers": [],
+          "removed_modifiers": []
+        },
+        "enter_effect": {
+          "type": "spatial",
+          "shader": {
+            "type": "pulse_wave",
+            "frequency": 1.0,
+            "speed": 0.4,
+            "color": {
+              "type": "rgb",
+              "r": 255,
+              "g": 200,
+              "b": 80
+            },
+            "direction": "horizontal",
+            "wavelength": 15.0
+          }
+        },
+        "exit_effect": {
+          "type": "fade_out",
+          "apply_to": "both",
+          "ease": "SineOut"
+        }
+      }
+    }
+  }
+}

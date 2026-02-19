@@ -1,0 +1,15 @@
+{
+  "schema_version": 1,
+  "id": "wargames.outcome.01_kill_ratios",
+  "title": "Outcome 01 - Military Kill Ratios",
+  "description": "Projected kill ratios - United States vs Military Forces comparison",
+  "version": "1.0.0",
+  "last_updated": "2025-12-25",
+  "extends": "themes/new_wopr_fullscreen_cyan.json",
+  "config": {
+    "message": "OF COURSE. I SHOULD REACH DEFCON 1 AND\nLAUNCH MY MISSILES IN 28 HOURS.\n\nWOULD YOU LIKE TO SEE SOME PROJECTED KILL RATIOS?\n\nUNITED STATES\nUNITS DESTROYED                MILITARY FORCES\n\nEBT                            BOMBERS\nENT                            ICBM'S",
+    "lifecycle": {
+      "auto_dismiss_ms": 0
+    }
+  }
+}

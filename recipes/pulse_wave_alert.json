@@ -1,0 +1,100 @@
+{
+  "schema_version": 1,
+  "id": "notifications.pulse_wave_alert",
+  "title": "Pulse Wave Alert",
+  "description": "Rippling color waves that emanate across the notification",
+  "version": "1.0.0",
+  "last_updated": "2025-12-20",
+  "config": {
+    "message": "⚠ SYSTEM ALERT: Activity detected in sector 7",
+    "layout": {
+      "width": 48,
+      "height": 3,
+      "anchor": "bottom_center"
+    },
+    "lifecycle": {
+      "auto_dismiss_ms": 6000
+    },
+    "border": {
+      "type": "rounded",
+      "trim": "none"
+    },
+    "pipeline": {
+      "enter": {
+        "duration_ms": 600,
+        "easing": "quad_out",
+        "snapping": {
+          "type": "round"
+        }
+      },
+      "exit": {
+        "duration_ms": 400,
+        "easing": "quad_in",
+        "snapping": {
+          "type": "round"
+        }
+      },
+      "mask": {
+        "enter": {
+          "type": "none"
+        },
+        "exit": {
+          "type": "none"
+        }
+      },
+      "sampler": {
+        "enter": {
+          "type": "none"
+        },
+        "exit": {
+          "type": "none"
+        }
+      },
+      "filter": {
+        "enter": {
+          "type": "none"
+        },
+        "exit": {
+          "type": "none"
+        }
+      },
+      "style": {
+        "region": "All",
+        "base_style": {
+          "foreground": {
+            "type": "light_yellow"
+          },
+          "background": {
+            "type": "rgb",
+            "r": 30,
+            "g": 20,
+            "b": 0
+          },
+          "added_modifiers": [],
+          "removed_modifiers": []
+        },
+        "enter_effect": {
+          "type": "spatial",
+          "shader": {
+            "type": "pulse_wave",
+            "frequency": 2.0,
+            "speed": 1.5,
+            "color": {
+              "type": "red"
+            },
+            "direction": "radial",
+            "wavelength": 6.0
+          }
+        },
+        "exit_effect": {
+          "type": "fade_out",
+          "apply_to": "both",
+          "ease": "Linear"
+        }
+      }
+    },
+    "requires_primitives": [
+      "shader.pulse_wave"
+    ]
+  }
+}

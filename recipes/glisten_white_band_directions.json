@@ -1,0 +1,114 @@
+{
+  "schema_version": 1,
+  "id": "notifications.glisten_white_band_directions",
+  "title": "Glisten White Band Directions",
+  "description": "Demonstrates GlistenBand shader with 45-degree angle sweep and white glisten over yellow text for clean notification styling.",
+  "version": "1.0.0",
+  "last_updated": "2025-12-25",
+  "config": {
+    "message": "PREMIUM EFFECT ENABLED - WHITE GLISTEN",
+    "layout": {
+      "width": 45,
+      "height": 5,
+      "anchor": "top_right"
+    },
+    "lifecycle": {
+      "auto_dismiss_ms": 8000
+    },
+    "border": {
+      "type": "rounded",
+      "trim": "none"
+    },
+    "pipeline": {
+      "enter": {
+        "duration_ms": 1000,
+        "easing": "quad_out",
+        "snapping": {
+          "type": "round"
+        }
+      },
+      "exit": {
+        "duration_ms": 800,
+        "easing": "quad_in",
+        "snapping": {
+          "type": "round"
+        }
+      },
+      "mask": {
+        "enter": {
+          "type": "none"
+        },
+        "exit": {
+          "type": "none"
+        }
+      },
+      "sampler": {
+        "enter": {
+          "type": "none"
+        },
+        "exit": {
+          "type": "none"
+        }
+      },
+      "filter": {
+        "enter": {
+          "type": "none"
+        },
+        "exit": {
+          "type": "none"
+        }
+      },
+      "style": {
+        "region": "All",
+        "base_style": {
+          "foreground": {
+            "type": "light_yellow"
+          },
+          "background": {
+            "type": "rgb",
+            "r": 20,
+            "g": 20,
+            "b": 10
+          },
+          "added_modifiers": [
+            "bold"
+          ],
+          "removed_modifiers": []
+        },
+        "enter_effect": {
+          "type": "spatial",
+          "shader": {
+            "type": "glisten_band",
+            "speed": 3.0,
+            "band_width": 8,
+            "angle_deg": 45.0,
+            "head": {
+              "type": "rgb",
+              "r": 255,
+              "g": 255,
+              "b": 255
+            },
+            "tail": {
+              "type": "rgb",
+              "r": 220,
+              "g": 220,
+              "b": 220
+            },
+            "direction": "forward",
+            "repeat_count": 0,
+            "apply_to": "foreground",
+            "blend_strength": 0.8
+          }
+        },
+        "exit_effect": {
+          "type": "fade_out",
+          "apply_to": "both",
+          "ease": "Linear"
+        }
+      }
+    },
+    "requires_primitives": [
+      "shader.glisten_band"
+    ]
+  }
+}

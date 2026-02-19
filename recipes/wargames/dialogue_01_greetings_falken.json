@@ -1,0 +1,15 @@
+{
+  "schema_version": 1,
+  "id": "wargames.dialogue.01_greetings_falken",
+  "title": "Dialogue 01 - Greetings Professor Falken",
+  "description": "WOPR mistakes user for Professor Falken - computer greeting",
+  "version": "1.0.0",
+  "last_updated": "2025-12-25",
+  "extends": "themes/new_wopr_fullscreen_cyan.json",
+  "config": {
+    "message": "GREETINGS PROFESSOR FALKEN.\n\nHello.\n\nHOW ARE YOU FEELING TODAY?",
+    "lifecycle": {
+      "auto_dismiss_ms": 0
+    }
+  }
+}

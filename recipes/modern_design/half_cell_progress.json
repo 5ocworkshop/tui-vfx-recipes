@@ -1,0 +1,98 @@
+{
+  "schema_version": 1,
+  "id": "modern.half_cell_progress",
+  "title": "Half-Cell Progress Bar",
+  "description": "Progress bar using fractional blocks for smooth sub-cell animation. Uses ▏▎▍▌▋▊▉█ sequence for 8 steps per cell - feels like real progress not jumping.",
+  "version": "1.0.0",
+  "last_updated": "2026-01-20",
+  "config": {
+    "message": "╭─────────────────────────────────╮\n│     Loading Resources...        │\n│                                 │\n│ ▕▏▎▍▌▋▊▉████████████████░░░░░░▏│\n│                                 │\n│     Progress: Smooth!           │\n╰─────────────────────────────────╯",
+    "layout": {
+      "width": 37,
+      "height": 9,
+      "anchor": "center"
+    },
+    "lifecycle": {
+      "auto_dismiss_ms": 8000
+    },
+    "border": {
+      "type": "none"
+    },
+    "time": {
+      "loop": true,
+      "loop_period_ms": 2000
+    },
+    "pipeline": {
+      "enter": {
+        "duration_ms": 400,
+        "easing": "quad_out"
+      },
+      "exit": {
+        "duration_ms": 300,
+        "easing": "quad_in"
+      },
+      "mask": {
+        "enter": {
+          "type": "wipe",
+          "reveal": "left_to_right",
+          "soft_edge": true
+        },
+        "exit": {
+          "type": "wipe",
+          "hide": "right_to_left",
+          "soft_edge": true
+        }
+      },
+      "sampler": {
+        "enter": {
+          "type": "none"
+        },
+        "exit": {
+          "type": "none"
+        }
+      },
+      "filter": {
+        "enter": {
+          "type": "none"
+        },
+        "exit": {
+          "type": "none"
+        }
+      },
+      "style": {
+        "region": "All",
+        "base_style": {
+          "foreground": {
+            "type": "rgb",
+            "r": 100,
+            "g": 200,
+            "b": 120
+          },
+          "background": {
+            "type": "rgb",
+            "r": 20,
+            "g": 35,
+            "b": 25
+          }
+        },
+        "enter_effect": {
+          "type": "fade_in",
+          "apply_to": "both",
+          "ease": "QuadOut"
+        },
+        "dwell_effect": {
+          "type": "spatial",
+          "shader": {
+            "type": "reveal_wipe",
+            "direction": "left_to_right"
+          }
+        },
+        "exit_effect": {
+          "type": "fade_out",
+          "apply_to": "both",
+          "ease": "QuadIn"
+        }
+      }
+    }
+  }
+}

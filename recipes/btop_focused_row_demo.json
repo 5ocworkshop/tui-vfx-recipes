@@ -1,0 +1,64 @@
+{
+  "schema_version": 1,
+  "id": "showcase.btop_focused_row",
+  "title": "btop Focused Row",
+  "description": "btop-inspired focused row gradient - highlights a selected row with symmetrical falloff",
+  "version": "1.3.0",
+  "last_updated": "2025-12-26",
+  "config": {
+    "message": "  1. First item\n  2. Second item\n  3. Third item\n> 4. SELECTED <\n  5. Fifth item\n  6. Sixth item\n  7. Seventh item\n  8. Eighth item\n  9. Ninth item\n 10. Tenth item",
+    "layout": {
+      "width": 22,
+      "height": 12,
+      "anchor": "center"
+    },
+    "lifecycle": {
+      "auto_dismiss_ms": 8000
+    },
+    "border": {
+      "type": "rounded",
+      "trim": "none"
+    },
+    "pipeline": {
+      "enter": {
+        "duration_ms": 300,
+        "easing": "cubic_out"
+      },
+      "exit": {
+        "duration_ms": 200,
+        "easing": "cubic_in"
+      },
+      "style": {
+        "region": "TextOnly",
+        "base_style": {
+          "foreground": {
+            "r": 180,
+            "g": 180,
+            "b": 180
+          },
+          "background": {
+            "r": 20,
+            "g": 22,
+            "b": 28
+          }
+        },
+        "spatial_shader": {
+          "type": "focused_row_gradient",
+          "selected_row": 4,
+          "falloff_distance": 4,
+          "bright_color": {
+            "r": 255,
+            "g": 255,
+            "b": 255
+          },
+          "dim_color": {
+            "r": 60,
+            "g": 60,
+            "b": 60
+          },
+          "apply_to": "Foreground"
+        }
+      }
+    }
+  }
+}

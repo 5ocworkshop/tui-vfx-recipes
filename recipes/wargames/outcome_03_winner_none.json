@@ -1,0 +1,15 @@
+{
+  "schema_version": 1,
+  "id": "wargames.outcome.03_winner_none",
+  "title": "Outcome 03 - Winner None",
+  "description": "The final lesson - both first strike strategies, winner is none",
+  "version": "1.0.0",
+  "last_updated": "2025-12-25",
+  "extends": "themes/new_wopr_fullscreen_cyan.json",
+  "config": {
+    "message": "WINNER:\n\n\n\nSTRATEGY:\nUSSR FIRST STRIKE                              WINNER:\nU.S. FIRST STRIKE                              NONE",
+    "lifecycle": {
+      "auto_dismiss_ms": 0
+    }
+  }
+}

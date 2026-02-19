@@ -1,0 +1,113 @@
+{
+  "schema_version": 1,
+  "id": "examples.bezier_custom_ease",
+  "title": "Custom Bézier Curve",
+  "description": "Demonstrates custom cubic Bézier curves matching CSS ease (cubic-bezier(0.25, 0.1, 0.25, 1.0)) for brand-specific animation feel",
+  "version": "1.0.0",
+  "last_updated": "2025-12-24",
+  "config": {
+    "message": "🎨 Custom Bézier\n\nUsing CSS cubic-bezier(0.25, 0.1, 0.25, 1.0)\nfor brand-specific animation feel",
+    "layout": {
+      "width": 55,
+      "height": 8,
+      "anchor": "bottom_center"
+    },
+    "lifecycle": {
+      "auto_dismiss_ms": 3000
+    },
+    "border": {
+      "type": "rounded",
+      "trim": "none",
+      "title": "Bézier Curve Demo",
+      "title_position": "top",
+      "title_alignment": "center"
+    },
+    "pipeline": {
+      "enter": {
+        "duration_ms": 500,
+        "easing": {
+          "x1": 0.25,
+          "y1": 0.1,
+          "x2": 0.25,
+          "y2": 1.0
+        },
+        "motion_path": {
+          "type": "linear"
+        },
+        "snapping": {
+          "type": "round"
+        },
+        "from": {
+          "type": "offscreen",
+          "direction": "from_bottom",
+          "margin_cells": 0
+        }
+      },
+      "exit": {
+        "duration_ms": 400,
+        "easing": {
+          "x1": 0.42,
+          "y1": 0.0,
+          "x2": 0.58,
+          "y2": 1.0
+        },
+        "motion_path": {
+          "type": "linear"
+        },
+        "snapping": {
+          "type": "round"
+        },
+        "to": {
+          "type": "offscreen",
+          "direction": "from_bottom",
+          "margin_cells": 0
+        }
+      },
+      "mask": {
+        "enter": {
+          "type": "none"
+        },
+        "exit": {
+          "type": "none"
+        }
+      },
+      "sampler": {
+        "enter": {
+          "type": "none"
+        },
+        "exit": {
+          "type": "none"
+        }
+      },
+      "filter": {
+        "enter": {
+          "type": "none"
+        },
+        "exit": {
+          "type": "none"
+        }
+      },
+      "style": {
+        "region": "All",
+        "base_style": {
+          "foreground": {
+            "type": "rgb",
+            "r": 240,
+            "g": 240,
+            "b": 240
+          },
+          "background": {
+            "type": "rgb",
+            "r": 40,
+            "g": 40,
+            "b": 40
+          },
+          "added_modifiers": [
+            "Bold"
+          ],
+          "removed_modifiers": []
+        }
+      }
+    }
+  }
+}

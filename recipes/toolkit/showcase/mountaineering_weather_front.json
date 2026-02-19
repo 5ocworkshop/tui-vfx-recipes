@@ -1,0 +1,153 @@
+{
+  "schema_version": 1,
+  "id": "toolkit.showcase.mountaineering_weather_front",
+  "title": "Mountaineering Weather Front",
+  "description": "A weather map as motion design: the front sweeps in via gradient, wind warps the field, and pressure bands drift vertically.",
+  "version": "0.1.0",
+  "last_updated": "2025-12-23",
+  "config": {
+    "message": "WEATHER FRONT\nwinds rising: 38 kt",
+    "layout": {
+      "width": 44,
+      "height": 5,
+      "anchor": "top_left"
+    },
+    "lifecycle": {
+      "auto_dismiss_ms": 15000
+    },
+    "border": {
+      "type": "rounded",
+      "trim": "none"
+    },
+    "content": {
+      "mode": "enter_only"
+    },
+    "pipeline": {
+      "enter": {
+        "duration_ms": 2500,
+        "easing": "quad_in_out",
+        "snapping": {
+          "type": "round"
+        }
+      },
+      "exit": {
+        "duration_ms": 1200,
+        "easing": "cubic_in",
+        "snapping": {
+          "type": "round"
+        }
+      },
+      "mask": {
+        "enter": {
+          "type": "wipe",
+          "direction": "left_to_right",
+          "soft_edge": true
+        },
+        "exit": {
+          "type": "wipe",
+          "direction": "right_to_left",
+          "soft_edge": true
+        }
+      },
+      "sampler": {
+        "enter": {
+          "type": "sine_wave",
+          "axis": "y",
+          "amplitude": 1.2,
+          "frequency": 0.14,
+          "speed": 0.7,
+          "phase": 0.0
+        },
+        "exit": {
+          "type": "ripple",
+          "amplitude": 1.0,
+          "wavelength": 16.0,
+          "speed": 0.6,
+          "center": {
+            "x": 44,
+            "y": 0
+          }
+        }
+      },
+      "filter": {
+        "enter": {
+          "type": "vignette",
+          "strength": 0.25,
+          "radius": 0.9
+        },
+        "exit": {
+          "type": "tint",
+          "color": {
+            "type": "black"
+          },
+          "strength": 0.75,
+          "apply_to": "both"
+        }
+      },
+      "style": {
+        "region": "All",
+        "base_style": {
+          "foreground": {
+            "type": "rgb",
+            "r": 240,
+            "g": 240,
+            "b": 255
+          },
+          "background": {
+            "type": "rgb",
+            "r": 0,
+            "g": 20,
+            "b": 30
+          },
+          "added_modifiers": [
+            "bold"
+          ],
+          "removed_modifiers": []
+        },
+        "enter_effect": {
+          "type": "spatial",
+          "shader": {
+            "type": "linear_gradient",
+            "gradient": {
+              "stops": [
+                [
+                  0.0,
+                  {
+                    "type": "rgb",
+                    "r": 0,
+                    "g": 20,
+                    "b": 30
+                  }
+                ],
+                [
+                  1.0,
+                  {
+                    "type": "rgb",
+                    "r": 120,
+                    "g": 150,
+                    "b": 200
+                  }
+                ]
+              ],
+              "space": "rgb"
+            },
+            "angle_deg": 0.0
+          }
+        },
+        "exit_effect": {
+          "type": "spatial",
+          "shader": {
+            "type": "pulse_wave",
+            "frequency": 1.6,
+            "speed": 1.1,
+            "color": {
+              "type": "light_cyan"
+            },
+            "direction": "vertical",
+            "wavelength": 12.0
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "schema_version": 1,
+  "id": "wargames.sequence.04_catalog_ref",
+  "title": "Sequence 04 - Catalog Reference",
+  "description": "Fourth screen - catalog reference codes with progress bar",
+  "version": "1.0.0",
+  "last_updated": "2025-12-25",
+  "extends": "themes/enhanced_crt_computer.json",
+  "config": {
+    "message": "(311) 70-429\n(311) 94-932\n                                       CAT. REF.\n████████████████════════════════       CRT S3F3J, SURF.3J;\n                                       RT.S3J SR.F3J; SURF.3J;",
+    "lifecycle": {
+      "auto_dismiss_ms": 600
+    }
+  }
+}

@@ -1,0 +1,77 @@
+{
+  "schema_version": 1,
+  "id": "debug.mask.cellular",
+  "title": "Debug: Mask - Cellular",
+  "description": "Tests Cellular mask with voronoi pattern and cell count",
+  "version": "1.0.0",
+  "last_updated": "2025-12-30",
+  "config": {
+    "message": "MASK TEST: Cellular Effect",
+    "layout": {
+      "width": 35,
+      "height": 5,
+      "anchor": "center"
+    },
+    "lifecycle": {
+      "auto_dismiss_ms": 5000
+    },
+    "border": {
+      "type": "rounded",
+      "trim": "none"
+    },
+    "pipeline": {
+      "enter": {
+        "duration_ms": 2500,
+        "easing": "linear"
+      },
+      "exit": {
+        "duration_ms": 1000,
+        "easing": "linear"
+      },
+      "mask": {
+        "enter": {
+          "type": "cellular",
+          "pattern": "voronoi",
+          "seed": 42,
+          "cell_count": 24
+        },
+        "exit": {
+          "type": "cellular",
+          "pattern": "hexagonal",
+          "seed": 99,
+          "cell_count": 16
+        }
+      },
+      "sampler": {
+        "enter": {
+          "type": "none"
+        },
+        "exit": {
+          "type": "none"
+        }
+      },
+      "filter": {
+        "enter": {
+          "type": "none"
+        },
+        "exit": {
+          "type": "none"
+        }
+      },
+      "style": {
+        "region": "All",
+        "base_style": {
+          "foreground": {
+            "type": "light_cyan"
+          },
+          "background": {
+            "type": "rgb",
+            "r": 10,
+            "g": 40,
+            "b": 50
+          }
+        }
+      }
+    }
+  }
+}

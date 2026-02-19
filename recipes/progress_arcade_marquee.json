@@ -1,0 +1,144 @@
+{
+  "schema_version": 1,
+  "id": "progress.arcade_marquee",
+  "title": "Arcade Marquee",
+  "description": "Colorful arcade cabinet style with fast-moving rainbow chase lights.",
+  "version": "1.0.0",
+  "last_updated": "2025-12-29",
+  "config": {
+    "message": "◆ ◇ ◆ ◇ ◆ ◇ ◆ ◇ ◆ ◇ ◆",
+    "layout": {
+      "width": 23,
+      "height": 1,
+      "anchor": "top_center"
+    },
+    "lifecycle": {
+      "auto_dismiss_ms": 0
+    },
+    "time": {
+      "loop": true,
+      "loop_period_ms": 556
+    },
+    "border": {
+      "type": "none",
+      "trim": "none"
+    },
+    "pipeline": {
+      "enter": {
+        "duration_ms": 300,
+        "easing": "quad_out",
+        "snapping": {
+          "type": "round"
+        }
+      },
+      "exit": {
+        "duration_ms": 200,
+        "easing": "quad_in",
+        "snapping": {
+          "type": "round"
+        }
+      },
+      "mask": {
+        "enter": {
+          "type": "none"
+        },
+        "exit": {
+          "type": "none"
+        }
+      },
+      "sampler": {
+        "enter": {
+          "type": "none"
+        },
+        "exit": {
+          "type": "none"
+        }
+      },
+      "filter": {
+        "enter": {
+          "type": "none"
+        },
+        "exit": {
+          "type": "none"
+        }
+      },
+      "style": {
+        "region": "All",
+        "base_style": {
+          "foreground": {
+            "type": "rgb",
+            "r": 255,
+            "g": 100,
+            "b": 200
+          },
+          "background": {
+            "type": "rgb",
+            "r": 20,
+            "g": 0,
+            "b": 30
+          },
+          "added_modifiers": [
+            "bold"
+          ],
+          "removed_modifiers": []
+        },
+        "enter_effect": {
+          "type": "spatial",
+          "shader": {
+            "type": "glisten_band",
+            "speed": 1.8,
+            "band_width": 3,
+            "angle_deg": 0.0,
+            "head": {
+              "type": "rgb",
+              "r": 255,
+              "g": 255,
+              "b": 100
+            },
+            "tail": {
+              "type": "rgb",
+              "r": 100,
+              "g": 255,
+              "b": 255
+            },
+            "direction": "forward",
+            "apply_to": "foreground",
+            "blend_strength": 1.0
+          }
+        },
+        "dwell_effect": {
+          "type": "spatial",
+          "shader": {
+            "type": "glisten_band",
+            "speed": 1.8,
+            "band_width": 3,
+            "angle_deg": 0.0,
+            "head": {
+              "type": "rgb",
+              "r": 255,
+              "g": 255,
+              "b": 100
+            },
+            "tail": {
+              "type": "rgb",
+              "r": 100,
+              "g": 255,
+              "b": 255
+            },
+            "direction": "forward",
+            "apply_to": "foreground",
+            "blend_strength": 1.0
+          }
+        },
+        "exit_effect": {
+          "type": "fade_out",
+          "apply_to": "both",
+          "ease": "Linear"
+        }
+      }
+    },
+    "requires_primitives": [
+      "shader.glisten_band"
+    ]
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "schema_version": 1,
+  "id": "wargames.enhanced.target_data",
+  "title": "Enhanced CRT - Target Coordinates",
+  "description": "Full CRT effect stack - targeting data display",
+  "version": "1.0.0",
+  "last_updated": "2025-12-24",
+  "extends": "themes/enhanced_crt_computer.json",
+  "config": {
+    "message": "PRIMARY TARGETS ACQUIRED\n\nTARGET 001: MOSCOW\nCOORDINATES: 55.45N 37.37E\nPOPULATION: 8,400,000\nSTRATEGIC VALUE: CRITICAL\nALLOCATED WARHEADS: 25\n\nTARGET 002: LENINGRAD\nCOORDINATES: 59.57N 30.19E\nPOPULATION: 4,600,000\nSTRATEGIC VALUE: HIGH\nALLOCATED WARHEADS: 18\n\nTARGET 003: KIEV\nCOORDINATES: 50.27N 30.31E\nPOPULATION: 2,400,000\nSTRATEGIC VALUE: HIGH\nALLOCATED WARHEADS: 12\n\nTARGET 004: MINSK\nCOORDINATES: 53.54N 27.34E\nPOPULATION: 1,400,000\nSTRATEGIC VALUE: MEDIUM\nALLOCATED WARHEADS: 8\n\nTOTAL ESTIMATED CASUALTIES: 75,000,000\n\nPROJECTED RETALIATORY CASUALTIES: 68,000,000\n\nWINNER: NONE",
+    "lifecycle": {
+      "auto_dismiss_ms": 0
+    }
+  }
+}

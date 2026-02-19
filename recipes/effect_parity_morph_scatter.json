@@ -1,0 +1,52 @@
+{
+  "schema_version": 1,
+  "id": "showcase.effect_parity_morph_scatter",
+  "title": "Morph Scatter Pattern",
+  "description": "Text morphs from source with random scatter progression",
+  "version": "1.0.0",
+  "last_updated": "2025-12-26",
+  "config": {
+    "message": "FINAL RESULT",
+    "layout": {
+      "anchor": "bottom_right",
+      "width": 25,
+      "height": 4
+    },
+    "lifecycle": {
+      "auto_dismiss_ms": 5000
+    },
+    "border": {
+      "type": "rounded"
+    },
+    "content": {
+      "mode": "enter_only",
+      "effect": {
+        "type": "morph",
+        "source": "INITIAL TEXT!",
+        "progression": "scatter",
+        "direction": "simultaneous",
+        "seed": 777
+      }
+    },
+    "pipeline": {
+      "enter": {
+        "duration_ms": 2000,
+        "easing": "cubic_out"
+      },
+      "exit": {
+        "duration_ms": 400,
+        "easing": "cubic_in"
+      },
+      "style": {
+        "base_style": {
+          "foreground": {
+            "type": "light_magenta"
+          },
+          "background": {
+            "type": "black"
+          }
+        }
+      }
+    }
+  }
+}

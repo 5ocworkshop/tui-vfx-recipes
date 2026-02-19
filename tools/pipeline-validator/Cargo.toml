@@ -1,0 +1,35 @@
+# <FILE>tools/pipeline-validator/Cargo.toml</FILE> - <DESC>Pipeline validator CLI manifest</DESC>
+# <VERS>VERSION: 0.1.0</VERS>
+# <WCTX>TUI VFX recipes extraction</WCTX>
+# <CLOG>Updated dependencies to use tui-vfx crates</CLOG>
+
+[package]
+name = "pipeline-validator"
+version = "0.1.0"
+edition = "2024"
+rust-version = "1.86.0"
+description = "CLI tool for validating tui-vfx recipes and pipeline"
+
+[lib]
+name = "pipeline_validator"
+path = "src/lib.rs"
+
+[[bin]]
+name = "pipeline-validator"
+path = "src/main.rs"
+
+[dependencies]
+tui-vfx-recipes = { version = "0.2", path = "../.." }
+tui-vfx-compositor = "0.2"
+tui-vfx-style = "0.2"
+tui-vfx-types = "0.2"
+tui-vfx-geometry = "0.2"
+ratatui = "0.30"
+clap = { version = "4", features = ["derive"] }
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+colored = "2"
+toml = "0.8"
+
+# <FILE>tools/pipeline-validator/Cargo.toml</FILE> - <DESC>Pipeline validator CLI manifest</DESC>
+# <VERS>END OF VERSION: 0.1.0</VERS>

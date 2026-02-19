@@ -1,0 +1,123 @@
+{
+  "schema_version": 1,
+  "id": "toolkit.showcase.astronomical_transit",
+  "title": "Astronomical Transit",
+  "description": "A slow celestial moment: a bright ‘eclipse’ sheen crosses the card while the vignette deepens—then gravity pulls it inward.",
+  "version": "0.1.0",
+  "last_updated": "2025-12-23",
+  "config": {
+    "message": "Transit window open\nΔv optimal now",
+    "layout": {
+      "width": 46,
+      "height": 5,
+      "anchor": "middle_right"
+    },
+    "lifecycle": {
+      "auto_dismiss_ms": 15000
+    },
+    "border": {
+      "type": "rounded",
+      "trim": "none"
+    },
+    "content": {
+      "mode": "enter_only",
+      "effect": {
+        "type": "typewriter",
+        "speed_variance": 0.2
+      }
+    },
+    "pipeline": {
+      "enter": {
+        "duration_ms": 2600,
+        "easing": "quad_in_out",
+        "snapping": {
+          "type": "round"
+        }
+      },
+      "exit": {
+        "duration_ms": 1600,
+        "easing": "cubic_in",
+        "snapping": {
+          "type": "round"
+        }
+      },
+      "mask": {
+        "enter": {
+          "type": "iris",
+          "shape": "circle",
+          "soft_edge": true
+        },
+        "exit": {
+          "type": "diamond",
+          "soft_edge": false
+        }
+      },
+      "sampler": {
+        "enter": {
+          "type": "none"
+        },
+        "exit": {
+          "type": "ripple",
+          "amplitude": 1.4,
+          "wavelength": 12.0,
+          "speed": -1.5,
+          "center": "center"
+        }
+      },
+      "filter": {
+        "enter": {
+          "type": "vignette",
+          "strength": 0.65,
+          "radius": 0.65
+        },
+        "exit": {
+          "type": "vignette",
+          "strength": 0.85,
+          "radius": 0.35
+        }
+      },
+      "style": {
+        "region": "All",
+        "base_style": {
+          "foreground": {
+            "type": "rgb",
+            "r": 240,
+            "g": 240,
+            "b": 255
+          },
+          "background": {
+            "type": "rgb",
+            "r": 8,
+            "g": 10,
+            "b": 20
+          },
+          "added_modifiers": [],
+          "removed_modifiers": []
+        },
+        "enter_effect": {
+          "type": "spatial",
+          "shader": {
+            "type": "glisten_band",
+            "speed": 0.5,
+            "band_width": 4,
+            "angle_deg": 0,
+            "head": {
+              "type": "white"
+            },
+            "tail": {
+              "type": "rgb",
+              "r": 80,
+              "g": 120,
+              "b": 200
+            }
+          }
+        },
+        "exit_effect": {
+          "type": "fade_out",
+          "apply_to": "foreground",
+          "ease": "CubicIn"
+        }
+      }
+    }
+  }
+}

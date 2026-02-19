@@ -1,0 +1,115 @@
+{
+  "schema_version": 1,
+  "id": "modern.skeleton_shimmer",
+  "title": "Skeleton Shimmer Loading",
+  "description": "Modern skeleton UI with shimmer effect. Uses dither shades as placeholder content with a glisten band sweep - the 'loading shimmer' pattern from modern web UIs.",
+  "version": "1.0.0",
+  "last_updated": "2026-01-20",
+  "config": {
+    "message": "╭────────────────────────────────╮\n│ ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ │\n│ ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ │\n│                                │\n│ ▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒                │\n│ ░░░░░░░░░░░░░░░░░░░░░░░░░      │\n│ ░░░░░░░░░░░░░░░░░░░            │\n│                                │\n│ ▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒ │\n│ ░░░░░░░░░░░░░░░░░░░░░░░░░░░    │\n╰────────────────────────────────╯",
+    "layout": {
+      "width": 36,
+      "height": 13,
+      "anchor": "center"
+    },
+    "lifecycle": {
+      "auto_dismiss_ms": 8000
+    },
+    "border": {
+      "type": "none"
+    },
+    "time": {
+      "loop": true,
+      "loop_period_ms": 1500
+    },
+    "pipeline": {
+      "enter": {
+        "duration_ms": 400,
+        "easing": "quad_out"
+      },
+      "exit": {
+        "duration_ms": 300,
+        "easing": "quad_in"
+      },
+      "mask": {
+        "enter": {
+          "type": "wipe",
+          "reveal": "left_to_right",
+          "soft_edge": true
+        },
+        "exit": {
+          "type": "dissolve",
+          "seed": 123,
+          "chunk_size": 1
+        }
+      },
+      "sampler": {
+        "enter": {
+          "type": "none"
+        },
+        "exit": {
+          "type": "none"
+        }
+      },
+      "filter": {
+        "enter": {
+          "type": "none"
+        },
+        "exit": {
+          "type": "none"
+        }
+      },
+      "style": {
+        "region": "All",
+        "base_style": {
+          "foreground": {
+            "type": "rgb",
+            "r": 60,
+            "g": 65,
+            "b": 75
+          },
+          "background": {
+            "type": "rgb",
+            "r": 28,
+            "g": 30,
+            "b": 38
+          }
+        },
+        "enter_effect": {
+          "type": "fade_in",
+          "apply_to": "both",
+          "ease": "QuadOut"
+        },
+        "dwell_effect": {
+          "type": "spatial",
+          "shader": {
+            "type": "glisten_band",
+            "speed": 0.7,
+            "band_width": 12,
+            "angle_deg": 15.0,
+            "head": {
+              "type": "rgb",
+              "r": 90,
+              "g": 95,
+              "b": 110
+            },
+            "tail": {
+              "type": "rgb",
+              "r": 55,
+              "g": 60,
+              "b": 70
+            },
+            "direction": "forward",
+            "apply_to": "foreground",
+            "blend_strength": 0.7
+          }
+        },
+        "exit_effect": {
+          "type": "fade_out",
+          "apply_to": "both",
+          "ease": "QuadIn"
+        }
+      }
+    }
+  }
+}

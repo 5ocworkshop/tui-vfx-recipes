@@ -1,0 +1,200 @@
+{
+  "schema_version": 1,
+  "id": "hll.admin_message",
+  "title": "HLL Admin Message",
+  "description": "Hell Let Loose style admin message dialog with CRT effects and vignette",
+  "version": "1.0.0",
+  "config": {
+    "message": "ADMIN MESSAGE ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n\nVote for the nextmap:\nType in the chat !votemap <map number>\nWARFARES:\n[0] Remagen Warfare - 0/0 votes\n[1] Carentan Warfare - 0/0 votes\n[2] El Alamein Warfare - 0/0 votes\n\nTo never see this message again type in the\nchat !votemap never\n\nTo renable type: !votemap allow\n\n\n                                       ▌  YES   [Y]",
+    "layout": {
+      "width": 55,
+      "height": 18,
+      "mode": "fixed",
+      "anchor": "center"
+    },
+    "lifecycle": {
+      "auto_dismiss_ms": 0
+    },
+    "border": {
+      "type": "none",
+      "trim": "none",
+      "padding": {
+        "top": 1,
+        "bottom": 1,
+        "left": 2,
+        "right": 2
+      },
+      "title_position": "top",
+      "title_alignment": "left"
+    },
+    "pipeline": {
+      "animation_type": "expand_collapse",
+      "enter": {
+        "duration_ms": 300,
+        "easing": "ExpoOut",
+        "snapping": {
+          "type": "round"
+        },
+        "rect_scale": {
+          "type": "rect_scale",
+          "origin": "center",
+          "min_width": 55,
+          "min_height": 0
+        }
+      },
+      "exit": {
+        "duration_ms": 200,
+        "easing": "QuadIn",
+        "snapping": {
+          "type": "round"
+        },
+        "rect_scale": {
+          "type": "squash",
+          "origin": "center",
+          "min_width": 55,
+          "min_height": 0,
+          "width_start": 0.0,
+          "width_end": 0.5,
+          "height_start": 0.0,
+          "height_end": 1.0
+        }
+      },
+      "mask": {
+        "combine_mode": "all",
+        "enter": [
+          {
+            "type": "wipe",
+            "direction": "top_to_bottom",
+            "soft_edge": true
+          }
+        ],
+        "exit": [],
+        "dwell": []
+      },
+      "sampler": {
+        "enter": {
+          "type": "none"
+        },
+        "dwell": {
+          "type": "none"
+        },
+        "exit": {
+          "type": "none"
+        }
+      },
+      "filter": {
+        "enter": [],
+        "dwell": [
+          {
+            "type": "crt",
+            "scanline_strength": 0.15,
+            "glow": 0.2
+          },
+          {
+            "type": "vignette",
+            "radius": 0.1,
+            "strength": 0.6
+          }
+        ],
+        "exit": []
+      },
+      "styles": [
+        {
+          "region": "All",
+          "base_style": {
+            "foreground": {
+              "r": 220,
+              "g": 220,
+              "b": 220
+            },
+            "background": {
+              "r": 22,
+              "g": 22,
+              "b": 22
+            }
+          }
+        },
+        {
+          "region": {
+            "RowRange": {
+              "start": 0,
+              "end": 1
+            }
+          },
+          "base_style": {
+            "foreground": {
+              "r": 200,
+              "g": 180,
+              "b": 120
+            },
+            "added_modifiers": [
+              "BOLD"
+            ]
+          },
+          "dwell_effect": {
+            "type": "spatial",
+            "shader": {
+              "type": "glisten_band",
+              "head": {
+                "r": 255,
+                "g": 240,
+                "b": 180
+              },
+              "tail": {
+                "r": 200,
+                "g": 180,
+                "b": 120
+              },
+              "angle_deg": 90.0,
+              "speed": 0.2,
+              "band_width": 15
+            }
+          }
+        },
+        {
+          "region": {
+            "Cells": [
+              { "x": 39, "y": 14 },
+              { "x": 48, "y": 14 },
+              { "x": 49, "y": 14 },
+              { "x": 50, "y": 14 }
+            ]
+          },
+          "base_style": {
+            "foreground": {
+              "r": 230,
+              "g": 200,
+              "b": 100
+            },
+            "added_modifiers": [
+              "BOLD"
+            ]
+          }
+        },
+        {
+          "region": {
+            "Cells": [
+              { "x": 40, "y": 14 },
+              { "x": 41, "y": 14 },
+              { "x": 42, "y": 14 },
+              { "x": 43, "y": 14 },
+              { "x": 44, "y": 14 },
+              { "x": 45, "y": 14 },
+              { "x": 46, "y": 14 }
+            ]
+          },
+          "base_style": {
+            "background": {
+              "r": 50,
+              "g": 50,
+              "b": 50
+            },
+            "foreground": {
+              "type": "white"
+            }
+          }
+        }
+      ]
+    }
+  }
+}

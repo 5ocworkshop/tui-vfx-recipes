@@ -1,0 +1,72 @@
+{
+  "schema_version": 1,
+  "id": "showcase.multi_effect_radial_cellular",
+  "title": "Multi-Mask: Radial + Cellular",
+  "description": "Demonstrates multiple masks: radial center reveal combined with cellular organic pattern",
+  "version": "1.0.0",
+  "last_updated": "2025-12-26",
+  "config": {
+    "message": "DUAL MASK REVEAL!",
+    "layout": {
+      "anchor": "bottom_right",
+      "width": 28,
+      "height": 5
+    },
+    "lifecycle": {
+      "auto_dismiss_ms": 5000
+    },
+    "border": {
+      "type": "double"
+    },
+    "pipeline": {
+      "enter": {
+        "duration_ms": 1500,
+        "easing": "cubic_out"
+      },
+      "exit": {
+        "duration_ms": 800,
+        "easing": "cubic_in"
+      },
+      "mask": {
+        "enter": [
+          {
+            "type": "radial",
+            "origin": {
+              "type": "center"
+            },
+            "soft_edge": true
+          },
+          {
+            "type": "cellular",
+            "pattern": "voronoi",
+            "seed": 777,
+            "cell_count": 20
+          }
+        ],
+        "exit": [
+          {
+            "type": "radial",
+            "origin": {
+              "type": "bottom_right"
+            },
+            "soft_edge": false
+          }
+        ],
+        "combine_mode": "any"
+      },
+      "style": {
+        "base_style": {
+          "foreground": {
+            "type": "light_cyan"
+          },
+          "background": {
+            "type": "rgb",
+            "r": 20,
+            "g": 30,
+            "b": 40
+          }
+        }
+      }
+    }
+  }
+}

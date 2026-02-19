@@ -1,0 +1,151 @@
+{
+  "schema_version": 1,
+  "id": "notifications.departure_board",
+  "title": "Departure Board",
+  "description": "Mechanical split-flap text cycling with rectilinear entry",
+  "version": "2.0.0",
+  "last_updated": "2025-12-18",
+  "config": {
+    "message": "FLIGHT 772 -> LISBON",
+    "layout": {
+      "width": 40,
+      "height": 5,
+      "anchor": "center"
+    },
+    "lifecycle": {
+      "auto_dismiss_ms": 5000
+    },
+    "border": {
+      "type": "plain",
+      "trim": "none"
+    },
+    "content": {
+      "mode": "enter_only",
+      "effect": {
+        "type": "split_flap",
+        "speed": 3.0,
+        "cascade": 0.3
+      }
+    },
+    "pipeline": {
+      "enter": {
+        "duration_ms": 1200,
+        "easing": "quad_out",
+        "motion_path": {
+          "type": "rectilinear",
+          "x_first": false
+        },
+        "snapping": {
+          "type": "round"
+        },
+        "from": {
+          "type": "offscreen",
+          "direction": "from_left",
+          "margin_cells": 1
+        }
+      },
+      "exit": {
+        "duration_ms": 700,
+        "easing": "quad_in",
+        "motion_path": {
+          "type": "linear"
+        },
+        "snapping": {
+          "type": "round"
+        },
+        "to": {
+          "type": "offscreen",
+          "direction": "from_right",
+          "margin_cells": 1
+        }
+      },
+      "mask": {
+        "enter": {
+          "type": "blinds",
+          "orientation": "vertical",
+          "count": 18
+        },
+        "exit": {
+          "type": "none"
+        }
+      },
+      "sampler": {
+        "enter": {
+          "type": "none"
+        },
+        "exit": {
+          "type": "none"
+        }
+      },
+      "filter": {
+        "enter": {
+          "type": "dim",
+          "factor": 0.35,
+          "apply_to": "background"
+        },
+        "exit": {
+          "type": "none"
+        }
+      },
+      "style": {
+        "region": "All",
+        "base_style": {
+          "foreground": {
+            "type": "rgb",
+            "r": 255,
+            "g": 220,
+            "b": 120
+          },
+          "background": {
+            "type": "black"
+          },
+          "added_modifiers": [
+            "bold"
+          ],
+          "removed_modifiers": []
+        },
+        "enter_effect": {
+          "type": "spatial",
+          "shader": {
+            "type": "linear_gradient",
+            "angle_deg": 90.0,
+            "gradient": {
+              "stops": [
+                [
+                  0.0,
+                  {
+                    "type": "dark_gray"
+                  }
+                ],
+                [
+                  0.5,
+                  {
+                    "type": "white"
+                  }
+                ],
+                [
+                  1.0,
+                  {
+                    "type": "dark_gray"
+                  }
+                ]
+              ],
+              "space": "rgb"
+            }
+          }
+        },
+        "exit_effect": {
+          "type": "fade_out",
+          "apply_to": "foreground",
+          "ease": "QuadIn"
+        }
+      }
+    },
+    "requires_primitives": [
+      "content.split_flap",
+      "geometry.path.rectilinear",
+      "mask.blinds_params",
+      "style.spatial_per_cell"
+    ]
+  }
+}

@@ -1,0 +1,84 @@
+{
+  "schema_version": 1,
+  "id": "debug.content.typewriter",
+  "title": "Debug: Content - Typewriter",
+  "description": "Tests Typewriter content effect with speed_variance and cursor parameters",
+  "version": "1.0.0",
+  "last_updated": "2025-12-30",
+  "config": {
+    "message": "CONTENT TEST: Typewriter effect typing character by character...",
+    "layout": {
+      "width": 55,
+      "height": 3,
+      "anchor": "center"
+    },
+    "lifecycle": {
+      "auto_dismiss_ms": 7000
+    },
+    "border": {
+      "type": "rounded",
+      "trim": "none"
+    },
+    "content": {
+      "mode": "enter_only",
+      "effect": {
+        "type": "typewriter",
+        "speed_variance": 0.2,
+        "cursor": {
+          "character": "|",
+          "blink_interval": 500,
+          "show_while_typing": 1.0,
+          "show_after_complete": 1.0
+        }
+      }
+    },
+    "pipeline": {
+      "enter": {
+        "duration_ms": 4000,
+        "easing": "linear"
+      },
+      "exit": {
+        "duration_ms": 1000,
+        "easing": "quad_in"
+      },
+      "mask": {
+        "enter": {
+          "type": "none"
+        },
+        "exit": {
+          "type": "none"
+        }
+      },
+      "sampler": {
+        "enter": {
+          "type": "none"
+        },
+        "exit": {
+          "type": "none"
+        }
+      },
+      "filter": {
+        "enter": {
+          "type": "none"
+        },
+        "exit": {
+          "type": "none"
+        }
+      },
+      "style": {
+        "region": "All",
+        "base_style": {
+          "foreground": {
+            "type": "light_green"
+          },
+          "background": {
+            "type": "rgb",
+            "r": 10,
+            "g": 30,
+            "b": 20
+          }
+        }
+      }
+    }
+  }
+}

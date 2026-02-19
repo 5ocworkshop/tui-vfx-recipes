@@ -1,0 +1,97 @@
+{
+  "schema_version": 1,
+  "id": "recreated.netflix_logo",
+  "title": "Recreated Logo Sequence",
+  "description": "Faithful recreation of the N logo animation",
+  "version": "1.1.0",
+  "last_updated": "2026-02-01",
+  "config": {
+    "message": "██│      │██\n██││     │██\n██│││    │██\n██│ ││   │██\n██│  ││  │██\n██│   ││ │██\n██│    │││██\n██│     ││██\n██│      │██",
+    "layout": {
+      "width": 12,
+      "height": 9,
+      "anchor": "center"
+    },
+    "border": {
+      "type": "none"
+    },
+    "lifecycle": {
+      "auto_dismiss_ms": 5000
+    },
+    "pipeline": {
+      "enter": {
+        "duration_ms": 1000,
+        "easing": "quad_out"
+      },
+      "exit": {
+        "duration_ms": 1500,
+        "easing": "quad_in"
+      },
+      "mask": {
+        "enter": [
+          {
+            "type": "blinds",
+            "orientation": "vertical",
+            "count": 12
+          }
+        ],
+        "exit": [
+          {
+            "type": "wipe",
+            "direction": "left_to_right",
+            "soft_edge": true
+          }
+        ]
+      },
+      "styles": [
+        {
+          "region": "All",
+          "base_style": {
+            "foreground": {
+              "type": "rgb",
+              "r": 229,
+              "g": 9,
+              "b": 20
+            },
+            "background": {
+              "type": "black"
+            }
+          },
+          "enter_effect": {
+            "type": "fade_in",
+            "apply_to": "foreground",
+            "ease": "QuadOut"
+          },
+          "dwell_effect": {
+            "type": "spatial",
+            "shader": {
+              "type": "glisten_band",
+              "speed": 1.2,
+              "band_width": 3,
+              "angle_deg": 0.0,
+              "head": {
+                "type": "rgb",
+                "r": 255,
+                "g": 80,
+                "b": 80
+              },
+              "tail": {
+                "type": "rgb",
+                "r": 229,
+                "g": 9,
+                "b": 20
+              },
+              "direction": "forward",
+              "blend_strength": 0.5
+            }
+          },
+          "exit_effect": {
+            "type": "fade_out",
+            "apply_to": "foreground",
+            "ease": "QuadIn"
+          }
+        }
+      ]
+    }
+  }
+}

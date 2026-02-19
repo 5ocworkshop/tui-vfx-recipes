@@ -1,0 +1,61 @@
+{
+  "schema_version": 1,
+  "id": "showcase.effect_parity_radial_mask",
+  "title": "Radial Mask Effect",
+  "description": "Demonstrates the new Radial mask revealing from various origin points",
+  "version": "1.0.0",
+  "last_updated": "2025-12-26",
+  "config": {
+    "message": "RADIAL REVEAL FROM CENTER",
+    "layout": {
+      "anchor": "bottom_right",
+      "width": 32,
+      "height": 5
+    },
+    "lifecycle": {
+      "auto_dismiss_ms": 5000
+    },
+    "border": {
+      "type": "double"
+    },
+    "pipeline": {
+      "enter": {
+        "duration_ms": 1000,
+        "easing": "cubic_out"
+      },
+      "exit": {
+        "duration_ms": 600,
+        "easing": "cubic_in"
+      },
+      "mask": {
+        "enter": {
+          "type": "radial",
+          "origin": {
+            "type": "center"
+          },
+          "soft_edge": true
+        },
+        "exit": {
+          "type": "radial",
+          "origin": {
+            "type": "bottom_right"
+          },
+          "soft_edge": false
+        }
+      },
+      "style": {
+        "base_style": {
+          "foreground": {
+            "type": "light_magenta"
+          },
+          "background": {
+            "type": "rgb",
+            "r": 30,
+            "g": 10,
+            "b": 40
+          }
+        }
+      }
+    }
+  }
+}

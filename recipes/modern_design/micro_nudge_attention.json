@@ -1,0 +1,109 @@
+{
+  "schema_version": 1,
+  "id": "modern.micro_nudge_attention",
+  "title": "Micro Nudge Attention",
+  "description": "Sub-cell attention effect using low-amplitude sine wave. Creates a subtle 'vibration' that draws the eye without jumping cells - the modern micro-interaction approach.",
+  "version": "1.0.0",
+  "last_updated": "2026-01-20",
+  "config": {
+    "message": "╭──────────────────────────╮\n│  ▏ ATTENTION NEEDED! ▕  │\n│  ▏                   ▕  │\n│  ▏ Something requires ▕  │\n│  ▏ your input here.   ▕  │\n╰──────────────────────────╯",
+    "layout": {
+      "width": 30,
+      "height": 8,
+      "anchor": "center"
+    },
+    "lifecycle": {
+      "auto_dismiss_ms": 10000
+    },
+    "border": {
+      "type": "none"
+    },
+    "time": {
+      "loop": true,
+      "loop_period_ms": 800
+    },
+    "pipeline": {
+      "enter": {
+        "duration_ms": 400,
+        "easing": "expo_out"
+      },
+      "exit": {
+        "duration_ms": 300,
+        "easing": "quad_in"
+      },
+      "mask": {
+        "enter": {
+          "type": "wipe",
+          "reveal": "left_to_right",
+          "soft_edge": true
+        },
+        "exit": {
+          "type": "wipe",
+          "hide": "right_to_left",
+          "soft_edge": true
+        }
+      },
+      "sampler": {
+        "enter": {
+          "type": "none"
+        },
+        "dwell": {
+          "type": "sine_wave",
+          "axis": "x",
+          "amplitude": 0.15,
+          "frequency": 2.0,
+          "speed": 4.0,
+          "phase": 0.0
+        },
+        "exit": {
+          "type": "none"
+        }
+      },
+      "filter": {
+        "enter": {
+          "type": "none"
+        },
+        "exit": {
+          "type": "none"
+        }
+      },
+      "style": {
+        "region": "All",
+        "base_style": {
+          "foreground": {
+            "type": "rgb",
+            "r": 255,
+            "g": 200,
+            "b": 100
+          },
+          "background": {
+            "type": "rgb",
+            "r": 50,
+            "g": 35,
+            "b": 15
+          }
+        },
+        "enter_effect": {
+          "type": "fade_in",
+          "apply_to": "both",
+          "ease": "QuadOut"
+        },
+        "dwell_effect": {
+          "type": "pulse",
+          "frequency": 2.5,
+          "color": {
+            "type": "rgb",
+            "r": 255,
+            "g": 220,
+            "b": 140
+          }
+        },
+        "exit_effect": {
+          "type": "fade_out",
+          "apply_to": "both",
+          "ease": "QuadIn"
+        }
+      }
+    }
+  }
+}

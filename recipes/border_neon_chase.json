@@ -1,0 +1,144 @@
+{
+  "schema_version": 1,
+  "id": "border.neon_chase",
+  "title": "Border Neon Chase",
+  "description": "Vibrant neon pink/cyan light chases around the border. Retro cyberpunk aesthetic.",
+  "version": "1.0.0",
+  "last_updated": "2025-12-29",
+  "config": {
+    "message": "⚡ CONNECTED\n\nLink established",
+    "layout": {
+      "width": 26,
+      "height": 6,
+      "anchor": "top_left"
+    },
+    "lifecycle": {
+      "auto_dismiss_ms": 0
+    },
+    "time": {
+      "loop": true,
+      "loop_period_ms": 1200
+    },
+    "border": {
+      "type": "double",
+      "trim": "none",
+      "center_content": true
+    },
+    "pipeline": {
+      "enter": {
+        "duration_ms": 300,
+        "easing": "quad_out",
+        "snapping": {
+          "type": "round"
+        }
+      },
+      "exit": {
+        "duration_ms": 250,
+        "easing": "quad_in",
+        "snapping": {
+          "type": "round"
+        }
+      },
+      "mask": {
+        "enter": {
+          "type": "none"
+        },
+        "exit": {
+          "type": "none"
+        }
+      },
+      "sampler": {
+        "enter": {
+          "type": "none"
+        },
+        "exit": {
+          "type": "none"
+        }
+      },
+      "filter": {
+        "enter": {
+          "type": "none"
+        },
+        "exit": {
+          "type": "none"
+        }
+      },
+      "style": {
+        "region": "All",
+        "base_style": {
+          "foreground": {
+            "type": "rgb",
+            "r": 220,
+            "g": 150,
+            "b": 255
+          },
+          "background": {
+            "type": "rgb",
+            "r": 15,
+            "g": 10,
+            "b": 20
+          },
+          "added_modifiers": [],
+          "removed_modifiers": []
+        },
+        "enter_effect": {
+          "type": "spatial",
+          "shader": {
+            "type": "glisten_band",
+            "speed": 0.83,
+            "band_width": 6,
+            "angle_deg": 45.0,
+            "head": {
+              "type": "rgb",
+              "r": 255,
+              "g": 100,
+              "b": 200
+            },
+            "tail": {
+              "type": "rgb",
+              "r": 100,
+              "g": 200,
+              "b": 255
+            },
+            "direction": "forward",
+            "apply_to": "foreground",
+            "blend_strength": 1.0
+          }
+        },
+        "dwell_effect": {
+          "type": "spatial",
+          "shader": {
+            "type": "glisten_band",
+            "speed": 0.83,
+            "band_width": 6,
+            "angle_deg": 45.0,
+            "head": {
+              "type": "rgb",
+              "r": 255,
+              "g": 100,
+              "b": 200
+            },
+            "tail": {
+              "type": "rgb",
+              "r": 100,
+              "g": 200,
+              "b": 255
+            },
+            "direction": "forward",
+            "apply_to": "foreground",
+            "blend_strength": 1.0
+          }
+        },
+        "exit_effect": {
+          "type": "fade_out",
+          "apply_to": "both",
+          "ease": "QuadIn"
+        }
+      }
+    },
+    "requires_primitives": [
+      "shader.glisten_band",
+      "region.border_only"
+    ]
+  }
+}

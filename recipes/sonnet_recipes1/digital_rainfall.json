@@ -1,0 +1,127 @@
+{
+  "schema_version": 1,
+  "id": "notifications.digital_rainfall",
+  "title": "Digital Rainfall",
+  "description": "Matrix-style data cascade with vertical wipe, binary scramble, and downward glisten. Text rains down like falling code, scrambling before resolving. Digital deluge.",
+  "version": "1.0.1",
+  "last_updated": "2025-12-22",
+  "config": {
+    "message": "DATA STREAM INCOMING",
+    "layout": {
+      "width": 32,
+      "height": 4,
+      "anchor": "top_right"
+    },
+    "lifecycle": {
+      "auto_dismiss_ms": 8000
+    },
+    "border": {
+      "type": "plain",
+      "trim": "none"
+    },
+    "content": {
+      "mode": "enter_only",
+      "effect": {
+        "type": "scramble",
+        "resolve_pace": 0.7,
+        "charset": "binary",
+        "seed": 1010
+      }
+    },
+    "pipeline": {
+      "enter": {
+        "duration_ms": 2200,
+        "easing": "linear",
+        "motion_path": {
+          "type": "linear"
+        },
+        "snapping": {
+          "type": "round"
+        },
+        "from": {
+          "type": "offscreen",
+          "direction": "from_top",
+          "margin_cells": 1
+        }
+      },
+      "exit": {
+        "duration_ms": 600,
+        "easing": "quad_in",
+        "snapping": {
+          "type": "round"
+        },
+        "to": {
+          "type": "offscreen",
+          "direction": "from_top",
+          "margin_cells": 1
+        }
+      },
+      "mask": {
+        "enter": {
+          "type": "wipe",
+          "direction": "top_to_bottom",
+          "soft_edge": false
+        },
+        "exit": {
+          "type": "none"
+        }
+      },
+      "sampler": {
+        "enter": {
+          "type": "none"
+        },
+        "exit": {
+          "type": "none"
+        }
+      },
+      "filter": {
+        "enter": {
+          "type": "none"
+        },
+        "exit": {
+          "type": "none"
+        }
+      },
+      "style": {
+        "region": "All",
+        "base_style": {
+          "foreground": {
+            "type": "light_green"
+          },
+          "background": {
+            "type": "black"
+          },
+          "added_modifiers": [
+            "bold"
+          ],
+          "removed_modifiers": []
+        },
+        "enter_effect": {
+          "type": "spatial",
+          "shader": {
+            "type": "glisten_band",
+            "band_width": 5,
+            "speed": 1.5,
+            "angle_deg": 90.0,
+            "head": {
+              "type": "white"
+            },
+            "tail": {
+              "type": "light_green"
+            }
+          }
+        },
+        "exit_effect": {
+          "type": "fade_out",
+          "apply_to": "both",
+          "ease": "Linear"
+        }
+      }
+    },
+    "requires_primitives": [
+      "mask.wipe",
+      "content.scramble",
+      "shader.glisten_band"
+    ]
+  }
+}

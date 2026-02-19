@@ -1,0 +1,90 @@
+{
+  "schema_version": 1,
+  "id": "debug.shader.glisten_band",
+  "title": "Debug: Shader - GlistenBand",
+  "description": "Tests GlistenBand spatial shader with speed, band_width, direction, and angle",
+  "version": "1.0.0",
+  "last_updated": "2025-12-30",
+  "config": {
+    "message": "SHADER TEST: GlistenBand",
+    "layout": {
+      "width": 40,
+      "height": 5,
+      "anchor": "center"
+    },
+    "lifecycle": {
+      "auto_dismiss_ms": 6000
+    },
+    "border": {
+      "type": "rounded",
+      "trim": "none"
+    },
+    "pipeline": {
+      "enter": {
+        "duration_ms": 1000,
+        "easing": "quad_out"
+      },
+      "exit": {
+        "duration_ms": 1000,
+        "easing": "quad_in"
+      },
+      "mask": {
+        "enter": {
+          "type": "none"
+        },
+        "exit": {
+          "type": "none"
+        }
+      },
+      "sampler": {
+        "enter": {
+          "type": "none"
+        },
+        "exit": {
+          "type": "none"
+        }
+      },
+      "filter": {
+        "enter": {
+          "type": "none"
+        },
+        "exit": {
+          "type": "none"
+        }
+      },
+      "style": {
+        "region": "All",
+        "base_style": {
+          "foreground": {
+            "type": "rgb",
+            "r": 255,
+            "g": 215,
+            "b": 0
+          },
+          "background": {
+            "type": "rgb",
+            "r": 60,
+            "g": 50,
+            "b": 30
+          }
+        },
+        "spatial_shader": {
+          "type": "glisten_band",
+          "head": {
+            "type": "white"
+          },
+          "tail": {
+            "type": "rgb",
+            "r": 200,
+            "g": 180,
+            "b": 100
+          },
+          "speed": 1.5,
+          "band_width": 6,
+          "direction": "forward",
+          "angle_deg": 30.0
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "schema_version": 1,
+  "id": "wargames.map.04_missile_trajectory_01",
+  "title": "Map 04 - Missile Trajectory 01",
+  "description": "Missile trajectory arcs over North America - first wave",
+  "version": "1.0.0",
+  "last_updated": "2025-12-25",
+  "extends": "themes/new_wopr_fullscreen_cyan.json",
+  "config": {
+    "message": "                          ┌─────────────────────────┐\n                     ┌────┘                         └────┐\n                  ┌──┘        ALASKA                    └──┐\n                  │              ╱                         │\n                  └───────────┬─╱──────────────────────────┘\n                              ╱\n        ┌──────────────────┬─╱ ┌─────────────────────────┐\n        │                 ╱│   │                         │\n     ┌──┘              ╱  └┬──┘                         └──┐\n     │             ╱       │                               │\n     │      CANADA         │         CANADA                │\n     │       ╱             │              ╲                │\n     │    ╱                │               ╲               │\n  ┌──┴─╱                   └───────┐       ╲              │\n  │  ╱                             │        ╲             │\n  │╱                               └────────╲────────────┬┘\n  ●                                          ╲           │\n  │                               ┌───────────╲──────────┘\n  │   ┌───────────────────────────┤            ╲\n  │   │                           │             ●\n  │   │    UNITED STATES          │\n  └───┤                           │\n      │         ●        ●        │\n      │                           │\n      └───────────┬───────────────┘\n                  │    MEXICO\n                  └───────────────",
+    "lifecycle": {
+      "auto_dismiss_ms": 0
+    }
+  }
+}

@@ -1,0 +1,52 @@
+{
+  "schema_version": 1,
+  "id": "showcase.effect_parity_dissolve_text",
+  "title": "Text Dissolve Effect",
+  "description": "Demonstrates the new text dissolve content transformer with various patterns",
+  "version": "1.0.0",
+  "last_updated": "2025-12-26",
+  "config": {
+    "message": "DISSOLVING TEXT DEMO",
+    "layout": {
+      "anchor": "bottom_right",
+      "width": 30,
+      "height": 4
+    },
+    "lifecycle": {
+      "auto_dismiss_ms": 5000
+    },
+    "border": {
+      "type": "rounded"
+    },
+    "content": {
+      "mode": "enter_only",
+      "effect": {
+        "type": "dissolve",
+        "replacement": "dot",
+        "pattern": "random",
+        "direction": "left_to_right",
+        "seed": 42
+      }
+    },
+    "pipeline": {
+      "enter": {
+        "duration_ms": 2500,
+        "easing": "cubic_out"
+      },
+      "exit": {
+        "duration_ms": 400,
+        "easing": "cubic_in"
+      },
+      "style": {
+        "base_style": {
+          "foreground": {
+            "type": "light_cyan"
+          },
+          "background": {
+            "type": "black"
+          }
+        }
+      }
+    }
+  }
+}

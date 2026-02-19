@@ -1,0 +1,97 @@
+{
+  "schema_version": 1,
+  "id": "experimental.chamfered_corners",
+  "title": "Chamfered Corners Demo",
+  "description": "Cut-corner effect using diagonal triangle blocks. Creates a modern, angular appearance.",
+  "version": "1.0.0",
+  "last_updated": "2025-12-31",
+  "config": {
+    "message": "Corners clipped",
+    "layout": {
+      "width": 24,
+      "height": 4,
+      "anchor": "top_right"
+    },
+    "lifecycle": {
+      "auto_dismiss_ms": 6000
+    },
+    "border": {
+      "type": "none",
+      "frame": {
+        "top_left": "◢",
+        "top_right": "◣",
+        "bottom_left": "◥",
+        "bottom_right": "◤",
+        "top": "▀",
+        "bottom": "▄",
+        "left": "█",
+        "right": "█"
+      }
+    },
+    "pipeline": {
+      "enter": {
+        "duration_ms": 500,
+        "easing": "cubic_out",
+        "motion_path": {
+          "type": "linear"
+        },
+        "snapping": {
+          "type": "round"
+        }
+      },
+      "exit": {
+        "duration_ms": 350,
+        "easing": "cubic_in",
+        "snapping": {
+          "type": "round"
+        }
+      },
+      "mask": {
+        "enter": {
+          "type": "wipe",
+          "direction": "from_left"
+        },
+        "exit": {
+          "type": "none"
+        }
+      },
+      "sampler": {
+        "enter": {
+          "type": "none"
+        },
+        "exit": {
+          "type": "none"
+        }
+      },
+      "filter": {
+        "enter": {
+          "type": "none"
+        },
+        "exit": {
+          "type": "none"
+        }
+      },
+      "style": {
+        "region": "All",
+        "base_style": {
+          "foreground": {
+            "type": "rgb",
+            "r": 70,
+            "g": 130,
+            "b": 180
+          },
+          "background": {
+            "type": "rgb",
+            "r": 20,
+            "g": 30,
+            "b": 50
+          },
+          "added_modifiers": [],
+          "removed_modifiers": []
+        },
+        "enter_effect": null,
+        "exit_effect": null
+      }
+    }
+  }
+}

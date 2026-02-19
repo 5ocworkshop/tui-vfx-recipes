@@ -1,0 +1,23 @@
+{
+  "schema_version": 1,
+  "extends": "themes/wopr_green.json",
+  "id": "wargames.shall_we_play",
+  "title": "WarGames - Shall We Play",
+  "description": "WOPR terminal prompt - SHALL WE PLAY A GAME? - Classic green phosphor, steady computer output",
+  "version": "2.0.0",
+  "last_updated": "2025-12-24",
+  "config": {
+    "message": "SHALL WE PLAY A GAME?",
+    "layout": {
+      "height": 3
+    },
+    "lifecycle": {
+      "auto_dismiss_ms": 8000
+    },
+    "pipeline": {
+      "enter": {
+        "duration_ms": 1500
+      }
+    }
+  }
+}

@@ -1,0 +1,82 @@
+{
+  "schema_version": 1,
+  "id": "debug.shader.border_sweep",
+  "title": "Debug: Shader - BorderSweep",
+  "description": "Tests BorderSweep spatial shader with speed and length parameters",
+  "version": "1.0.0",
+  "last_updated": "2025-12-30",
+  "config": {
+    "message": "SHADER TEST: BorderSweep",
+    "layout": {
+      "width": 40,
+      "height": 5,
+      "anchor": "center"
+    },
+    "lifecycle": {
+      "auto_dismiss_ms": 6000
+    },
+    "border": {
+      "type": "rounded",
+      "trim": "none"
+    },
+    "pipeline": {
+      "enter": {
+        "duration_ms": 1000,
+        "easing": "quad_out"
+      },
+      "exit": {
+        "duration_ms": 1000,
+        "easing": "quad_in"
+      },
+      "mask": {
+        "enter": {
+          "type": "none"
+        },
+        "exit": {
+          "type": "none"
+        }
+      },
+      "sampler": {
+        "enter": {
+          "type": "none"
+        },
+        "exit": {
+          "type": "none"
+        }
+      },
+      "filter": {
+        "enter": {
+          "type": "none"
+        },
+        "exit": {
+          "type": "none"
+        }
+      },
+      "style": {
+        "region": "All",
+        "base_style": {
+          "foreground": {
+            "type": "cyan"
+          },
+          "background": {
+            "type": "rgb",
+            "r": 20,
+            "g": 40,
+            "b": 50
+          }
+        },
+        "spatial_shader": {
+          "type": "border_sweep",
+          "color": {
+            "type": "rgb",
+            "r": 0,
+            "g": 255,
+            "b": 255
+          },
+          "speed": 1.0,
+          "length": 10
+        }
+      }
+    }
+  }
+}

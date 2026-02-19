@@ -1,0 +1,78 @@
+{
+  "schema_version": 1,
+  "id": "debug.style.glitch",
+  "title": "Debug: Style - Glitch",
+  "description": "Tests Glitch style effect with seed, intensity, and italic window parameters",
+  "version": "1.0.0",
+  "last_updated": "2025-12-30",
+  "config": {
+    "message": "STYLE TEST: Glitch Effect",
+    "layout": {
+      "width": 35,
+      "height": 3,
+      "anchor": "center"
+    },
+    "lifecycle": {
+      "auto_dismiss_ms": 6000
+    },
+    "border": {
+      "type": "double",
+      "trim": "none"
+    },
+    "pipeline": {
+      "enter": {
+        "duration_ms": 2000,
+        "easing": "linear"
+      },
+      "exit": {
+        "duration_ms": 1000,
+        "easing": "linear"
+      },
+      "mask": {
+        "enter": {
+          "type": "none"
+        },
+        "exit": {
+          "type": "none"
+        }
+      },
+      "sampler": {
+        "enter": {
+          "type": "none"
+        },
+        "exit": {
+          "type": "none"
+        }
+      },
+      "filter": {
+        "enter": {
+          "type": "none"
+        },
+        "exit": {
+          "type": "none"
+        }
+      },
+      "style": {
+        "region": "All",
+        "base_style": {
+          "foreground": {
+            "type": "light_cyan"
+          },
+          "background": {
+            "type": "rgb",
+            "r": 10,
+            "g": 20,
+            "b": 30
+          }
+        },
+        "enter_effect": {
+          "type": "glitch",
+          "seed": 42,
+          "intensity": 0.6,
+          "italic_start": 0.3,
+          "italic_end": 0.7
+        }
+      }
+    }
+  }
+}

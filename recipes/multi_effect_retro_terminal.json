@@ -1,0 +1,105 @@
+{
+  "schema_version": 1,
+  "id": "showcase.multi_effect_retro_terminal",
+  "title": "Multi-Effect: Retro Terminal",
+  "description": "Demonstrates multiple filters: CRT scanlines + cyan tint for retro terminal look",
+  "version": "1.0.0",
+  "last_updated": "2025-12-26",
+  "config": {
+    "message": "SYSTEM ONLINE",
+    "layout": {
+      "anchor": "bottom_right",
+      "width": 30,
+      "height": 5
+    },
+    "lifecycle": {
+      "auto_dismiss_ms": 4000
+    },
+    "border": {
+      "type": "double"
+    },
+    "pipeline": {
+      "enter": {
+        "duration_ms": 600,
+        "easing": "cubic_out"
+      },
+      "exit": {
+        "duration_ms": 400,
+        "easing": "cubic_in"
+      },
+      "style": {
+        "base_style": {
+          "foreground": {
+            "type": "rgb",
+            "r": 0,
+            "g": 255,
+            "b": 200
+          },
+          "background": {
+            "type": "rgb",
+            "r": 10,
+            "g": 20,
+            "b": 30
+          }
+        }
+      },
+      "filter": {
+        "enter": [
+          {
+            "type": "crt",
+            "scanline_strength": 0.4,
+            "glow": 0.15
+          },
+          {
+            "type": "tint",
+            "color": {
+              "type": "rgb",
+              "r": 0,
+              "g": 200,
+              "b": 255
+            },
+            "strength": 0.25,
+            "apply_to": "both"
+          }
+        ],
+        "dwell": [
+          {
+            "type": "crt",
+            "scanline_strength": 0.3,
+            "glow": 0.1
+          },
+          {
+            "type": "tint",
+            "color": {
+              "type": "rgb",
+              "r": 0,
+              "g": 200,
+              "b": 255
+            },
+            "strength": 0.2,
+            "apply_to": "both"
+          }
+        ],
+        "exit": [
+          {
+            "type": "crt",
+            "scanline_strength": 0.5,
+            "glow": 0.2
+          },
+          {
+            "type": "dim",
+            "factor": 0.6,
+            "apply_to": "both"
+          }
+        ]
+      },
+      "mask": {
+        "enter": {
+          "type": "wipe",
+          "direction": "left_to_right",
+          "soft_edge": true
+        }
+      }
+    }
+  }
+}

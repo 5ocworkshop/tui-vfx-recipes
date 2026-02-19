@@ -1,0 +1,116 @@
+{
+  "schema_version": 1,
+  "id": "scandi_edge.info",
+  "title": "Info",
+  "description": "Cool presence. Steel blue-gray with subtle horizontal glisten, modern and unobtrusive.",
+  "version": "1.0.0",
+  "last_updated": "2025-12-31",
+  "config": {
+    "message": "Configuration updated",
+    "layout": {
+      "width": 38,
+      "height": 3,
+      "anchor": "top_right"
+    },
+    "lifecycle": {
+      "auto_dismiss_ms": 4000
+    },
+    "border": {
+      "type": "rounded",
+      "trim": "none"
+    },
+    "pipeline": {
+      "enter": {
+        "duration_ms": 450,
+        "easing": "circ_out",
+        "motion_path": {
+          "type": "arc",
+          "bulge": 0.05
+        },
+        "snapping": {
+          "type": "round"
+        }
+      },
+      "exit": {
+        "duration_ms": 350,
+        "easing": "sine_in",
+        "snapping": {
+          "type": "round"
+        }
+      },
+      "mask": {
+        "enter": {
+          "type": "wipe",
+          "direction": "left_to_right",
+          "soft_edge": true
+        },
+        "exit": {
+          "type": "dissolve",
+          "seed": 88,
+          "chunk_size": 2
+        }
+      },
+      "sampler": {
+        "enter": {
+          "type": "none"
+        },
+        "exit": {
+          "type": "none"
+        }
+      },
+      "filter": {
+        "enter": {
+          "type": "none"
+        },
+        "exit": {
+          "type": "none"
+        }
+      },
+      "style": {
+        "region": "All",
+        "base_style": {
+          "foreground": {
+            "type": "rgb",
+            "r": 245,
+            "g": 248,
+            "b": 252
+          },
+          "background": {
+            "type": "rgb",
+            "r": 68,
+            "g": 82,
+            "b": 98
+          },
+          "added_modifiers": [],
+          "removed_modifiers": []
+        },
+        "enter_effect": {
+          "type": "spatial",
+          "shader": {
+            "type": "glisten_band",
+            "band_width": 8,
+            "speed": 0.35,
+            "angle_deg": 0.0,
+            "head": {
+              "type": "rgb",
+              "r": 130,
+              "g": 145,
+              "b": 165
+            },
+            "tail": {
+              "type": "rgb",
+              "r": 85,
+              "g": 100,
+              "b": 118
+            }
+          }
+        },
+        "exit_effect": {
+          "type": "fade_out",
+          "apply_to": "both",
+          "ease": "SineOut"
+        }
+      }
+    }
+  }
+}

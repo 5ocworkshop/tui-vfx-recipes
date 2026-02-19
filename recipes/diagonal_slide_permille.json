@@ -1,0 +1,109 @@
+{
+  "schema_version": 1,
+  "id": "notifications.diagonal_slide_permille",
+  "title": "Diagonal Permille Slide",
+  "description": "Slide across frame using permille waypoints",
+  "version": "2.0.0",
+  "last_updated": "2025-12-18",
+  "config": {
+    "message": "Diagonal permille slide",
+    "layout": {
+      "width": 38,
+      "height": 4,
+      "anchor": "center"
+    },
+    "lifecycle": {
+      "auto_dismiss_ms": 2400
+    },
+    "border": {
+      "type": "rounded",
+      "trim": "none"
+    },
+    "pipeline": {
+      "enter": {
+        "duration_ms": 700,
+        "easing": "linear",
+        "motion_path": {
+          "type": "linear"
+        },
+        "snapping": {
+          "type": "round"
+        },
+        "from": {
+          "type": "frame_permille",
+          "x_permille": 80,
+          "y_permille": 900
+        }
+      },
+      "exit": {
+        "duration_ms": 700,
+        "easing": "linear",
+        "motion_path": {
+          "type": "linear"
+        },
+        "snapping": {
+          "type": "round"
+        },
+        "to": {
+          "type": "frame_permille",
+          "x_permille": 920,
+          "y_permille": 140
+        }
+      },
+      "mask": {
+        "enter": {
+          "type": "checkers",
+          "cell_size": 2
+        },
+        "exit": {
+          "type": "none"
+        }
+      },
+      "sampler": {
+        "enter": {
+          "type": "none"
+        },
+        "exit": {
+          "type": "none"
+        }
+      },
+      "filter": {
+        "enter": {
+          "type": "none"
+        },
+        "exit": {
+          "type": "none"
+        }
+      },
+      "style": {
+        "region": "All",
+        "base_style": {
+          "foreground": {
+            "type": "white"
+          },
+          "background": {
+            "type": "rgb",
+            "r": 12,
+            "g": 14,
+            "b": 20
+          },
+          "added_modifiers": [],
+          "removed_modifiers": []
+        },
+        "enter_effect": {
+          "type": "fade_in",
+          "apply_to": "both",
+          "ease": "Linear"
+        },
+        "exit_effect": {
+          "type": "fade_out",
+          "apply_to": "both",
+          "ease": "Linear"
+        }
+      }
+    },
+    "requires_primitives": [
+      "placement.frame_permille"
+    ]
+  }
+}
