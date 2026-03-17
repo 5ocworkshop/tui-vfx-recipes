@@ -3,6 +3,8 @@
 // <WCTX>Custom frame content support</WCTX>
 // <CLOG>Added frame field for direct-rendered custom borders with effect support</CLOG>
 
+use std::borrow::Cow;
+
 use crate::compat::ratatui_rect_to_vfx;
 use crate::theme::{AppearanceConfig, FrameContent, HasAppearance};
 use crate::traits::Animated;
@@ -52,9 +54,9 @@ pub struct PreviewItem {
     pub enter_sampler: Option<SamplerSpec>,
     pub dwell_sampler: Option<SamplerSpec>,
     pub exit_sampler: Option<SamplerSpec>,
-    pub enter_filter: Option<FilterSpec>,
-    pub dwell_filter: Option<FilterSpec>,
-    pub exit_filter: Option<FilterSpec>,
+    pub enter_filters: Vec<FilterSpec>,
+    pub dwell_filters: Vec<FilterSpec>,
+    pub exit_filters: Vec<FilterSpec>,
     /// How to combine multiple masks (All=AND, Any=OR)
     pub mask_combine_mode: MaskCombineMode,
     /// Custom frame content for direct rendering (bypasses Block widget).
@@ -92,9 +94,9 @@ impl Default for PreviewItem {
             enter_sampler: None,
             dwell_sampler: None,
             exit_sampler: None,
-            enter_filter: None,
-            dwell_filter: None,
-            exit_filter: None,
+            enter_filters: Vec::new(),
+            dwell_filters: Vec::new(),
+            exit_filters: Vec::new(),
             mask_combine_mode: MaskCombineMode::default(),
             frame: None,
         }
@@ -216,12 +218,12 @@ impl PreviewItem {
     }
 
     pub fn enter_filter(mut self, filter: FilterSpec) -> Self {
-        self.enter_filter = Some(filter);
+        self.enter_filters.push(filter);
         self
     }
 
     pub fn exit_filter(mut self, filter: FilterSpec) -> Self {
-        self.exit_filter = Some(filter);
+        self.exit_filters.push(filter);
         self
     }
 
@@ -236,7 +238,7 @@ impl PreviewItem {
     }
 
     pub fn dwell_filter(mut self, filter: FilterSpec) -> Self {
-        self.dwell_filter = Some(filter);
+        self.dwell_filters.push(filter);
         self
     }
 
@@ -376,11 +378,11 @@ impl Animated for PreviewItem {
     }
 
     fn enter_filter(&self) -> Option<&FilterSpec> {
-        self.enter_filter.as_ref()
+        self.enter_filters.first()
     }
 
     fn exit_filter(&self) -> Option<&FilterSpec> {
-        self.exit_filter.as_ref()
+        self.exit_filters.first()
     }
 
     fn dwell_mask(&self) -> Option<&MaskSpec> {
@@ -392,7 +394,19 @@ impl Animated for PreviewItem {
     }
 
     fn dwell_filter(&self) -> Option<&FilterSpec> {
-        self.dwell_filter.as_ref()
+        self.dwell_filters.first()
+    }
+
+    fn enter_filters(&self) -> Cow<'_, [FilterSpec]> {
+        Cow::Borrowed(&self.enter_filters)
+    }
+
+    fn dwell_filters(&self) -> Cow<'_, [FilterSpec]> {
+        Cow::Borrowed(&self.dwell_filters)
+    }
+
+    fn exit_filters(&self) -> Cow<'_, [FilterSpec]> {
+        Cow::Borrowed(&self.exit_filters)
     }
 
     fn is_fullscreen(&self) -> bool {

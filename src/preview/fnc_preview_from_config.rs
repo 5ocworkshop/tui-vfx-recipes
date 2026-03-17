@@ -144,18 +144,18 @@ pub fn preview_from_recipe_config(config: &RaRecipeConfig) -> PreviewItem {
         item = item.exit_sampler(config.pipeline.sampler.exit.clone());
     }
 
-    // Apply filters (take first from Vec for preview - full multi-filter support in renderer)
-    if let Some(filter) = config.pipeline.filter.enter.first() {
+    // Apply all filters per phase
+    for filter in &config.pipeline.filter.enter {
         if !matches!(filter, FilterSpec::None) {
             item = item.enter_filter(filter.clone());
         }
     }
-    if let Some(filter) = config.pipeline.filter.dwell.first() {
+    for filter in &config.pipeline.filter.dwell {
         if !matches!(filter, FilterSpec::None) {
             item = item.dwell_filter(filter.clone());
         }
     }
-    if let Some(filter) = config.pipeline.filter.exit.first() {
+    for filter in &config.pipeline.filter.exit {
         if !matches!(filter, FilterSpec::None) {
             item = item.exit_filter(filter.clone());
         }
