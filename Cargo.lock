@@ -1254,11 +1254,11 @@ dependencies = [
  "serde",
  "serde_json",
  "toml",
- "tui-vfx-compositor",
- "tui-vfx-geometry",
+ "tui-vfx-compositor 0.2.5 (registry+https://github.com/rust-lang/crates.io-index)",
+ "tui-vfx-geometry 0.2.5 (registry+https://github.com/rust-lang/crates.io-index)",
  "tui-vfx-recipes",
- "tui-vfx-style",
- "tui-vfx-types",
+ "tui-vfx-style 0.2.5 (registry+https://github.com/rust-lang/crates.io-index)",
+ "tui-vfx-types 0.2.5 (registry+https://github.com/rust-lang/crates.io-index)",
 ]
 
 [[package]]
@@ -1937,16 +1937,31 @@ checksum = "5d99f8c9a7727884afe522e9bd5edbfc91a3312b36a77b5fb8926e4c31a41801"
 [[package]]
 name = "tui-vfx"
 version = "0.2.5"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "88306728f662cbbb2bbb38064fcff7f5b529a954b652d6e4eca305412224a610"
 dependencies = [
- "tui-vfx-compositor",
+ "tui-vfx-compositor 0.2.5",
  "tui-vfx-content",
- "tui-vfx-core",
- "tui-vfx-geometry",
- "tui-vfx-shadow",
- "tui-vfx-style",
- "tui-vfx-types",
+ "tui-vfx-core 0.2.5",
+ "tui-vfx-geometry 0.2.5",
+ "tui-vfx-shadow 0.2.5",
+ "tui-vfx-style 0.2.5",
+ "tui-vfx-types 0.2.5",
+]
+
+[[package]]
+name = "tui-vfx-compositor"
+version = "0.2.5"
+dependencies = [
+ "lazy_static",
+ "mixed-signals",
+ "rand",
+ "rand_chacha",
+ "serde",
+ "smallvec",
+ "tui-vfx-core 0.2.5",
+ "tui-vfx-debug 0.2.5",
+ "tui-vfx-shadow 0.2.5",
+ "tui-vfx-style 0.2.5",
+ "tui-vfx-types 0.2.5",
 ]
 
 [[package]]
@@ -1961,23 +1976,31 @@ dependencies = [
  "rand_chacha",
  "serde",
  "smallvec",
- "tui-vfx-core",
- "tui-vfx-debug",
- "tui-vfx-shadow",
- "tui-vfx-style",
- "tui-vfx-types",
+ "tui-vfx-core 0.2.5 (registry+https://github.com/rust-lang/crates.io-index)",
+ "tui-vfx-debug 0.2.5 (registry+https://github.com/rust-lang/crates.io-index)",
+ "tui-vfx-shadow 0.2.5 (registry+https://github.com/rust-lang/crates.io-index)",
+ "tui-vfx-style 0.2.5 (registry+https://github.com/rust-lang/crates.io-index)",
+ "tui-vfx-types 0.2.5 (registry+https://github.com/rust-lang/crates.io-index)",
 ]
 
 [[package]]
 name = "tui-vfx-content"
 version = "0.2.5"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "319dd2cc7ed4ae0d853b7eddcbcaba332ebe4b2c6060d8a67bd961359039e3a9"
 dependencies = [
  "mixed-signals",
  "serde",
- "tui-vfx-core",
+ "tui-vfx-core 0.2.5",
  "unicode-segmentation",
+]
+
+[[package]]
+name = "tui-vfx-core"
+version = "0.2.5"
+dependencies = [
+ "mixed-signals",
+ "serde",
+ "serde_json",
+ "tui-vfx-core-macros 0.2.5",
 ]
 
 [[package]]
@@ -1989,7 +2012,16 @@ dependencies = [
  "mixed-signals",
  "serde",
  "serde_json",
- "tui-vfx-core-macros",
+ "tui-vfx-core-macros 0.2.5 (registry+https://github.com/rust-lang/crates.io-index)",
+]
+
+[[package]]
+name = "tui-vfx-core-macros"
+version = "0.2.5"
+dependencies = [
+ "proc-macro2",
+ "quote",
+ "syn 2.0.116",
 ]
 
 [[package]]
@@ -2001,6 +2033,17 @@ dependencies = [
  "proc-macro2",
  "quote",
  "syn 2.0.116",
+]
+
+[[package]]
+name = "tui-vfx-debug"
+version = "0.2.5"
+dependencies = [
+ "chrono",
+ "colored",
+ "lazy_static",
+ "serde",
+ "serde_json",
 ]
 
 [[package]]
@@ -2019,13 +2062,23 @@ dependencies = [
 [[package]]
 name = "tui-vfx-geometry"
 version = "0.2.5"
+dependencies = [
+ "mixed-signals",
+ "serde",
+ "tui-vfx-core 0.2.5",
+ "tui-vfx-types 0.2.5",
+]
+
+[[package]]
+name = "tui-vfx-geometry"
+version = "0.2.5"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "8143bf0e1fb04c5b64acb518a23bc1b3dad9e1811cc3b4765a72fc014477c406"
 dependencies = [
  "mixed-signals",
  "serde",
- "tui-vfx-core",
- "tui-vfx-types",
+ "tui-vfx-core 0.2.5 (registry+https://github.com/rust-lang/crates.io-index)",
+ "tui-vfx-types 0.2.5 (registry+https://github.com/rust-lang/crates.io-index)",
 ]
 
 [[package]]
@@ -2041,12 +2094,22 @@ dependencies = [
  "thiserror 1.0.69",
  "tokio",
  "tui-vfx",
- "tui-vfx-compositor",
+ "tui-vfx-compositor 0.2.5",
  "tui-vfx-content",
- "tui-vfx-core",
- "tui-vfx-geometry",
- "tui-vfx-style",
- "tui-vfx-types",
+ "tui-vfx-core 0.2.5",
+ "tui-vfx-geometry 0.2.5",
+ "tui-vfx-style 0.2.5",
+ "tui-vfx-types 0.2.5",
+]
+
+[[package]]
+name = "tui-vfx-shadow"
+version = "0.2.5"
+dependencies = [
+ "bitflags 2.11.0",
+ "serde",
+ "tui-vfx-core 0.2.5",
+ "tui-vfx-types 0.2.5",
 ]
 
 [[package]]
@@ -2057,8 +2120,20 @@ checksum = "3aed7f53818c299b01cd5c368dc7f1b6ecd5f92ffabc907c28a1d9d36caf9d3a"
 dependencies = [
  "bitflags 2.11.0",
  "serde",
- "tui-vfx-core",
- "tui-vfx-types",
+ "tui-vfx-core 0.2.5 (registry+https://github.com/rust-lang/crates.io-index)",
+ "tui-vfx-types 0.2.5 (registry+https://github.com/rust-lang/crates.io-index)",
+]
+
+[[package]]
+name = "tui-vfx-style"
+version = "0.2.5"
+dependencies = [
+ "mixed-signals",
+ "serde",
+ "serde_json",
+ "tui-vfx-core 0.2.5",
+ "tui-vfx-geometry 0.2.5",
+ "tui-vfx-types 0.2.5",
 ]
 
 [[package]]
@@ -2070,9 +2145,16 @@ dependencies = [
  "mixed-signals",
  "serde",
  "serde_json",
- "tui-vfx-core",
- "tui-vfx-geometry",
- "tui-vfx-types",
+ "tui-vfx-core 0.2.5 (registry+https://github.com/rust-lang/crates.io-index)",
+ "tui-vfx-geometry 0.2.5 (registry+https://github.com/rust-lang/crates.io-index)",
+ "tui-vfx-types 0.2.5 (registry+https://github.com/rust-lang/crates.io-index)",
+]
+
+[[package]]
+name = "tui-vfx-types"
+version = "0.2.5"
+dependencies = [
+ "serde",
 ]
 
 [[package]]

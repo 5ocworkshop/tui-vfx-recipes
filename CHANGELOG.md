@@ -4,6 +4,18 @@ All notable changes to this project will be documented in this file.
 
 This project follows [Semantic Versioning](https://semver.org/).
 
+## 0.2.3 — 2026-03-17
+
+### Added
+- **Multi-filter support in preview renderer:** PreviewItem now stores `Vec<FilterSpec>` per phase instead of `Option<FilterSpec>`. All filters declared in a recipe's `pipeline.filter.dwell` array are now applied in order. Previously only the first filter was used, silently dropping the rest.
+
+### Changed
+- **charset_noise is now a compositor filter:** Requires `tui-vfx-compositor` 0.2.6+. The `charset_noise` effect has moved from `content.effect` (ContentEffect enum) to `pipeline.filter.dwell` (FilterSpec enum). Recipes should declare it as a filter alongside braille_dust and tint. The old `content.effect` path is removed.
+- Bump `tui-vfx-*` dependency minimums to 0.2.6.
+
+### Added (recipes)
+- **recipes/torch_flame.json (v7.0.0):** Updated to use `charset_noise` as a compositor filter in the filter chain. Removed `content` section entirely.
+
 ## 0.2.2 — 2026-03-17
 
 ### Fixed
