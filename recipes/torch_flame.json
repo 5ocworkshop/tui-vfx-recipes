@@ -1,0 +1,137 @@
+{
+  "schema_version": 1,
+  "id": "game.torch_flame",
+  "title": "Torch Flame",
+  "description": "Slow-burning torch fire. Organic flame shape mask with empty margins on all sides. CharsetNoise replaces characters from a vertical braille gradient — sparse with ⠀ at tips for flickering shape, solid at base. Pendulum sampler sways the flame horizontally. NeonFlicker adds per-cell brightness flicker. braille_dust spawns fire-colored particles in the empty margins for crackling halo.",
+  "version": "6.0.0",
+  "last_updated": "2026-03-17",
+  "config": {
+    "message": "⠀⠀⠀⠀⠀⠀⠀⣿⣿⠀⠀⠀⠀⠀⠀⠀\n⠀⠀⠀⠀⠀⠀⣿⣿⣿⠀⠀⠀⠀⠀⠀⠀\n⠀⠀⠀⠀⠀⣿⣿⣿⣿⣿⠀⠀⠀⠀⠀⠀\n⠀⠀⠀⠀⣿⣿⣿⣿⣿⣿⠀⠀⠀⣿⠀⠀\n⠀⠀⠀⣿⣿⣿⣿⣿⣿⣿⣿⠀⣿⣿⠀⠀\n⠀⠀⠀⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠀⠀\n⠀⠀⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠀\n⠀⠀⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠀\n⠀⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠀\n⠀⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠀⠀\n⠀⠀⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠀⠀\n⠀⠀⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠀⠀⠀\n⠀⠀⠀⣿⣿⣿⣿⣿⣿⣿⣿⣿⠀⠀⠀⠀\n⠀⠀⠀⠀⣿⣿⣿⣿⣿⣿⣿⠀⠀⠀⠀⠀\n⠀⠀⠀⠀⠀⣿⣿⣿⣿⣿⠀⠀⠀⠀⠀⠀\n⠀⠀⠀⠀⠀⠀⣿⣿⣿⠀⠀⠀⠀⠀⠀⠀",
+    "layout": {
+      "width": 16,
+      "height": 16,
+      "anchor": "center"
+    },
+    "lifecycle": {
+      "auto_dismiss_ms": 600000
+    },
+    "border": {
+      "type": "none"
+    },
+    "time": {
+      "loop": true,
+      "loop_period_ms": 8000
+    },
+    "content": {
+      "mode": "loop",
+      "effect": {
+        "type": "charset_noise",
+        "hz": 8.0,
+        "seed": 4207,
+        "jitter": 0.18,
+        "affect": "non_empty",
+        "gradient": [
+          { "at": 0.0,  "chars": "⠀⠀⠀⠁⠂⠈" },
+          { "at": 0.12, "chars": "⠀⠁⠂⠈⠐⡀⠄" },
+          { "at": 0.25, "chars": "⡂⠆⠒⡐⠅⡈" },
+          { "at": 0.45, "chars": "⡖⣂⢒⡒⣄⢆" },
+          { "at": 0.7,  "chars": "⣶⣤⣦⣴⣖⣧" },
+          { "at": 1.0,  "chars": "⣿⣷⣾⣯⣻⣽" }
+        ]
+      }
+    },
+    "pipeline": {
+      "enter": {
+        "duration_ms": 1200,
+        "easing": "expo_out"
+      },
+      "exit": {
+        "duration_ms": 800,
+        "easing": "quad_in"
+      },
+      "mask": {
+        "enter": {
+          "type": "wipe",
+          "direction": "bottom_to_top",
+          "soft_edge": true
+        },
+        "exit": {
+          "type": "dissolve",
+          "seed": 7,
+          "chunk_size": 1
+        }
+      },
+      "sampler": {
+        "enter": { "type": "none" },
+        "dwell": {
+          "type": "pendulum",
+          "axis": "x",
+          "amplitude": 2.5,
+          "speed": 1.0,
+          "phase_spread": 0.4
+        },
+        "exit": { "type": "none" }
+      },
+      "filter": {
+        "enter": { "type": "none" },
+        "dwell": [
+          {
+            "type": "braille_dust",
+            "density": 0.02,
+            "hz": 3.0,
+            "seed": 1138,
+            "color": { "type": "rgb", "r": 255, "g": 220, "b": 60 },
+            "drift": 2.0
+          },
+          {
+            "type": "tint",
+            "color": { "type": "rgb", "r": 255, "g": 100, "b": 0 },
+            "strength": 0.08,
+            "apply_to": "foreground"
+          }
+        ],
+        "exit": {
+          "type": "dim",
+          "factor": 0.7,
+          "apply_to": "both"
+        }
+      },
+      "style": [
+        {
+          "region": "All",
+          "base_style": {
+            "foreground": { "type": "rgb", "r": 255, "g": 147, "b": 41 },
+            "background": { "type": "rgb", "r": 12, "g": 6, "b": 3 }
+          },
+          "enter_effect": {
+            "type": "fade_in",
+            "apply_to": "foreground",
+            "ease": "ExpoOut"
+          },
+          "dwell_effect": {
+            "type": "spatial",
+            "shader": {
+              "type": "linear_gradient",
+              "gradient": {
+                "stops": [
+                  [0.0, { "type": "rgb", "r": 130, "g": 20, "b": 0 }],
+                  [0.2, { "type": "rgb", "r": 200, "g": 55, "b": 5 }],
+                  [0.45, { "type": "rgb", "r": 255, "g": 140, "b": 30 }],
+                  [0.7, { "type": "rgb", "r": 255, "g": 210, "b": 70 }],
+                  [1.0, { "type": "rgb", "r": 255, "g": 245, "b": 190 }]
+                ],
+                "space": "rgb"
+              },
+              "angle_deg": 90.0
+            }
+          },
+          "exit_effect": {
+            "type": "fade_out",
+            "apply_to": "both",
+            "ease": "QuadIn"
+          }
+        }
+      ]
+    }
+  }
+}

@@ -1,7 +1,7 @@
 // <FILE>src/rendering/fnc_render_animated_with_theme.rs</FILE> - <DESC>Themed rendering entrypoint</DESC>
-// <VERS>VERSION: 3.2.3</VERS>
-// <WCTX>Clippy cleanup for render helpers and style resolution</WCTX>
-// <CLOG>Preserve base styles on no-op effects and allow multi-arg render helpers</CLOG>
+// <VERS>VERSION: 3.3.0</VERS>
+// <WCTX>Fix sampler time routing during dwell phase</WCTX>
+// <CLOG>Use loop_t for CompositionOptions.t so dwell samplers (pendulum, sine_wave, ripple) receive cycling time instead of frozen phase progress</CLOG>
 
 use crate::inspect;
 use crate::inspector::InspectorContext;
@@ -412,7 +412,7 @@ fn render_animated_with_inspector_impl<T, W, F>(
         mask_combine_mode: plan.mask_combine_mode,
         filters: plan.filters.clone(),
         sampler_spec: plan.sampler_spec.clone(),
-        t: plan.t,
+        t: plan.loop_t.unwrap_or(plan.t),
         loop_t: plan.loop_t,
         phase: Some(crate::compat::animation_phase_to_mixed(plan.phase)),
         ..Default::default()

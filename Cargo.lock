@@ -1951,9 +1951,7 @@ dependencies = [
 
 [[package]]
 name = "tui-vfx-compositor"
-version = "0.2.0"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "70a6c5dc49d6259d30571dc507da21668403cd581a0596d58b74ebaa08a9aa38"
+version = "0.2.5"
 dependencies = [
  "lazy_static",
  "mixed-signals",
@@ -1970,9 +1968,7 @@ dependencies = [
 
 [[package]]
 name = "tui-vfx-content"
-version = "0.2.0"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "c08a6ff156ef7a00cc3f6628280bed690847c7af6cb8227c60bf624fe0d579ad"
+version = "0.2.5"
 dependencies = [
  "mixed-signals",
  "serde",
@@ -1982,9 +1978,7 @@ dependencies = [
 
 [[package]]
 name = "tui-vfx-core"
-version = "0.2.0"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "5599e997ac06e3e885a9b2f7b88e5b5e92576d46ed28dac752b4681b375566fa"
+version = "0.2.5"
 dependencies = [
  "mixed-signals",
  "serde",
@@ -1994,9 +1988,7 @@ dependencies = [
 
 [[package]]
 name = "tui-vfx-core-macros"
-version = "0.2.0"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "3a2bd0e0d4f834be9684aef062eec4fd5704827f532b380d72ba6f98a54c65b5"
+version = "0.2.5"
 dependencies = [
  "proc-macro2",
  "quote",
@@ -2005,9 +1997,7 @@ dependencies = [
 
 [[package]]
 name = "tui-vfx-debug"
-version = "0.2.0"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "c0fb07de70b07af9ffbc204503e5c501998522ad43ec344e49af70003a0aba46"
+version = "0.2.5"
 dependencies = [
  "chrono",
  "colored",
@@ -2018,9 +2008,7 @@ dependencies = [
 
 [[package]]
 name = "tui-vfx-geometry"
-version = "0.2.0"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "a5db52dbf0f5525e5a2f614314010f7d0ad4ed7b152481e54be731f50060ee52"
+version = "0.2.5"
 dependencies = [
  "mixed-signals",
  "serde",
@@ -2030,7 +2018,7 @@ dependencies = [
 
 [[package]]
 name = "tui-vfx-recipes"
-version = "0.2.0"
+version = "0.2.1"
 dependencies = [
  "crossterm 0.28.1",
  "fast-fs",
@@ -2051,9 +2039,7 @@ dependencies = [
 
 [[package]]
 name = "tui-vfx-shadow"
-version = "0.2.0"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "c0933764e76b63f9988c470bf906a153572def7fa36aa3327d8a9a7fd2a763dc"
+version = "0.2.5"
 dependencies = [
  "bitflags 2.11.0",
  "serde",
@@ -2063,9 +2049,7 @@ dependencies = [
 
 [[package]]
 name = "tui-vfx-style"
-version = "0.2.0"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "eb404eb6eca15f3c302d320c2a2cfba0e8a6567ec52c53745b124bc36ca80d26"
+version = "0.2.5"
 dependencies = [
  "mixed-signals",
  "serde",
@@ -2077,9 +2061,7 @@ dependencies = [
 
 [[package]]
 name = "tui-vfx-types"
-version = "0.2.0"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "b34c85159147b506a3b87793e9ebc6ca5e58387d27be7041316c062ef894db8a"
+version = "0.2.5"
 dependencies = [
  "serde",
 ]
@@ -2723,3 +2705,7 @@ name = "zmij"
 version = "1.0.21"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "b8848ee67ecc8aedbaf3e4122217aff892639231befc6a1b58d29fff4c2cabaa"
+
+[[patch.unused]]
+name = "tui-vfx"
+version = "0.2.5"
