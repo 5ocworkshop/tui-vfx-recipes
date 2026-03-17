@@ -1,7 +1,7 @@
 # <FILE>Cargo.toml</FILE> - <DESC>Workspace manifest for tui-vfx-recipes</DESC>
-# <VERS>VERSION: 0.2.0</VERS>
-# <WCTX>Prepare tui-vfx-recipes for crates.io publication</WCTX>
-# <CLOG>Add version = "0.2.0" to tui-vfx-* dependencies for crates.io publish</CLOG>
+# <VERS>VERSION: 0.2.2</VERS>
+# <WCTX>Fix dependency floor for charset_noise support</WCTX>
+# <CLOG>Pin tui-vfx-* minimums to 0.2.5, bump crate to 0.2.2</CLOG>
 
 [workspace]
 resolver = "3"
@@ -13,7 +13,7 @@ members = [
 
 [package]
 name = "tui-vfx-recipes"
-version = "0.2.1"
+version = "0.2.2"
 edition = "2024"
 rust-version = "1.86.0"
 authors = ["5ocworkshop"]
@@ -27,13 +27,13 @@ exclude = ["tools/", "recipes/debug_recipes/", "Justfile", ".claude/"]
 
 [dependencies]
 # TUI VFX library
-tui-vfx = "0.2"
-tui-vfx-types = "0.2"
-tui-vfx-core = "0.2"
-tui-vfx-compositor = "0.2"
-tui-vfx-style = "0.2"
-tui-vfx-geometry = "0.2"
-tui-vfx-content = "0.2"
+tui-vfx = "0.2.5"
+tui-vfx-types = "0.2.5"
+tui-vfx-core = "0.2.5"
+tui-vfx-compositor = "0.2.5"
+tui-vfx-style = "0.2.5"
+tui-vfx-geometry = "0.2.5"
+tui-vfx-content = "0.2.5"
 
 # UI framework
 ratatui = "0.30"
@@ -65,4 +65,4 @@ name = "demo"
 required-features = []
 
 # <FILE>Cargo.toml</FILE> - <DESC>Workspace manifest for tui-vfx-recipes</DESC>
-# <VERS>END OF VERSION: 0.2.0</VERS>
+# <VERS>END OF VERSION: 0.2.2</VERS>

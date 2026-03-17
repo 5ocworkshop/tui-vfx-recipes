@@ -4,6 +4,11 @@ All notable changes to this project will be documented in this file.
 
 This project follows [Semantic Versioning](https://semver.org/).
 
+## 0.2.2 — 2026-03-17
+
+### Fixed
+- **Dependency floor too low for `charset_noise` support:** v0.2.1 declared `tui-vfx-* = "0.2"` which allowed Cargo to resolve versions prior to 0.2.5, where the `charset_noise` content effect variant does not exist. Loading the `torch_flame` recipe would fail with a parse error (`unknown variant charset_noise`) if the solver chose `tui-vfx-content` < 0.2.5. All `tui-vfx-*` dependency minimums are now pinned to 0.2.5.
+
 ## 0.2.1 — 2026-03-17
 
 ### Added
