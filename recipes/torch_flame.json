@@ -2,8 +2,8 @@
   "schema_version": 1,
   "id": "game.torch_flame",
   "title": "Torch Flame",
-  "description": "Slow-burning torch fire. Organic flame shape mask with empty margins on all sides. CharsetNoise replaces characters from a vertical braille gradient — sparse with ⠀ at tips for flickering shape, solid at base. Pendulum sampler sways the flame horizontally. NeonFlicker adds per-cell brightness flicker. braille_dust spawns fire-colored particles in the empty margins for crackling halo.",
-  "version": "6.0.0",
+  "description": "Slow-burning torch fire. Organic flame shape mask with empty margins on all sides. CharsetNoise filter replaces characters from a vertical braille gradient — sparse with ⠀ at tips for flickering shape, solid at base. Pendulum sampler sways the flame horizontally. LinearGradient shader provides vertical fire color temperature. braille_dust spawns fire-colored particles in the empty margins.",
+  "version": "7.0.0",
   "last_updated": "2026-03-17",
   "config": {
     "message": "⠀⠀⠀⠀⠀⠀⠀⣿⣿⠀⠀⠀⠀⠀⠀⠀\n⠀⠀⠀⠀⠀⠀⣿⣿⣿⠀⠀⠀⠀⠀⠀⠀\n⠀⠀⠀⠀⠀⣿⣿⣿⣿⣿⠀⠀⠀⠀⠀⠀\n⠀⠀⠀⠀⣿⣿⣿⣿⣿⣿⠀⠀⠀⣿⠀⠀\n⠀⠀⠀⣿⣿⣿⣿⣿⣿⣿⣿⠀⣿⣿⠀⠀\n⠀⠀⠀⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠀⠀\n⠀⠀⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠀\n⠀⠀⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠀\n⠀⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠀\n⠀⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠀⠀\n⠀⠀⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠀⠀\n⠀⠀⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠀⠀⠀\n⠀⠀⠀⣿⣿⣿⣿⣿⣿⣿⣿⣿⠀⠀⠀⠀\n⠀⠀⠀⠀⣿⣿⣿⣿⣿⣿⣿⠀⠀⠀⠀⠀\n⠀⠀⠀⠀⠀⣿⣿⣿⣿⣿⠀⠀⠀⠀⠀⠀\n⠀⠀⠀⠀⠀⠀⣿⣿⣿⠀⠀⠀⠀⠀⠀⠀",
@@ -21,24 +21,6 @@
     "time": {
       "loop": true,
       "loop_period_ms": 8000
-    },
-    "content": {
-      "mode": "loop",
-      "effect": {
-        "type": "charset_noise",
-        "hz": 8.0,
-        "seed": 4207,
-        "jitter": 0.18,
-        "affect": "non_empty",
-        "gradient": [
-          { "at": 0.0,  "chars": "⠀⠀⠀⠁⠂⠈" },
-          { "at": 0.12, "chars": "⠀⠁⠂⠈⠐⡀⠄" },
-          { "at": 0.25, "chars": "⡂⠆⠒⡐⠅⡈" },
-          { "at": 0.45, "chars": "⡖⣂⢒⡒⣄⢆" },
-          { "at": 0.7,  "chars": "⣶⣤⣦⣴⣖⣧" },
-          { "at": 1.0,  "chars": "⣿⣷⣾⣯⣻⣽" }
-        ]
-      }
     },
     "pipeline": {
       "enter": {
@@ -75,6 +57,21 @@
       "filter": {
         "enter": { "type": "none" },
         "dwell": [
+          {
+            "type": "charset_noise",
+            "hz": 8.0,
+            "seed": 4207,
+            "jitter": 0.18,
+            "affect": "non_empty",
+            "gradient": [
+              { "at": 0.0,  "chars": "⠀⠀⠀⠁⠂⠈" },
+              { "at": 0.12, "chars": "⠀⠁⠂⠈⠐⡀⠄" },
+              { "at": 0.25, "chars": "⡂⠆⠒⡐⠅⡈" },
+              { "at": 0.45, "chars": "⡖⣂⢒⡒⣄⢆" },
+              { "at": 0.7,  "chars": "⣶⣤⣦⣴⣖⣧" },
+              { "at": 1.0,  "chars": "⣿⣷⣾⣯⣻⣽" }
+            ]
+          },
           {
             "type": "braille_dust",
             "density": 0.02,
