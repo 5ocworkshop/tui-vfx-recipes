@@ -64,18 +64,5 @@ tokio = { version = "1", features = ["full"] }
 name = "demo"
 required-features = []
 
-# Temporary local path overrides for validating tui-vfx 0.2.5 (CharsetNoise)
-# Remove these before publishing — they override the crates.io deps with local checkouts
-[patch.crates-io]
-tui-vfx = { path = "/usr/projects/tui-vfx/crates/tui-vfx" }
-tui-vfx-types = { path = "/usr/projects/tui-vfx/crates/tui-vfx-types" }
-tui-vfx-core = { path = "/usr/projects/tui-vfx/crates/tui-vfx-core" }
-tui-vfx-core-macros = { path = "/usr/projects/tui-vfx/crates/tui-vfx-core-macros" }
-tui-vfx-compositor = { path = "/usr/projects/tui-vfx/crates/tui-vfx-compositor" }
-tui-vfx-style = { path = "/usr/projects/tui-vfx/crates/tui-vfx-style" }
-tui-vfx-geometry = { path = "/usr/projects/tui-vfx/crates/tui-vfx-geometry" }
-tui-vfx-content = { path = "/usr/projects/tui-vfx/crates/tui-vfx-content" }
-tui-vfx-shadow = { path = "/usr/projects/tui-vfx/crates/tui-vfx-shadow" }
-
 # <FILE>Cargo.toml</FILE> - <DESC>Workspace manifest for tui-vfx-recipes</DESC>
 # <VERS>END OF VERSION: 0.2.0</VERS>
