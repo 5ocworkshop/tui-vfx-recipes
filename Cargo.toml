@@ -27,13 +27,13 @@ exclude = ["tools/", "recipes/debug_recipes/", "Justfile", ".claude/"]
 
 [dependencies]
 # TUI VFX library
-tui-vfx = { version = "0.2.6", path = "/usr/projects/tui-vfx/crates/tui-vfx" }
-tui-vfx-types = { version = "0.2.6", path = "/usr/projects/tui-vfx/crates/tui-vfx-types" }
-tui-vfx-core = { version = "0.2.6", path = "/usr/projects/tui-vfx/crates/tui-vfx-core" }
-tui-vfx-compositor = { version = "0.2.6", path = "/usr/projects/tui-vfx/crates/tui-vfx-compositor" }
-tui-vfx-style = { version = "0.2.6", path = "/usr/projects/tui-vfx/crates/tui-vfx-style" }
-tui-vfx-geometry = { version = "0.2.6", path = "/usr/projects/tui-vfx/crates/tui-vfx-geometry" }
-tui-vfx-content = { version = "0.2.6", path = "/usr/projects/tui-vfx/crates/tui-vfx-content" }
+tui-vfx = "0.2.6"
+tui-vfx-types = "0.2.6"
+tui-vfx-core = "0.2.6"
+tui-vfx-compositor = "0.2.6"
+tui-vfx-style = "0.2.6"
+tui-vfx-geometry = "0.2.6"
+tui-vfx-content = "0.2.6"
 
 # UI framework
 ratatui = "0.30"
